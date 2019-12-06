@@ -1,5 +1,5 @@
 ## Oracle Learing Library Github
-* [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library]
+* [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
 
 ### [Getting Started with Autonomous Data Warehouse](https://github.com/oracle/learning-library/tree/master/data-management-library/autonomous-database/autonomous-data-warehouse/journey4-adwc)
 
