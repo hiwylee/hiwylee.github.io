@@ -1,3 +1,19 @@
+## linux 디스크 삭제
+* [https://itgameworld.tistory.com/30](https://itgameworld.tistory.com/30)
+### Disk 데이터 완전 삭제
+```bash
+dd if=/dev/zero of=/dev/sda
+```
+### Disk MBR  삭제
+```bash
+dd if=/dev/zero of=/dev/sda count=1 bs=446
+```
+
+### Disk 파티션삭제
+```bash
+dd if=/dev/zero of=/dev/sda count=1 bs=512
+```
+
 ### how to remove linux os grub 
 ```bash
 # cat  /etc/apt/apt.conf
