@@ -1,3 +1,9 @@
+## liunx disk low format tools
+```bash
+$sudo apt-get install dcfldd pv
+$ sudo dcfldd if=/dev/zero |pv| sudo dcfldd of=/dev/sda
+     (명령)        (소스)   (pv명령)      (재명령)       (타겟)
+```
 ## linux 디스크 삭제
 * [https://itgameworld.tistory.com/30](https://itgameworld.tistory.com/30)
 ### Disk 데이터 완전 삭제
