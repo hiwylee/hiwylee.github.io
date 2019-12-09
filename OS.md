@@ -9,5 +9,6 @@ sudo add-apt-repository ppa.yannubuntu/boot-repair
 
 
 apt-get install os-uninstaller
+os-uninstaller 
 
 ```
