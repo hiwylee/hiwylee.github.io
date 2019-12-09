@@ -1,3 +1,5 @@
+### grub 사용법 [링크](https://121202.tistory.com/60)
+
 ### Linux Mint Partition Basic
 ```
 root@wylee-lnx:/boot# df
