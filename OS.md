@@ -1,4 +1,4 @@
-## liunx disk low format tools
+## linux disk low format tools
 ```bash
 $sudo apt-get install dcfldd pv
 $ sudo dcfldd if=/dev/zero |pv| sudo dcfldd of=/dev/sda
