@@ -1,3 +1,29 @@
+### grub rescue
+* [출처:http://linuxmint.kr/System/4082](http://linuxmint.kr/System/4082)
+```
+리눅스를 설치하고 지우면서 boot하면 가끔 당하는 grub rescue>
+막막합니다. 그럴때 boot rescue나 Live CD를 쓰지 않고 간단히 해결하는 방법
+grub rescue> ls
+그럼 partition들을 다 보여 줍니다.
+(hd0) (hd0,msdos2) (hd0,msdos1)
+근데 어떤 놈 일까요?
+grub rescue> ls (hd0,msdos2)/
+grub rescue> ls (hd0,msdos1)/
+이런식으로 하나씩 내용을 보면  ext4 중 /lost+found     /sys      /bin  /boot .... /usr
+요렇게 partition의 ls가  놈이 나오는게 있습니다.
+(hd0,msdos2) 이 고놈이라고 치면 # 아래 msdos를 빼고 한다는 걸 까먹으면 도루묵!
+grub rescue> set prefix=(hd0,2)/boot/grub
+grub rescue> set root=(hd0,2)
+grub rescue> insmod normal
+grub rescue> normal
+다 치고 나면 리눅스가 정상으로 시작 됩니다.
+그럼 안도의 한숨 내쉬고 Shell 을 연 다음
+$ sudo update-grub
+$ sudo grub-install /dev/sda
+
+```
+### Linux Mint 정보 [링크](http://blog.daum.net/bagjunggyu/311)
+
 ### grub 사용법 [링크](https://121202.tistory.com/60)
 
 ### Linux Mint Partition Basic
