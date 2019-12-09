@@ -1,3 +1,21 @@
+### Linux Mint Partition Basic
+```
+Command (m for help): p
+
+Disk /dev/sda: 931.5 GiB, 1000204886016 bytes, 1953525168 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: 1F952A9F-D080-46A8-8483-A42F7BEE8E13
+
+Device        Start        End    Sectors   Size Type
+/dev/sda1        34       1987       1954   977K BIOS boot
+/dev/sda2      1988     197300     195313  95.4M Microsoft basic data
+/dev/sda3    197301   78322301   78125001  37.3G Linux filesystem
+/dev/sda4  78322302 1953525118 1875202817 894.2G Linux filesystem
+
+```
 ## linux disk low format tools
 ```bash
 $sudo apt-get install dcfldd pv
