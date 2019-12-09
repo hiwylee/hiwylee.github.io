@@ -6,3 +6,4 @@
 ### [Oracle Analytics Data Visualization](https://github.com/oracle/learning-library/blob/master/ospa-library/analytics/analytics_labguide.md)
 
 ### [Working with Autonomous Transaction Processing - Dedicated](https://labmaterial.github.io/atpd-dev/?page=README.md)
+### [OS Grub install/uninstall](OS.md)
