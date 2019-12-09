@@ -1,3 +1,4 @@
+### [efibootmgr 프로그램](https://wiki.gentoo.org/wiki/Efibootmgr/ko)
 ### [Linux, 부트로더 GRUB](https://m.blog.naver.com/PostView.nhn?blogId=dudwo567890&logNo=130158001734&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 ### grub rescue
 * [출처:http://linuxmint.kr/System/4082](http://linuxmint.kr/System/4082)
