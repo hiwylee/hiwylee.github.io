@@ -1,19 +1,16 @@
 ### Linux Mint Partition Basic
 ```
-Command (m for help): p
-
-Disk /dev/sda: 931.5 GiB, 1000204886016 bytes, 1953525168 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 4096 bytes
-I/O size (minimum/optimal): 4096 bytes / 4096 bytes
-Disklabel type: gpt
-Disk identifier: 1F952A9F-D080-46A8-8483-A42F7BEE8E13
-
-Device        Start        End    Sectors   Size Type
-/dev/sda1        34       1987       1954   977K BIOS boot
-/dev/sda2      1988     197300     195313  95.4M Microsoft basic data
-/dev/sda3    197301   78322301   78125001  37.3G Linux filesystem
-/dev/sda4  78322302 1953525118 1875202817 894.2G Linux filesystem
+root@wylee-lnx:/boot# df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+udev            16332768        0  16332768   0% /dev
+tmpfs            3273172     2852   3270320   1% /run
+/dev/sda3       38186520 12129188  24087824  34% /
+tmpfs           16365848   134756  16231092   1% /dev/shm
+tmpfs               5120        4      5116   1% /run/lock
+tmpfs           16365848        0  16365848   0% /sys/fs/cgroup
+/dev/sda2          96138        1     96137   1% /boot/efi
+/dev/sda4      921835620  6344076 868595092   1% /home
+tmpfs            3273168       28   3273140   1% /run/user/1000
 
 ```
 ```
