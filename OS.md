@@ -10,6 +10,10 @@ sudo apt-get install ubuntu-system-adjustments
 apt install --reinstall grub-efi-amd64-signed
 sudo os-prober
 sudo update-grub
+
+sudo add-apt-repository ppa.yannubuntu/boot-repair 
+apt update
+boot-repair 
 exit
 ```
 ### [efibootmgr 프로그램](https://wiki.gentoo.org/wiki/Efibootmgr/ko)
