@@ -1,3 +1,17 @@
+## grub install process 
+```bash
+sudo mkdir -p /mnt/boot/efi
+sudo mount /dev/sda2 /mnt
+sudo mount /dev/sda1 /mnt/boot/efi
+for i in /dev /dev/pts /proc /sys; do sudo mount -B $i /mnt$i; done
+sudo chroot /mnt
+sudo apt-get update
+sudo apt-get install ubuntu-system-adjustments
+apt install --reinstall grub-efi-amd64-signed
+sudo os-prober
+sudo update-grub
+exit
+```
 ### [efibootmgr 프로그램](https://wiki.gentoo.org/wiki/Efibootmgr/ko)
 ### [Linux, 부트로더 GRUB](https://m.blog.naver.com/PostView.nhn?blogId=dudwo567890&logNo=130158001734&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 ### grub rescue
