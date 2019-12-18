@@ -11,7 +11,7 @@ apt install --reinstall grub-efi-amd64-signed
 sudo os-prober
 sudo update-grub
 
-sudo add-apt-repository ppa.yannubuntu/boot-repair 
+sudo add-apt-repository ppa:yannubuntu/boot-repair 
 apt update
 boot-repair 
 exit
