@@ -1,3 +1,5 @@
+## OCI  Training
+* [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://https://www.oracle.com/cloud/iaas/training/)
 ## Oracle Modern Cloud Day
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
 ## Oracle Learing Library Github
