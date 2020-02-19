@@ -1,5 +1,9 @@
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
+## OCI  Certification
+* [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
+## OCI Certification Discount Voucher
+* [Employee Discount Voucher Request](https://ougbsapex.us.oracle.com/pls/ougbsapex/f?p=144:1:0::NO:1::&success_msg=Request%20Processed%2F6C88E4F784EF1473D59D15F99FD3213F%2F)
 ## Oracle Modern Cloud Day
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
 ## Oracle Learing Library Github
