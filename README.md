@@ -14,6 +14,7 @@
 * [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
 
 ### [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
+* [Oracle Accelerated Data Science SDK (ADS)](https://docs.cloud.oracle.com/en-us/iaas/tools/ads-sdk/1.0.0/index.html#oracle-accelerated-data-science-sdk-ads) 
 ### [Getting Started with Autonomous Data Warehouse](https://github.com/oracle/learning-library/tree/master/data-management-library/autonomous-database/autonomous-data-warehouse/journey4-adwc)
 
 ### [Oracle Analytics Data Visualization](https://github.com/oracle/learning-library/blob/master/ospa-library/analytics/analytics_labguide.md)
