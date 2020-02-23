@@ -7,11 +7,13 @@
 
 ## OCI Certification Discount Voucher
 * [Employee Discount Voucher Request](https://ougbsapex.us.oracle.com/pls/ougbsapex/f?p=144:1:0::NO:1::&success_msg=Request%20Processed%2F6C88E4F784EF1473D59D15F99FD3213F%2F)
+
 ## Oracle Modern Cloud Day
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
 ## Oracle Learing Library Github
 * [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
 
+### [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
 ### [Getting Started with Autonomous Data Warehouse](https://github.com/oracle/learning-library/tree/master/data-management-library/autonomous-database/autonomous-data-warehouse/journey4-adwc)
 
 ### [Oracle Analytics Data Visualization](https://github.com/oracle/learning-library/blob/master/ospa-library/analytics/analytics_labguide.md)
