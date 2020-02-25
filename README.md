@@ -12,7 +12,9 @@
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
 ## Oracle Learing Library Github
 * [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
-
+---
+## Oracle Cloud Service 
+### [Blog about Oracle and Application Express](https://dickdral.blogspot.com/2019/07/creating-mobile-app-with-apex-part-1.html)
 ### [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
 * [Oracle Accelerated Data Science SDK (ADS)](https://docs.cloud.oracle.com/en-us/iaas/tools/ads-sdk/1.0.0/index.html#oracle-accelerated-data-science-sdk-ads) 
 * [Data Science](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
