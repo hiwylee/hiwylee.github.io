@@ -1,6 +1,7 @@
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
 * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
+* [Exam4Train Test](https://www.exam4training.com/what-is-the-predefined-role-that-exists-in-autonomous-database-that-includes-common-privileges-that-are-used-by-a-data-warehouse-developer/)
 * [Oracle Cloud Infrastructure 2019 Architect Associate Test Exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2453405669)
 ## OCI  Certification
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
