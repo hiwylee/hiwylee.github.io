@@ -21,6 +21,7 @@
 * [Building a Mobile Web Application Using Oracle Application Express 5.0](https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/apex/r50/CreMobileApp_apex50EA/CreMobileApp_apex50EA.html)
 * [Plug-Ins](https://apex.world/ords/f?p=100:700)
 * [realtime apex](https://www.doag.org/formes/pubfiles/4185876/2012-K-DEV-Johannes_Mangold-Realtime_Web_Anwendungen_mit_APEX-Praesentation.pdf)
+* [How to build an IM (XMPP) solution with Oracle APEX and Websockets](https://technology.amis.nl/2012/10/01/how-to-build-an-im-xmpp-solution-with-oracle-apex-and-websockets/)
 
 ### [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
 * [Oracle Accelerated Data Science SDK (ADS)](https://docs.cloud.oracle.com/en-us/iaas/tools/ads-sdk/1.0.0/index.html#oracle-accelerated-data-science-sdk-ads) 
