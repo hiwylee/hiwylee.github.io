@@ -34,3 +34,6 @@
 ### [Oracle Autonomous Data Warehouse Hands on Lab](https://github.com/hiwylee/ADW_HOL_TRAINING/blob/master/README.md)
 
 ### [OS Grub install/uninstall](OS.md)
+---
+### [Oracle 19c ]
+* [Oracle 19c cookbook](https://github.com/oracle19c-cookbook)
