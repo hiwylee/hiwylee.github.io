@@ -19,7 +19,10 @@
   * [Plug-Ins](https://apex.world/ords/f?p=100:700)
   * [realtime apex](https://www.doag.org/formes/pubfiles/4185876/2012-K-DEV-Johannes_Mangold-Realtime_Web_Anwendungen_mit_APEX-Praesentation.pdf)
   * [How to build an IM (XMPP) solution with Oracle APEX and Websockets](https://technology.amis.nl/2012/10/01/how-to-build-an-im-xmpp-solution-with-oracle-apex-and-websockets/)
-
+## 무료 작업 영역 요청하기
+* https://apex.oracle.com/en/learn/education/ 
+   * Setting up your Students 란 참조
+* 직접 요청 링크 : https://apex.oracle.com/pls/apex/f?p=4700&p_lang=ko
 ## Learn More
 * [Primary site](https://apex.oracle.com)
 * [APEX Shortcuts](https://apex.oracle.com/shortcuts)
