@@ -4,6 +4,8 @@
 ### 유용한 사이트
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
   * [APEX 자습서](https://apex.oracle.com/ko/learn/tutorials/)
+  * [GUniversal Theme - etting Started](https://apex.oracle.com/pls/apex/f?p=42:500:::NO:::)
+  
   * [샘플 애플리케이션](https://apex.oracle.com/ko/solutions/apps/)
   * [APEX 매뉴얼](https://apex.oracle.com/en/learn/documentation/)
   * [Oracle Application Express Product Library](https://apexapps.oracle.com/pls/apex/f?p=44785:OLL_PR_LIB:111528649519182::NO:RP,OLL_PR_LIB:P141_PAGE_ID,P141_SECTION_ID,P141_PREV_PAGE:537,3700,2)
