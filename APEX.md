@@ -18,3 +18,13 @@
   * [Plug-Ins](https://apex.world/ords/f?p=100:700)
   * [realtime apex](https://www.doag.org/formes/pubfiles/4185876/2012-K-DEV-Johannes_Mangold-Realtime_Web_Anwendungen_mit_APEX-Praesentation.pdf)
   * [How to build an IM (XMPP) solution with Oracle APEX and Websockets](https://technology.amis.nl/2012/10/01/how-to-build-an-im-xmpp-solution-with-oracle-apex-and-websockets/)
+
+## Learn More
+* [Primary site](https://apex.oracle.com)
+* [APEX Shortcuts](https://apex.oracle.com/shortcuts)
+* [APEX Community](https://apex.oracle.com/community)
+* [Blogs](https://blog.oracle.com/apex)
+* [APEX on Autonomous](https://apex.oracle.com/autnomous)
+* [Database Cloud Services](https://cloud.oracle.com/database)
+* [Oracle Learning Library](https://www.oracle.com/oll)
+* [Oracle APEX Education](https://apex.oracle.com/education)
