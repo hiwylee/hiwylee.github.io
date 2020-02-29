@@ -33,3 +33,9 @@
 * [Database Cloud Services](https://cloud.oracle.com/database)
 * [Oracle Learning Library](https://www.oracle.com/oll)
 * [Oracle APEX Education](https://apex.oracle.com/education)
+## APEX Chart
+About APEX
+Oracle Application Express (APEX) is a high-productivity, low-code platform for creating modern, responsive and accessible web applications. Oracle Application Express is a no-cost feature of the Oracle Database, and it is also a compelling application development platform available in all Oracle Database Cloud services. Thousands of customers use Oracle Application Express every day. See https://apex.oracle.com/community and https://builtwithapex.com.
+
+How APEX Uses Oracle JET
+In Oracle Application Express 5.1 (released December 2016), the new declarative charting engine is based on Oracle JET Data Visualizations. Replacing the prior charting engine (based on AnyChart), both the breadth of chart offerings and the quality have been dramatically increased with the Oracle JET Data Visualizations. Using nothing more than a SQL query and declarative attributes, customers can quickly and easily create very compelling and professional looking charts. See https://apex.oracle.com/charts.
