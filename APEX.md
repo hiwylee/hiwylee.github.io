@@ -6,6 +6,7 @@
   * [APEX 19.2 신기능](https://www.oracle.com/technetwork/developer-tools/apex/overview/apex-191-new-features-5443435.pdf)
   * [APEX 자습서](https://apex.oracle.com/ko/learn/tutorials/)
   * [Universal Theme - Getting Started](https://apex.oracle.com/pls/apex/f?p=42:500:::NO:::)
+  * [Universal Theme -ICON](https://apex.oracle.com/pls/apex/f?p=42:4000:::NO:::)
    * [Blogs ^^](https://blogs.oracle.com/apex)  
   * [샘플 애플리케이션](https://apex.oracle.com/ko/solutions/apps/)
   * [APEX 매뉴얼](https://apex.oracle.com/en/learn/documentation/)
