@@ -5,7 +5,7 @@
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
   * [샘플 애플리케이션](https://apex.oracle.com/ko/solutions/apps/)
   * [APEX 매뉴얼](https://apex.oracle.com/en/learn/documentation/)
-  * [Youtube Video Playlist](Oracle Application Express)
+  * [Youtube Video Playlist](https://www.youtube.com/channel/UCEpIXFjcQIztReQNLymvYrQ/featured)
   * [Oracle JET(Javascript Extension Toolkit) Cookbook](https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=dataVisualizations&demo=divergingStack&mode=web_tab_land)
 ## 개발 참조  
   * [Blog about Oracle and Application Express](https://dickdral.blogspot.com/2019/07/creating-mobile-app-with-apex-part-1.html)
