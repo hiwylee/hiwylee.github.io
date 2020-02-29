@@ -6,7 +6,7 @@
   * [APEX 19.2 신기능](https://www.oracle.com/technetwork/developer-tools/apex/overview/apex-191-new-features-5443435.pdf)
   * [APEX 자습서](https://apex.oracle.com/ko/learn/tutorials/)
   * [Universal Theme - Getting Started](https://apex.oracle.com/pls/apex/f?p=42:500:::NO:::)
-  
+   * [Blogs ^^](https://blogs.oracle.com/apex)  
   * [샘플 애플리케이션](https://apex.oracle.com/ko/solutions/apps/)
   * [APEX 매뉴얼](https://apex.oracle.com/en/learn/documentation/)
   * [Oracle Application Express Product Library](
@@ -24,7 +24,7 @@
 * [Primary site](https://apex.oracle.com)
 * [APEX Shortcuts](https://apex.oracle.com/shortcuts)
 * [APEX Community](https://apex.oracle.com/community)
-* [Blogs](https://blog.oracle.com/apex)
+* [Blogs](https://blogs.oracle.com/apex)
 * [APEX on Autonomous](https://apex.oracle.com/autnomous)
 * [Database Cloud Services](https://cloud.oracle.com/database)
 * [Oracle Learning Library](https://www.oracle.com/oll)
