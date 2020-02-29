@@ -5,6 +5,7 @@
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
   * [샘플 애플리케이션](https://apex.oracle.com/ko/solutions/apps/)
   * [APEX 매뉴얼](https://apex.oracle.com/en/learn/documentation/)
+  * [Oracle Application Express Product Library](https://apexapps.oracle.com/pls/apex/f?p=44785:OLL_PR_LIB:111528649519182::NO:RP,OLL_PR_LIB:P141_PAGE_ID,P141_SECTION_ID,P141_PREV_PAGE:537,3700,2)
   * [Youtube Video Playlist](https://www.youtube.com/channel/UCEpIXFjcQIztReQNLymvYrQ/featured)
   * [Oracle JET(Javascript Extension Toolkit) Cookbook](https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=dataVisualizations&demo=divergingStack&mode=web_tab_land)
 ## 개발 참조  
