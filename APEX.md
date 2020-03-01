@@ -11,6 +11,7 @@
 * 무료 웍스페이스 신청 : 직접 요청 링크 : https://apex.oracle.com/pls/apex/f?p=4700&p_lang=ko  
 ### 유용한 사이트
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
+  * [oracle-base.com - apex](https://oracle-base.com/articles/misc/oracle-application-express-apex-installation)
   * [Charting examples for APEX applications](https://apex.oracle.com/pls/apex/f?p=10800:1::::::)
   * [APEX 19.2 신기능](https://www.oracle.com/technetwork/developer-tools/apex/overview/apex-191-new-features-5443435.pdf)
   * [APEX 자습서](https://apex.oracle.com/ko/learn/tutorials/)
