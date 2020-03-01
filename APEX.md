@@ -1,6 +1,12 @@
 
 ## Application Express
-
+### Workspace 
+* [Apex Workdspace (APEX)](https://qsbizk930fjk4g6-apex.adb.ap-seoul-1.oraclecloudapps.com/ords/f?p=103:1:614895557136653:::::)
+* [Free Workspace(APEX)](https://apex.oracle.com/pls/apex/f?p=4550:1:713736020026855:::::)
+  * Workspace:	wy_apex
+  * Username:	hiwylee@gmail.com
+  * Environment:	https://apex.oracle.com/pls/apex/
+* 무료 웍스페이스 신청 : 직접 요청 링크 : https://apex.oracle.com/pls/apex/f?p=4700&p_lang=ko  
 ### 유용한 사이트
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
   * [Charting examples for APEX applications](https://apex.oracle.com/pls/apex/f?p=10800:1::::::)
