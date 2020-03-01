@@ -6,6 +6,7 @@
   * Workspace:	wy_apex
   * Username:	hiwylee@gmail.com
   * Environment:	https://apex.oracle.com/pls/apex/
+* 공식 문서 (APEX 19.2) : https://docs.oracle.com/en/database/oracle/application-express/19.2/
 * 무료 웍스페이스 신청 : 직접 요청 링크 : https://apex.oracle.com/pls/apex/f?p=4700&p_lang=ko  
 ### 유용한 사이트
   * [APEX 홈페이지](https://apex.oracle.com/ko/)
