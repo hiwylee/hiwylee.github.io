@@ -1,8 +1,8 @@
 
 ## Application Express
 ### Workspace 
-* [Apex Workdspace (APEX)](https://qsbizk930fjk4g6-apex.adb.ap-seoul-1.oraclecloudapps.com/ords/f?p=103:1:614895557136653:::::)
-* [Free Workspace(APEX)](https://apex.oracle.com/pls/apex/f?p=4550:1:713736020026855:::::)
+* [Cloud Apex Workspace (APEX)](https://qsbizk930fjk4g6-apex.adb.ap-seoul-1.oraclecloudapps.com/ords/f?p=103:1:614895557136653:::::)
+* [Oracle's Free Workspace(APEX)](https://apex.oracle.com/pls/apex/f?p=4550:1:713736020026855:::::)
   * Workspace:	wy_apex
   * Username:	hiwylee@gmail.com
   * Environment:	https://apex.oracle.com/pls/apex/
