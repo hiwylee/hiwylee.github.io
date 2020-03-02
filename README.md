@@ -40,7 +40,7 @@
 * [Oracle 19c cookbook](https://github.com/oracle19c-cookbook)
 
 ### Progress Web App (PWA)
-* [[PWA] 프로그레시브 웹 앱 시작하기 ](https://geundung.dev/85)
+* [[PWA] 프로그레시브 웹 앱 시작하기 ](https://github.com/hiwylee/pwa-example)
 * [Turning APEX into a Progressive Web App](https://www.youtube.com/watch?v=JALCkILUPJw&t=667s)
 * [Oracle APEX PWA Preview #1 - Install the app](https://www.youtube.com/watch?v=nvN6a0_LTPU)
 * [Oracle APEX & Progressive Web Apps](https://www.youtube.com/watch?v=nvN6a0_LTPU&pbjreload=10)
