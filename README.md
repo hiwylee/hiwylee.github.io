@@ -64,5 +64,5 @@
 
 ### ETC
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
-* https://material.io/components/
+* Design guidance and code : https://material.io/components/
 * [OCI Solution Architectures](https://docs.oracle.com/en/solutions/index.html?type=reference-architectures&page=0&is=true&sort=0)
