@@ -14,6 +14,7 @@
 
 ## OCI  Certification
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
+* [Oracle Cloud Infrastructure Architect Professional Workshop](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
 
 ## OCI Certification Discount Voucher
 * [Employee Discount Voucher Request](https://ougbsapex.us.oracle.com/pls/ougbsapex/f?p=144:1:0::NO:1::)
