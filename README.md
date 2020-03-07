@@ -55,9 +55,14 @@
 * [Oracle APEX PWA Preview #1 - Install the app](https://www.youtube.com/watch?v=nvN6a0_LTPU)
 * [Oracle APEX & Progressive Web Apps](https://www.youtube.com/watch?v=nvN6a0_LTPU&pbjreload=10)
 * [pwabuilder](https://www.pwabuilder.com/)
+
+### Oracle Learning Path
+* [Oracle Learning Paths](https://apexapps.oracle.com/pls/apex/f?p=44785:49:15614500691145::NO:::)
+### Oracle JET
+* [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
+* [Oacle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html)
+
 ### ETC
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
 * https://material.io/components/
 * [OCI Solution Architectures](https://docs.oracle.com/en/solutions/index.html?type=reference-architectures&page=0&is=true&sort=0)
-* [Oracle Learning Paths](https://apexapps.oracle.com/pls/apex/f?p=44785:49:15614500691145::NO:::)
-* [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
