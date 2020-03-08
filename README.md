@@ -60,3 +60,4 @@ Study Guide](1z0-997.md)
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
 * Design guidance and code : https://material.io/components/
 * [OCI Solution Architectures](https://docs.oracle.com/en/solutions/index.html?type=reference-architectures&page=0&is=true&sort=0)
+* [Using Kafka Connect With Oracle Streaming Service And Autonomous DB](https://blogs.oracle.com/developers/using-kafka-connect-with-oracle-streaming-service-and-autonomous-db)
