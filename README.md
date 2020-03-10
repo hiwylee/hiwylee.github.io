@@ -10,11 +10,13 @@
 * [Oracle Cloud Infrastructure Architect Professional Workshop](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
   * [Oracle Cloud Infrastructure (OCI) 2019 Architect Professional (1Z0-997)
 Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
-## OCI Certification Discount Voucher
+
+## OCI Certification Discount Voucher (Oracle Employee Only)
 * [Employee Discount Voucher Request](https://ougbsapex.us.oracle.com/pls/ougbsapex/f?p=144:1:0::NO:1::)
 
 ## Oracle Modern Cloud Day
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
+
 ## Oracle Learing Library Github
 * [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
 ---
