@@ -20,8 +20,12 @@ Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md
 ## Oracle Modern Cloud Day
 * [http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html](http://www.regist-event.com/oracle/2019/mcd_down/agenda_day1.html)
 
-## Oracle Learing Library Github
+## Oracle Sales and Partner Academy
 * [https://github.com/oracle/learning-library](https://github.com/oracle/learning-library)
+
+## Oracle Learing Library Github
+* [Oracle Sales and Partner Academy](https://oradocs-corp.sites.us2.oraclecloud.com/authsite/osan-ospa/)
+* [OSPA Webcast Series] (https://oradocs-corp.sites.us2.oraclecloud.com/authsite/webcast-osan-ospa/)
 ---
 ## Oracle Cloud Service 
 
