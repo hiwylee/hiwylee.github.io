@@ -1,6 +1,7 @@
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
-* [Oracle Cloud Infrastructure  recorded Webinars](https://objectstorage.us-ashburn-1.oraclecloud.com/n/ociobtnas/b/webinars/o/webinars-dynamic.html)
+* [Oracle Cloud Infrastructure Webinar Schedule](https://www.oracle.com/cloud/iaas/training/register-for-training.html)
+* [Oracle Cloud InfrastructureRecorded Webinar ](https://objectstorage.us-ashburn-1.oraclecloud.com/n/ociobtnas/b/webinars/o/webinars-dynamic.html)
 
 ## OCI  Certification
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
