@@ -8,10 +8,10 @@
   * [Oracle Cloud Infrastructure (OCI) 2019 Architect Professional (1Z0-997)
 Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
 * Oracle Cloud Infrastructure 2019 Architect Associate
- * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
- * [Free 1Z0-931 Exam Dumps Questions](https://www.dumpsbase.com/freedumps/oracle-autonomous-database-cloud-2019-specialist-1z0-931-dumps-questions.html)
- * [Oracle Cloud Infrastructure 2018 Architect Associate 1Z0-932 Sample Questions ](https://www.dumpsbase.com/freedumps/oracle-cloud-infrastructure-2018-architect-associate-1z0-932-sample-questions.html)
- * [Oracle Cloud Infrastructure 2019 Architect Associate Test Exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2453405669)
+  * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
+  * [Free 1Z0-931 Exam Dumps Questions](https://www.dumpsbase.com/freedumps/oracle-autonomous-database-cloud-2019-specialist-1z0-931-dumps-questions.html)
+  * [Oracle Cloud Infrastructure 2018 Architect Associate 1Z0-932 Sample Questions ](https://www.dumpsbase.com/freedumps/oracle-cloud-infrastructure-2018-architect-associate-1z0-932-sample-questions.html)
+  * [Oracle Cloud Infrastructure 2019 Architect Associate Test Exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2453405669)
 
 ## OCI Certification Discount Voucher (Oracle Employee Only)
 * [Employee Discount Voucher Request](https://ougbsapex.us.oracle.com/pls/ougbsapex/f?p=144:1:0::NO:1::)
