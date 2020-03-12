@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ODP Tech SE 자료 공유 </title>
+	<style>
+	html { margin:0; padding:0; font-size:62.5%; }
+	body { 
+	  max-width:800px; min-width:300px; margin:0 auto; padding:20px 10px; font-size:14px; font-size:1.4em;
+	  background-image:url('');
+	  background-color:#D9E5FF ;
+	  font-family:"Nanum Gothic", "맑은 고딕", "Malgun Gothic", "돋움", dotum, sans-serif;
+	}
+	h1 { font-size:1.8em; }
+	.demo { overflow:auto; border:1px solid silver; min-height:100px; }
+	.header {
+		height: 50px;
+		display: flex;
+		align-items: center`;
+		-- text-transform: lowercase;
+		}
+	h1 {
+		background-color: black;
+		height: 50px;
+		width: 500px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 30px;
+		margin-right: 20px;
+	}
+
+	</style>     
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default-dark/style.min.css" />
+ 
+</head>
+<body>   
+	<h1 class="header"> ODP Tech SE 자료 공유 - Working  </h1>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search node .." id="search">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="btn-search">Go!</button>
+        </span>
+    </div><!-- /input-group -->
+    <div id="jstree" class="demo"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <!--script src="https://raw.githubusercontent.com/hiwylee/hiwylee.github.io/master/json/tree_json.js"></!--script-->   
+    <!-- raw github 은 항상 text/plain 으로 나오므로 아래와 같이 url을 변경 -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+
+    <script src="https://hiwylee.github.io/json/tree_json.js"></script>
+    
+    <script>
+    $('#jstree').slimScroll({
+            height: '500px'
+    });
+
+    $('#jstree') //  .jstree();
+    .jstree({
+        "plugins" : [ "json_data","types","search","dnd"], // "contextmenu" 
+        "themes" : { 
+            "theme" : ["default"] 
+        }, 
+        "search" : { 
+            "case_insensitive" : true, 
+            "show_only_matches" : true, 
+            "search_callback" : function(key,node){ 
+                if(node.original){ 
+                    _this.g_i++; 
+                    if(node.text.indexOf(key)>=0)
+                    { 
+                        //내가검색한 키워드와 일치하는 항목이 있다면 
+                        searchArray.push(node); 
+                        if(false){ // node.parent == "#" 
+                            searchArray.push(node); 
+                        }else{ 
+                            //return true; 
+                        } 
+                    } 
+                    if(_this.g_i == _this.dataLen){ 
+                        _this.openSearch1Depth(); 
+                    } 
+                }else{ 
+                    ; 
+                } 
+            } 
+        },        
+        'core' : {
+            'data' : getTreeJson()
+        }
+    }).bind("loaded.jstree", function (event, data) {
+        // you get two params - event & data - check the core docs for a detailed description
+        $(this).jstree("open_all");
+    }) ;
+
+
+
+    
+    $('#search').keyup(function(){
+	    $('#jtree').jstree('search', $(this).val());
+    });
+
+	</script>
+
+</body>
+</html>
