@@ -18,7 +18,7 @@ function getTreeJson ()
           { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" },
     ];
 
-    function getTreeJson()   
+    function getTreeJson2()   
     {
         return tree_json2;
     }
