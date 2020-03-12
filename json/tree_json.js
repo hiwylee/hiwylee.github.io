@@ -1,4 +1,4 @@
-
+<script>
 function getTreeJson ()
 {
  var json_data =
@@ -26,3 +26,4 @@ function getTreeJson ()
 function a(){
  alert("aaa");
 }
+</script>
