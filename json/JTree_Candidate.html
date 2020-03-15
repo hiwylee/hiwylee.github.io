@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html { margin:0; padding:0; font-size:62.5%; }
+        body { 
+          max-width:80%; min-width:60%; margin:0 auto; padding:20px 10px;
+          background-color:#D9E5FF ;
+        }
+
+        h1 { font-size:1.8em; }
+        .demo { overflow:auto; border:1px solid silver; min-height:100px; }
+
+        h1 {
+            background-color: black;
+            height: 50px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            margin-right: 20px;
+        }
+ 
+    </style> 
+
+	<title>ODP Tech SE 자료 공유 </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+    <script src="https://hiwylee.github.io/json/tree_json.js"></script>
+    
+    <script type="text/javascript">
+ 
+
+        $(function () {
+            // createJSTree();
+            $('#SimpleJSTree').slimScroll({
+                height: '500px'
+            });
+            $('#SimpleJSTree').jstree({
+                "core": {                    
+                    'data': getTreeJson(),    
+                    // 'data': 'https://hiwylee.github.io/json/tree.json'
+                },
+                "themes": {
+                        'name': 'photonui',
+                        'responsive': true
+                }  ,                
+                "plugins": ["themes","search"],
+                "search": {
+                    "case_sensitive": false,
+                    "show_only_matches": true
+                }
+            }).bind("loaded.jstree", function (event, data) {
+                // you get two params - event & data - check the core docs for a detailed description
+                $(this).jstree("close_all");
+            }) ;                     
+        });
+
+        function createJSTree() {
+            $('#SimpleJSTree').jstree({
+                "core": {                    
+                    'data': getTreeJson()
+                },
+                "themes": {
+                    "theme" : "photonui",
+                    "responsive" : true
+                },
+                "plugins": ["themes","search"],
+                "search": {
+                    "case_sensitive": false,
+                    "show_only_matches": true
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $(".search-input").keyup(function () {
+                var searchString = $(this).val();
+                $('#SimpleJSTree').jstree('search', searchString);
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <h1 class="header"> ODP Tech SE 자료 맵 </h1>
+    <input id="search-input" class="search-input" />
+    <br />
+    <div id="SimpleJSTree" class="demo"></div>
+</body>
+</html>
