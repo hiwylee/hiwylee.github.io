@@ -5,7 +5,8 @@
     <style>
         html { margin:0; padding:0; font-size:62.5%; }
         body { 
-
+          max-width:80%; min-width:60%; margin:0 auto; padding:20px 10px;
+	  font-size:12px; font-size:1.2em;
           background-color:#D9E5FF ;
         }
 
@@ -39,7 +40,7 @@
         $(function () {
             // createJSTree();
             $('#SimpleJSTree').slimScroll({
-                height: '500px'
+
             });
             $('#SimpleJSTree').jstree({
                 "core": {                    
@@ -60,23 +61,6 @@
                 $(this).jstree("close_all");
             }) ;                     
         });
-
-        function createJSTree() {
-            $('#SimpleJSTree').jstree({
-                "core": {                    
-                    'data': getTreeJson()
-                },
-                "themes": {
-                    "theme" : "photonui",
-                    "responsive" : true
-                },
-                "plugins": ["themes","search"],
-                "search": {
-                    "case_sensitive": false,
-                    "show_only_matches": true
-                }
-            });
-        }
 
         $(document).ready(function () {
             $(".search-input").keyup(function () {
