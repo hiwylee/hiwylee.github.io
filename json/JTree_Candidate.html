@@ -7,10 +7,10 @@
         html { margin:0; padding:0; font-size:62.5%; }
         body { 
           max-width:80%; min-width:60%; margin:0 auto; padding:20px 10px;
-	  font-size:12px; font-size:1.2em;
+          font-size:12px; font-size:1.2em;
           background-color:#D9E5FF ;
         }
-
+	  
         h1 { font-size:1.8em; }
         .demo { overflow:auto; border:1px solid silver; min-height:100px; }
 
@@ -63,28 +63,22 @@
             }) ;                     
         });
 
-        function createJSTree() {
-            $('#SimpleJSTree').jstree({
-                "core": {                    
-                    'data': getTreeJson()
-                },
-                "themes": {
-                    "theme" : "photonui",
-                    "responsive" : true
-                },
-                "plugins": ["themes","search"],
-                "search": {
-                    "case_sensitive": false,
-                    "show_only_matches": true
-                }
-            });
-        }
-
         $(document).ready(function () {
             $(".search-input").keyup(function () {
                 var searchString = $(this).val();
                 $('#SimpleJSTree').jstree('search', searchString);
             });
+            $(':checkbox[name="tester"]').on({
+                click: function(e) {
+                    $('#clickFlag').toggleClass('on');
+                },
+                change: function(e) {
+                    if(!!$('#tester').prop('checked')) 
+                        $('#SimpleJSTree').jstree('open_all')
+                    else
+                        $('#SimpleJSTree').jstree('close_all')
+                }
+            });        
         });
         
     </script>
@@ -92,7 +86,12 @@
 <body>
     <h1 class="header"> ODP Tech SE 자료 맵 </h1>
     <input id="search-input" class="search-input" />
-    <br />
+    <form>
+        <label for="tester">
+            <input type="checkbox" name="tester" id="tester" value="something">
+            Open All Nodes
+        </label> 
+    </form>      
     <div id="SimpleJSTree" class="demo"></div>
 </body>
 </html>
