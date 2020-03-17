@@ -56,10 +56,10 @@ def scan_dir(dir, pid, parent_url,file):
                 tmp_purl = pub_folder + '/' + my_fold_id + '/_' + parse.quote(name.replace(' ', '_'))
             else:  # root folder 
                 tmp_purl = root_folder
-            file.write('      { "id" : "'  + my_id + '",  "parent" : "' + pid+ '", "text" : "' + name + '" ,"a_attr" : {"href":"' + tmp_purl + '"}},') 
+            file.write('      { "id" : "'  + my_id + '",  "parent" : "' + pid+ '", "text" : "' + name + '" ,"a_attr" : {"href":"' + tmp_purl + '"}},\n') 
             scan_dir(path, my_id,tmp_purl,file)
         else:
-            file.write('      { "id" : "'  + my_id + '",  "parent" : "' + pid+ '", "text" : "' + name + '" ,"icon":"jstree-file","a_attr" : {"href":"' + parent_url + '"}},')
+            file.write('      { "id" : "'  + my_id + '",  "parent" : "' + pid+ '", "text" : "' + name + '" ,"icon":"jstree-file","a_attr" : {"href":"' + parent_url + '"}},\n')
      
 import sys
 import io
