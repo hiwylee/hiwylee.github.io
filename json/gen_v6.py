@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import os
 
-
+### 생성 날짜 넣기
 # pub_foler 뒤에 계층구조에 상관 없이 현재 폴더(_가 추가됨) 만 표시
 # folder 마다 id 가 다름.
 # 이름에 스페이스가 있으면 '_' 로 대체됨
@@ -67,6 +67,8 @@ def scan_dir(dir, pid, parent_url,file):
      
 import sys
 import io
+import datetime
+ 
 if __name__=="__main__":
     if len(sys.argv) != 3:
         print("Insufficient arguments: python gen.py [root_dir] [../tree_json2.js] ")
@@ -75,10 +77,11 @@ if __name__=="__main__":
     file_name = sys.argv[2]
 
     with io.open(file_name, 'w', encoding='utf8') as f:
+        f.writelines("// Generated time : " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         f.write(
 """
 function getTreeJson ()
-{ // 12
+{ // 
   var json_data =
     [      
 """)
