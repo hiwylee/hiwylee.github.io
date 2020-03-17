@@ -199,7 +199,7 @@ function getTreeJson ()
       { "id" : "lvl_8_1_2",  "parent" : "lvl_8_1", "text" : "README.txt" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_9",  "parent" : "#", "text" : "JTree_Candidate.html" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
         
-    ];    // code to be executed
+    ];
   return json_data;
 };
 
