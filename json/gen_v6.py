@@ -36,7 +36,10 @@ def scan_dir(dir, pid, parent_url,file):
     for name in os.listdir(dir):            
 
         path = os.path.join(dir, name)    
-        if os.path.isfile(path) and name  in ["01.계양전기 (KwangSik Jeong)",".tmp","gen_v6.py","gen_v5.py","JTree-WIP2.html", "desktop.ini","JTree_Candidate.html","tree_json2.js"]:   
+        if os.path.isdir(path) and name  in ["Bigdata Team","Workspace",".tmp","01.계양전기 (KwangSik Jeong)"]:   
+            continue
+
+        if os.path.isfile(path) and name  in ["gen_v6.py","gen_v5.py","JTree-WIP2.html", "desktop.ini","JTree_Candidate.html","tree_json.js","tree_json2.js"]:   
             continue
                 
         my_folder = path[2:]
@@ -75,7 +78,7 @@ if __name__=="__main__":
         f.write(
 """
 function getTreeJson ()
-{
+{ // 12
   var json_data =
     [      
 """)
