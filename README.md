@@ -25,7 +25,7 @@ Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md
 
 ## Oracle Learing Library Github
 * [Oracle Sales and Partner Academy](https://oradocs-corp.sites.us2.oraclecloud.com/authsite/osan-ospa/)
-* [OSPA Webcast Series] (https://oradocs-corp.sites.us2.oraclecloud.com/authsite/webcast-osan-ospa/)
+* [OSPA Webcast Series](https://oradocs-corp.sites.us2.oraclecloud.com/authsite/webcast-osan-ospa/)
 ---
 ## Oracle Cloud Service 
 
