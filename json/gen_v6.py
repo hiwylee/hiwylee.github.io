@@ -20,7 +20,26 @@ folder_id = {
     "05_고객사례": "F5069FE589FA93E0467A043DF6C3FF17C1177E4725F3",
     "06_기술가이드": "FEEB80D22275F399210DDDE3F6C3FF17C1177E4725F3",
     "09_기타"     : "F23463E84CECF98D4AA647C8F6C3FF17C1177E4725F3",
+    "ODP TECH KOREA SALES ASSET (Heejung Jang)": "FD0DAF378141B9D40789753FF6C3FF17C1177E4725F3",
+    "SC_ASSET (Myeongjin Lee)": "F27E95CB2754593C2052183EF6C3FF17C1177E4725F3",
+    "SC_ASSET_TECH (SJ Han)": "F71F8F8C75282B0D29A2E955F6C3FF17C1177E4725F3",
+    "SC_ASSET_TECH_2020 (Haje Kim)": "F77790F8151A323321386D76F6C3FF17C1177E4725F3"
  }
+
+parent_id = {
+    "ODP TECH KOREA SALES ASSET (Heejung Jang)": "FD0DAF378141B9D40789753FF6C3FF17C1177E4725F3",
+    "SC_ASSET (Myeongjin Lee)": "F27E95CB2754593C2052183EF6C3FF17C1177E4725F3",
+    "SC_ASSET_TECH (SJ Han)": "F71F8F8C75282B0D29A2E955F6C3FF17C1177E4725F3",
+    "SC_ASSET_TECH_2020 (Haje Kim)": "F77790F8151A323321386D76F6C3FF17C1177E4725F3",
+}
+
+ 
+def get_root_id() :
+    return root_id
+
+def set_root_id(name) :
+    if  name in parent_id :   
+        root_id = parent_id.get(name)
 
 def get_folder_id(name) :
     # print('{} {}'.format(name,folder_id.get(name)))
@@ -41,7 +60,7 @@ def scan_dir(dir, pid, parent_url,file):
 
         if os.path.isfile(path) and name  in ["gen_v6.py","gen_v5.py","JTree-WIP2.html", "desktop.ini","JTree_Candidate.html","tree_json.js","tree_json2.js"]:   
             continue
-                
+        set_root_id(name)        
         my_folder = path[2:]
         
         seq += 1
@@ -85,6 +104,7 @@ function getTreeJson ()
   var json_data =
     [      
 """)
+        depth = 0
         scan_dir(file_path, "#", root_folder, f)    
         f.write(
 """        
