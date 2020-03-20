@@ -34,13 +34,6 @@ parent_id = {
 }
 
  
-def get_root_id() :
-    return root_id
-
-def set_root_id(name) :
-    if  name in parent_id :   
-        root_id = parent_id.get(name)
-
 def get_folder_id(name) :
     # print('{} {}'.format(name,folder_id.get(name)))
     if name in folder_id :        
@@ -53,14 +46,13 @@ def scan_dir(dir, pid, parent_url,file):
     seq = 0
     my_id = ''
     for name in os.listdir(dir):            
-
+        
         path = os.path.join(dir, name)    
         if os.path.isdir(path) and name  in ["Bigdata Team","Workspace",".tmp","01.계양전기 (KwangSik Jeong)"]:   
             continue
 
         if os.path.isfile(path) and name  in ["gen_v6.py","gen_v5.py","JTree-WIP2.html", "desktop.ini","JTree_Candidate.html","tree_json.js","tree_json2.js"]:   
             continue
-        set_root_id(name)        
         my_folder = path[2:]
         
         seq += 1
@@ -104,7 +96,6 @@ function getTreeJson ()
   var json_data =
     [      
 """)
-        depth = 0
         scan_dir(file_path, "#", root_folder, f)    
         f.write(
 """        
