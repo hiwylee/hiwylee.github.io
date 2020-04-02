@@ -67,7 +67,8 @@ Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md
 ### Oracle JET
 * [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
 * [Oacle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html)
-
+### DR in the cloud
+* [Disaster Recovery in the cloud](https://otube.oracle.com/media/Disaster+Recovery+in+the+cloud/0_5smyzp28)
 ### ETC
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
 * Design guidance and code : https://material.io/components/
