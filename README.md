@@ -53,7 +53,8 @@ Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md
 ---
 ### [Oracle 19c ]
 * [Oracle 19c cookbook](https://github.com/oracle19c-cookbook)
-
+### DR in the cloud 
+* [DR in the cloud](https://otube.oracle.com/media/0_y5g23fc7)
 ### Progress Web App (PWA)
 * [[PWA] 프로그레시브 웹 앱 시작하기 ](https://geundung.dev/85)
 * [Turning APEX into a Progressive Web App](https://www.youtube.com/watch?v=JALCkILUPJw&t=667s)
