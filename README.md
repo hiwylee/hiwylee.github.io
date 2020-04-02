@@ -2,7 +2,9 @@
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
 * [Oracle Cloud Infrastructure Webinar Schedule](https://www.oracle.com/cloud/iaas/training/register-for-training.html)
 * [Oracle Cloud InfrastructureRecorded Webinar ](https://objectstorage.us-ashburn-1.oraclecloud.com/n/ociobtnas/b/webinars/o/webinars-dynamic.html)
-
+### OCI TTT
+* [Oracle Cloud Infrastructure Solution Selling T3 for SE](https://osan.netexam.com/#:ct32524)
+* [Webcast - OCI - Solutions Enablement and Roadmap April](https://osan.netexam.com/#:ct31995)
 ## OCI  Certification
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
 * [Oracle Cloud Infrastructure Architect Professional Workshop](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
