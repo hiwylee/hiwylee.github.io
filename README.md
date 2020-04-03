@@ -7,11 +7,12 @@
 * [Oracle Cloud Infrastructure Solution Selling T3 for SE](https://osan.netexam.com/#:ct32524)
 * [Webcast - OCI - Solutions Enablement and Roadmap April](https://osan.netexam.com/#:ct31995)
 ## OCI  Certification
+* [Architect Professional 무료 교육 및 시험](https://learn.oracle.com/ols/learning-path/become-a-cloud-architect-for-oci/35644/35802)
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
 * [Oracle Cloud Infrastructure Architect Professional Workshop](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
   * [Oracle Cloud Infrastructure (OCI) 2019 Architect Professional (1Z0-997)
-  * [Architect Professional 무료 교육 및 시험](https://learn.oracle.com/ols/learning-path/become-a-cloud-architect-for-oci/35644/35802)
-Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
+  
+  * [Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
 * Oracle Cloud Infrastructure 2019 Architect Associate
   * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
   * [Free 1Z0-931 Exam Dumps Questions](https://www.dumpsbase.com/freedumps/oracle-autonomous-database-cloud-2019-specialist-1z0-931-dumps-questions.html)
