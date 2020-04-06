@@ -4,15 +4,6 @@ function getTreeJson ()
 var json_data =
    [
 
-      { "id" : "lvl_1",  "parent" : "#", "text" : ".tmp" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_1_1",  "parent" : "lvl_1", "text" : "fFileGUID#D69F66ACDD579EA81F9A9376F6C3FF17C1177E4725F3_1_16a018c8-1676-4a2e-9de7-8272a52815c6" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2",  "parent" : "#", "text" : "01.계양전기 (KwangSik Jeong)" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_1",  "parent" : "lvl_2", "text" : "00.Sizing 통합 템플릿.xlsx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_2",  "parent" : "lvl_2", "text" : "00.Sizing 통합 템플릿_수정본.xlsx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_3",  "parent" : "lvl_2", "text" : "eBizCloud_RefArch.pdf" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_4",  "parent" : "lvl_2", "text" : "jdeCloud_RefArch.pdf" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_5",  "parent" : "lvl_2", "text" : "오라클 클라우드 제언서_계양전기_f.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_2_6",  "parent" : "lvl_2", "text" : "오라클 클라우드 제언서_한국제지_f.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3",  "parent" : "#", "text" : "ODP TECH KOREA SALES ASSET (Heejung Jang)" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/FD0DAF378141B9D40789753FF6C3FF17C1177E4725F3/_ODP_TECH_KOREA_SALES_ASSET_(Heejung_Jang)"}},
       { "id" : "lvl_3_1",  "parent" : "lvl_3", "text" : "FY20 Exadata IB Program" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_1_1",  "parent" : "lvl_3_1", "text" : "0. Priority_Exadata IB_Customer List.xlsx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
