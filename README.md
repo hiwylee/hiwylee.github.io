@@ -68,6 +68,7 @@
 * [pwabuilder](https://www.pwabuilder.com/)
 
 ### Oracle Learning Path
+* https://go.oracle.com/hol
 * [Oracle Learning Paths](https://apexapps.oracle.com/pls/apex/f?p=44785:49:15614500691145::NO:::)
 ### Oracle JET
 * [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
