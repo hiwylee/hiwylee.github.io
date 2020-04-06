@@ -88,7 +88,7 @@ func scan_dir(dir string, pid string, parent_url string, f io.Writer) {
 	for _, file := range files {
 		name = file.Name()
 		path = filepath.Join(dir, name)
-		if file.IsDir() && !Is_valid_file(name) {
+		if file.IsDir() && !Is_valid_folder(name) {
 			//fmt.Println("DIR : " + file.Name())
 			continue
 		}
