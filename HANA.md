@@ -182,11 +182,12 @@ Connected.
 2 rows.
 ```
 *  tenant database via JDBC, : port 39041
+![img](img/Sap_ODBC.PNG)
 ```
 jdbc:sap://<ip_address>:39041/?databaseName=<tenant_name>
 com.sap.db.jdbc.Driver
 ```
-
+* [https://help.sap.com/viewer/e9146b36040844d0b1f309bc8c1ba6ab/3.0/en-US/734759c0c1c9440c857da0d366e47dda.html](https://help.sap.com/viewer/e9146b36040844d0b1f309bc8c1ba6ab/3.0/en-US/1d174ab283fe496a902063e107520b8a.html)
 * [docker 명령어 참조](https://datascienceschool.net/view-notebook/708e711429a646818b9dcbb581e0c10a/)
   
 ```
