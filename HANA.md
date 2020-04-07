@@ -35,3 +35,16 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 
 ``` 
+* [Setup instruction](https://hub.docker.com/_/sap-hana-express-edition/plans/f2dc436a-d851-4c22-a2ba-9de07db7a9ac?tab=instructions)
+* Edit the host sysctl.conf file
+```
+vi /etc/sysctl.conf
+
+fs.file-max=20000000
+fs.aio-max-nr=262144
+vm.memory_failure_early_kill=1
+vm.max_map_count=135217728
+net.ipv4.ip_local_port_range=40000 60999
+```
+* Create a directory to persist SAP HANA, express edition data outside of the container
+```
