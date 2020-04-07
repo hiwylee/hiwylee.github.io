@@ -54,7 +54,7 @@ net.ipv4.ip_local_port_range=40000 60999
 * Create a directory to persist SAP HANA, express edition data outside of the container
 ```
 sudo mkdir -p /data/mydir
-sudo chown 1000:1000 /data/mydir
+sudo chown 12000:79 /data/mydir
 ```
 * Set up password for SAP HANA, express edition
 ```
@@ -64,7 +64,7 @@ sudo vi /data/mydir/pwd.json
 }
 
 sudo chmod 600 /data/mydir/pwd.json
-sudo chown 1000:1000 /data/mydir/pwd.json
+sudo chown 12000:79 /data/mydir/pwd.json
 ```
 
 & Load the SAP HANA, express edition container
@@ -79,4 +79,49 @@ sudo docker run -p 39013:39013 -p 39017:39017 -p 39041-39045:39041-39045 -p 1128
 store/saplabs/hanaexpress:2.00.045.00.20200121.1 \
 --passwords-url file:///hana/mounts/password.json \
 --agree-to-sap-license
-``
+
+Unable to find image 'store/saplabs/hanaexpress:2.00.045.00.20200121.1' locally
+Trying to pull repository docker.io/store/saplabs/hanaexpress ...
+2.00.045.00.20200121.1: Pulling from docker.io/store/saplabs/hanaexpress
+69d1da6f4532: Pulling fs layer
+c122971cf092: Pulling fs layer
+ce2873978954: Pulling fs layer
+93f9bed8cf38: Pulling fs layer
+68a77c184ed8: Pulling fs layer
+c0fd809029af: Pulling fs layer
+68a77c184ed8: Waiting
+93f9bed8cf38: Waiting
+c0fd809029af: Waiting
+ce2873978954: Download complete
+69d1da6f4532: Verifying Checksum
+69d1da6f4532: Download complete
+68a77c184ed8: Verifying Checksum
+68a77c184ed8: Download complete
+93f9bed8cf38: Verifying Checksum
+93f9bed8cf38: Download complete
+c122971cf092: Verifying Checksum
+c122971cf092: Download complete
+69d1da6f4532: Pull complete
+c122971cf092: Pull complete
+ce2873978954: Pull complete
+c0fd809029af: Verifying Checksum
+c0fd809029af: Download complete
+93f9bed8cf38: Pull complete
+68a77c184ed8: Pull complete
+c0fd809029af: Pull complete
+Digest: sha256:57f63719fa71c30aa6e13fdcaebcdd79726bb7702a233ba779b047d98ab1042f
+Status: Downloaded newer image for store/saplabs/hanaexpress:2.00.045.00.20200121.1
+```
+```
+sudo docker container restart express_edition
+
+```
+* login sap hana db docker
+```
+ sudo docker exec -it express_edition  bash
+```
+* [docker 명령어 참조](https://datascienceschool.net/view-notebook/708e711429a646818b9dcbb581e0c10a/)
+  
+```
+
+```
