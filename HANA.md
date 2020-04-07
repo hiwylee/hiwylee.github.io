@@ -4,7 +4,7 @@
 * [https://tools.hana.ondemand.com/#hanatools](https://tools.hana.ondemand.com/#hanatools]
 * [Installing SAP HANA HDB Client](https://developers.sap.com/tutorials/hxe-ua-install-hdb-client-windows.html)
 * [Connect to SAP HANA, express edition using JDBC](https://developers.sap.com/tutorials/hxe-connect-hxe-using-jdbc.html)
-* [Installing SAP HANA, express edition with Docker] (https://developers.sap.com/tutorials/hxe-ua-install-using-docker.html)
+* [Installing SAP HANA, express edition with Docker](https://developers.sap.com/tutorials/hxe-ua-install-using-docker.html)
 ``
 ls 
 hanaclient-2.4.182-linux-x64.tar.gz
