@@ -118,7 +118,17 @@ sudo docker container restart express_edition
 ```
 * login sap hana db docker
 ```
- sudo docker exec -it express_edition  bash
+[opc@sap ~]$  sudo docker exec -it express_edition  bash
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90>
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90>
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90> ls
+HDB  HDBAdmin.sh  HDBSettings.csh  HDBSettings.sh  c82c8fda3f30  exe  hdbenv.csh  hdbenv.sh  work  xterms
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90> whoami
+hxeadm
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90> ls
+HDB  HDBAdmin.sh  HDBSettings.csh  HDBSettings.sh  c82c8fda3f30  exe  hdbenv.csh  hdbenv.sh  work  xterms
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90>
+
 ```
 * [docker 명령어 참조](https://datascienceschool.net/view-notebook/708e711429a646818b9dcbb581e0c10a/)
   
