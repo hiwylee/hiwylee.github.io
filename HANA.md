@@ -130,8 +130,67 @@ HDB  HDBAdmin.sh  HDBSettings.csh  HDBSettings.sh  c82c8fda3f30  exe  hdbenv.csh
 hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90>
 
 ```
+* Optional: Test the Container
+```
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90> HDB info
+USER          PID     PPID  %CPU        VSZ        RSS COMMAND
+hxeadm       1499        0   0.0      21060       4096 bash
+hxeadm       2423     1499  12.5      20256       3328  \_ /bin/sh /usr/sap/HXE/HDB90/HDB info
+hxeadm       2454     2423   0.0      43532       3420      \_ ps fx -U hxeadm -o user:8,pid:8,ppid:8,pcpu:5,vsz:10,rss:10,args
+hxeadm          1        0   0.0      21036       4012 /bin/bash /run_hana --passwords-url file:///hana/mounts/pwd.json --agree-to-sap-license
+hxeadm        852        1   0.1     359840      52996 hdbdaemon
+hxeadm        858      852   119    3943432    2700376  \_ hdbnameserver
+hxeadm       1256      852   0.7     429688     123668  \_ hdbcompileserver
+hxeadm       1259      852   0.9     823352     153796  \_ hdbpreprocessor
+hxeadm       1302      852   2.6    1673168     556132  \_ hdbwebdispatcher
+hxeadm       1443      852  95.4    3321416    2293796  \_ hdbindexserver -port 39040
+hxeadm        993        1   0.0     611832      47752 hdbrsutil  --start --port 39001 --volume 1 --volumesuffix mnt00001/hdb00001 --identifier 1586247032
+hxeadm       1579        1   0.0     611832      47696 hdbrsutil  --start --port 39040 --volume 2 --volumesuffix mnt00001/hdb00002.00003 --identifier 1586247115
+
+```
+* Optional: Log into the database
+```
+hxeadm@c82c8fda3f30:/usr/sap/HXE/HDB90> hdbsql -i 90 -d SYSTEMDB  -u SYSTEM -p OracleWelcome1
+
+Welcome to the SAP HANA Database interactive terminal.
+
+Type:  \h for help with commands
+       \q to quit
+
+hdbsql SYSTEMDB=>
+
+```
+* Simple QUery
+```
+SELECT * FROM objects WHERE object_name LIKE '%TABLE%' AND schema_name = 'PUBLIC'
+
+```
+* JDBC 
+```
+jdbc:sap://<ip_address>:39017/?databaseName=<database_name>
+
+```
+## Connection 
+* system database via JDBC : Port 39017
+```
+C:\Program Files\sap\hdbclient>java -jar ngdbc.jar -u system,OracleWelcome1 -n 140.238.13.225:39017 -c "SELECT DATABASE_NAME FROM SYS.M_DATABASES" -d systemdb
+Connected.
+| DATABASE_NAME                                                                                        |
+--------------------------------------------------------------------------------------------------------
+| SYSTEMDB                                                                                             |
+| HXE                                                                                                  |
+2 rows.
+```
+*  tenant database via JDBC, : port 39041
+```
+jdbc:sap://<ip_address>:39041/?databaseName=<tenant_name>
+com.sap.db.jdbc.Driver
+```
+
 * [docker 명령어 참조](https://datascienceschool.net/view-notebook/708e711429a646818b9dcbb581e0c10a/)
   
+```
+
 ```
 
 ```
