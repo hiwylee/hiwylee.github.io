@@ -5,7 +5,7 @@
 * [Installing SAP HANA HDB Client](https://developers.sap.com/tutorials/hxe-ua-install-hdb-client-windows.html)
 * [Connect to SAP HANA, express edition using JDBC](https://developers.sap.com/tutorials/hxe-connect-hxe-using-jdbc.html)
 * [Installing SAP HANA, express edition with Docker](https://developers.sap.com/tutorials/hxe-ua-install-using-docker.html)
-``
+```bash
 ls 
 hanaclient-2.4.182-linux-x64.tar.gz
 hanaclient-2.4.182-windows-x64.zip
@@ -16,4 +16,4 @@ cd C:\Users\hiwyl\Downloads\hanaclient-2.4.182-windows-x64
 hdbinst.exe
 cd C:\Program Files\sap\hdbclient
 copy ngdbc.jar C:\Program Files\Oracle Analytics Desktop\war\obi-datasrc-server\WEB-INF\lib
-``
+```
