@@ -34,6 +34,11 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
 Login Succeeded
 
+```
+* docker test
+```
+sudo docker image rm alpine -f
+sudo docker run --name helloWorld alpine echo hello
 ``` 
 * [Setup instruction](https://hub.docker.com/_/sap-hana-express-edition/plans/f2dc436a-d851-4c22-a2ba-9de07db7a9ac?tab=instructions)
 * Edit the host sysctl.conf file
@@ -48,3 +53,30 @@ net.ipv4.ip_local_port_range=40000 60999
 ```
 * Create a directory to persist SAP HANA, express edition data outside of the container
 ```
+sudo mkdir -p /data/mydir
+sudo chown 1000:1000 /data/mydir
+```
+* Set up password for SAP HANA, express edition
+```
+sudo vi /data/mydir/pwd.json
+{
+"master_password" : "OracleWelcome1"
+}
+
+sudo chmod 600 /data/mydir/pwd.json
+sudo chown 1000:1000 /data/mydir/pwd.json
+```
+
+& Load the SAP HANA, express edition container
+```
+sudo docker run -p 39013:39013 -p 39017:39017 -p 39041-39045:39041-39045 -p 1128-1129:1128-1129 -p 59013-59014:59013-59014 -v /data/express_edition:/hana/mounts \
+--ulimit nofile=1048576:1048576 \
+--sysctl kernel.shmmax=1073741824 \
+--sysctl net.ipv4.ip_local_port_range='40000 60999' \
+--sysctl kernel.shmmni=524288 \
+--sysctl kernel.shmall=8388608 \
+--name express_edition \
+store/saplabs/hanaexpress:2.00.045.00.20200121.1 \
+--passwords-url file:///hana/mounts/password.json \
+--agree-to-sap-license
+``
