@@ -75,6 +75,7 @@
 * [Oacle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html)
 
 ### ETC
+* [Public Cloud Services Comparison](http://comparecloud.in/)
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
 * Design guidance and code : https://material.io/components/
 * [OCI Solution Architectures](https://docs.oracle.com/en/solutions/index.html?type=reference-architectures&page=0&is=true&sort=0)
