@@ -17,3 +17,4 @@ set JAVA_HOME="C:\Program Files\Java\jdk1.8.0_231"
 
 datasync.bat
 ```
+* 사용자 롤 추가 : OAC console ->  users and roles -> Manage Application Roles : BI Advanced Content Author/  BI Dataload Author / DV Content Author 
