@@ -37,8 +37,8 @@ Login Succeeded
 ```
 * docker test
 ```
-sudo docker image rm alpine -f
 sudo docker run --name helloWorld alpine echo hello
+sudo docker image rm alpine -f
 ``` 
 * [Setup instruction](https://hub.docker.com/_/sap-hana-express-edition/plans/f2dc436a-d851-4c22-a2ba-9de07db7a9ac?tab=instructions)
 * Edit the host sysctl.conf file
