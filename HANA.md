@@ -186,12 +186,23 @@ Connected.
 ```
 jdbc:sap://<ip_address>:39041/?databaseName=<tenant_name>
 com.sap.db.jdbc.Driver
-```
+```java
 * [https://help.sap.com/viewer/e9146b36040844d0b1f309bc8c1ba6ab/3.0/en-US/734759c0c1c9440c857da0d366e47dda.html](https://help.sap.com/viewer/e9146b36040844d0b1f309bc8c1ba6ab/3.0/en-US/1d174ab283fe496a902063e107520b8a.html)
 * [docker 명령어 참조](https://datascienceschool.net/view-notebook/708e711429a646818b9dcbb581e0c10a/)
   
 ```
-
+* jdbc driver interface
 ```
+try {
+   Class.forName("com.sap.db.jdbc.Driver");
+   String url ="jdbc:sap://xx.x.x.xxx:30015/DBNAME"; //IP Address of HANAsystem followed by Port number
+   String user ="user";
+   String password = "password";
+   Connection cn = java.sql.DriverManager.getConnection(url, user, password);
+   ResultSet rs = cn.createStatement().executeQuery("CALL Test.STORED_PROC");
+   // ...Enter the action here
+} catch(Exception e) {
+   e.printStackTrace();
+}
 
 ```
