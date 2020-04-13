@@ -1,4 +1,4 @@
-// Generated Time :  2020-04-09 23:50:27
+// Generated Time :  2020-04-13 13:42:58
 function getTreeJson ()
 {
 var json_data =
@@ -1885,7 +1885,9 @@ var json_data =
       { "id" : "lvl_3_4_3",  "parent" : "lvl_3_4", "text" : "Exadata X8" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_3_1",  "parent" : "lvl_3_4_3", "text" : "Exadata X8 소개_201904.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_4",  "parent" : "lvl_3_4", "text" : "OBP" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_3_4_4_1",  "parent" : "lvl_3_4_4", "text" : "OBP PM Office Hours - 032520.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_3_4_4_1",  "parent" : "lvl_3_4_4", "text" : "20200410_오라클_Blockchain_Update.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_3_4_4_2",  "parent" : "lvl_3_4_4", "text" : "OBP PM Office Hours - 032520.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_3_4_4_3",  "parent" : "lvl_3_4_4", "text" : "오라클_Blockchain_소개자료.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_5",  "parent" : "lvl_3_4", "text" : "OCE" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_5_1",  "parent" : "lvl_3_4_5", "text" : "OCE OCI Native Basic Pricing Calculator v1.xlsx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_5_2",  "parent" : "lvl_3_4_5", "text" : "OCE OCI Native New Skus Overview July 2019.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
@@ -1901,6 +1903,8 @@ var json_data =
       { "id" : "lvl_3_4_6_7",  "parent" : "lvl_3_4_6", "text" : "Oracle_Cloud_PaaS_20200128.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_6_8",  "parent" : "lvl_3_4_6", "text" : "타사클라우드비교자료(AWS,Azure).pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_4_7",  "parent" : "lvl_3_4", "text" : "STP 2019 Summary - QYEO EdwardJeon.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_3_4_8",  "parent" : "lvl_3_4", "text" : "Security" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_3_4_8_1",  "parent" : "lvl_3_4_8", "text" : "오라클클라우드_보안아키텍쳐_보충자료1.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_5",  "parent" : "lvl_3", "text" : "05_팀세미나" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_5_1",  "parent" : "lvl_3_5", "text" : "2019.07.05_SEHub_Security" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_3_5_1_1",  "parent" : "lvl_3_5_1", "text" : "Oracle APAC-OD Edge Security Session1 v2.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
@@ -2034,7 +2038,6 @@ var json_data =
       { "id" : "lvl_4_2_14_2",  "parent" : "lvl_4_2_14", "text" : "그린스토어-OAC의 RowLevel권한관리하기.pdf" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_15",  "parent" : "lvl_4_2", "text" : "박소희_두손씨앤아이_ADW_OAC" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_15_1",  "parent" : "lvl_4_2_15", "text" : "20200305-오라클분석솔루션소개_Final.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_4_2_15_2",  "parent" : "lvl_4_2_15", "text" : "~$20200305-오라클분석솔루션소개_Final.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_16",  "parent" : "lvl_4_2", "text" : "박소희_맘스다이어리_ADW_OAC" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_16_1",  "parent" : "lvl_4_2_16", "text" : "20200216_오라클 클라우드 분석 플랫폼 소개 for 맘스다이어리.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_17",  "parent" : "lvl_4_2", "text" : "박소희_서울반도체_ADW_OAC" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
@@ -2042,7 +2045,6 @@ var json_data =
       { "id" : "lvl_4_2_18",  "parent" : "lvl_4_2", "text" : "박소희_할리데이비슨_OAC_OCE" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_18_1",  "parent" : "lvl_4_2_18", "text" : "20200214-할리데이비슨 OAC vs. DVD.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_18_2",  "parent" : "lvl_4_2_18", "text" : "CEC 소개자료.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_4_2_18_3",  "parent" : "lvl_4_2_18", "text" : "~$CEC 소개자료.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_19",  "parent" : "lvl_4_2", "text" : "박소희_홈앤쇼핑_OAC" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_19_1",  "parent" : "lvl_4_2_19", "text" : "20200326_홈앤쇼핑_OAC 상세분석 Hands-On.pdf" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_2_20",  "parent" : "lvl_4_2", "text" : "박준철_니콘프레시전_백업스토리지" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
@@ -2171,6 +2173,9 @@ var json_data =
       { "id" : "lvl_4_6_1_38",  "parent" : "lvl_4_6_1", "text" : "#38. 인제대학교 LINC+사업단 ADW + ODA.docx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_6_1_39",  "parent" : "lvl_4_6_1", "text" : "#39. CaPEx(물류 데이터 분석).docx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_6_1_40",  "parent" : "lvl_4_6_1", "text" : "#40. 삼성멀티캠퍼스 해외인재 포털.docx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_4_6_1_41",  "parent" : "lvl_4_6_1", "text" : "#41. Jupiter Shop Chnnel 홈쇼핑 분석.docx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_4_6_1_42",  "parent" : "lvl_4_6_1", "text" : "#43.  한진그룹 ERP Cloud Tax-CMS 연계.docx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
+      { "id" : "lvl_4_6_1_43",  "parent" : "lvl_4_6_1", "text" : "42. SK STOA(SIGNAL Project) - ADW+OAC.DOCX" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_6_2",  "parent" : "lvl_4_6", "text" : "Video_Case_Study" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_6_2_1",  "parent" : "lvl_4_6_2", "text" : "omc_casestudy.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_7",  "parent" : "lvl_4", "text" : "06_기술가이드" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/FEEB80D22275F399210DDDE3F6C3FF17C1177E4725F3/_06_기술가이드"}},
@@ -2207,7 +2212,6 @@ var json_data =
       { "id" : "lvl_4_8_1_12",  "parent" : "lvl_4_8_1", "text" : "WB_OPS_V1.pptx" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_8_2",  "parent" : "lvl_4_8", "text" : "OraDocs_Client" ,"a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
       { "id" : "lvl_4_8_2_1",  "parent" : "lvl_4_8_2", "text" : "README.txt" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
-      { "id" : "lvl_4_8_2_2",  "parent" : "lvl_4_8_2", "text" : "oracle_content_setup.exe.rename" ,"icon":"jstree-file","a_attr" : {"href":"https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"}},
    ];
 
 return json_data;
