@@ -73,7 +73,7 @@
 ### Oracle JET
 * [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
 * [Oacle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html)
-
+* [Oracle Application Express Office Hours](https://asktom.oracle.com/pls/apex/asktom.search?oh=744)
 ### ETC
 * [Public Cloud Services Comparison](http://comparecloud.in/)
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
