@@ -42,8 +42,10 @@
 * [Plug-Ins](https://apex.world/ords/f?p=100:700)
 * [realtime apex](https://www.doag.org/formes/pubfiles/4185876/2012-K-DEV-Johannes_Mangold-Realtime_Web_Anwendungen_mit_APEX-Praesentation.pdf)
 * [How to build an IM (XMPP) solution with Oracle APEX and Websockets](https://technology.amis.nl/2012/10/01/how-to-build-an-im-xmpp-solution-with-oracle-apex-and-websockets/)
+* [Oracle Application Express Office Hours](https://asktom.oracle.com/pls/apex/asktom.search?oh=744)
 
-### [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
+### Data Science
+* [Data Science on OCI](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
 * [Oracle Accelerated Data Science SDK (ADS)](https://docs.cloud.oracle.com/en-us/iaas/tools/ads-sdk/1.0.0/index.html#oracle-accelerated-data-science-sdk-ads) 
 * [Data Science](https://docs.cloud.oracle.com/en-us/iaas/data-science/ds-using/data-science.htm)
 ### [Getting Started with Autonomous Data Warehouse](https://github.com/oracle/learning-library/tree/master/data-management-library/autonomous-database/autonomous-data-warehouse/journey4-adwc)
@@ -73,7 +75,7 @@
 ### Oracle JET
 * [Soar higher with Oracle JavaScript Extension Toolkit (JET)](https://apexapps.oracle.com/pls/apex/f?p=44785:50:0::::P50_EVENT_ID,P50_COURSE_ID:5814,205)
 * [Oacle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html)
-* [Oracle Application Express Office Hours](https://asktom.oracle.com/pls/apex/asktom.search?oh=744)
+
 ### ETC
 * [Public Cloud Services Comparison](http://comparecloud.in/)
 * [Fast, easy and reliable testing for anything that runs in a browser.](https://www.cypress.io/)
