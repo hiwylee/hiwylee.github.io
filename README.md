@@ -9,10 +9,10 @@
 ## OCI  Certification
 * [Architect Professional 무료 교육 및 시험](https://learn.oracle.com/ols/learning-path/become-a-cloud-architect-for-oci/35644/35802)
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
-* [Oracle Cloud Infrastructure Architect Professional Workshop](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
+* [Oracle Cloud Infrastructure Architect Professional Workshop](https://www.oracle.com/cloud/iaas/training/architect-professional.html)
   * Student Guide [(Part1)](https://learn.oracle.com/ols/course/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999#) [(Part2)](https://learn.oracle.com/ols/course/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999#)
-  * [Practice exam] (http://oukc.oracle.com/public/redir.html?type=player&offid=2478453337)
-  * [Oracle Cloud Infrastructure Architect Professional Certification](https://www.oracle.com/cloud/iaas/training/architect-professional.html)
+  * [Practice exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2478453337)
+  * [Oracle Cloud Infrastructure Architect Professional Certification](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
   * [Oracle Cloud Infrastructure (OCI) 2019 Architect Professional (1Z0-997 Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
 * Oracle Cloud Infrastructure 2019 Architect Associate
   * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
