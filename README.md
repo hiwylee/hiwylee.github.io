@@ -8,16 +8,23 @@
 * [Webcast - OCI - Solutions Enablement and Roadmap April](https://osan.netexam.com/#:ct31995)
 ## OCI  Certification
 * [Architect Professional 무료 교육 및 시험](https://learn.oracle.com/ols/learning-path/become-a-cloud-architect-for-oci/35644/35802)
+
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
-  *[Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
+*[Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
+
+<!-- Oracle Cloud Infrastructure Developer Associate  Certification] -->
 * [Oracle Cloud Infrastructure Developer Associate Certification](https://www.oracle.com/cloud/iaas/training/developers.html)
   * [Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
   * [Practice exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2457905119)
+  
+<!-- Oracle Cloud Infrastructure Architect Professional Certification] -->
 * [Oracle Cloud Infrastructure Architect Professional Certification](https://www.oracle.com/cloud/iaas/training/architect-professional.html)
   * Student Guide [(Part1)](https://learn.oracle.com/ords/training/DL4_EKITDOCUMENT.getPDF?p_url=_-ENC6E9C0202092241DE3D7B941924AD96ACE95E1B87D36EA02B67108EA8BD66B2F7C2E8D71E5FC9FFD76016428C45772CF62075E91279119A21135E91798EC328400BACB89F2079C619C813540C8058A45B129171F8402761B8RY-_) [(Part2)](https://learn.oracle.com/ords/training/DL4_EKITDOCUMENT.getPDF?p_url=_-ENC6E9C0202092241DE3D7B941924AD96ACE95E1B87D36EA02B67108EA8BD66B2F7C2E8D71E5FC9FFD76016428C45772CF62075E91279119A21135E91798EC328400BACB89F2079C61930D156E4F59936FCDC6EF865F60BF82BRY-_)
+  * [Oracle Cloud Infrastructure Architect Professional Learning Path](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
   * [Practice exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2478453337)
-  * [Oracle Cloud Infrastructure Architect Professional Certification](https://learn.oracle.com/ols/module/oracle-cloud-infrastructure-architect-professional-workshop/35644/60999)
   * [Oracle Cloud Infrastructure (OCI) 2019 Architect Professional (1Z0-997 Study Guide](https://github.com/hiwylee/hiwylee.github.io/blob/master/1z0-997.md)
+
+<!-- Oracle Cloud Infrastructure Architect Associate Certification] -->  
 * Oracle Cloud Infrastructure 2019 Architect Associate
   * [Exam Guide](https://www.oracle.com/cloud/iaas/training/certification.html)
   * [Free 1Z0-931 Exam Dumps Questions](https://www.dumpsbase.com/freedumps/oracle-autonomous-database-cloud-2019-specialist-1z0-931-dumps-questions.html)
