@@ -1,5 +1,5 @@
 # 
-* ``**[Using EM Express]**``(https://apexapps.oracle.com/pls/apex/f?p=44785:52:2979035488864:::52:P52_CONTENT_ID,P52_MODULE_ID,P52_ACTIVITY_ID,P52_EVENT_ID:26500,4219,19645,6362)
+* [``**Using EM Express**``](https://apexapps.oracle.com/pls/apex/f?p=44785:52:2979035488864:::52:P52_CONTENT_ID,P52_MODULE_ID,P52_ACTIVITY_ID,P52_EVENT_ID:26500,4219,19645,6362)
 ```
 $ . oraenv
 ORACLE_SID = [oracle] ? orcl
