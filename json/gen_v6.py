@@ -7,8 +7,9 @@ import os
 # 이름에 스페이스가 있으면 '_' 로 대체됨
 # base/lvl1/lvl2 가 아니라 base/_lvl2 로 표시됨
 from urllib import parse
-pub_folder = 'https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder'
-root_folder = 'https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3'
+
+pub_folder = 'https://securesites-prodapp.cec.ocp.oraclecloud.com/documents/folder'
+root_folder = 'https://securesites-prodapp.cec.ocp.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3'
 pub_file = ''
 root_id='F77790F8151A323321386D76F6C3FF17C1177E4725F3'
 folder_id = {
