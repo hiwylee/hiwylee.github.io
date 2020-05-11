@@ -1,5 +1,5 @@
 # 
-* [``**Using EM Express**``](https://apexapps.oracle.com/pls/apex/f?p=44785:52:2979035488864:::52:P52_CONTENT_ID,P52_MODULE_ID,P52_ACTIVITY_ID,P52_EVENT_ID:26500,4219,19645,6362)
+* [``**Using EM Express**``](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/monitoringDB.htm)
 ```
 $ . oraenv
 ORACLE_SID = [oracle] ? orcl
@@ -17,18 +17,20 @@ Version 19.3.0.0.0
 
 SQL>  
 
-$ SQL> alter session set container orclpdb;
+$ SQL> alter session set container=orclpdb;
 
 Session altered.
-SQL> alter pluggable database orclpdb open;
+SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5501)
 
-Pluggable database altered.
+PL/SQL procedure successfully completed.
+
 SQL>  SELECT dbms_xdb_config.gethttpsport() from dual; 
 
 DBMS_XDB_CONFIG.GETHTTPSPORT()
 ------------------------------
-5502
+5501
 
 
 ```
+* open port 5500,6200,1158
 
