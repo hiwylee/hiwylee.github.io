@@ -8,6 +8,9 @@
 ```
 $ sudo apt install npm
 ...
+curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 sudo npm install -g yo  grunt-cli bower
 sudo  npm list -g --depth=0
 sudo npm install -g generator-oraclejet
@@ -16,6 +19,10 @@ sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
      echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
      sudo apt-get update && sudo apt-get install yarn
 
+```
+* samples app generator
+```
+yo oraclejet web-app-navbar --template=navbar:hybrid
 ```
 * [Android 기기 원격 디버깅 시작하기](https://developers.google.com/web/tools/chrome-devtools/remote-debugging?utm_campaign=2016q3&utm_medium=redirect&utm_source=dcc)
 * [cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
