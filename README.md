@@ -10,7 +10,6 @@
 * [Architect Professional 무료 교육 및 시험](https://learn.oracle.com/ols/learning-path/become-a-cloud-architect-for-oci/35644/35802)
 
 * [OCI  Certification Learning Path](https://learn.oracle.com/ols/home/oracle-cloud-infrastructure/35644#filtersGroup1=&filtersGroup2=.f1461&filtersGroup3=&filtersGroup4=&filtersGroup5=&filtersSearch=)
-*[Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
 
 <!-- Oracle Cloud Infrastructure Developer Associate  Certification] -->
 
