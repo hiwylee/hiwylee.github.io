@@ -13,6 +13,7 @@
 *[Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
 
 <!-- Oracle Cloud Infrastructure Developer Associate  Certification] -->
+
 * [Oracle Cloud Infrastructure Developer Associate Certification](https://www.oracle.com/cloud/iaas/training/developers.html)
   * [Oracle Cloud Infrastructure Developer Associate Learning Path](https://learn.oracle.com/ols/course/developing-cloud-native-applications-on-oci-new/35644/75242)
   * [Practice exam](http://oukc.oracle.com/public/redir.html?type=player&offid=2457905119)
