@@ -3,6 +3,9 @@
 ## Exadata Value Proposition
 ## Exadata Basic
 ### Exadata Basic Training
+* DataSheet
+  * [Exadata X8-2 Datasheet](https://www.oracle.com/technetwork/database/exadata/exadata-x8-2-ds-5444350.pdf)
+  * [Exadata X8m-2 Datasheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata/exadata-x8m-2-ds.pdf)
 * [Cool Stuff for DBAs in Oracle Database 19c](https://www.youtube.com/watch?v=EVPNyL2vAVI)
 * [Oracle Exadata X8 Overview](https://www.youtube.com/watch?v=szlfbBXoXYs)
 * [All In on Exadata](https://www.youtube.com/watch?v=njymzhD0oHE)
