@@ -16,7 +16,7 @@
 ## Exadata Advanced
 * Technical Deep Dive
 * Ideal Database HW
-* Smart System SW
+* Smart System SW : OLTP / DW 
   * Offload SQL to Storage
   * InfiniBand Fabric
   * Smart Flash Cache, Log
@@ -26,4 +26,5 @@
   * I/O Resouce Management
   * In-Memory Fault Tolerance
   * Exafusion Direct-to-Wire Protocol
+  * Direct-to-Wire Protocol
 * Automatic Management
