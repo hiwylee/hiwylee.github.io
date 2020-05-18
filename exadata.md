@@ -12,8 +12,8 @@
 * [Exadata Part 3](https://i.ytimg.com/vi/p-tM0MDmbqg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLDWn39gKG7Hz7dao1x2vRyUFOlJzA)
 ## Exadata Advanced
 * Technical Deep Dive
-* Ideal HW
-* Smart SW
+* Ideal Database HW
+* Smart System SW
   * Offload SQL to Storage
   * InfiniBand Fabric
   * Smart Flash Cache, Log
@@ -23,4 +23,4 @@
   * I/O Resouce Management
   * In-Memory Fault Tolerance
   * Exafusion Direct-to-Wire Protocol
-* 
+* Automatic Management
