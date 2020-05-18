@@ -16,7 +16,7 @@
 ## Exadata Advanced
 * Technical Deep Dive
 * Ideal Database HW
-* Smart System SW : OLTP / DW 
+* Smart System SW : OLTP / DW / Consolidation 측면 (https://www.youtube.com/watch?v=szlfbBXoXYs)
   * Offload SQL to Storage
   * InfiniBand Fabric
   * Smart Flash Cache, Log
