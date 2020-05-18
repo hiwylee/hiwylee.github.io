@@ -24,4 +24,4 @@ sudo ./start-okit-server.sh
 
 ```
 *  접속 
-   *  http://localhost/okit/designer
+   *  http://132.145.91.213/okit/designer
