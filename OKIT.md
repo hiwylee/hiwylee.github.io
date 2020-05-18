@@ -23,3 +23,5 @@ cd oci-designer-toolkit/docker/
 sudo ./start-okit-server.sh
 
 ```
+*  접속 
+   *  http://localhost/okit/designer
