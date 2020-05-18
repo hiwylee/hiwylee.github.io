@@ -23,5 +23,7 @@ cd oci-designer-toolkit/docker/
 sudo ./start-okit-server.sh
 
 ```
+* 서브넷 시큐리티 리스트
+  * Ingress : 0.0.0.0/0	TCP		80
 *  접속 
    *  http://132.145.91.213/okit/designer
