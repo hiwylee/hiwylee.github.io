@@ -1,3 +1,7 @@
+# Oracle Cloud Infratructure (OCI)
+## Cost Comparision
+* Landing page with detail on specific cost savings of OCI over AWS:
+   * https://www.oracle.com/cloud/economics/
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
 * [Oracle Cloud Infrastructure Webinar Schedule](https://www.oracle.com/cloud/iaas/training/register-for-training.html)
