@@ -1,7 +1,4 @@
 # Oracle Cloud Infratructure (OCI)
-## Cost Comparision
-* Landing page with detail on specific cost savings of OCI over AWS:
-   * https://www.oracle.com/cloud/economics/
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
 * [Oracle Cloud Infrastructure Webinar Schedule](https://www.oracle.com/cloud/iaas/training/register-for-training.html)
@@ -48,6 +45,10 @@
 * [Oracle Sales and Partner Academy](https://oradocs-corp.sites.us2.oraclecloud.com/authsite/osan-ospa/)
 * [OSPA Webcast Series](https://oradocs-corp.sites.us2.oraclecloud.com/authsite/webcast-osan-ospa/)
 ---
+## Cost Comparision
+* Landing page with detail on specific cost savings of OCI over AWS:
+   * https://www.oracle.com/cloud/economics/
+
 ## Oracle Cloud Service 
 ### OCI Stream : Back To The Database - 
 * [Part 1: Preparing To Persist Data From A Stream](https://blogs.oracle.com/developers/back-to-the-database-part-1-preparing-to-persist-data-from-a-stream)
