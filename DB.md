@@ -5,7 +5,9 @@
 * What’s New in Oracle Database 19c  
   * https://otube.oracle.com/media/0_lw4j7yvl
   * https://otube.oracle.com/media/Oracle+Database+19c+-+New+Features/0_75l8pb7c
+  
 ##  Oracle Machine Learning for Python (OML4Py) AutoML
+
 ## Tuning
 * [Real-World Performance](https://apexapps.oracle.com/pls/apex/f?p=44785:141:0::NO::P141_PAGE_ID,P141_SECTION_ID:119,870) 
 * [Oracle Database Performance Tuning for Admins and Architects](https://www.youtube.com/watch?v=RsbHAaGCtM4)
