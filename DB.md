@@ -24,6 +24,7 @@
   * [Part 2](https://otube.oracle.com/media/%5BDBBT%5D+Query+Optimizer+Overview+part+2/0_kthct0nc/112440841)
 ## Oracle Database Backup and Recovery 
 * [Oracle Database Backup and Recovery Session](https://www.youtube.com/playlist?list=PLJivLVlqh_a4OtPb-S80z_X6MevQNWmcG)
+## RAC
 * [Oracle RAC Videos](https://www.youtube.com/playlist?list=PLJivLVlqh_a6Xm2sT-plkW4Ii7EWvvAc4)
 
 ## EM Express
