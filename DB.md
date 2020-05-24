@@ -28,9 +28,11 @@
 * [Oracle RAC Videos](https://www.youtube.com/playlist?list=PLJivLVlqh_a6Xm2sT-plkW4Ii7EWvvAc4)
 ## Open Source
 * MySQL
-* PostgreSQL
- 
+* PostgreSQL 
  * [PosrgreSQL](https://www.youtube.com/watch?v=TGuDmzzhq1Y)
+* [NHN FORWARD 2019](https://www.youtube.com/watch?v=8Eb_n7JA1yA&list=PL42XJKPNDepZVLkCM4yEKmU4LHyXjzChy)
+* [```*NHN FORWARD 2019 : Oracle => MySQL 이관*```](https://www.youtube.com/watch?v=DXu3nbWa4AA)
+
 ## EM Express
 * [``**Using EM Express**``](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/monitoringDB.htm)
 ```
