@@ -7,3 +7,6 @@
 * [NEW! Amazon SageMaker Studio](https://www.youtube.com/watch?v=9LbZHcGN38U&list=PLJgojBtbsuc0MjdtpJPo4g4PL8mMsd2nK)
 ## AWS Certification
 * [AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course](https://www.youtube.com/watch?v=Ia-UEYYR44s)
+* 🎥 AWS Certified Cloud Practitioner Training: https://youtu.be/3hLmDS179YE
+* 🎥 AWS Certified Developer Associate Training: https://youtu.be/RrKRN9zRBWs
+* 🎥 AWS for Startups - Deploying with AWS: https://youtu.be/U3VSJhaC4kc
