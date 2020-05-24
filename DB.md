@@ -26,7 +26,11 @@
 * [Oracle Database Backup and Recovery Session](https://www.youtube.com/playlist?list=PLJivLVlqh_a4OtPb-S80z_X6MevQNWmcG)
 ## RAC
 * [Oracle RAC Videos](https://www.youtube.com/playlist?list=PLJivLVlqh_a6Xm2sT-plkW4Ii7EWvvAc4)
-
+## Open Source
+* MySQL
+* PostgreSQL
+ 
+ * [PosrgreSQL](https://www.youtube.com/watch?v=TGuDmzzhq1Y)
 ## EM Express
 * [``**Using EM Express**``](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/monitoringDB.htm)
 ```
