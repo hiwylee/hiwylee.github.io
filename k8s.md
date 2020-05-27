@@ -14,7 +14,8 @@
   * [6강 - Kubernetes(쿠버네티스) 실습 1 ](https://www.youtube.com/watch?v=G0-VoHbunks)
   * [7강 - Kubernetes(쿠버네티스) 실습 2 ](https://www.youtube.com/watch?v=v6TUgqfV3Fo)
   * 실습자료 : https://github.com/subicura/workshop-k8s-basic
-  
+### Helm
+ * [What is Helm?](https://www.youtube.com/watch?v=fy8SHvNZGeE)
 ### k8s object
 * Basic Objects
   * ``Pod``
