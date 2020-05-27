@@ -3,6 +3,7 @@
 * [쿠버네티스 차근차근 다지기(Full영상)](https://www.youtube.com/watch?v=l42GttmnnZ4)
 
 ### 쿠버네티스 강의 동영상
+* [쿠버네티스 랩](https://www.youtube.com/watch?v=bQfBneTSzuY&list=PL_58hibZyl7kBEV9zi8QoLnaXA9TzvVAU)
 * [Kubernetes를 이용한 서비스 구축과 Openshift](https://www.youtube.com/watch?v=J1k0H2fx4K4)
 * [토크ON세미나] 쿠버네티스 살펴보기 | | T아카데미
   * [1강 - 쿠버네티스 살펴보기 1강 - 컨테이너 오케스트레이션 ](https://www.youtube.com/watch?v=WxzWXqTNdlw)
