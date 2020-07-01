@@ -11,7 +11,7 @@ select count(*) from TKE001_TRAIN;
 ```
   * TKE001_TRAIN unique rows : 52,591
 ```sql
- select count(*)
+select count(*)
 from
 (
    select distinct * from TKE001_TRAIN
@@ -33,7 +33,8 @@ from
       9351 
 ```
   * TKE001_TRAIN unique KEDCD rows : 8,836
-```sqlselect count(*)
+```sql
+select count(*)
 from
 (
    select distinct KEDCD from TKE001_TRAIN
@@ -52,7 +53,7 @@ select count(*) from TKE001_TRAIN;
 ```
   * TKE001_TEST unique rows : 62,231
 ```sql
- select count(*)
+select count(*)
 from
 (
    select distinct * from TKE001_TRAIN
@@ -74,7 +75,8 @@ from
       7875 
 ```
   * TKE001_TEST unique KEDCD rows : 8,174
-```sqlselect count(*)
+```sql
+select count(*)
 from
 (
    select distinct KEDCD from TKE001_TRAIN
