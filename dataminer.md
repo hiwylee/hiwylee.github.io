@@ -1,7 +1,9 @@
-
-
-To enable the Data Mining option: 
-
+# Data Miner Home
+* https://www.oracle.com/database/technologies/datawarehouse-bigdata/dataminer.html
+* https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/odmr
+## 
+* To enable the Data Mining option: 
+```
 Shut down the database.
 
 srvctl stop database -d db_name
@@ -16,7 +18,8 @@ Start the database service, Oracle ServiceSID, using the Services program in Con
 Start up the database.
 
 srvctl start database -d db_name
-
+```
+* User 생성
 ```
 alter session set "_ORACLE_SCRIPT"=true;
 drop user dmuser;
