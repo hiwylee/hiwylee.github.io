@@ -1,6 +1,7 @@
 # Data Miner Home
 * https://www.oracle.com/database/technologies/datawarehouse-bigdata/dataminer.html
 * https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/odmr
+* [User's Guide] (https://docs.oracle.com/en/database/oracle/sql-developer/19.1/dmrug/oracle-data-miner.html#GUID-4A79FAEE-1A30-42CA-9BF1-B24FD07FC667)
 ## 
 * To enable the Data Mining option: 
 ```
