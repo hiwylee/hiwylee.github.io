@@ -20,6 +20,11 @@ Start up the database.
 
 srvctl start database -d db_name
 ```
+* sqldeveloper에서 repository를 생성하기 전에 수정이 필요한 사항
+```sql
+sqldeveloper\dataminer\scripts\installodmr.sql 에 시작부분에 아래 라인 추가.
+alter session set "_ORACLE_SCRIPT"=true;
+```
 * User 생성
 ```
 alter session set "_ORACLE_SCRIPT"=true;
