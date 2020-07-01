@@ -1,6 +1,58 @@
 ## 데이터
 * ML용 데이터 **설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 **
 ## 스크립트
+* cloud shell
+```bash
+1. cloud shell
+wonyong_le@cloudshell:ked (ap-seoul-1)$ wonyong_le@cloudshell:~ (ap-seoul-1)$ oci os object list  -bn data --output table
++------+----------------------------+----------------------------------------+------------+----------------------------------+---------------+
+| etag | md5                        | name                                   | size       | time-created                     | time-modified |
++------+----------------------------+----------------------------------------+------------+----------------------------------+---------------+
+| None | N69vrCuerEkfFyXcYly7Uw==-8 | 20200619_Z_KEDYMJ_TKE001_INTR_UTF2.txt | 1048207657 | 2020-06-30T07:49:29.814000+00:00 | None          |
+| None | oldwT2cVWzuyhZrPTJMp6w==   | Wallet_keddb.zip                       | 20530      | 2020-06-30T07:49:48.118000+00:00 | None          |
++------+----------------------------+----------------------------------------+------------+----------------------------------+---------------+
+wonyong_le@cloudshell:ked (ap-seoul-1)$ oci os object get --name Wallet_keddb.zip  -bn data --file Wallet_keddb.zip
+Downloading object  [####################################]  100%
+wonyong_le@cloudshell:ked (ap-seoul-1)$ 
+wonyong_le@cloudshell:ked (ap-seoul-1)$ 
+wonyong_le@cloudshell:ked (ap-seoul-1)$ pwd
+/home/wonyong_le/ked
+wonyong_le@cloudshell:ked (ap-seoul-1)$ cd wallet/
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ ls
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ unzip ../Wallet_keddb.zip 
+Archive:  ../Wallet_keddb.zip
+  inflating: README                  
+  inflating: cwallet.sso             
+  inflating: tnsnames.ora            
+  inflating: truststore.jks          
+  inflating: ojdbc.properties        
+  inflating: sqlnet.ora              
+  inflating: ewallet.p12             
+  inflating: keystore.jks            
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ vi sqlnet.ora 
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ head -n 1 sqlnet.ora
+WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="$TNS_ADMIN")))
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ 
+ 
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ export TNS_ADMIN=/home/wonyong_le/ked/wallet
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ tail -n 1 ~/.bashrc
+export TNS_ADMIN=/home/wonyong_le/ked/wallet
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ 
+wonyong_le@cloudshell:wallet (ap-seoul-1)$ sqlplus admin/OracleWelcome1@keddb_high
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Jun 30 08:15:11 2020
+Version 19.5.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Jun 30 2020 08:13:30 +00:00
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.5.0.0.0
+
+```
+* sqldeveloper
 ```sql
 DROP TABLE TKE001;
 CREATE TABLE TKE001 (
