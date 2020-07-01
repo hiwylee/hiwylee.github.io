@@ -1,5 +1,88 @@
 ## 데이터
-* ML용 데이터 **설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 **
+* ML용 데이터 ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
+* data 정합성
+  * TKE001_TRAIN total rows : 87,296
+```sql
+select count(*) from TKE001_TRAIN;
+  COUNT(*)
+----------
+     87296
+
+```
+  * TKE001_TRAIN unique rows : 52,591
+```sql
+ select count(*)
+from
+(
+   select distinct * from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+     52591
+```
+
+  * TKE001_TRAIN unique bzno rows : 9,351
+```sql
+select count(*)
+from
+(
+   select distinct bzno from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+      9351 
+```
+  * TKE001_TRAIN unique KEDCD rows : 8,836
+```sqlselect count(*)
+from
+(
+   select distinct KEDCD from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+      8836
+```
+  * TKE001_TEST total rows : 101,679
+```sql
+select count(*) from TKE001_TRAIN;
+  COUNT(*)
+----------
+     101679
+
+```
+  * TKE001_TEST unique rows : 62,231
+```sql
+ select count(*)
+from
+(
+   select distinct * from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+     62231
+```
+
+  * TKE001_TEST unique bzno rows : 7,875
+```sql
+select count(*)
+from
+(
+   select distinct bzno from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+      7875 
+```
+  * TKE001_TEST unique KEDCD rows : 8,174
+```sqlselect count(*)
+from
+(
+   select distinct KEDCD from TKE001_TRAIN
+)  ;
+  COUNT(*)
+----------
+      8174
+```
 ## 스크립트
 * cloud shell
 ```bash
