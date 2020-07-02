@@ -4,7 +4,11 @@
    * ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
    * ``key column 에 NA와 중복 값이 존재 (kedcd, bzcd)``
    * ``중복된 row 가 다수 존재``
-
+### 테스트 샘플 만들기
+```
+create or replace view TKE001_TRAIN_V as select distinct * from TKE001_TRAIN where BZNO != 'NA';
+create or replace view TKE001_TEST_V as select distinct * from TKE001_TEST where BZNO != 'NA';
+``` 
 ## 데이터
 * ML용 데이터 ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
 * data 정합성
