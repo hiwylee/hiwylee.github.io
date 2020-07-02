@@ -96,6 +96,23 @@ from
 ----------
       8174
 ```
+### 중복키 제거
+```sql
+create table TKE001_TRAIN_t as select distinct * from TKE001_TRAIN where BZNO != 'NA' and KEDCD != 'NA';
+
+select count(*) from (
+ 
+ select * from TKE001_TRAIN_T v where  ROWID   not in (select min(ROWID ) from TKE001_TRAIN_T t2 where v.bzno=t2.bzno)
+ 
+);
+-- 중복키 제거
+ delete from TKE001_TRAIN_T v where  ROWID   not in (select min(ROWID ) from TKE001_TRAIN_T t2 where v.bzno=t2.bzno);
+ 
+  select count( bzno) from  TKE001_TRAIN_t;
+  
+  select rowid, bzno from TKE001_TRAIN_T v fetch first 10 rows only;
+
+```
 ## 스크립트
 * cloud shell
 ```bash
