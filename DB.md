@@ -1,4 +1,5 @@
-
+## DB Upgrade 
+* https://mikedietrichde.com/
 ## Oracle Database 20c
 * Webcast - Oracle Database 20c New Features
   * https://otube.oracle.com/media/1_92bjlut1
