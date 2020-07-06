@@ -23,6 +23,8 @@ dmuser/WelCome1234#_
     * CRETOP_HIT : N/A 있음. => 0
     * 이하 숫치 데이터에 NA
 -->
+   * Feature로 사용된 컬럼
+     * ![ked_features.png](img/ked_features.png)
  * ``식별자&구분자 중복값 있음`` : KEDCD     ,BZNO     ,RPT_CCD     ,CU_ID     ,PR_POLC_CD    ,PD_CD
 ```sql
 SELECT COUNT(*) CNT 
