@@ -7,15 +7,22 @@
     * DIFF_MM : N/A 있음. => 0
     * CRETOP_HIT : N/A 있음. => 0
     * 이하 숫치 데이터에 NA
+* CASE ID :  "KEDCD" || ',' ||  "BZNO" }} ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" 
 ```sql
+
+/*
+       DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM") AS DIFF_MM,
+       DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT") AS CRETOP_HIT,
+*/
 CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
     SELECT 
+       "KEDCD" || ',' ||  "BZNO" || ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" AS CASE_ID,
         "KEDCD",
         "BZNO",
         "RPT_CCD",
         "CU_ID",
         "PR_POLC_CD",
-        "PD_CD",
+        "PD_CD",        
         "IS_TRANSITED",
         "IS_KEDRATING_VISITED",
         "ENP_TYP",
@@ -68,6 +75,7 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
 */
 CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
     SELECT 
+       "KEDCD" || ',' ||  "BZNO" || ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" AS CASE_ID,
         "KEDCD",
         "BZNO",
         "RPT_CCD",
@@ -120,6 +128,7 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
         "POINT_DT_KEDRATING"
     FROM
         tkecp_test;
+               
 ```	
 * 기업 기본 데이터
 * 재무 데이터 (추후 요청 예정)
