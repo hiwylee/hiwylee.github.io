@@ -3,7 +3,6 @@
 접속 URL :http://140.238.0.234:9502/dv
 http://140.238.0.234:9502/analytics
 아이디 : wonyoung, haje ==> OdpCA123
-
 140.238.17.22:1521/pdb1.sub12180113580.svcn.oraclevcn.com
 6:38 PM
 dmuser/WelCome1234#_
