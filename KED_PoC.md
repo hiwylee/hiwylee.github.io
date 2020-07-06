@@ -6,7 +6,7 @@ http://140.238.0.234:9502/analytics
 140.238.17.22:1521/pdb1.sub12180113580.svcn.oraclevcn.com
 6:38 PM
 dmuser/WelCome1234#_
---!>
+-->
 
 #### 1. 데이터 정합성 확인
 * ML 데이터
