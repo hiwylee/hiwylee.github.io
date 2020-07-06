@@ -1,6 +1,126 @@
 ## To Do
 #### 1. 데이터 정합성 확인
 * ML 데이터
+  * N/A 값 존재 컬럼
+    * ENP_TYP :  법인(1), 개인(2)  => N/A 있음.
+    * ENP_SZE :  N/A 있음. => 판단제외(08)
+    * DIFF_MM : N/A 있음. => 0
+    * CRETOP_HIT : N/A 있음. => 0
+    * 이하 숫치 데이터에 NA
+```sql
+CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
+    SELECT 
+        "KEDCD",
+        "BZNO",
+        "RPT_CCD",
+        "CU_ID",
+        "PR_POLC_CD",
+        "PD_CD",
+        "IS_TRANSITED",
+        "IS_KEDRATING_VISITED",
+        "ENP_TYP",
+        "KSIC10_BZC_CD",
+        "ENP_SZE",
+        "LOC_ZIP",
+        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
+        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
+        "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
+        "TXPL_DTCN_IN",
+        "TXPL_RATIO_IN",
+        "TXPL_AM_IN",
+        "TXPL_AVG_IN",
+        "TXPL_SD_IN",
+        "TXPL_CV_IN",
+        "TXPL_HHI_IN",
+        "RPT_TCN_IN",
+        "TXPL_UNI_CN_OUT",
+        "TXPL_TCN_OUT",
+        "TXPL_DTCN_OUT",
+        "TXPL_RATIO_OUT",
+        "TXPL_AM_OUT",
+        "TXPL_AVG_OUT",
+        "TXPL_SD_OUT",
+        "TXPL_CV_OUT",
+        "TXPL_HHI_OUT",
+        "RPT_TCN_OUT",
+        "EWGRD_AVG_IN",
+        "EWGRD_SD_IN",
+        "EWGRD_CV_IN",
+        "EWGRD_MIN_IN",
+        "EWGRD_MAX_IN",
+        "EWGRD_AVG_OUT",
+        "EWGRD_SD_OUT",
+        "EWGRD_CV_OUT",
+        "EWGRD_MIN_OUT",
+        "EWGRD_MAX_OUT",
+        "CRETOP_CN_IN",
+        "CRETOP_CN_OUT",
+        "START_DT_CRETOP",
+        "POINT_DT_CRETOP",
+        "POINT_DT_REPORT",
+        "POINT_DT_KEDRATING"
+    FROM
+        tkecp_train;
+ /*
+       DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM") AS DIFF_MM,
+       DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT") AS CRETOP_HIT,
+*/
+CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
+    SELECT 
+        "KEDCD",
+        "BZNO",
+        "RPT_CCD",
+        "CU_ID",
+        "PR_POLC_CD",
+        "PD_CD",
+        "IS_TRANSITED",
+        "IS_KEDRATING_VISITED",
+        "ENP_TYP",
+        "KSIC10_BZC_CD",
+        "ENP_SZE",
+        "LOC_ZIP",
+        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
+        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
+        "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
+        "TXPL_DTCN_IN",
+        "TXPL_RATIO_IN",
+        "TXPL_AM_IN",
+        "TXPL_AVG_IN",
+        "TXPL_SD_IN",
+        "TXPL_CV_IN",
+        "TXPL_HHI_IN",
+        "RPT_TCN_IN",
+        "TXPL_UNI_CN_OUT",
+        "TXPL_TCN_OUT",
+        "TXPL_DTCN_OUT",
+        "TXPL_RATIO_OUT",
+        "TXPL_AM_OUT",
+        "TXPL_AVG_OUT",
+        "TXPL_SD_OUT",
+        "TXPL_CV_OUT",
+        "TXPL_HHI_OUT",
+        "RPT_TCN_OUT",
+        "EWGRD_AVG_IN",
+        "EWGRD_SD_IN",
+        "EWGRD_CV_IN",
+        "EWGRD_MIN_IN",
+        "EWGRD_MAX_IN",
+        "EWGRD_AVG_OUT",
+        "EWGRD_SD_OUT",
+        "EWGRD_CV_OUT",
+        "EWGRD_MIN_OUT",
+        "EWGRD_MAX_OUT",
+        "CRETOP_CN_IN",
+        "CRETOP_CN_OUT",
+        "START_DT_CRETOP",
+        "POINT_DT_CRETOP",
+        "POINT_DT_REPORT",
+        "POINT_DT_KEDRATING"
+    FROM
+        tkecp_test;
+```	
 * 기업 기본 데이터
 * 재무 데이터 (추후 요청 예정)
 #### 2. ADW(OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
