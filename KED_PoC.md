@@ -200,7 +200,9 @@ CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
 #### 5.OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
+  * ![ked_tkecp_wf.png](img/ked_tkecp_wf.png) 
 * CRETOP→TCB 
+  * ![ked_tkect_wf.png](img/ked_tkect_wf.png) 
 #### 6. OAC : 평가 서비스 가입 대상 정보 시각화 
 * 담당 : 오리진 
 * 가입대상 기업 재무 정보 요청 (KEDCD)
