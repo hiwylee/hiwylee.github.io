@@ -11,15 +11,19 @@ dmuser/WelCome1234#_
 -->
 #### 1. 데이터 정합성 확인
 * ML 데이터
-   * DIFF_MM 의 값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
+   * DIFF_MM / PD_CD  값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
      * ![diff_mm.png](img/ked_diff_mm.png)  ![diff_mm.png](img/ked_pd_cd.png) 
      * IS_TRANSITED : DIFF_MM = 0 이면 IS_TRANSITED = 0 / DIFF_MM != 0 이면 IS_TRANSITED = 1
+   * Feature 로 사용못하는 컬럼.
+     * ![diff_mm.png](img/ked_in_out.png)
+  <!--
   * N/A 값 존재 컬럼
     * ENP_TYP :  법인(1), 개인(2)  => N/A 있음.
     * ENP_SZE :  N/A 있음. => 판단제외(08)
     * DIFF_MM : N/A 있음. => 0
     * CRETOP_HIT : N/A 있음. => 0
     * 이하 숫치 데이터에 NA
+-->
  * ``식별자&구분자 중복값 있음`` : KEDCD     ,BZNO     ,RPT_CCD     ,CU_ID     ,PR_POLC_CD    ,PD_CD
 ```sql
 SELECT COUNT(*) CNT 
