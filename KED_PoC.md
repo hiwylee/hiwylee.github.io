@@ -7,15 +7,15 @@
 * Oracle Data Miner 를 활용해야 하므로 OAS DB 사용 예정
 * 
 ### 3. OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
-* CRETOP→KCR
+* CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB
 ### OAC      : 모델 시각화 
-* CRETOP→KCR
+* CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
 ### OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
-* CRETOP→KCR
+* CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
 ### OAC : 평가 서비스 가입 대상 정보 시각화 
