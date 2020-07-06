@@ -34,155 +34,7 @@ dmuser/WelCome1234#_
    * Feature로 사용된 컬럼
      * ![ked_features.png](img/ked_features.png)
  * ``식별자&구분자 중복값 있음`` : KEDCD     ,BZNO     ,RPT_CCD     ,CU_ID     ,PR_POLC_CD    ,PD_CD
-```sql
-SELECT COUNT(*) CNT 
-FROM (
-  SELECT distinct 
-     KEDCD
-    ,BZNO
-    ,RPT_CCD
-    ,CU_ID
-    ,PR_POLC_CD
-    ,PD_CD
-  FROM   tkecp_TRAIN);        
 
-      CNT
-----------
-      8088
-
-  
-SELECT COUNT(*) 
-FROM   tkecp_TRAIN;    
-
-  COUNT(*)
-----------
-     13887
-
-```     
-* ``CASE ID`` :  ``ROWID``
-```sql
-DROP VIEW TKECP_TRAIN_V2;
-CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
-    SELECT 
-       ROWID  AS CASE_ID,
-        "KEDCD",
-        "BZNO",
-        "RPT_CCD",
-        "CU_ID",
-        "PR_POLC_CD",
-        "PD_CD",        
-        "IS_TRANSITED",
-        "IS_KEDRATING_VISITED",
-        "ENP_TYP",
-        "KSIC10_BZC_CD",
-        "ENP_SZE",
-        "LOC_ZIP",
---        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
---        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
-        "DIFF_MM",
-        "CRETOP_HIT",
-        "TXPL_UNI_CN_IN",
-        "TXPL_TCN_IN",
-        "TXPL_DTCN_IN",
-        "TXPL_RATIO_IN",
-        "TXPL_AM_IN",
-        "TXPL_AVG_IN",
-        "TXPL_SD_IN",
-        "TXPL_CV_IN",
-        "TXPL_HHI_IN",
-        "RPT_TCN_IN",
-        "TXPL_UNI_CN_OUT",
-        "TXPL_TCN_OUT",
-        "TXPL_DTCN_OUT",
-        "TXPL_RATIO_OUT",
-        "TXPL_AM_OUT",
-        "TXPL_AVG_OUT",
-        "TXPL_SD_OUT",
-        "TXPL_CV_OUT",
-        "TXPL_HHI_OUT",
-        "RPT_TCN_OUT",
-        "EWGRD_AVG_IN",
-        "EWGRD_SD_IN",
-        "EWGRD_CV_IN",
-        "EWGRD_MIN_IN",
-        "EWGRD_MAX_IN",
-        "EWGRD_AVG_OUT",
-        "EWGRD_SD_OUT",
-        "EWGRD_CV_OUT",
-        "EWGRD_MIN_OUT",
-        "EWGRD_MAX_OUT",
-        "CRETOP_CN_IN",
-        "CRETOP_CN_OUT",
-        "START_DT_CRETOP",
-        "POINT_DT_CRETOP",
-        "POINT_DT_REPORT",
-        "POINT_DT_KEDRATING"
-    FROM
-        tkecp_train;
- /*
-       DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM") AS DIFF_MM,
-       DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT") AS CRETOP_HIT,
-*/
-DROP VIEW TKECP_TEST_V2;
-CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
-    SELECT 
-        ROWID AS CASE_ID,
-        "KEDCD",
-        "BZNO",
-        "RPT_CCD",
-        "CU_ID",
-        "PR_POLC_CD",
-        "PD_CD",
-        "IS_TRANSITED",
-        "IS_KEDRATING_VISITED",
-        "ENP_TYP",
-        "KSIC10_BZC_CD",
-        "ENP_SZE",
-        "LOC_ZIP",
---        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
---        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
-        "DIFF_MM",
-        "CRETOP_HIT",
-        "TXPL_UNI_CN_IN",
-        "TXPL_TCN_IN",
-        "TXPL_DTCN_IN",
-        "TXPL_RATIO_IN",
-        "TXPL_AM_IN",
-        "TXPL_AVG_IN",
-        "TXPL_SD_IN",
-        "TXPL_CV_IN",
-        "TXPL_HHI_IN",
-        "RPT_TCN_IN",
-        "TXPL_UNI_CN_OUT",
-        "TXPL_TCN_OUT",
-        "TXPL_DTCN_OUT",
-        "TXPL_RATIO_OUT",
-        "TXPL_AM_OUT",
-        "TXPL_AVG_OUT",
-        "TXPL_SD_OUT",
-        "TXPL_CV_OUT",
-        "TXPL_HHI_OUT",
-        "RPT_TCN_OUT",
-        "EWGRD_AVG_IN",
-        "EWGRD_SD_IN",
-        "EWGRD_CV_IN",
-        "EWGRD_MIN_IN",
-        "EWGRD_MAX_IN",
-        "EWGRD_AVG_OUT",
-        "EWGRD_SD_OUT",
-        "EWGRD_CV_OUT",
-        "EWGRD_MIN_OUT",
-        "EWGRD_MAX_OUT",
-        "CRETOP_CN_IN",
-        "CRETOP_CN_OUT",
-        "START_DT_CRETOP",
-        "POINT_DT_CRETOP",
-        "POINT_DT_REPORT",
-        "POINT_DT_KEDRATING"
-    FROM
-        tkecp_test;
-                
-```	
 * 기업 기본 데이터
 * 재무 데이터 (추후 요청 예정)
 #### 2. ADW(OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
@@ -215,111 +67,170 @@ CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
 ---
 ## 확인 필요사항 
 #### 데이터 정합성 
+* ``OAC  Data Flow 에서 ML 만든 ML->Inspec -> 시각화 시 데이터 에러 발생``
 * ML용 데이터 
-   * ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
-   * ``key column 에 NA와 중복 값이 존재 (kedcd, bzcd)``
-   * ``중복된 row 가 다수 존재``
 
-### 트리 시각화 차트 Plugin 
+
+### 트리 시각화 차트 Plugin  : `` OAC ML 을 시각화 시키지 못할 경우 사용할 수 없음``
 * [Oracle Analytics Library](https://www.oracle.com/kr/business-analytics/data-visualization/extensions.html)
   * [Collapsible Tree plugin](https://blogs.oracle.com/analytics/drive-deeper-insight-with-an-oracle-data-visualization-plugin)
   * [Org-Chart Custom Viz Plugin](https://www.youtube.com/watch?v=vXuM3viOL4g&feature=youtu.be)
   * [Elbow Dendrogram]
   * [Value-Based Converter Plugin](https://www.youtube.com/watch?v=lZUWEbRJapY&feature=youtu.be)
 
-### 테스트 샘플 만들기
-* DIFF_MM : NA -> 0
-* 숫자 컬럼에 NA -> 0
-```sql
-create or replace view TKE001_TRAIN_V as select distinct * from TKE001_TRAIN where BZNO != 'NA';
-create or replace view TKE001_TEST_V as select distinct * from TKE001_TEST where BZNO != 'NA';
 ``` 
 ## 데이터
 * ML용 데이터 ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
 * data 정합성
-  * TKE001_TRAIN total rows : 87,296
+* ML 용  Train/Test 데이터 : TKECP_*/TKECT_* / TKECK_*
 ```sql
-select count(*) from TKE001_TRAIN;
-  COUNT(*)
-----------
-     87296
+SELECT COUNT(*) CNT 
+FROM (
+  SELECT distinct 
+     KEDCD
+    ,BZNO
+    ,RPT_CCD
+    ,CU_ID
+    ,PR_POLC_CD
+    ,PD_CD
+  FROM   tkecp_TRAIN);        
 
-```
-  * TKE001_TRAIN unique rows : 52,591
-```sql
-select count(*)
-from
-(
-   select distinct * from TKE001_TRAIN
-)  ;
-  COUNT(*)
+      CNT
 ----------
-     52591
-```
+      8088
 
-  * TKE001_TRAIN unique bzno rows : 9,351
-```sql
-select count(*)
-from
-(
-   select distinct bzno from TKE001_TRAIN
-)  ;
-  COUNT(*)
-----------
-      9351 
-```
-  * TKE001_TRAIN unique KEDCD rows : 8,836
-```sql
-select count(*)
-from
-(
-   select distinct KEDCD from TKE001_TRAIN
-)  ;
-  COUNT(*)
-----------
-      8836
-```
-  * TKE001_TEST total rows : 101,679
-```sql
-select count(*) from TKE001_TRAIN;
-  COUNT(*)
-----------
-     101679
+  
+SELECT COUNT(*) 
+FROM   tkecp_TRAIN;    
 
-```
-  * TKE001_TEST unique rows : 62,231
-```sql
-select count(*)
-from
-(
-   select distinct * from TKE001_TRAIN
-)  ;
   COUNT(*)
 ----------
-     62231
-```
+     13887
 
-  * TKE001_TEST unique bzno rows : 7,875
+```     
+* ``CASE ID`` :  ``ROWID``
 ```sql
-select count(*)
-from
-(
-   select distinct bzno from TKE001_TRAIN
-)  ;
-  COUNT(*)
-----------
-      7875 
-```
-  * TKE001_TEST unique KEDCD rows : 8,174
-```sql
-select count(*)
-from
-(
-   select distinct KEDCD from TKE001_TRAIN
-)  ;
-  COUNT(*)
-----------
-      8174
+DROP VIEW TKECP_TRAIN_V2;
+CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
+    SELECT 
+       ROWIDTOCHAR (ROWID)  AS CASE_ID,
+        "KEDCD",
+        "BZNO",
+        "RPT_CCD",
+        "CU_ID",
+        "PR_POLC_CD",
+        "PD_CD",        
+        "IS_TRANSITED",
+        "IS_KEDRATING_VISITED",
+        "ENP_TYP",
+        "KSIC10_BZC_CD",
+        "ENP_SZE",
+        "LOC_ZIP",
+--        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
+--        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
+        "DIFF_MM",
+        "CRETOP_HIT",
+/*	
+        "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
+        "TXPL_DTCN_IN",
+        "TXPL_RATIO_IN",
+        "TXPL_AM_IN",
+        "TXPL_AVG_IN",
+        "TXPL_SD_IN",
+        "TXPL_CV_IN",
+        "TXPL_HHI_IN",
+        "RPT_TCN_IN",
+        "TXPL_UNI_CN_OUT",
+        "TXPL_TCN_OUT",
+        "TXPL_DTCN_OUT",
+        "TXPL_RATIO_OUT",
+        "TXPL_AM_OUT",
+        "TXPL_AVG_OUT",
+        "TXPL_SD_OUT",
+        "TXPL_CV_OUT",
+        "TXPL_HHI_OUT",
+        "RPT_TCN_OUT",
+        "EWGRD_AVG_IN",
+        "EWGRD_SD_IN",
+        "EWGRD_CV_IN",
+        "EWGRD_MIN_IN",
+        "EWGRD_MAX_IN",
+        "EWGRD_AVG_OUT",
+        "EWGRD_SD_OUT",
+        "EWGRD_CV_OUT",
+        "EWGRD_MIN_OUT",
+        "EWGRD_MAX_OUT",
+        "CRETOP_CN_IN",
+        "CRETOP_CN_OUT",
+        "START_DT_CRETOP",
+        "POINT_DT_CRETOP",
+        "POINT_DT_REPORT",
+*/	
+        "POINT_DT_KEDRATING"
+    FROM
+        tkecp_train;
+
+DROP VIEW TKECP_TEST_V2;
+CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
+    SELECT 
+        ROWIDTOCHAR (ROWID)  AS CASE_ID,
+        "KEDCD",
+        "BZNO",
+        "RPT_CCD",
+        "CU_ID",
+        "PR_POLC_CD",
+        "PD_CD",
+        "IS_TRANSITED",
+        "IS_KEDRATING_VISITED",
+        "ENP_TYP",
+        "KSIC10_BZC_CD",
+        "ENP_SZE",
+        "LOC_ZIP",
+--        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
+--        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
+        "DIFF_MM",
+        "CRETOP_HIT",
+/*	
+        "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
+        "TXPL_DTCN_IN",
+        "TXPL_RATIO_IN",
+        "TXPL_AM_IN",
+        "TXPL_AVG_IN",
+        "TXPL_SD_IN",
+        "TXPL_CV_IN",
+        "TXPL_HHI_IN",
+        "RPT_TCN_IN",
+        "TXPL_UNI_CN_OUT",
+        "TXPL_TCN_OUT",
+        "TXPL_DTCN_OUT",
+        "TXPL_RATIO_OUT",
+        "TXPL_AM_OUT",
+        "TXPL_AVG_OUT",
+        "TXPL_SD_OUT",
+        "TXPL_CV_OUT",
+        "TXPL_HHI_OUT",
+        "RPT_TCN_OUT",
+        "EWGRD_AVG_IN",
+        "EWGRD_SD_IN",
+        "EWGRD_CV_IN",
+        "EWGRD_MIN_IN",
+        "EWGRD_MAX_IN",
+        "EWGRD_AVG_OUT",
+        "EWGRD_SD_OUT",
+        "EWGRD_CV_OUT",
+        "EWGRD_MIN_OUT",
+        "EWGRD_MAX_OUT",
+        "CRETOP_CN_IN",
+        "CRETOP_CN_OUT",
+        "START_DT_CRETOP",
+        "POINT_DT_CRETOP",
+        "POINT_DT_REPORT",
+*/	
+        "POINT_DT_KEDRATING"
+    FROM
+        tkecp_test;
 ```
 ### 중복키 제거
 ```sql
