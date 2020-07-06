@@ -33,7 +33,7 @@ FROM   tkecp_TRAIN;
      13887
 
 ```     
-* CASE ID :  "KEDCD" || ',' ||  "BZNO" }} ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" 
+* ``CASE ID`` :  ``ROWID``
 ```sql
 DROP VIEW TKECP_TRAIN_V2;
 CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
