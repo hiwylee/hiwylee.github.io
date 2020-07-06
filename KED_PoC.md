@@ -1,4 +1,12 @@
 ## To Do
+### KED PoC 내용
+* 데이터 정합성 확인
+* ADW (OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
+* OAC : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
+* OAC : 모델 시각화 
+* OAC : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
+* OAC : 평가 서비스 가입 대상 정보 시각화 
+* 기타 확인 사항
 <!--
 접속 URL :http://140.238.0.234:9502/dv
 http://140.238.0.234:9502/analytics
@@ -183,19 +191,19 @@ CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB
-#### OAC      : 모델 시각화 
+#### 4. OAC      : 모델 시각화 
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
-#### OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
+#### 5.OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
-#### OAC : 평가 서비스 가입 대상 정보 시각화 
+#### 6. OAC : 평가 서비스 가입 대상 정보 시각화 
 * 담당 : 오리진 
 * 가입대상 기업 재무 정보 요청 (KEDCD)
 * 대상 기업 시각화 : 소희 부장이 이전에 만든 것 참조하여 오리진에 요청
-#### 기타 확인 사항
+#### 7. 기타 확인 사항
 * 클라우드 SE Trials 신규 요청
 * 데이터 이관
 * 오라진 클라우드 계정 생성
