@@ -5,7 +5,7 @@
    * ``key column 에 NA와 중복 값이 존재 (kedcd, bzcd)``
    * ``중복된 row 가 다수 존재``
 
-### 트리 시각화 차트[Plugin](https://www.oracle.com/kr/business-analytics/data-visualization/extensions.html)
+### 트리 시각화 차트 Plugin [Oracle Analytics Library(https://www.oracle.com/kr/business-analytics/data-visualization/extensions.html)
 * [Collapsible Tree plugin](https://blogs.oracle.com/analytics/drive-deeper-insight-with-an-oracle-data-visualization-plugin)
 * [Org-Chart Custom Viz Plugin](https://www.youtube.com/watch?v=vXuM3viOL4g&feature=youtu.be)
 * [Elbow Dendrogram]
