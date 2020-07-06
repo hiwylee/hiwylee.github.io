@@ -1,7 +1,12 @@
 ## To Do
-### 데이터 정합성 확인
-### OLM4SQL : Attribute Impotance (Feature Selection )
-### OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
+### 1. 데이터 정합성 확인
+* ML 데이터
+* 기업 기본 데이터
+* 재무 데이터 (추후 요청 예정)
+### 2. ADW(OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
+* Oracle Data Miner 를 활용해야 하므로 OAS DB 사용 예정
+* 
+### 3. OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
 * CRETOP→KCR
 * CRETOP→PCR
 * CRETOP→TCB
