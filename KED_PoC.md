@@ -79,7 +79,6 @@ dmuser/WelCome1234#_
   * [Elbow Dendrogram]
   * [Value-Based Converter Plugin](https://www.youtube.com/watch?v=lZUWEbRJapY&feature=youtu.be)
 
-``` 
 ## 데이터
 * ML용 데이터 ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
 * data 정합성
@@ -110,6 +109,7 @@ FROM   tkecp_TRAIN;
 
 ```     
 * ``CASE ID`` :  ``ROWID``
+
 ```sql
 DROP VIEW TKECP_TRAIN_V2;
 CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
