@@ -192,6 +192,7 @@ CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
 * CRETOP→PCR
   * ![ked_tkecp_clas_dt_5_1.png](img/ked_tkecp_clas_dt_5_1.png) 
 * CRETOP→TCB
+  * * ![ked_tkect_clas_dt_1_3.png](img/ked_tkect_clas_dt_1_3.png) 
 #### 4. OAC      : 모델 시각화 
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
