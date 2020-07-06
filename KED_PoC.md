@@ -190,6 +190,7 @@ CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
 #### 3. OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
+  * ![ked_tkecp_clas_dt_5_1.png](img/ked_tkecp_clas_dt_5_1.png) 
 * CRETOP→TCB
 #### 4. OAC      : 모델 시각화 
 * CRETOP→KCR (고객이 R로 수행)
