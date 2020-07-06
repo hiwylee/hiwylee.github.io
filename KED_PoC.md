@@ -1,34 +1,33 @@
 ## To Do
-### 1. 데이터 정합성 확인
+#### 1. 데이터 정합성 확인
 * ML 데이터
 * 기업 기본 데이터
 * 재무 데이터 (추후 요청 예정)
-### 2. ADW(OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
+#### 2. ADW(OLM4SQL) or OAS DB : Attribute Impotance (Feature Selection )
 * Oracle Data Miner 를 활용해야 하므로 OAS DB 사용 예정
-### 3. OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
+#### 3. OAC      : 머신러닝 모델  : 조회 서비스 가입자-> 평가 서비스 가입 가능성 모델
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB
-### OAC      : 모델 시각화 
+#### OAC      : 모델 시각화 
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
-### OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
+#### OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
 * CRETOP→TCB 
-### OAC : 평가 서비스 가입 대상 정보 시각화 
+#### OAC : 평가 서비스 가입 대상 정보 시각화 
 * 담당 : 오리진 
 * 가입대상 기업 재무 정보 요청 (KEDCD)
 * 대상 기업 시각화 : 소희 부장이 이전에 만든 것 참조하여 오리진에 요청
-### 기타 확인 사항
+#### 기타 확인 사항
 * 클라우드 SE Trials 신규 요청
 * 데이터 이관
 * 오라진 클라우드 계정 생성
 * 오리진 데이터 / 시각화 범위 설명
-## 확인 필요사항 
 ---
-
+## 확인 필요사항 
 #### 데이터 정합성 
 * ML용 데이터 
    * ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
