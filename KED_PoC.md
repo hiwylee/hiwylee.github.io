@@ -4,11 +4,13 @@
    * ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
    * ``key column 에 NA와 중복 값이 존재 (kedcd, bzcd)``
    * ``중복된 row 가 다수 존재``
- ### 트리 시각화 차트[Plugin](https://www.oracle.com/kr/business-analytics/data-visualization/extensions.html)
+
+### 트리 시각화 차트[Plugin](https://www.oracle.com/kr/business-analytics/data-visualization/extensions.html)
 * [Collapsible Tree plugin](https://blogs.oracle.com/analytics/drive-deeper-insight-with-an-oracle-data-visualization-plugin)
-* [Oracle DV - Flatten Value-Based Hierarchies by leveraging the Value-Based Converter Plugin](https://www.youtube.com/watch?v=lZUWEbRJapY&feature=youtu.be)
-* [Using The OAC Org-Chart Custom Viz Plugin](https://www.youtube.com/watch?v=vXuM3viOL4g&feature=youtu.be)
-* [Elbow” Dendrogram]
+* [Org-Chart Custom Viz Plugin](https://www.youtube.com/watch?v=vXuM3viOL4g&feature=youtu.be)
+* [Elbow Dendrogram]
+* [Value-Based Converter Plugin](https://www.youtube.com/watch?v=lZUWEbRJapY&feature=youtu.be)
+
 ### 테스트 샘플 만들기
 * DIFF_MM : NA -> 0
 * 숫자 컬럼에 NA -> 0
