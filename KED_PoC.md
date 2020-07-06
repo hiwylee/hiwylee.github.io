@@ -11,6 +11,9 @@ dmuser/WelCome1234#_
 -->
 #### 1. 데이터 정합성 확인
 * ML 데이터
+   * DIFF_MM 의 값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
+     [](img/ked_diff_mm.png) 
+   * IS_TRANSITED : DIFF_MM = 0 이면 IS_TRANSITED = 0 / DIFF_MM != 0 이면 IS_TRANSITED = 1
   * N/A 값 존재 컬럼
     * ENP_TYP :  법인(1), 개인(2)  => N/A 있음.
     * ENP_SZE :  N/A 있음. => 판단제외(08)
