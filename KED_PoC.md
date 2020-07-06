@@ -7,16 +7,16 @@ http://140.238.0.234:9502/analytics
 140.238.17.22:1521/pdb1.sub12180113580.svcn.oraclevcn.com
 6:38 PM
 dmuser/WelCome1234#_
+--!>
 
--->
 #### 1. 데이터 정합성 확인
 * ML 데이터
    * DIFF_MM / PD_CD  값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
      * ![diff_mm.png](img/ked_diff_mm.png)  ![diff_mm.png](img/ked_pd_cd.png) 
      * IS_TRANSITED : DIFF_MM = 0 이면 IS_TRANSITED = 0 / DIFF_MM != 0 이면 IS_TRANSITED = 1
-   * Feature 로 사용못하는 컬럼.
+   * Feature 로 사용못하는 컬럼.(NA 가 너무 많음)
      * ![diff_mm.png](img/ked_in_out.png)
-  <!--
+<!--
   * N/A 값 존재 컬럼
     * ENP_TYP :  법인(1), 개인(2)  => N/A 있음.
     * ENP_SZE :  N/A 있음. => 판단제외(08)
