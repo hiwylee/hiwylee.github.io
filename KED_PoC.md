@@ -48,13 +48,14 @@ dmuser/WelCome1234#_
 #### 4. OAC      : 모델 시각화 
 * CRETOP→KCR (고객이 R로 수행)
 * CRETOP→PCR
-* CRETOP→TCB 
-#### 5.OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
-* CRETOP→KCR (고객이 R로 수행)
-* CRETOP→PCR
   * ![ked_tkecp_wf.png](img/ked_tkecp_wf.png) 
 * CRETOP→TCB 
   * ![ked_tkect_wf.png](img/ked_tkect_wf.png) 
+#### 5.OAC      : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
+* Input Data : <b>``테스트 데이터에서 평가 서비스에 가입하지 않은 고객을 대상으로 적용``</b>
+* CRETOP→KCR (고객이 R로 수행)
+* CRETOP→PCR
+* CRETOP→TCB  
 #### 6. OAC : 평가 서비스 가입 대상 정보 시각화 
 * 담당 : 오리진 
 * 가입대상 기업 재무 정보 요청 (KEDCD)
