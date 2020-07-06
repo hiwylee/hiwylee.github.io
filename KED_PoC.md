@@ -12,7 +12,7 @@ dmuser/WelCome1234#_
 #### 1. 데이터 정합성 확인
 * ML 데이터
    * DIFF_MM / PD_CD  값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
-     * ![diff_mm.png](img/ked_diff_mm.png)  ![diff_mm.png](img/ked_pd_cd.png) 
+     * ![diff_mm.png](img/ked_no_features.png)  
      * IS_TRANSITED : DIFF_MM = 0 이면 IS_TRANSITED = 0 / DIFF_MM != 0 이면 IS_TRANSITED = 1
    * Feature 로 사용못하는 컬럼.(NA 가 너무 많음)
      * ![diff_mm.png](img/ked_in_out.png)
