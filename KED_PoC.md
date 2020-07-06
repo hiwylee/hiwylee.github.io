@@ -7,16 +7,38 @@
     * DIFF_MM : N/A 있음. => 0
     * CRETOP_HIT : N/A 있음. => 0
     * 이하 숫치 데이터에 NA
+ * ``식별자&구분자 중복값 있음`` : KEDCD     ,BZNO     ,RPT_CCD     ,CU_ID     ,PR_POLC_CD    ,PD_CD
+```sql
+SELECT COUNT(*) CNT 
+FROM (
+  SELECT distinct 
+     KEDCD
+    ,BZNO
+    ,RPT_CCD
+    ,CU_ID
+    ,PR_POLC_CD
+    ,PD_CD
+  FROM   tkecp_TRAIN);        
+
+      CNT
+----------
+      8088
+
+  
+SELECT COUNT(*) 
+FROM   tkecp_TRAIN;    
+
+  COUNT(*)
+----------
+     13887
+
+```     
 * CASE ID :  "KEDCD" || ',' ||  "BZNO" }} ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" 
 ```sql
-
-/*
-       DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM") AS DIFF_MM,
-       DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT") AS CRETOP_HIT,
-*/
-CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
+DROP VIEW TKECP_TRAIN_V2;
+CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
     SELECT 
-       "KEDCD" || ',' ||  "BZNO" || ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" AS CASE_ID,
+       ROWID  AS CASE_ID,
         "KEDCD",
         "BZNO",
         "RPT_CCD",
@@ -34,6 +56,7 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
         "DIFF_MM",
         "CRETOP_HIT",
         "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
         "TXPL_DTCN_IN",
         "TXPL_RATIO_IN",
         "TXPL_AM_IN",
@@ -74,9 +97,10 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM") AS DIFF_MM,
        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT") AS CRETOP_HIT,
 */
-CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
+DROP VIEW TKECP_TEST_V2;
+CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
     SELECT 
-       "KEDCD" || ',' ||  "BZNO" || ',' ||    "RPT_CCD" || ',' ||    "CU_ID" || ',' ||   "PR_POLC_CD" || ',' ||    "PD_CD" AS CASE_ID,
+        ROWID AS CASE_ID,
         "KEDCD",
         "BZNO",
         "RPT_CCD",
@@ -94,6 +118,7 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
         "DIFF_MM",
         "CRETOP_HIT",
         "TXPL_UNI_CN_IN",
+        "TXPL_TCN_IN",
         "TXPL_DTCN_IN",
         "TXPL_RATIO_IN",
         "TXPL_AM_IN",
@@ -130,7 +155,7 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW "DMUSER"."TKECP_TEST_V2"  AS
         "POINT_DT_KEDRATING"
     FROM
         tkecp_test;
-               
+                
 ```	
 * 기업 기본 데이터
 * 재무 데이터 (추후 요청 예정)
