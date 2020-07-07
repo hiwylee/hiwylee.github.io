@@ -80,8 +80,7 @@ dmuser/WelCome1234#_
   * [Value-Based Converter Plugin](https://www.youtube.com/watch?v=lZUWEbRJapY&feature=youtu.be)
 
 ## 데이터
-* ML용 데이터 ``설명에는 컬럼이 47개 실제 데이터 컬럼은 49개 ``
-* data 정합성
+* ML용 데이터 Data 정합성
 * ML 용  Train/Test 데이터 : TKECP_*/TKECT_* / TKECK_*
 ```sql
 SELECT COUNT(*) CNT 
