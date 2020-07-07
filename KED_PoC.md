@@ -15,6 +15,12 @@ http://140.238.0.234:9502/analytics
 6:38 PM
 dmuser/WelCome1234#_
 -->
+#### 0. 유의미한 목표 변수
+* ENP_TYP
+* KSIC10_BZC_CD  <=  첫문자만
+* ENP_SZE
+* LOC_ZIP
+* CRETOP_HIT
 
 #### 1. 데이터 정합성 확인
 * ML 데이터
