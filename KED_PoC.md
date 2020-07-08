@@ -109,127 +109,56 @@ FROM   tkecp_TRAIN;
 * ``CASE ID`` :  ``ROWID``
 
 ```sql
-DROP VIEW TKECP_TRAIN_V2;
-CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TRAIN_V2"  AS
-    SELECT 
-       ROWIDTOCHAR (ROWID)  AS CASE_ID,
-        "KEDCD",
-        "BZNO",
-        "RPT_CCD",
-        "CU_ID",
-        "PR_POLC_CD",
-        "PD_CD",        
-        "IS_TRANSITED",
-        "IS_KEDRATING_VISITED",
-        "ENP_TYP",
-        "KSIC10_BZC_CD",
-        "ENP_SZE",
-        "LOC_ZIP",
---        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
---        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
-        "DIFF_MM",
-        "CRETOP_HIT",
-/*	
-        "TXPL_UNI_CN_IN",
-        "TXPL_TCN_IN",
-        "TXPL_DTCN_IN",
-        "TXPL_RATIO_IN",
-        "TXPL_AM_IN",
-        "TXPL_AVG_IN",
-        "TXPL_SD_IN",
-        "TXPL_CV_IN",
-        "TXPL_HHI_IN",
-        "RPT_TCN_IN",
-        "TXPL_UNI_CN_OUT",
-        "TXPL_TCN_OUT",
-        "TXPL_DTCN_OUT",
-        "TXPL_RATIO_OUT",
-        "TXPL_AM_OUT",
-        "TXPL_AVG_OUT",
-        "TXPL_SD_OUT",
-        "TXPL_CV_OUT",
-        "TXPL_HHI_OUT",
-        "RPT_TCN_OUT",
-        "EWGRD_AVG_IN",
-        "EWGRD_SD_IN",
-        "EWGRD_CV_IN",
-        "EWGRD_MIN_IN",
-        "EWGRD_MAX_IN",
-        "EWGRD_AVG_OUT",
-        "EWGRD_SD_OUT",
-        "EWGRD_CV_OUT",
-        "EWGRD_MIN_OUT",
-        "EWGRD_MAX_OUT",
-        "CRETOP_CN_IN",
-        "CRETOP_CN_OUT",
-        "START_DT_CRETOP",
-        "POINT_DT_CRETOP",
-        "POINT_DT_REPORT",
-*/	
-        "POINT_DT_KEDRATING"
-    FROM
-        tkecp_train;
+/*
+*  중복제거한 유의미한 뷰 : TKECT_TRAIN_DEDUP_V
+*
+*
+*/
+/* 
+ 머신리닝 : 유믜미한 변수만으로 뷰를 생성
+*/
 
-DROP VIEW TKECP_TEST_V2;
-CREATE OR REPLACE   VIEW "DMUSER"."TKECP_TEST_V2"  AS
+-- 1) TKECT_TRAIN_V : 유의미한 변수를 모아둔 뷰
+DROP TABLE TKECT_TRAIN__DEDUP_V;
+CREATE   TABLE "TKECT_TRAIN__DEDUP_V"  AS
     SELECT 
-        ROWIDTOCHAR (ROWID)  AS CASE_ID,
+        DISTINCT 
         "KEDCD",
-        "BZNO",
-        "RPT_CCD",
-        "CU_ID",
-        "PR_POLC_CD",
-        "PD_CD",
         "IS_TRANSITED",
-        "IS_KEDRATING_VISITED",
+        -- "IS_KEDRATING_VISITED",
         "ENP_TYP",
-        "KSIC10_BZC_CD",
+        -- "KSIC10_BZC_CD",
+        DECODE ("KSIC10_BZC_CD",'NA','0',substr("KSIC10_BZC_CD",1,1)) AS "KSIC10_F",    
         "ENP_SZE",
         "LOC_ZIP",
---        DECODE ("DIFF_MM",'NA',0,to_number("DIFF_MM")) AS "DIFF_MM",
---        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT",
-        "DIFF_MM",
-        "CRETOP_HIT",
-/*	
-        "TXPL_UNI_CN_IN",
-        "TXPL_TCN_IN",
-        "TXPL_DTCN_IN",
-        "TXPL_RATIO_IN",
-        "TXPL_AM_IN",
-        "TXPL_AVG_IN",
-        "TXPL_SD_IN",
-        "TXPL_CV_IN",
-        "TXPL_HHI_IN",
-        "RPT_TCN_IN",
-        "TXPL_UNI_CN_OUT",
-        "TXPL_TCN_OUT",
-        "TXPL_DTCN_OUT",
-        "TXPL_RATIO_OUT",
-        "TXPL_AM_OUT",
-        "TXPL_AVG_OUT",
-        "TXPL_SD_OUT",
-        "TXPL_CV_OUT",
-        "TXPL_HHI_OUT",
-        "RPT_TCN_OUT",
-        "EWGRD_AVG_IN",
-        "EWGRD_SD_IN",
-        "EWGRD_CV_IN",
-        "EWGRD_MIN_IN",
-        "EWGRD_MAX_IN",
-        "EWGRD_AVG_OUT",
-        "EWGRD_SD_OUT",
-        "EWGRD_CV_OUT",
-        "EWGRD_MIN_OUT",
-        "EWGRD_MAX_OUT",
-        "CRETOP_CN_IN",
-        "CRETOP_CN_OUT",
-        "START_DT_CRETOP",
-        "POINT_DT_CRETOP",
-        "POINT_DT_REPORT",
-*/	
-        "POINT_DT_KEDRATING"
+        DECODE ("CRETOP_HIT",'NA',0,to_number("CRETOP_HIT")) AS "CRETOP_HIT"
     FROM
-        tkecp_test;
+        tkecT_train
+   WHERE 1=1;
+
+
+---
+/* 
+  TKE001 (기업 기본 정보) 와 TKECT_TRAIN 를 조인해 유의미한 변수를 추출하기 위한 뷰(테이블임)
+*/
+       
+DROP TABLE TKE001_TRAIN_DEDUP_T ;       
+CREATE TABLE TKE001_TRAIN_DEDUP_T AS
+SELECT ROWIDTOCHAR (v.ROWID)  AS CASE_ID,
+       v.IS_TRANSITED,
+       -- v.ENP_TYP,
+       v.KSIC10_F, -- KSIC10_BZC_CD의 첫글자
+       --v.ENP_SZE,
+       v.LOC_ZIP,
+       v.CRETOP_HIT,
+       t.*
+  FROM TKECT_TRAIN__DEDUP_V v, TKE001 t
+ WHERE 1=1
+   AND v.KEDCD = t.KEDCD;
+   
+   
+SELECT COUNT(*) FROM    TKECT_TRAIN__DEDUP_V;   -- 5829
+SELECT COUNT(*) FROM    TKE001_TRAIN_DEDUP_T;   -- 5829
 ```
 
 ## Data Loading 스크립트
