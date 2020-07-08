@@ -403,3 +403,21 @@ RECORD
    6412183
    
 ```
+
+### Data Miner Temp (ODMR$...)  Table Drop
+* Procedure
+```sql
+set SERVEROUTPUT ON
+CREATE OR REPLACE TYPE DROP_STATEMENTS IS TABLE OF VARCHAR2(228);
+DECLARE
+  v_sql VARCHAR2(128);
+  v_tables DROP_STATEMENTS;
+BEGIN
+  v_sql := 'select ''drop table '' || table_name from user_tables where table_name like ''ODMR$%'' ';
+  EXECUTE IMMEDIATE v_sql BULK COLLECT INTO v_tables;
+  FOR j in 1..v_tables.COUNT LOOP
+  DBMS_OUTPUT.PUT_LINE( v_tables(j) );
+    execute immediate v_tables(j);
+  END LOOP;
+END;
+```
