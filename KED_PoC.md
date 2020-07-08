@@ -293,6 +293,15 @@ Version 19.5.0.0.0
 ```
 * sqldeveloper
 ```sql
+DBMS_CLOUD.DROP_CREDENTIAL(credential_name => 'POC_CRED');
+begin
+    DBMS_CLOUD.CREATE_CREDENTIAL(
+        credential_name => 'POC_CRED',
+        username        => 'oracleidentitycloudservice/wonyong.lee@oracle.com',
+        password        => '<ST.WS2_TkT4{1J[BOH]'
+  );
+end;
+
 DROP TABLE TKE001;
 CREATE TABLE TKE001 (
 	KEDCD VARCHAR2(10),   --  NOT NULL,
