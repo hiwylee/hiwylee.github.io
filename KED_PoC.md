@@ -7,14 +7,7 @@
 * OAC : 모델적용 - 평가 서비스 가입 대상 고객 추출  (KEDCD)
 * OAC : 평가 서비스 가입 대상 정보 시각화 
 * 기타 확인 사항
-<!--
-접속 URL :http://140.238.0.234:9502/dv
-http://140.238.0.234:9502/analytics
-아이디 : wonyoung, haje ==> OdpCA123
-140.238.17.22:1521/pdb1.sub12180113580.svcn.oraclevcn.com
-6:38 PM
-dmuser/WelCome1234#_
--->
+
 #### 0. 유의미한 목표 변수
 * ENP_TYP
 * KSIC10_BZC_CD  <=  첫문자만
