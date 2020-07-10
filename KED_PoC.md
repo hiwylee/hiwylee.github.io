@@ -14,6 +14,7 @@
 * ENP_SZE
 * LOC_ZIP
 * CRETOP_HIT
+* IS_KEDRATING_VISITED
 
 #### 1. 데이터 정합성 확인
 * ML 데이터
