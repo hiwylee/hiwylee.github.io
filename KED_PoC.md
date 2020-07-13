@@ -19,9 +19,9 @@ BEGIN
     V_setlst('PREP_AUTO')        := 'ON';
 
     DBMS_DATA_MINING.CREATE_MODEL2(
-        MODEL_NAME        => 'TKECT_EXPLAIN',
+        MODEL_NAME        => 'TKECP_EXPLAIN_OUTPUT',
         MINING_FUNCTION   => 'ATTRIBUTE_IMPORTANCE',
-        DATA_QUERY        => 'select * from TKECT_TRAIN_2020_JT ',
+        DATA_QUERY        => 'select * from TKECP_TRAIN_2020_JT ',
         SET_LIST          => v_setlst,
         CASE_ID_COLUMN_NAME => 'CASE_ID',
         TARGET_COLUMN_NAME  => 'IS_TRANSITED');
@@ -31,31 +31,35 @@ END;
 ```sql
 col attribute_name format a20
 SELECT attribute_name, attribute_rank, round(attribute_importance_value,2) attribute_importance_value  
-  FROM DM$VATKECT_EXPLAIN 
+  FROM DM$VATKECP_EXPLAIN_OUTPUT 
  WHERE attribute_importance_value > 0;
 
 ATTRIBUTE_NAME       ATTRIBUTE_RANK ATTRIBUTE_IMPORTANCE_VALUE
 -------------------- -------------- --------------------------
-CRETOP_HIT                        1                        .17
-KSIC10_F                          2                        .14
-BZC_CD                            3                        .09
-KSIC9_BZC_CD                      4                        .07
-KSIC10_BZC_CD                     5                        .07
-IPO_CD                            6                        .06
-ENP_FCD                           7                        .03
-CEMNO                             8                        .02
-ENP_SZE                           9                        .02
+IS_KEDRATING_VISITED              1                        .39
+KSIC10_F                          2                         .1
+KSIC10_BZC_CD                     3                        .09
+BZC_CD                            4                        .09
+KSIC9_BZC_CD                      5                        .09
+CEMNO                             6                        .09
+CRETOP_HIT                        7                        .04
+ENP_FCD                           8                        .04
+IPO_CD                            9                          0
 
 9개 행이 선택되었습니다. 
 ```
+* 데이터 분포 확인 - 불필요 / 중복 컬럼 제거
+  * KSIC10_BZC_CD
+  * KSIC9_BZC_CD
+  * 
 ##### 유의미한 목표 변수
-* ENP_TYP
-* KSIC10_BZC_CD  <=  첫문자만
+<!-- * ENP_TYP
+* KSIC10_F  <=  첫문자만
 * ENP_SZE
 * LOC_ZIP
 * CRETOP_HIT
 * IS_KEDRATING_VISITED
-
+-->
 #### 1. 데이터 정합성 확인
 * ML 데이터
   * DIFF_MM / PD_CD  값이 0 유무에 따라 IS_TRANSITED 이 결정됨.
