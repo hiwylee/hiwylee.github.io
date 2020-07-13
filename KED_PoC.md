@@ -44,14 +44,14 @@ KSIC9_BZC_CD                      5                        .09
 CEMNO                             6                        .09
 CRETOP_HIT                        7                        .04
 ENP_FCD                           8                        .04
-IPO_CD                            9                          0
 
 9개 행이 선택되었습니다. 
 ```
 * 데이터 분포 확인 - 불필요 / 중복 컬럼 제거
   * KSIC10_BZC_CD
   * KSIC9_BZC_CD
-  * 
+  * CEMNO
+  * ...
 ##### 유의미한 목표 변수
 <!-- * ENP_TYP
 * KSIC10_F  <=  첫문자만
