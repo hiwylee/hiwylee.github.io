@@ -9,6 +9,46 @@
 * 기타 확인 사항
 
 #### 0. 유의미한 목표 변수
+##### 목표 변수 추출
+* OML4SQL
+```sql
+DECLARE
+    v_setlst DBMS_DATA_MINING.SETTING_LIST;
+BEGIN
+    v_setlst('ALGO_NAME')        := 'ALGO_AI_MDL';
+    V_setlst('PREP_AUTO')        := 'ON';
+
+    DBMS_DATA_MINING.CREATE_MODEL2(
+        MODEL_NAME        => 'TKECT_EXPLAIN',
+        MINING_FUNCTION   => 'ATTRIBUTE_IMPORTANCE',
+        DATA_QUERY        => 'select * from TKECT_TRAIN_2020_JT ',
+        SET_LIST          => v_setlst,
+        CASE_ID_COLUMN_NAME => 'CASE_ID',
+        TARGET_COLUMN_NAME  => 'IS_TRANSITED');
+END;
+```
+* 목표 변수 
+```sql
+col attribute_name format a20
+SELECT attribute_name, attribute_rank, round(attribute_importance_value,2) attribute_importance_value  
+  FROM DM$VATKECT_EXPLAIN 
+ WHERE attribute_importance_value > 0;
+
+ATTRIBUTE_NAME       ATTRIBUTE_RANK ATTRIBUTE_IMPORTANCE_VALUE
+-------------------- -------------- --------------------------
+CRETOP_HIT                        1                        .17
+KSIC10_F                          2                        .14
+BZC_CD                            3                        .09
+KSIC9_BZC_CD                      4                        .07
+KSIC10_BZC_CD                     5                        .07
+IPO_CD                            6                        .06
+ENP_FCD                           7                        .03
+CEMNO                             8                        .02
+ENP_SZE                           9                        .02
+
+9개 행이 선택되었습니다. 
+```
+##### 유의미한 목표 변수
 * ENP_TYP
 * KSIC10_BZC_CD  <=  첫문자만
 * ENP_SZE
