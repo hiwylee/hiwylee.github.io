@@ -3,8 +3,11 @@
  * [Oracle Machine Learning](https://www.oracle.com/database/technologies/datawarehouse-bigdata/machine-learning.html)
  * [Oracle Machine Learning for SQL](https://www.oracle.com/database/technologies/datawarehouse-bigdata/oml4sql.html)
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
- 
-## Oracle Data Mining (19c) 문서 
+###
+ * [Oracle's Machine Learning:   Newest Features, Use Cases and Road Map](https://www.oracle.com/technetwork/database/options/advanced-analytics/oaaomloverviewnewfeaturesroadmap-5462726.pdf)
+ * [``A Simple Guide to Oracle’s Machine Learning and Advanced Analytics``](https://blogs.oracle.com/machinelearning/a-simple-guide-to-oracle%e2%80%99s-machine-learning-and-advanced-analytics)
+ * [Oracle Data Mining  12c](https://www.oracle.com/database/technologies/advanced-analytics/odm.html)
+### Oracle Data Mining (19c) 문서 
  * [Oracle Advanced Analytics in the Data Warehousing section](https://docs.oracle.com/en/database/oracle/oracle-database/19/data-warehousing.html)
    * Oracle Machine Learning for SQL API Guide :  [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/oracle-machine-learning-sql-api-guide.pdf)
    * Oracle Machine Learning for SQL Concepts : [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/oracle-machine-learning-sql-concepts.pdf)
