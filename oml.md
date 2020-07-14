@@ -6,9 +6,9 @@
  
 ## Oracle Data Mining (19c) 문서 
  * [Oracle Advanced Analytics in the Data Warehousing section](https://docs.oracle.com/en/database/oracle/oracle-database/19/data-warehousing.html)
-   * Oracle Machine Learning for SQL API Guide:  [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/oracle-machine-learning-sql-api-guide.pdf)
-   * Oracle Machine Learning for SQL Concepts [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/oracle-machine-learning-sql-concepts.pdf)
-   * Oracle Machine Learning for SQL User's Guide [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/oracle-machine-learning-sql-users-guide.pdf)
+   * Oracle Machine Learning for SQL API Guide :  [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/oracle-machine-learning-sql-api-guide.pdf)
+   * Oracle Machine Learning for SQL Concepts : [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/oracle-machine-learning-sql-concepts.pdf)
+   * Oracle Machine Learning for SQL User's Guide : [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/oracle-machine-learning-sql-users-guide.pdf)
  * [Get Started with Oracle Data Miner User Interface](Get Started with Oracle Data Miner User Interface)
  * [User's Guide]https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/data-mining-SQL.html)
    * [Highlights of the Data Mining API](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/data-mining-API-highlights.html#GUID-7D00AFBD-EDED-418C-81FB-576A83CA9536)
