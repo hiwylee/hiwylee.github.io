@@ -13,7 +13,37 @@
 * Building Model : https://docs.oracle.com/cd/B28359_01/datamine.111/b28131/models_building.htm#BCGFAJIB
 * Feature Extraction : https://docs.oracle.com/cd/B28359_01/datamine.111/b28131/models_deploying.htm#BABHCGHH
 * [dbms_data_mining and dbms_data_mining _transform Tips](http://www.dba-oracle.com/t_packages_dbms_data_mining_transform.htm)
+### [Controlling Access to Mining Models and Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/controlling-access-mining-models-data.html#GUID-FC029CBC-788B-41C8-A386-B34200C88885)
+* Creating a Data Mining User
+```SQL
+-Creating a Database User 
+CREATE USER dmuser IDENTIFIED BY password
+       DEFAULT TABLESPACE USERS
+       TEMPORARY TABLESPACE TEMP
+       QUOTA UNLIMITED ON USERS;
+Commit;
+- Privileges Required for Data Mining
+GRANT CREATE MINING MODEL TO dmuser;
+GRANT CREATE SESSION TO dmuser;
+GRANT CREATE TABLE TO dmuser;
+GRANT CREATE VIEW TO dmuser;
+GRANT EXECUTE ON CTXSYS.CTX_DDL TO dmuser;
 
+GRANT SELECT ON sh.customers TO dmuser;
+
+```
+###
+* [Exporting and Importing Mining Models](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/exporting-importing-mining-models.html#GUID-0A1878F3-36A7-47EB-B555-BD0FDA66BC23)
+* [Database Tuning Considerations for Data Mining](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/installing-configuring-db-data-mining.html#GUID-0CBD0CE0-4F16-4DD9-A0F0-BE1AB57DCE28)
+  * Understand the Database tuning considerations for Data Mining.
+
+DBAs managing production databases that support Oracle Data Mining must follow standard administrative practices as described in Oracle Database Administrator’s Guide.
+
+Building data mining models and batch scoring of mining models tend to put a DSS-like workload on the system. Single-row scoring tends to put an OLTP-like workload on the system.
+
+Database memory management can have a major impact on data mining. The correct sizing of Program Global Area (PGA) memory is very important for model building, complex queries, and batch scoring. From a data mining perspective, the System Global Area (SGA) is generally less of a concern. However, the SGA must be sized to accommodate real-time scoring, which loads models into the shared cursor in the SGA. In most cases, you can configure the database to manage memory automatically. To do so, specify the total maximum memory size in the tuning parameter MEMORY_TARGET. With automatic memory management, Oracle Database dynamically exchanges memory between the SGA and the instance PGA as needed to meet processing demands.
+
+Most data mining algorithms can take advantage of parallel execution when it is enabled in the database. Parameters in INIT.ORA control the behavior of parallel execution.
 ### Samples
 * Data Mining Sample Programs
 ```bash
