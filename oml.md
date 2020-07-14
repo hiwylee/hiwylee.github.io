@@ -62,6 +62,6 @@ SH.SUPPLEMENTARY_DEMOGRAPHICS
 SH.COUNTRIES 
 ```
 * The Data Mining Sample Data
-|||
 |View Name	|Description|
+|:---|:---|
 |MINING_DATA     |      Joins and filters data|
