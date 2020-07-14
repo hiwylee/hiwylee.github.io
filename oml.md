@@ -3,6 +3,19 @@
  * [Oracle Machine Learning](https://www.oracle.com/database/technologies/datawarehouse-bigdata/machine-learning.html)
  * [Oracle Machine Learning for SQL](https://www.oracle.com/database/technologies/datawarehouse-bigdata/oml4sql.html)
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
+ 
+## Oracle Data Mining (19c) 문서 
+ * [Oracle Advanced Analytics in the Data Warehousing section](https://docs.oracle.com/en/database/oracle/oracle-database/19/data-warehousing.html)
+   * Oracle Machine Learning for SQL API Guide:  [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmapi/oracle-machine-learning-sql-api-guide.pdf)
+   * Oracle Machine Learning for SQL Concepts [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmcon/oracle-machine-learning-sql-concepts.pdf)
+   * Oracle Machine Learning for SQL User's Guide [HTML](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/index.html) / [PDF](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/oracle-machine-learning-sql-users-guide.pdf)
+ * [Get Started with Oracle Data Miner User Interface](Get Started with Oracle Data Miner User Interface)
+ * [User's Guide]https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/data-mining-SQL.html)
+   * [Highlights of the Data Mining API](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/data-mining-API-highlights.html#GUID-7D00AFBD-EDED-418C-81FB-576A83CA9536)
+   * [Example: Targeting Likely Candidates for a Sales Promotion](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-targeting-candidates-sales-promotion.html#GUID-022BC694-E8B9-4686-A6E5-583C06B04E57)
+   * [Example: Analyzing Preferred Customers](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-analyzing-preferred-customers.html#GUID-9E0276FD-40E0-4053-9CA6-1FC51397BEEE)
+   * [Example: Segmenting Customer Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-segmenting-customer-data.html#GUID-AF8605CF-286F-4979-B0EC-A61189D17887)
+   * [Example : Building an ESA Model with a Wiki Dataset](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-building-ESA-model-wiki.html#GUID-1F7836F8-E053-4426-BFDD-7DC8064ACA2D)
 ### OBE (Miner)
 * Using Logistic Regression Models (GLM) to Predict Customer Affinity
   - https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/12c/r1/dm/dm_41/ODM12c-17-2_FeaSelGen.html  
