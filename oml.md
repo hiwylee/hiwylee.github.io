@@ -66,3 +66,10 @@ SH.COUNTRIES
 |View Name	|Description|
 |:---|:---|
 |MINING_DATA     |      Joins and filters data|
+|MINING_DATA_BUILD_V | Data for building models|
+|MINING_DATA_TEST_V | Data for testing models|
+|MINING_DATA_APPLY_V |Data to be scored|
+|MINING_BUILD_TEXT|Data for building models that include text|
+|MINING_TEST_TEXT|Data for testing models that include text|
+|MINING_APPLY_TEXT|Data, including text columns, to be scored|
+|MINING_DATA_ONE_CLASS_V|Data for anomaly detection|
