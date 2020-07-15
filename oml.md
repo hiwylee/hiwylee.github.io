@@ -4,6 +4,13 @@
  * [Oracle Machine Learning for SQL](https://www.oracle.com/database/technologies/datawarehouse-bigdata/oml4sql.html)
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
 ###
+ * [OOW 2019 Downloads](https://connor-mcdonald.com/2019/09/24/all-the-openworld-2019-downloads/)
+   * [DEV3042 Automated Machine Learning - Data Scientist in 6 Weeks!](https://static.rainfocus.com/oracle/oow19/sess/1552945733705001C6r5/PF/DEV3042%20Automated%20Machine%20Learning%20NEW%20Code%20One%20Dark%20template%20V6_1568390471670001CvFt.pdf)
+   * [Using Machine Learning and Oracle Autonomous Database to Target Your Best Customers](https://static.rainfocus.com/oracle/oow19/sess/1553783924808001MRSF/PF/THT4738%20Using%20Machine%20Learning%20and%20Oracle%20Autonomous%20Database%20to%20Target%20Your%20Best%20Customers%20New%20Light%20Template%20V5_1568302075354001iOrC.pdf)
+   * [Machine Learning for DBAs](https://static.rainfocus.com/oracle/oow19/sess/1554221123407001tb1Z/PF/THT4914%20The%20Changing%20Role%20of%20the%20DBA_Machine%20Learning%20for%20DBAs%20New%20Template_Light%20V5_1568301164932001ieQo.pdf)
+   *[Fraud Detection with Oracle
+Autonomous Data Warehouse and
+Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/1551389139454001eEik/PF/TUT1351%20Fraud%20Detection%20with%20Oracle%20Autonomous%20Data%20Warehouse%20and%20Oracle%20Machine%20Learning%20New%20Light%20Template%20V5_1568300810992001gKTX.pdf)
  * [Oracle's Machine Learning:   Newest Features, Use Cases and Road Map](https://www.oracle.com/technetwork/database/options/advanced-analytics/oaaomloverviewnewfeaturesroadmap-5462726.pdf)
  * [``A Simple Guide to Oracle’s Machine Learning and Advanced Analytics``](https://blogs.oracle.com/machinelearning/a-simple-guide-to-oracle%e2%80%99s-machine-learning-and-advanced-analytics)
  * [Oracle Data Mining  12c](https://www.oracle.com/database/technologies/advanced-analytics/odm.html)
