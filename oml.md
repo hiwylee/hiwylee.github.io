@@ -120,3 +120,149 @@ SH.COUNTRIES
 |MINING_TEST_TEXT|Data for testing models that include text|
 |MINING_APPLY_TEXT|Data, including text columns, to be scored|
 |MINING_DATA_ONE_CLASS_V|Data for anomaly detection|
+
+### TYPICAL STEP.
+* model build
+```sql
+ 
+  -- model build
+  IF (v_drop = 'TRUE') THEN -- delete any existing model?
+    BEGIN
+      DBMS_DATA_MINING.DROP_MODEL('&MODEL_4', TRUE);
+    EXCEPTION WHEN OTHERS THEN
+      NULL; -- ignore if no existing model to drop
+    END;
+  END IF;
+  DBMS_DATA_MINING.CREATE_MODEL(
+    model_name          => '&MODEL_4',
+    mining_function     => DBMS_DATA_MINING.CLASSIFICATION,
+    data_table_name     => v_data_usage,
+    case_id_column_name => '"'||v_caseid||'"',
+    target_column_name  => '"'||v_target||'"',
+    settings_table_name => v_build_setting,
+    xform_list          => v_xlst);
+```
+* confusion matrix
+```sql
+ -- confusion matrix
+
+ DBMS_DATA_MINING.COMPUTE_CONFUSION_MATRIX (
+    accuracy                    => v_accuracy,
+    apply_result_table_name     => v_apply_data,
+    target_table_name           => v_test_data,
+    case_id_column_name         => '"'||v_caseid||'"',
+    target_column_name          => '"'||v_target||'"',
+    confusion_matrix_table_name => v_confusion_matrix,
+    score_column_name           => 'PREDICTION',
+    score_criterion_column_name => 'PROBABILITY',
+    score_criterion_type        => 'PROBABILITY');
+
+```
+* average accuracy
+```sql
+ -- average accuracy
+  v_sql := 
+    'INSERT INTO '||v_test_metric||' (METRIC_NAME, METRIC_NUM_VALUE)
+    WITH
+    a as
+      (SELECT a.actual_target_value, sum(a.value) recall_total
+         FROM '||v_confusion_matrix||' a
+         group by a.actual_target_value)
+      ,
+    b as
+      (SELECT count(distinct b.actual_target_value) num_recalls
+         FROM '||v_confusion_matrix||' b)
+      ,
+    c as
+      (SELECT c.actual_target_value, value
+         FROM '||v_confusion_matrix||' c
+         where actual_target_value = predicted_target_value)
+      ,
+    d as
+      (SELECT NVL(sum(c.value/GREATEST(0.0001, a.recall_total)), 0) tot_accuracy
+         FROM a, c
+         where a.actual_target_value = c.actual_target_value(+))
+    SELECT ''AVG_ACCURACY'', d.tot_accuracy/GREATEST(0.0001, b.num_recalls) * 100 avg_accuracy
+    FROM b, d';
+  execSQL(v_sql);
+
+```
+* predictive confidence
+```sql
+  -- predictive confidence
+  v_sql := 
+    'INSERT INTO '||v_test_metric||' (METRIC_NAME, METRIC_NUM_VALUE)
+    WITH
+    a as
+      (SELECT a.actual_target_value, sum(a.value) recall_total
+         FROM '||v_confusion_matrix||' a
+         group by a.actual_target_value)
+      ,
+    b as
+      (SELECT count(distinct b.actual_target_value) num_classes
+         FROM '||v_confusion_matrix||' b)
+      ,
+    c as
+      (SELECT c.actual_target_value, value
+         FROM '||v_confusion_matrix||' c
+         WHERE actual_target_value = predicted_target_value)
+      ,
+    d as
+      (SELECT NVL(sum(c.value/a.recall_total), 0) tot_accuracy
+         FROM a, c
+         WHERE a.actual_target_value = c.actual_target_value(+))
+    SELECT ''PREDICTIVE_CONFIDENCE'', GREATEST(0, ((1 - (1 - d.tot_accuracy/GREATEST(0.0001, b.num_classes)) / GREATEST(0.0001, ((b.num_classes-1)/GREATEST(0.0001, b.num_classes)))) * 100))
+    FROM b, d';
+
+```
+* lift for each target 
+```sql
+  -- targets for test results 
+  v_sql := 
+    'SELECT /*+ NO_PARALLEL */ "'||v_target||'" as prediction FROM 
+    ( 
+      SELECT "'||v_target||'", 
+      RANK() OVER (ORDER BY count("'||v_target||'") DESC) "Rank" 
+      FROM '||v_test_data||'  
+      GROUP BY "'||v_target||'" 
+    ) 
+    WHERE rownum <= 5'; 
+
+  FOR i IN 1..v_targets.COUNT LOOP 
+    -- lift for each target 
+    v_lift := generateUniqueName; 
+    DBMS_DATA_MINING.COMPUTE_LIFT ( 
+      apply_result_table_name   => v_apply_data, 
+      target_table_name         => v_test_data, 
+      case_id_column_name       => v_caseid, 
+      target_column_name        => '"'||v_target||'"', 
+      lift_table_name           => v_lift, 
+      positive_target_value     => v_targets(i), 
+      score_column_name         => 'PREDICTION', 
+      score_criterion_column_name => 'PROBABILITY', 
+      num_quantiles             => 100, 
+      score_criterion_type      => 'PROBABILITY'); 
+    recordOutput('10154', 'TKECP_MD', 'ClassificationBuildNode', '10152', '&MODEL_3', 'Support Vector Machine', v_lift, 'TABLE', v_target||'='||v_targets(i), 'Lift Result'); 
+  END LOOP; 
+```
+* roc for each target (only binary target support) 
+```sql 
+-- roc for each target (only binary target support) 
+  IF (v_targets.COUNT <= 2) THEN 
+    FOR i IN 1..v_targets.COUNT LOOP 
+      v_roc := generateUniqueName; 
+      DBMS_DATA_MINING.COMPUTE_ROC ( 
+        roc_area_under_curve        => v_area_under_curve, 
+        apply_result_table_name     => v_apply_data, 
+        target_table_name           => v_test_data, 
+        case_id_column_name         => v_caseid, 
+        target_column_name          => '"'||v_target||'"', 
+        roc_table_name              => v_roc, 
+        positive_target_value       => v_targets(i), 
+        score_column_name           => 'PREDICTION', 
+        score_criterion_column_name => 'PROBABILITY'); 
+      recordOutput('10154', 'TKECP_MD', 'ClassificationBuildNode', '10152', '&MODEL_3', 'Support Vector Machine', v_roc, 'TABLE', v_target||'='||v_targets(i), 'ROC Result'); 
+      recordOutput('10154', 'TKECP_MD', 'ClassificationBuildNode', '10152', '&MODEL_3', 'Support Vector Machine', v_area_under_curve, 'SCALAR', v_target||'='||v_targets(i), 'ROC Area Under Curve'); 
+    END LOOP; 
+  END IF; 
+```
