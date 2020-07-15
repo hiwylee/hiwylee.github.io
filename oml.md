@@ -29,7 +29,7 @@ Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/15513891
 ### OBE - SQL
 * [Oracle ML. Classification models: predicting buyer's decision](https://www.linkedin.com/pulse/oracle-ml-classification-models-predicting-buyers-anton-semchishen?articleId=6628988190818734080)
   * Creating  model
-  ```sql
+```sql
 CREATE TABLE mod_set1 (
       SETTING_NAME     VARCHAR2(30),
       SETTING_VALUE    VARCHAR2(4000)
@@ -63,8 +63,7 @@ DBMS_DATA_MINING.CREATE_MODEL(
 
     );
 
-
-  ```
+```
   * Applying model
   ```sql
   CREATE TABLE ins_apply_results1 AS
