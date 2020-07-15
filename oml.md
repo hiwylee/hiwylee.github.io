@@ -26,7 +26,7 @@ Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/15513891
    * [Example: Analyzing Preferred Customers](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-analyzing-preferred-customers.html#GUID-9E0276FD-40E0-4053-9CA6-1FC51397BEEE)
    * [Example: Segmenting Customer Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-segmenting-customer-data.html#GUID-AF8605CF-286F-4979-B0EC-A61189D17887)
    * [Example : Building an ESA Model with a Wiki Dataset](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-building-ESA-model-wiki.html#GUID-1F7836F8-E053-4426-BFDD-7DC8064ACA2D)
-### OBE - SQL
+### ``OBE - SQL : predicting buyer's decision``
 * [Oracle ML. Classification models: predicting buyer's decision](https://www.linkedin.com/pulse/oracle-ml-classification-models-predicting-buyers-anton-semchishen?articleId=6628988190818734080)
   * Creating  model
 ```sql
