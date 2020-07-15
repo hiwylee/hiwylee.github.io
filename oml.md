@@ -26,7 +26,108 @@ Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/15513891
    * [Example: Analyzing Preferred Customers](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-analyzing-preferred-customers.html#GUID-9E0276FD-40E0-4053-9CA6-1FC51397BEEE)
    * [Example: Segmenting Customer Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-segmenting-customer-data.html#GUID-AF8605CF-286F-4979-B0EC-A61189D17887)
    * [Example : Building an ESA Model with a Wiki Dataset](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-building-ESA-model-wiki.html#GUID-1F7836F8-E053-4426-BFDD-7DC8064ACA2D)
+### OBE - SQL
+* [Oracle ML. Classification models: predicting buyer's decision](https://www.linkedin.com/pulse/oracle-ml-classification-models-predicting-buyers-anton-semchishen?articleId=6628988190818734080)
+  * Creating  model
+  ```sql
+CREATE TABLE mod_set1 (
+      SETTING_NAME     VARCHAR2(30),
+      SETTING_VALUE    VARCHAR2(4000)
+);
+CREATE OR REPLACE VIEW ins_train AS SELECT * FROM ins_sales SAMPLE (60) SEED (1);
+
+CREATE OR REPLACE VIEW ins_test AS SELECT * FROM ins_sales MINUS SELECT * FROM ins_train;
+INSERT INTO mod_set1 VALUES ('ALGO_NAME', 'ALGO_NAIVE_BAYES');
+CREATE OR REPLACE VIEW ins_train_set AS
+SELECT
+    n.cust_id,
+    n.gender,
+    round((sysdate-n.dob)/365, 0) AS age,
+    LPAD(TO_CHAR(n.ZIP),5,'0') AS zip,
+    n.city, n.state,
+    m.descision
+FROM
+    customers n
+INNER JOIN
+    ins_train m
+
+ON m.cust_id=n.cust_id;
+
+DBMS_DATA_MINING.CREATE_MODEL(
+    model_name          => 'ins_prediction1',
+    mining_function     => dbms_data_mining.classification,
+    data_table_name     => 'ins_train_set',
+    case_id_column_name => 'cust_id',
+    target_column_name  => 'descision',
+    settings_table_name => 'mod_set1'
+
+    );
+
+
+  ```
+  * Applying model
+  ```sql
+  CREATE TABLE ins_apply_results1 AS
+       SELECT cust_id,
+              PREDICTION(ins_prediction1 USING *) AS prediction,
+              PREDICTION_PROBABILITY(ins_prediction1 USING *) AS probability
+       FROM ins_test_set;
+  DBMS_DATA_MINING.COMPUTE_CONFUSION_MATRIX (
+               accuracy                     => v_accuracy1,
+               apply_result_table_name      => 'ins_apply_results1',
+               target_table_name            => 'ins_test_set',
+               case_id_column_name          => 'cust_id',
+               target_column_name           => 'descision',
+               confusion_matrix_table_name  => 'ins_confusion_matrix1',
+               score_column_name            => 'PREDICTION',
+               score_criterion_column_name  => 'PROBABILITY',
+
+               score_criterion_type         => 'PROBABILITY');
+```
+  * Analyzing accuracy
+    * ![](https://media-exp1.licdn.com/dms/image/C5612AQFKs3pJVNLkWw/article-inline_image-shrink_1000_1488/0?e=1600300800&v=beta&t=0Wy-Nf6sxou6yMnvCpJRqmWpMPWdxWxCYcwn_NFZa8c) ![](https://media-exp1.licdn.com/dms/image/C5612AQF7gdVcMAKnWg/article-inline_image-shrink_1000_1488/0?e=1600300800&v=beta&t=R0Tvgv29BUvHVSO8t4rTD3ZAieXqDoxDOdsFyIUIQRk)
+
+  * ROC curve
+  ```sql
+   CREATE TABLE ins_apply_roc1 AS
+  SELECT T.cust_id, S.prediction, S.probability
+    FROM (SELECT cust_id,
+        PREDICTION_SET(ins_prediction1 USING *) pset
+        FROM ins_test_set) T, TABLE(T.pset) S;
+  DBMS_DATA_MINING.COMPUTE_ROC ( 
+               roc_area_under_curve          => v_area_under_curve1,
+               apply_result_table_name       => 'ins_apply_roc1',
+               target_table_name             => 'ins_test_set',
+               case_id_column_name           => 'cust_id',
+               target_column_name            => 'descision',
+               roc_table_name                => 'roc1',
+               positive_target_value         => 'Y',
+               score_column_name             => 'PREDICTION',
+               score_criterion_column_name   => 'PROBABILITY');
+ ```
+  * Adding the cost of misprediction
+  ```sql
+  CREATE TABLE costs (
+    actual_target_value           CHAR(1),
+    predicted_target_value        CHAR(1),
+    cost                          NUMBER);
+  INSERT INTO costs values ('Y', 'Y', 0);
+  INSERT INTO costs values ('Y', 'N', 0.75);
+  INSERT INTO costs values ('N', 'Y', 0.25);
+  INSERT INTO costs values ('N', 'N', 0);
+  COMMIT; 
+
+  EXEC dbms_data_mining.add_cost_matrix('ins_prediction2', 'costs');
+
+  CREATE TABLE ins_apply_results2c AS
+       SELECT cust_id,
+              PREDICTION(ins_prediction2 COST MODEL USING *) AS prediction,
+              PREDICTION_PROBABILITY(ins_prediction2 USING *) AS probability
+   FROM ins_test_set;
+```
+   * ![](https://media-exp1.licdn.com/dms/image/C5612AQE9KuzMH63vQg/article-inline_image-shrink_1000_1488/0?e=1600300800&v=beta&t=2zO_I_V1FHfs_sePTAcvKBoulNd9zKsiBER7TGTI20c)
 ### OBE (Miner)
+
 * Using Logistic Regression Models (GLM) to Predict Customer Affinity
   - https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/12c/r1/dm/dm_41/ODM12c-17-2_FeaSelGen.html  
 
