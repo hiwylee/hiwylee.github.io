@@ -227,7 +227,8 @@ SH.COUNTRIES
 |MINING_TEST_TEXT|Data for testing models that include text|
 |MINING_APPLY_TEXT|Data, including text columns, to be scored|
 |MINING_DATA_ONE_CLASS_V|Data for anomaly detection|
-
+<!---------------------COMMENT---------------------------------------------->
+<!-- comment 
 ### TYPICAL STEP.
 * model build
 ```sql
@@ -373,3 +374,4 @@ SH.COUNTRIES
     END LOOP; 
   END IF; 
 ```
+-->
