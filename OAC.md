@@ -1,7 +1,9 @@
 ## OAC
 
 * [excel upload limits : 250 MB and the data column limit for a single file is 250 columns.](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/add-spreadsheets-data-sets-acubi.html#GUID-7A93A9DD-17EE-4BE5-86CB-615095919314)
-
+### Plug in
+* [Creating Plug-in Visualizations for Oracle Data Visualization](https://blog.daanalytics.nl/2018/06/11/creating-plug-in-visualizations-for-oracle-data-visualization/)
+*[Create Your Own DVD Plugin in 22 minutes](https://www.rittmanmead.com/blog/2017/03/create-your-own-dvd-plugin-in-22-minutes/ )
 ### Embed Analytics Content into Web Pages
 * [Document](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/get-started-embedding-content-web-pages.html#GUID-0E129619-FE02-47F3-BB31-A31CC1D0AE9E)
 * [Blog](https://medium.com/@insight2action/oracle-analytics-cloud-developer-experience-fe510b5507e9)
