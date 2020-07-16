@@ -3,9 +3,9 @@
  * [Oracle Machine Learning](https://www.oracle.com/database/technologies/datawarehouse-bigdata/machine-learning.html)
  * [Oracle Machine Learning for SQL](https://www.oracle.com/database/technologies/datawarehouse-bigdata/oml4sql.html)
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
-### 
+### Examples
  * [``Oracle Machine Learn Github``](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
-   * [OML4SQL](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
+   * [OML4SQL - 19c ](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
    * [OML4SQL Notebook](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/notebooks/sql)
  * [OOW 2019 Downloads](https://connor-mcdonald.com/2019/09/24/all-the-openworld-2019-downloads/)
    * [DEV3042 Automated Machine Learning - Data Scientist in 6 Weeks!](https://static.rainfocus.com/oracle/oow19/sess/1552945733705001C6r5/PF/DEV3042%20Automated%20Machine%20Learning%20NEW%20Code%20One%20Dark%20template%20V6_1568390471670001CvFt.pdf)
