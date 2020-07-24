@@ -7,6 +7,8 @@
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
 ### Ddata Miner
 * [Learn How to Use Oracle Data Miner UI in 45 Minutes](https://blogs.oracle.com/machinelearning/learn-how-to-use-oracle-data-miner-ui-in-45-minutes)
+* [HOL: Learn to use SQL Developer's Oracle
+Data Miner Workflow UI](https://cdn.app.compendium.com/uploads/user/e7c690e8-6ff9-102a-ac6d-e4aebca50425/c78ae504-6f73-42eb-a868-64143436b9ae/File/414ccc99f124c4d2d067f7dfb3b3390a/oracle_data_miner_oml_hol_at_and_summit_2020_v7.pdf)
 * [Get Started with Oracle Data Miner User Interface](https://apexapps.oracle.com/pls/apex/f?p=44785:50:7141389058575:::50:P50_EVENT_ID,P50_PREV_PAGE,P50_COURSE_ID:6310,175,457)
 ### Examples
  * [My Favorite Oracle Data Miner Demo Workflows - Part 1 in a Series: CUST_INSUR_LTV](https://blogs.oracle.com/machinelearning/my-favoriate-oracle-data-miner-demo-workflows-part-1-in-a-series%3a-custinsurltv)
