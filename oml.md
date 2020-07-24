@@ -5,7 +5,11 @@
  * [Oracle Machine Learning](https://www.oracle.com/database/technologies/datawarehouse-bigdata/machine-learning.html)
  * [Oracle Machine Learning for SQL](https://www.oracle.com/database/technologies/datawarehouse-bigdata/oml4sql.html)
  * [Oracle Open World 2019: Oracle Machine Learning Presentation Downloads](https://blogs.oracle.com/machinelearning/oracle-open-world-2019%3a-oracle-machine-learning-presentation-downloads)
+### Ddata Miner
+* [Learn How to Use Oracle Data Miner UI in 45 Minutes](https://blogs.oracle.com/machinelearning/learn-how-to-use-oracle-data-miner-ui-in-45-minutes)
+* [Get Started with Oracle Data Miner User Interface](https://apexapps.oracle.com/pls/apex/f?p=44785:50:7141389058575:::50:P50_EVENT_ID,P50_PREV_PAGE,P50_COURSE_ID:6310,175,457)
 ### Examples
+ * [My Favorite Oracle Data Miner Demo Workflows - Part 1 in a Series: CUST_INSUR_LTV](https://blogs.oracle.com/machinelearning/my-favoriate-oracle-data-miner-demo-workflows-part-1-in-a-series%3a-custinsurltv)
  * [``Oracle Machine Learn Github``](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
    * [OML4SQL - 19c ](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
    * [OML4SQL Notebook](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/notebooks/sql)
