@@ -8,7 +8,7 @@
 * [OCI Ansible Modules Github Repo](https://github.com/oracle/oci-ansible-modules)
 
 ### Examples
-#### OCI Ansible Modules Github repository 
+#### [``OCI Ansible Modules Github repository``](https://github.com/oracle/oci-ansible-modules)
 * Create a directory (i.e. ansible-oci) and in that directory a file called env-vars
 * insert the following three lines into the env-vars file:
 ```bash
