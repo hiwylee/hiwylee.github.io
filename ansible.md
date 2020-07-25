@@ -35,12 +35,12 @@ $ ansible-playbook sample.yaml
 ```bash
 [opc@ctrl ansible]$ cat env_vars
 # OCID of assigned compartment
-export compartment_ocid=ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa
+export compartment_ocid=ocid1.compartment.oc1..xxx
 export namespace_name=cnuyg9lmqgql
 
 # Oracle-Linux-7.7-2019.08-28-0
 #Seoul
-export image_ocid=ocid1.image.oc1.ap-seoul-1.aaaaaaaautl44ij44xudvnu3boasvuvucowuz4avdigc2csahzqmtb37sfwa
+export image_ocid=ocid1.image.oc1.ap-seoul-1.xxx
 # skip host verification prompts for demo
 export ANSIBLE_HOST_KEY_CHECKING=False
 ```
