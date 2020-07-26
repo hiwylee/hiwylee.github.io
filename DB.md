@@ -1,6 +1,19 @@
 ## DB Upgrade 
 * https://mikedietrichde.com/
-###
+### Upgrade : Sigle Source of Truth
+* MOS Note: 742060.1 : Release Schedule of Current Database Releases
+  * https://support.oracle.com/epmos/faces/DocumentDisplay?id=742060.1
+* Release Update Introduction and FAQ
+  * https://support.oracle.com/epmos/faces/DocumentDisplay%3Fid=2285040.1
+• MOS Note: 756671.1 
+  * https://support.oracle.com/epmos/faces/DocumentDisplay?id=756671.1
+* Oracle Database - Overview of Database Patch Delivery Methods for 12.1.0.2 and lower
+  * https://support.oracle.com/epmos/faces/DocumentDisplay?id=1962125.1
+* Oracle Database - Overview of Database Patch Delivery Methods for 12.2.0.1 and greater
+  * https://support.oracle.com/epmos/faces/DocumentDisplay?id=2337415.1
+* Assistant: Download Reference for Oracle Database/GI PSU, SPU(CPU), Bundle Patches, Patchsets and Base Releases
+  * https://support.oracle.com/epmos/faces/DocumentDisplay?id=2118136.2
+### Upgrade / Migrate / Consolidateto Oracle Database 19c - Mega Slide
 * [Upgrade / Migrate / Consolidateto Oracle Database 19c](file:///C:/Users/hiwyl/Downloads/7552771241246713790_Upgrade_19c.pdf)
 ## Oracle Database 20c
 * Webcast - Oracle Database 20c New Features
