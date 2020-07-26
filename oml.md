@@ -37,6 +37,38 @@ Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/15513891
    * [Example: Analyzing Preferred Customers](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-analyzing-preferred-customers.html#GUID-9E0276FD-40E0-4053-9CA6-1FC51397BEEE)
    * [Example: Segmenting Customer Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-segmenting-customer-data.html#GUID-AF8605CF-286F-4979-B0EC-A61189D17887)
    * [Example : Building an ESA Model with a Wiki Dataset](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-building-ESA-model-wiki.html#GUID-1F7836F8-E053-4426-BFDD-7DC8064ACA2D)
+   
+###  Granting Privileges for Data Mining
+```sql
+CREATE USER dmuser IDENTIFIED BY password
+       DEFAULT TABLESPACE USERS
+       TEMPORARY TABLESPACE TEMP
+       QUOTA UNLIMITED ON USERS;
+Commit;
+
+
+GRANT CREATE MINING MODEL TO dmuser;
+GRANT CREATE SESSION TO dmuser;
+GRANT CREATE TABLE TO dmuser;
+GRANT CREATE VIEW TO dmuser;
+GRANT EXECUTE ON CTXSYS.CTX_DDL TO dmuser;
+GRANT SELECT ON sh.customers TO dmuser;
+
+```
+### Install DM samples
+```sql
+SQL> CONNECT sys / as sysdba
+Enter password: sys_password
+Connected.
+SQL> @ $ORACLE_HOME/rdbms/demo/dmshgrants dmuser
+
+SQL> CONNECT dmuser
+Enter password: dmuser_password
+Connected.
+SQL> @ $ORACLE_HOME/rdbms/demo/dmsh
+
+```
+
 ### ``OBE - SQL : predicting buyer's decision``
 * [Oracle ML. Classification models: predicting buyer's decision](https://www.linkedin.com/pulse/oracle-ml-classification-models-predicting-buyers-anton-semchishen?articleId=6628988190818734080)
   * Creating  model
