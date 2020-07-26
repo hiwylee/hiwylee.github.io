@@ -1,4 +1,6 @@
 # Oracle Cloud Infratructure (OCI)
+## Cloud Learning Subscriptions
+* https://learn.oracle.com/ols/user-portal
 ## OCI  Training
 * [Learn On-Demand: Oracle Cloud Infrastructure Training Videos](https://www.oracle.com/cloud/iaas/training/)
 * [Oracle Cloud Infrastructure Webinar Schedule](https://www.oracle.com/cloud/iaas/training/register-for-training.html)
