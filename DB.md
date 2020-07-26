@@ -3,15 +3,15 @@
 ### Upgrade : Sigle Source of Truth
 * MOS Note: 742060.1 : Release Schedule of Current Database Releases
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=742060.1
-* • MOS Note: 2285040.1 : Release Update Introduction and FAQ
+* MOS Note: 2285040.1 : Release Update Introduction and FAQ
   * https://support.oracle.com/epmos/faces/DocumentDisplay%3Fid=2285040.1
-• MOS Note: 756671.1 : Master Note for Database Proactive Patch Program
+* MOS Note: 756671.1 : Master Note for Database Proactive Patch Program
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=756671.1
 * MOS Note: 1962125.1 : Oracle Database - Overview of Database Patch Delivery Methods for 12.1.0.2 and lower
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=1962125.1
 * MOS NOTE 2337415.1 : Oracle Database - Overview of Database Patch Delivery Methods for 12.2.0.1 and greater
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=2337415.1
-*MOS Note: 2118136.2:  Assistant: Download Reference for Oracle Database/GI PSU, SPU(CPU), Bundle Patches, Patchsets and Base Releases
+* MOS Note: 2118136.2:  Assistant: Download Reference for Oracle Database/GI PSU, SPU(CPU), Bundle Patches, Patchsets and Base Releases
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=2118136.2
 ### Upgrade / Migrate / Consolidateto Oracle Database 19c - Mega Slide
 * [Upgrade / Migrate / Consolidateto Oracle Database 19c](http://apex.oracle.com/pls/apex/f?p=202202:2:::::P2_SUCHWORT:upgrade19c)
