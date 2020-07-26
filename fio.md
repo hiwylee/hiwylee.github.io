@@ -39,7 +39,7 @@ Disk stats (read/write):
   sda: ios=184667/15, merge=36/2, ticks=15075999/189, in_queue=7258554, util=95.05%
 
 ```
-* Write-only : ``-rw=randrw``
+* Write-only : ``-rw=randwrite``
 ```bash
 [opc@wks ~]$ sudo fio --direct=1 --ioengine=libaio -size=10g --bs=4k --runtime=60 --numjobs=8 --iodepth=64 --time_based --rw=randwrite --group_reporting --filename=/dev/sda --name=iops-test
 ```
