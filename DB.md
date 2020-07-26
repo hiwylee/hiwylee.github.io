@@ -1,5 +1,7 @@
 ## DB Upgrade 
 * https://mikedietrichde.com/
+###
+* [Upgrade / Migrate / Consolidateto Oracle Database 19c](file:///C:/Users/hiwyl/Downloads/7552771241246713790_Upgrade_19c.pdf)
 ## Oracle Database 20c
 * Webcast - Oracle Database 20c New Features
   * https://otube.oracle.com/media/1_92bjlut1
