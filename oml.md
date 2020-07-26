@@ -37,7 +37,14 @@ Oracle Machine Learning](https://static.rainfocus.com/oracle/oow19/sess/15513891
    * [Example: Analyzing Preferred Customers](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-analyzing-preferred-customers.html#GUID-9E0276FD-40E0-4053-9CA6-1FC51397BEEE)
    * [Example: Segmenting Customer Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-segmenting-customer-data.html#GUID-AF8605CF-286F-4979-B0EC-A61189D17887)
    * [Example : Building an ESA Model with a Wiki Dataset](https://docs.oracle.com/en/database/oracle/oracle-database/19/dmprg/ex-building-ESA-model-wiki.html#GUID-1F7836F8-E053-4426-BFDD-7DC8064ACA2D)
-   
+### The data mining sample programs require:
+* Oracle Database Enterprise Edition with ``the Advanced Analytics option``
+* Oracle Database sample schemas
+* Oracle Database Examples
+* A data mining user account
+* Execution of dmshgrants.sql by a system administrator
+
+Execution of dmsh.sql by the data mining user
 ###  Granting Privileges for Data Mining
 ```sql
 CREATE USER dmuser IDENTIFIED BY password
