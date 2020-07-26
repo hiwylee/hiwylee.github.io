@@ -14,7 +14,7 @@
 * Assistant: Download Reference for Oracle Database/GI PSU, SPU(CPU), Bundle Patches, Patchsets and Base Releases
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=2118136.2
 ### Upgrade / Migrate / Consolidateto Oracle Database 19c - Mega Slide
-* [Upgrade / Migrate / Consolidateto Oracle Database 19c](file:///C:/Users/hiwyl/Downloads/7552771241246713790_Upgrade_19c.pdf)
+* [Upgrade / Migrate / Consolidateto Oracle Database 19c](http://apex.oracle.com/pls/apex/f?p=202202:2:::::P2_SUCHWORT:upgrade19c)
 ## Oracle Database 20c
 * Webcast - Oracle Database 20c New Features
   * https://otube.oracle.com/media/1_92bjlut1
