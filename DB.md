@@ -1,6 +1,6 @@
 ## DB Upgrade 
 * https://mikedietrichde.com/
-### Upgrade : Sigle Source of Truth
+### Upgrade : Single Source of Truth
 * MOS Note: 742060.1 : Release Schedule of Current Database Releases
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=742060.1
 * MOS Note: 2285040.1 : Release Update Introduction and FAQ
