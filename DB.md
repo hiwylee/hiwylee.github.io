@@ -21,7 +21,8 @@
 * What’s New in Oracle Database 19c  
   * https://otube.oracle.com/media/0_lw4j7yvl
   * https://otube.oracle.com/media/Oracle+Database+19c+-+New+Features/0_75l8pb7c
-  
+##  Oracle Database Sample Schemas (19c)
+* https://github.com/oracle/db-sample-schemas/releases/tag/v19.2
 ##  Oracle Machine Learning for Python (OML4Py) AutoML
 
 ## Tuning
