@@ -12,7 +12,7 @@ Data Miner Workflow UI](https://cdn.app.compendium.com/uploads/user/e7c690e8-6ff
 * [Get Started with Oracle Data Miner User Interface](https://apexapps.oracle.com/pls/apex/f?p=44785:50:7141389058575:::50:P50_EVENT_ID,P50_PREV_PAGE,P50_COURSE_ID:6310,175,457)
 ### Examples
  * [My Favorite Oracle Data Miner Demo Workflows - Part 1 in a Series: CUST_INSUR_LTV](https://blogs.oracle.com/machinelearning/my-favoriate-oracle-data-miner-demo-workflows-part-1-in-a-series%3a-custinsurltv)
- * [``Oracle Machine Learn Github``](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
+ * [``Oracle Machine Learning Github``](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
    * [OML4SQL - 19c ](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/sql/19c)
    * [OML4SQL Notebook](https://github.com/oracle/oracle-db-examples/tree/master/machine-learning/notebooks/sql)
  * [OOW 2019 Downloads](https://connor-mcdonald.com/2019/09/24/all-the-openworld-2019-downloads/)
