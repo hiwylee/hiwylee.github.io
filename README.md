@@ -1,4 +1,6 @@
 # Oracle Cloud Infratructure (OCI)
+## Oracle LiveLabs  (Workshop)
+* https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/home?session=6801802062076
 ## Cloud Learning Subscriptions
 * https://learn.oracle.com/ols/user-portal
 ## OCI  Training
