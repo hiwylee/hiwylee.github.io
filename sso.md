@@ -3,7 +3,7 @@
 * [Oracle Cloud Infrastructure Okta Configuration for Federation and Provisioning](https://cloud.oracle.com/iaas/whitepapers/okta-federation-with-oci.pdf)
 * [Federating Oracle Access Manager to Oracle Cloud Infrastructure](https://cloud.oracle.com/iaas/whitepapers/oracle_access_manager_federation_to_oci.pdf)
 ### Instructions for Federating
-#### [Federating with Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm#top)
+#### [Federating with SAML 2.0 Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm#top)
 * Before following the steps in this topic, see [Federating with Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm#top) to ensure that you understand general federation concepts.
 #### [설정 순서](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm#top)
 > [``문서참조``](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm#top)
