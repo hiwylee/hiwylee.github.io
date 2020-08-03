@@ -6,7 +6,8 @@
 #### [Federating with Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm#top)
 * Before following the steps in this topic, see [Federating with Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm#top) to ensure that you understand general federation concepts.
 #### [설정 순서](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm#top)
-[``문서참조``](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm#top)
+> [``문서참조``](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm#top)
+<!--
 > In the Oracle Cloud Infrastructure Console, 
 1. get the federation metadata required to establish a trust relationship with the Identity Provider (IdP).
 > In the IdP
@@ -18,7 +19,7 @@
 6. Map the IdP's groups to IAM groups.
 7. Make sure you have IAM policies set up for the groups so you can control users' access to Oracle Cloud Infrastructure resources.
 8. Inform your users of the name of your Oracle Cloud Infrastructure tenant and the URL for the Console (for example, https://console.us-ashburn-1.oraclecloud.com).
-
+-->
 * Step 1: Get information from Oracle Cloud Infrastructure
 * Step 2: Set up Oracle Cloud Infrastructure as a trusted application
 * Step 3: Assign users and groups to the new application.
