@@ -19,10 +19,10 @@
 7. Make sure you have IAM policies set up for the groups so you can control users' access to Oracle Cloud Infrastructure resources.
 8. Inform your users of the name of your Oracle Cloud Infrastructure tenant and the URL for the Console (for example, https://console.us-ashburn-1.oraclecloud.com).
 
-Step 1: Get information from Oracle Cloud Infrastructure
-Step 2: Set up Oracle Cloud Infrastructure as a trusted application
-Step 3: Assign users and groups to the new application.
-Step 4: Download the IdP's metadata document.
-Step 5: Federate the IdP with Oracle Cloud Infrastructure
-Step 6: Set up IAM policies for the groups
-Step 7: Give your federated users the name of the tenant and URL to sign in
+* Step 1: Get information from Oracle Cloud Infrastructure
+* Step 2: Set up Oracle Cloud Infrastructure as a trusted application
+* Step 3: Assign users and groups to the new application.
+* Step 4: Download the IdP's metadata document.
+* Step 5: Federate the IdP with Oracle Cloud Infrastructure
+* Step 6: Set up IAM policies for the groups
+* Step 7: Give your federated users the name of the tenant and URL to sign in
