@@ -11,7 +11,7 @@
 3. In the IdP, assign users and groups to your new Oracle Cloud Infrastructure application.
 4. In the IdP, get the required information needed by Oracle Cloud Infrastructure.
 5. In Oracle Cloud Infrastructure:
-  1. Add the identity provider to your tenancy and provide information you got from the IdP.
-  2. Map the IdP's groups to IAM groups.
-  3. In Oracle Cloud Infrastructure, make sure you have IAM policies set up for the groups so you can control users' access to Oracle Cloud Infrastructure resources.
-  4. Inform your users of the name of your Oracle Cloud Infrastructure tenant and the URL for the Console (for example, https://console.us-ashburn-1.oraclecloud.com).
+  * 1). Add the identity provider to your tenancy and provide information you got from the IdP.
+  * 2). Map the IdP's groups to IAM groups.
+  * 3). In Oracle Cloud Infrastructure, make sure you have IAM policies set up for the groups so you can control users' access to Oracle Cloud Infrastructure resources.
+  * 4). Inform your users of the name of your Oracle Cloud Infrastructure tenant and the URL for the Console (for example, https://console.us-ashburn-1.oraclecloud.com).
