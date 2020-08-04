@@ -206,5 +206,51 @@
 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem
 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
-## 의약품 생산수입실적 서비스
+> http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&Entrps_prmisn_no=&Prduct=&Entrps=&pageNo=1&numOfRows=3&
+```
+<response>
+<header>
+<resultCode>00</resultCode>
+<resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+<numOfRows>3</numOfRows>
+<pageNo>1</pageNo>
+<totalCount>174794</totalCount>
+<items>
+<item>
+<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
+<ENTRPS>(주)종근당</ENTRPS>
+<PRDUCT>종근당염산에페드린정</PRDUCT>
+<MTRAL_SN>1</MTRAL_SN>
+<MTRAL_CODE>M040420</MTRAL_CODE>
+<MTRAL_NM>염산에페드린</MTRAL_NM>
+<QNT>25</QNT>
+<ITEM_SEQ>195500002</ITEM_SEQ>
+</item>
+<item>
+<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
+<ENTRPS>(주)종근당</ENTRPS>
+<PRDUCT>종근당아스피린정</PRDUCT>
+<MTRAL_SN>1</MTRAL_SN>
+<MTRAL_CODE>M040355</MTRAL_CODE>
+<MTRAL_NM>아스피린</MTRAL_NM>
+<QNT>250</QNT>
+<ITEM_SEQ>195500004</ITEM_SEQ>
+</item>
+<item>
+<ENTRPS_PRMISN_NO>1302</ENTRPS_PRMISN_NO>
+<ENTRPS>제이더블유중외제약(주)</ENTRPS>
+<PRDUCT>중외5%포도당생리식염액(수출명:5%DextroseinnormalsalineInj.)</PRDUCT>
+<MTRAL_SN>1</MTRAL_SN>
+<MTRAL_CODE>M040702</MTRAL_CODE>
+<MTRAL_NM>포도당</MTRAL_NM>
+<QNT>50</QNT>
+<ITEM_SEQ>195500005</ITEM_SEQ>
+</item>
+</items>
+</body>
+</response>
+```
+### 의약품 생산수입실적 서비스
 * https://nedrug.mfds.go.kr/pbp/CCBGA01/getItem?&openDataInfoSeq=8
