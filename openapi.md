@@ -108,7 +108,13 @@
   >  http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01
 ```xml
 
-
+<OpenAPI_ServiceResponse>
+<cmmMsgHeader>
+<errMsg>SERVICE ERROR</errMsg>
+<returnAuthMsg>SERVICE_ACCESS_DENIED_ERROR</returnAuthMsg>
+<returnReasonCode>20</returnReasonCode>
+</cmmMsgHeader>
+</OpenAPI_ServiceResponse>
   ```
 ####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"
 > 인력 변수
@@ -121,6 +127,7 @@
   * 조제처방구분 cpmdPrscTp
 >  http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023&ciCd=01
 ---  
+
 ### 약가기준정보조회서비스
 * Base URL : 
   * http://apis.data.go.kr/B551182/dgamtCrtInfoService
