@@ -191,7 +191,70 @@
 * 요청주소 http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList
 * 서비스URL http://apis.data.go.kr/1470000/MdcinPatentInfoService
 * 서버키 : Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
-> http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1&eng_name=GLIVEC&ingr_eng_name=Imatinib Mesylate& kor_name=글리벡필름코팅정100밀리그램(이매티닙메실산염)
+? 입력변수 (옵션)
+  * 성분명(영)      ingr_eng_name
+  * 제품명(영)      eng_name
+  * 제품명(한)      kor_name
+  * 페이지 번호      pageNo
+  * 한 페이지 결과수   numOfRows 
+  
+> http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1
+
+```
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+	<numOfRows>2</numOfRows>
+	<pageNo>1</pageNo>
+	<totalCount>77552</totalCount>
+	<items>
+		<item>
+			<INGR_ENG_NAME>Brigatinib</INGR_ENG_NAME>
+			<INGR_KOR_NAME>브리가티닙</INGR_KOR_NAME>
+			<ITEM_NAME_ENG>Alunbrig</ITEM_NAME_ENG>
+			<ITEM_NAME_KOR>알룬브릭정180밀리그램(브리가티닙)</ITEM_NAME_KOR>
+			<SELLING_CORP>한국다케다제약(주)</SELLING_CORP>
+			<DOSAGE_FORM>필름코팅정</DOSAGE_FORM>
+			<STRENGTH>180.0밀리그램</STRENGTH>
+			<GROUPING_NO>421</GROUPING_NO>
+			<PMS_EXP_DATE>-</PMS_EXP_DATE>
+			<KOR_SUIT_YN/>
+			<ITEM_SEQ>201804848</ITEM_SEQ>
+			<PAGE_GB_NM>제품특허</PAGE_GB_NM>
+			<PATENT_GB_CODE>기타</PATENT_GB_CODE>
+			<DOMESTIC_INVN_NM>EGFR 단백질분해 표적화 키메라 분자 및 관련 사용 방법</DOMESTIC_INVN_NM>
+			<PATENTEE/>
+			<DOMESTIC_PATENT_NO/>
+			<DOMESTIC_PATENT_STATUS>출원</DOMESTIC_PATENT_STATUS>
+			<DOMESTIC_END_DATE/>
+		</item>
+		<item>
+			<INGR_ENG_NAME>Brigatinib</INGR_ENG_NAME>
+			<INGR_KOR_NAME>브리가티닙</INGR_KOR_NAME>
+			<ITEM_NAME_ENG>Alunbrig</ITEM_NAME_ENG>
+			<ITEM_NAME_KOR>알룬브릭정90밀리그램(브리가티닙)</ITEM_NAME_KOR>
+			<SELLING_CORP>한국다케다제약(주)</SELLING_CORP>
+			<DOSAGE_FORM/>
+			<STRENGTH>90.0밀리그램</STRENGTH>
+			<GROUPING_NO>421</GROUPING_NO>
+			<PMS_EXP_DATE>-</PMS_EXP_DATE>
+			<KOR_SUIT_YN/>
+			<ITEM_SEQ>201804847</ITEM_SEQ>
+			<PAGE_GB_NM>제품특허</PAGE_GB_NM>
+			<PATENT_GB_CODE>기타</PATENT_GB_CODE>
+			<DOMESTIC_INVN_NM>EGFR 단백질분해 표적화 키메라 분자 및 관련 사용 방법</DOMESTIC_INVN_NM>
+			<PATENTEE/>
+			<DOMESTIC_PATENT_NO/>
+			<DOMESTIC_PATENT_STATUS>출원</DOMESTIC_PATENT_STATUS>
+			<DOMESTIC_END_DATE/>
+		</item>
+	</items>
+	</body>
+</response>
+```
 ### 의약품 제품 허가정보 서비스
 #### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)  ``에러``
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
