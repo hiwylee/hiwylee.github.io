@@ -256,11 +256,11 @@
 ```
 ### 의약품 제품 허가정보 서비스
 * serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
-#### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)  ``에러``
+#### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)  
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
-* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&pageNo=1&numOfRows=1&
+* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem 
 > 입력변수
   * 품목명           item_name
   * 업체명           entp_name
@@ -272,7 +272,7 @@
   * 품목기준코드        item_seq 
   * 변경일자시작일      start_change_date
   * 변경일자종료일      end_change_date
-> 
+> http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&pageNo=1&numOfRows=1&
 * ``결과가 너무 복잡하여 구조화 하기 어려움``
 ```xml
 <response>
@@ -312,7 +312,7 @@
 	</body>
 </response>
 ```
-#### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)  ``에러``
+#### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)   
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
