@@ -59,7 +59,7 @@
 </response>
 ```
 #### 성분별의료기관종별사용량목록조회(``getCmpnClList``) 
-> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnClList
+- URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnClList
 > 인력 변수 (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -100,7 +100,7 @@
 </response>
 ```
 #### 성분별상병별사용량목록조회  (``getCmpnSickList``)  : ``에러``
-> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList
+- URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList
 > 인력 변수  (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -122,7 +122,7 @@
 </OpenAPI_ServiceResponse>
   ```
 ####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"  ``없음``
-> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList
+- URL : http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList
 > 인력 변수
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -148,7 +148,7 @@
   * 품목명  itmNm              (0..1) 
   * 제업체명 mnfEntpNm         (0..1) 
   * ``주의 : 약품코드, 품목명, 제업체명 셋 중하나는 필수``
-> Sample URL  
+- Sample URL  
 >  http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
 ```xml
 <response>
