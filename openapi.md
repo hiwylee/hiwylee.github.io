@@ -6,6 +6,9 @@
   * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
 * 성분별지역별사용량목록조회(getCmpnAreaList)
 > 인력 변수
+  * 서비스 인증키 ServiceKey
+  * 한페이지결과수 numOfRows
+  * 페이지 번호 pageNo
   * 진료년월 diagYm
   * 성분코드 gnlNmCd
   * 보험자구분 insupTp
@@ -14,6 +17,9 @@
   * 시군구코드 110023
 * 성분별의료기관종별사용량목록조회(getCmpnClList) 
 > 인력 변수
+  * 서비스 인증키 ServiceKey
+  * 한페이지결과수 numOfRows
+  * 페이지 번호 pageNo
   * 진료년월 diagYm
   * 성분코드 gnlNmCd
   * 보험자구분 insupTp
@@ -24,6 +30,9 @@
 
 * 성분별상병별사용량목록조회    (getCmpnSickList) 
 > 인력 변수
+  * 서비스 인증키 ServiceKey
+  * 한페이지결과수 numOfRows
+  * 페이지 번호 pageNo
   * 진료년월 diagYm
   * 성분코드 gnlNmCd
   * 보험자구분 insupTp
