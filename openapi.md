@@ -122,12 +122,17 @@
 
 ### 약가기준정보조회서비스
 * Base URL : 
-  * http://apis.data.go.kr/B551182/msupUserInfoService
+  * http://apis.data.go.kr/B551182dgamtCrtInfoService
 * 서버키
-  * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
+  * ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
 ---  
 #### 약가기준정보조회서비스(getDgamtList)"
-> 인력 변수
-  * 
+  * 서비스 인증키 ServiceKey : (1)
+  * 한페이지결과수 numOfRows   (1) 
+  * 페이지 번호 pageNo         (1) 
+  * 약품코드 mdsCd             (0..1) 
+  * 품목명  itmNm              (0..1) 
+  * 제업체명 mnfEntpNm         (0..1) 
+  * 주의 : 약품코드, 품목명, 제업체명 셋중하나는 필수
 > Sample URL  
->  http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023&ciCd=01
+>  http://apis.data.go.kr/B551182/msupUserInfoService/getDgamtList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&mdsCd=
