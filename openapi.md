@@ -146,10 +146,10 @@
   * 페이지 번호 pageNo         (1) 
   * 약품코드 mdsCd             (0..1) 
   * 품목명  itmNm              (0..1) 
-  * 제업체명 mnfEntpNm         (0..1) 
+  * 제업체명 mnfEntpNm         (0..1)   - 에이치케이이노엔(주)
   * ``주의 : 약품코드, 품목명, 제업체명 셋 중하나는 필수``
-- Sample URL  
->  http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
+- Sample URL  :  (적용시작일자	adtStaDd 가 오늘 인 것)
+>  http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=&itmNm=&mnfEntpNm=%EC%97%90%EC%9D%B4%EC%B9%98%EC%BC%80%EC%9D%B4%EC%9D%B4%EB%85%B8%EC%97%94(%EC%A3%BC)&
 ```xml
 <response>
 	<header>
@@ -159,26 +159,40 @@
 	<body>
 		<items>
 			<item>
-				<adtStaDd>20050401</adtStaDd>
-				<chgAfMdsCd>G09900011</chgAfMdsCd>
-				<gnlNmCd>250401ATB</gnlNmCd>
+				<adtStaDd>20200501</adtStaDd>
+				<chgBfMdsCd>A11603351</chgBfMdsCd>
+				<gnlNmCd>165702ATB</gnlNmCd>
 				<injcPthNm>내복</injcPthNm>
-				<itmNm>레스피렌정</itmNm>
-				<mdsCd>G03900131</mdsCd>
-				<meftDivNo>222</meftDivNo>
-				<mnfEntpNm>건일제약</mnfEntpNm>
-				<mxCprc>0</mxCprc>
+				<itmNm>글리원정2밀리그램(글리메피리드)_(2mg/1정)</itmNm>
+				<mdsCd>640000020</mdsCd>
+				<meftDivNo>396</meftDivNo>
+				<mnfEntpNm>에이치케이이노엔(주)</mnfEntpNm>
+				<mxCprc>185</mxCprc>
 				<nomNm>1</nomNm>
-				<optCpmdImplTpNm>향정신성의약품</optCpmdImplTpNm>
-				<payTpNm>삭제</payTpNm>
-				<sbstPsblTpNm>동등+대조(동등)</sbstPsblTpNm>
+				<payTpNm>급여</payTpNm>
+				<sbstPsblTpNm>생동성시험</sbstPsblTpNm>
 				<spcGnlTpNm>전문</spcGnlTpNm>
 				<unit>정</unit>
 			</item>
+			<item>
+				<adtStaDd>20200501</adtStaDd>
+				<chgBfMdsCd>A11650141</chgBfMdsCd>
+				<gnlNmCd>245802ACH</gnlNmCd>
+				<injcPthNm>내복</injcPthNm>
+				<itmNm>데카키논캡슐(유비데카레논캡슐)_(5mg/1캡슐)</itmNm>
+				<mdsCd>640000070</mdsCd>
+				<meftDivNo>211</meftDivNo>
+				<mnfEntpNm>에이치케이이노엔(주)</mnfEntpNm>
+				<mxCprc>112</mxCprc>
+				<nomNm>1</nomNm>
+				<payTpNm>급여</payTpNm>
+				<spcGnlTpNm>일반</spcGnlTpNm>
+				<unit>캡슐</unit>
+			</item>
 		</items>
-		<numOfRows>10</numOfRows>
+		<numOfRows>2</numOfRows>
 		<pageNo>1</pageNo>
-		<totalCount>1</totalCount>
+		<totalCount>262</totalCount>
 	</body>
 </response>
 ```
