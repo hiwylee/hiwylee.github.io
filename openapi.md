@@ -7,6 +7,7 @@
   * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
 ---  
 #### 성분별지역별사용량목록조회(``getCmpnAreaList``)
+> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnAreaList
 > 인력 변수 (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -58,6 +59,7 @@
 </response>
 ```
 #### 성분별의료기관종별사용량목록조회(``getCmpnClList``) 
+> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnClList
 > 인력 변수 (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -98,6 +100,7 @@
 </response>
 ```
 #### 성분별상병별사용량목록조회  (``getCmpnSickList``) 
+> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList
 > 인력 변수  (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
@@ -119,6 +122,7 @@
 </OpenAPI_ServiceResponse>
   ```
 ####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"
+> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList
 > 인력 변수
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
