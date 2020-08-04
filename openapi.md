@@ -122,7 +122,7 @@
 
 ### 약가기준정보조회서비스
 * Base URL : 
-  * http://apis.data.go.kr/B551182dgamtCrtInfoService
+  * http://apis.data.go.kr/B551182/dgamtCrtInfoService
 * 서버키
   * ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
 ---  
@@ -135,4 +135,4 @@
   * 제업체명 mnfEntpNm         (0..1) 
   * 주의 : 약품코드, 품목명, 제업체명 셋중하나는 필수
 > Sample URL  
->  http://apis.data.go.kr/B551182/msupUserInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
+>  http://apis.data.go.kr/B551182/dgamtCrtInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
