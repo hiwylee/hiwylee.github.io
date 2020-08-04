@@ -99,7 +99,7 @@
 </body>
 </response>
 ```
-#### 성분별상병별사용량목록조회  (``getCmpnSickList``) 
+#### 성분별상병별사용량목록조회  (``getCmpnSickList``)  : ``에러``
 > URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList
 > 인력 변수  (``전체 필수``)
   * 서비스 인증키 ServiceKey
@@ -121,7 +121,7 @@
 </cmmMsgHeader>
 </OpenAPI_ServiceResponse>
   ```
-####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"
+####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"  ``없음``
 > URL : http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList
 > 인력 변수
   * 서비스 인증키 ServiceKey
@@ -140,7 +140,7 @@
 * 서버키
   * ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
 
-#### 약가기준정보조회서비스(getDgamtList)"
+#### 약가기준정보조회서비스(getDgamtList)" 
   * 서비스 인증키 ServiceKey : (1)
   * 한페이지결과수 numOfRows   (1) 
   * 페이지 번호 pageNo         (1) 
@@ -193,7 +193,7 @@
 * 서버키 : Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
 > http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1&eng_name=GLIVEC&ingr_eng_name=Imatinib Mesylate& kor_name=글리벡필름코팅정100밀리그램(이매티닙메실산염)
 ### 의약품 제품 허가정보 서비스
-#### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)
+#### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)  ``에러``
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
@@ -202,7 +202,7 @@
 > 
 ```
 ```
-#### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)
+#### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)  ``에러``
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
