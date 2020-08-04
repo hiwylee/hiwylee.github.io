@@ -1,9 +1,9 @@
 ### 의약품사용정보조회 서비스
-
 * Base URL : 
   * http://apis.data.go.kr/B551182/msupUserInfoService
 * 서버키
   * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
+---  
 #### 성분별지역별사용량목록조회(``getCmpnAreaList``)
 > 인력 변수
   * 서비스 인증키 ServiceKey
@@ -118,4 +118,16 @@
   * 성분코드 gnlNmCd
   * 보험자구분 insupTp
   * 조제처방구분 cpmdPrscTp
+>  http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023&ciCd=01
+
+### 약가기준정보조회서비스
+* Base URL : 
+  * http://apis.data.go.kr/B551182/msupUserInfoService
+* 서버키
+  * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
+---  
+#### 약가기준정보조회서비스(getDgamtList)"
+> 인력 변수
+  * 
+> Sample URL  
 >  http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023&ciCd=01
