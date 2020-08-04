@@ -261,10 +261,58 @@
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
-* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem
+* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&pageNo=1&numOfRows=1&
+> 입력변수
+  * 품목명           item_name
+  * 업체명           entp_name
+  * 허가일자          item_permit_date
+  * 업체허가번호        entp_no 
+  * 페이지 번호        pageNo 
+  * 한 페이지 결과수    numOfRows
+  * 표준코드          bar_code
+  * 품목기준코드        item_seq 
+  * 변경일자시작일      start_change_date
+  * 변경일자종료일      end_change_date
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 > 
-```
+* ``결과가 너무 복잡하여 구조화 하기 어려움``
+```xml
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<numOfRows>1</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>52353</totalCount>
+		<items>
+			<item>
+				<ITEM_SEQ>195500002</ITEM_SEQ>
+                ...
+				<GBN_NAME>용법용량변경, 2015-12-17/효능효과변경, 2015-12-17/사용상주의사항변경(부작용포함), 2015-12-17/용법용량변경, 1995-01-01/효능효과변경, 1995-01-01/사용상주의사항변경(부작용포함), 1995-01-01</GBN_NAME>
+				<TOTAL_CONTENT>1정 중 80밀리그램</TOTAL_CONTENT>
+				<EE_DOC_DATA>
+				<DOC title="효능효과" type="EE">
+					<SECTION title="">
+						<ARTICLE title="1. 다음 질환에서의 기침 : 기관지천식, 감기, 급•만성기관지염, 상기도염"/>
+						<ARTICLE title="2. 비점막의 충혈·종창"/>
+					</SECTION>
+				</DOC>
+				</EE_DOC_DATA>
+				<UD_DOC_DATA>
+				...
+				</UD_DOC_DATA>
+				<NB_DOC_DATA>
+				...
+				</NB_DOC_DATA>
+				<PN_DOC_DATA/>
+				<MAIN_ITEM_INGR>염산에페드린</MAIN_ITEM_INGR>
+				<INGR_NAME>유당/옥수수전분/탈크/스테아린산마그네슘</INGR_NAME>
+			</item>
+		</items>
+	</body>
+</response>
 ```
 #### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)  ``에러``
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
