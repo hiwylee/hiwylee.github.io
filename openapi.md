@@ -256,6 +256,7 @@
 </response>
 ```
 ### 의약품 제품 허가정보 서비스
+* serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
 #### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)  ``에러``
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
@@ -269,10 +270,80 @@
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
-* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductList
+* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1
+> 입력변수 (전체 옵션)
+  * 제품명             item_name
+  * 업체명             entp_name
+  * 업종               induty 
+  * 품목일련번호            prdlst_Stdr_code 
+  * 전문/일반구분코드_M58   spclty_pblc 
+  * 품목허가번호            prduct_prmisn_no 
+  * 페이지 번호             pageNo
+  * 한 페이지 결과수       numOfRows 
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 > 
 ```
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<numOfRows>3</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>53656</totalCount>
+		<items>
+			<item>
+				<ITEM_SEQ>195500002</ITEM_SEQ>
+				<ITEM_NAME>종근당염산에페드린정</ITEM_NAME>
+				<ENTP_NAME>(주)종근당</ENTP_NAME>
+				<ITEM_PERMIT_DATE>19550117</ITEM_PERMIT_DATE>
+				<INDUTY>의약품</INDUTY>
+				<PRDLST_STDR_CODE>195500002</PRDLST_STDR_CODE>
+				<SPCLTY_PBLC>전문의약품</SPCLTY_PBLC>
+				<PRDUCT_TYPE/>
+				<PRDUCT_PRMISN_NO>7</PRDUCT_PRMISN_NO>
+				<ITEM_INGR_NAME>염산에페드린</ITEM_INGR_NAME>
+				<ITEM_INGR_CNT>1</ITEM_INGR_CNT>
+				<PERMIT_KIND_CODE>허가</PERMIT_KIND_CODE>
+				<CANCEL_DATE>20200101</CANCEL_DATE>
+				<CANCEL_NAME>유효기간만료</CANCEL_NAME>
+			</item>
+			<item>
+				<ITEM_SEQ>195500004</ITEM_SEQ>
+				<ITEM_NAME>종근당아스피린정</ITEM_NAME>
+				<ENTP_NAME>(주)종근당</ENTP_NAME>
+				<ITEM_PERMIT_DATE>19550116</ITEM_PERMIT_DATE>
+				<INDUTY>의약품</INDUTY>
+				<PRDLST_STDR_CODE>195500004</PRDLST_STDR_CODE>
+				<SPCLTY_PBLC>일반의약품</SPCLTY_PBLC>
+				<PRDUCT_TYPE/>
+				<PRDUCT_PRMISN_NO>9</PRDUCT_PRMISN_NO>
+				<ITEM_INGR_NAME>아스피린</ITEM_INGR_NAME>
+				<ITEM_INGR_CNT>1</ITEM_INGR_CNT>
+				<PERMIT_KIND_CODE>허가</PERMIT_KIND_CODE>
+				<CANCEL_DATE>20190101</CANCEL_DATE>
+			<CANCEL_NAME>유효기간만료</CANCEL_NAME>
+			</item>
+			<item>
+				<ITEM_SEQ>195500005</ITEM_SEQ>
+				<ITEM_NAME>중외5%포도당생리식염액(수출명:5%DextroseinnormalsalineInj.)</ITEM_NAME>
+				<ENTP_NAME>제이더블유중외제약(주)</ENTP_NAME>
+				<ITEM_PERMIT_DATE>19550412</ITEM_PERMIT_DATE>
+				<INDUTY>의약품</INDUTY>
+				<PRDLST_STDR_CODE>195500005</PRDLST_STDR_CODE>
+				<SPCLTY_PBLC>전문의약품</SPCLTY_PBLC>
+				<PRDUCT_TYPE/>
+				<PRDUCT_PRMISN_NO>792</PRDUCT_PRMISN_NO>
+				<ITEM_INGR_NAME>포도당/염화나트륨</ITEM_INGR_NAME>
+				<ITEM_INGR_CNT>2</ITEM_INGR_CNT>
+				<PERMIT_KIND_CODE>신고</PERMIT_KIND_CODE>
+				<CANCEL_DATE/>
+				<CANCEL_NAME>정상</CANCEL_NAME>
+			</item>
+		</items>
+	</body>
+</response>
 ```
 #### 의약품 제품 주성분 상세정보조회(getMdcinPrductIrdntItem)
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품 주성분 정보를 목록으로 제공
