@@ -176,23 +176,35 @@
 </body>
 </response>
 ```
+## 식약처
+###  의약품 특허정보(통합) 서비스
+#### 의약품 특허정보 조회
+* 의약품 성분명, 제품명, 허가업체 등 의약품 특허 정보를 목록으로 제공
+* 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
+* 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+* 요청주소 http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList
+* 서비스URL http://apis.data.go.kr/1470000/MdcinPatentInfoService
+* 서버키 : Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D
+> http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1&eng_name=GLIVEC&ingr_eng_name=Imatinib Mesylate& kor_name=글리벡필름코팅정100밀리그램(이매티닙메실산염)
 ### 의약품 제품 허가정보 서비스
-#### 의약품 제품 허가정보 상세 서비스
+#### 의약품 제품 허가정보 상세 서비스 (getMdcinPrductItem)
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
 * 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
-#### 의약품 제품 허가정보 목록 서비스
+#### 의약품 제품 허가정보 목록 서비스 (getMdcinPrductList)
 * 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
 * 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductList
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 
-#### 의약품 제품 주성분 상세 조회  서비스
+#### 의약품 제품 주성분 상세정보조회(getMdcinPrductIrdntItem)
 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품 주성분 정보를 목록으로 제공
 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem
 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
+## 의약품 생산수입실적 서비스
+* https://nedrug.mfds.go.kr/pbp/CCBGA01/getItem?&openDataInfoSeq=8
