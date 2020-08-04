@@ -135,4 +135,36 @@
   * 제업체명 mnfEntpNm         (0..1) 
   * 주의 : 약품코드, 품목명, 제업체명 셋중하나는 필수
 > Sample URL  
->  http://apis.data.go.kr/B551182/dgamtCrtInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
+>  http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
+```xml
+<response>
+<header>
+<resultCode>00</resultCode>
+<resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+<items>
+<item>
+<adtStaDd>20050401</adtStaDd>
+<chgAfMdsCd>G09900011</chgAfMdsCd>
+<gnlNmCd>250401ATB</gnlNmCd>
+<injcPthNm>내복</injcPthNm>
+<itmNm>레스피렌정</itmNm>
+<mdsCd>G03900131</mdsCd>
+<meftDivNo>222</meftDivNo>
+<mnfEntpNm>건일제약</mnfEntpNm>
+<mxCprc>0</mxCprc>
+<nomNm>1</nomNm>
+<optCpmdImplTpNm>향정신성의약품</optCpmdImplTpNm>
+<payTpNm>삭제</payTpNm>
+<sbstPsblTpNm>동등+대조(동등)</sbstPsblTpNm>
+<spcGnlTpNm>전문</spcGnlTpNm>
+<unit>정</unit>
+</item>
+</items>
+<numOfRows>10</numOfRows>
+<pageNo>1</pageNo>
+<totalCount>1</totalCount>
+</body>
+</response>
+```
