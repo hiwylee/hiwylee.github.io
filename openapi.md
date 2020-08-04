@@ -259,5 +259,6 @@
 </body>
 </response>
 ```
-### 의약품 생산수입실적 서비스
+### 의약품 생산수입실적 서비스 (링크 다운로드 방식)
+
 * https://nedrug.mfds.go.kr/pbp/CCBGA01/getItem?&openDataInfoSeq=8
