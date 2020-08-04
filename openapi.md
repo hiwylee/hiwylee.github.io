@@ -166,3 +166,23 @@
 </body>
 </response>
 ```
+### 의약품 제품 허가정보 서비스
+#### 의약품 제품 허가정보 상세 서비스
+* 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 상세정보로 제공
+* 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
+* 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem
+* 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
+#### 의약품 제품 허가정보 목록 서비스
+* 품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품정보를 목록으로 제공
+* 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
+* 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+* 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductList
+* 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
+
+#### 의약품 제품 주성분 상세 조회  서비스
+품목, 주성분, 제조원, 포장단위, 저장방법, 성상등의 품목정보와 허가일자, 허가번호 등의 허가정보 등의 허가받은 의약제품 주성분 정보를 목록으로 제공
+활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
+신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
+요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem
+서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
