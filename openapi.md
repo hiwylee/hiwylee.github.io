@@ -21,41 +21,41 @@
 >  http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnAreaList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023
 ```xml
 <response>
-<header>
-<resultCode>00</resultCode>
-<resultMsg>NORMAL SERVICE.</resultMsg>
-</header>
-<body>
-<items>
-<item>
-<diagYm>201604</diagYm>
-<gnlNmCd>100701ACH</gnlNmCd>
-<gnlNmCdNm>acebrophylline</gnlNmCdNm>
-<insupTpCd>4</insupTpCd>
-<msupUseAmt>6954711</msupUseAmt>
-<sgguCd>110023</sgguCd>
-<sgguCdNm>광진구</sgguCdNm>
-<sidoCd>110000</sidoCd>
-<sidoCdNm>서울</sidoCdNm>
-<totUseQty>33152</totUseQty>
-</item>
-<item>
-<diagYm>201604</diagYm>
-<gnlNmCd>100701ACH</gnlNmCd>
-<gnlNmCdNm>acebrophylline</gnlNmCdNm>
-<insupTpCd>5</insupTpCd>
-<msupUseAmt>351007</msupUseAmt>
-<sgguCd>110023</sgguCd>
-<sgguCdNm>광진구</sgguCdNm>
-<sidoCd>110000</sidoCd>
-<sidoCdNm>서울</sidoCdNm>
-<totUseQty>1666</totUseQty>
-</item>
-</items>
-<numOfRows>10</numOfRows>
-<pageNo>1</pageNo>
-<totalCount>2</totalCount>
-</body>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<items>
+			<item>
+				<diagYm>201604</diagYm>
+				<gnlNmCd>100701ACH</gnlNmCd>
+				<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+				<insupTpCd>4</insupTpCd>
+				<msupUseAmt>6954711</msupUseAmt>
+				<sgguCd>110023</sgguCd>
+				<sgguCdNm>광진구</sgguCdNm>
+				<sidoCd>110000</sidoCd>
+				<sidoCdNm>서울</sidoCdNm>
+				<totUseQty>33152</totUseQty>
+			</item>
+			<item>
+				<diagYm>201604</diagYm>
+				<gnlNmCd>100701ACH</gnlNmCd>
+				<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+				<insupTpCd>5</insupTpCd>
+				<msupUseAmt>351007</msupUseAmt>
+				<sgguCd>110023</sgguCd>
+				<sgguCdNm>광진구</sgguCdNm>
+				<sidoCd>110000</sidoCd>
+				<sidoCdNm>서울</sidoCdNm>
+				<totUseQty>1666</totUseQty>
+			</item>
+		</items>
+		<numOfRows>10</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>2</totalCount>
+	</body>
 </response>
 ```
 #### 성분별의료기관종별사용량목록조회(``getCmpnClList``) 
