@@ -1,3 +1,8 @@
+## Oracle Identity Cloud Service
+### Tutorials
+* https://docs.oracle.com/en/cloud/paas/identity-cloud/tutorials.html
+* Use OAuth 2.0 and Open ID Connect in a Custom Application
+  * https://apexapps.oracle.com/pls/apex/f?p=44785:112:0::::P112_CONTENT_ID:13427
 ## Federating with Identity Providers [link](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Concepts/federation.htm)
 ### [Federating with SAML 2.0 Identity Providers](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/federatingSAML.htm)
 * [Oracle Cloud Infrastructure Okta Configuration for Federation and Provisioning](https://cloud.oracle.com/iaas/whitepapers/okta-federation-with-oci.pdf)
