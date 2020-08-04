@@ -196,8 +196,7 @@
   * 제품명(영)      eng_name
   * 제품명(한)      kor_name
   * 페이지 번호      pageNo
-  * 한 페이지 결과수   numOfRows 
-  
+  * 한 페이지 결과수   numOfRows   
 > http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1
 
 ```xml
@@ -273,7 +272,6 @@
   * 품목기준코드        item_seq 
   * 변경일자시작일      start_change_date
   * 변경일자종료일      end_change_date
-* 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 > 
 * ``결과가 너무 복잡하여 구조화 하기 어려움``
 ```xml
@@ -398,7 +396,13 @@
 * 활용승인 절차 개발단계 : 허용 / 운영단계 : 허용
 * 신청가능 트래픽 1000000 / 운영계정은 활용사례 등록시 신청하면 트래픽 증가 가능
 * 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem
-* 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
+> 입력변수
+  * 업체허가번호       entrps_prmisn_no
+  * 제품명(한글)       prduct 
+  * 업체명           Entrps
+  * 페이지 번호        pageNo 
+  * 한 페이지 결과수    numOfRows
+ 
 > http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&Entrps_prmisn_no=&Prduct=&Entrps=&pageNo=1&numOfRows=3&
 ```xml
 <response>
