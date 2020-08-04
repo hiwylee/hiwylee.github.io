@@ -7,7 +7,7 @@
   * ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D
 ---  
 #### 성분별지역별사용량목록조회(``getCmpnAreaList``)
-> URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnAreaList
+- URL : http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnAreaList
 > 인력 변수 (``전체 필수``)
   * 서비스 인증키 ServiceKey
   * 한페이지결과수 numOfRows
