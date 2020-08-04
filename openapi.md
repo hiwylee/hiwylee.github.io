@@ -73,30 +73,30 @@
 >  http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnClList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01&sidoCd=110000&sgguCd=110023&clCd=01
 ```xml
 <response>
-<header>
-<resultCode>00</resultCode>
-<resultMsg>NORMAL SERVICE.</resultMsg>
-</header>
-<body>
-<items>
-<item>
-<clCdNm>상급종합병원</clCdNm>
-<diagYm>201604</diagYm>
-<gnlNmCd>100701ACH</gnlNmCd>
-<gnlNmCdNm>acebrophylline</gnlNmCdNm>
-<insupTpCd>4</insupTpCd>
-<msupUseAmt>122808</msupUseAmt>
-<sgguCd>110023</sgguCd>
-<sgguCdNm>광진구</sgguCdNm>
-<sidoCd>110000</sidoCd>
-<sidoCdNm>서울</sidoCdNm>
-<totUseQty>731</totUseQty>
-</item>
-</items>
-<numOfRows>10</numOfRows>
-<pageNo>1</pageNo>
-<totalCount>1</totalCount>
-</body>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<items>
+			<item>
+				<clCdNm>상급종합병원</clCdNm>
+				<diagYm>201604</diagYm>
+				<gnlNmCd>100701ACH</gnlNmCd>
+				<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+				<insupTpCd>4</insupTpCd>
+				<msupUseAmt>122808</msupUseAmt>
+				<sgguCd>110023</sgguCd>
+				<sgguCdNm>광진구</sgguCdNm>
+				<sidoCd>110000</sidoCd>
+				<sidoCdNm>서울</sidoCdNm>
+				<totUseQty>731</totUseQty>
+			</item>
+		</items>
+		<numOfRows>10</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>1</totalCount>
+	</body>
 </response>
 ```
 #### 성분별상병별사용량목록조회  (``getCmpnSickList``)  : ``에러``
@@ -152,34 +152,34 @@
 >  http://apis.data.go.kr/B551182/dgamtCrtrInfoService/getDgamtList?ServiceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=10&pageNo=1&mdsCd=G03900131
 ```xml
 <response>
-<header>
-<resultCode>00</resultCode>
-<resultMsg>NORMAL SERVICE.</resultMsg>
-</header>
-<body>
-<items>
-<item>
-<adtStaDd>20050401</adtStaDd>
-<chgAfMdsCd>G09900011</chgAfMdsCd>
-<gnlNmCd>250401ATB</gnlNmCd>
-<injcPthNm>내복</injcPthNm>
-<itmNm>레스피렌정</itmNm>
-<mdsCd>G03900131</mdsCd>
-<meftDivNo>222</meftDivNo>
-<mnfEntpNm>건일제약</mnfEntpNm>
-<mxCprc>0</mxCprc>
-<nomNm>1</nomNm>
-<optCpmdImplTpNm>향정신성의약품</optCpmdImplTpNm>
-<payTpNm>삭제</payTpNm>
-<sbstPsblTpNm>동등+대조(동등)</sbstPsblTpNm>
-<spcGnlTpNm>전문</spcGnlTpNm>
-<unit>정</unit>
-</item>
-</items>
-<numOfRows>10</numOfRows>
-<pageNo>1</pageNo>
-<totalCount>1</totalCount>
-</body>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<items>
+			<item>
+				<adtStaDd>20050401</adtStaDd>
+				<chgAfMdsCd>G09900011</chgAfMdsCd>
+				<gnlNmCd>250401ATB</gnlNmCd>
+				<injcPthNm>내복</injcPthNm>
+				<itmNm>레스피렌정</itmNm>
+				<mdsCd>G03900131</mdsCd>
+				<meftDivNo>222</meftDivNo>
+				<mnfEntpNm>건일제약</mnfEntpNm>
+				<mxCprc>0</mxCprc>
+				<nomNm>1</nomNm>
+				<optCpmdImplTpNm>향정신성의약품</optCpmdImplTpNm>
+				<payTpNm>삭제</payTpNm>
+				<sbstPsblTpNm>동등+대조(동등)</sbstPsblTpNm>
+				<spcGnlTpNm>전문</spcGnlTpNm>
+				<unit>정</unit>
+			</item>
+		</items>
+		<numOfRows>10</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>1</totalCount>
+	</body>
 </response>
 ```
 ## 식약처
@@ -200,7 +200,7 @@
   
 > http://apis.data.go.kr/1470000/MdcinPatentInfoService/getMdcinPatentInfoList?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&numOfRows=3&pageNo=1
 
-```
+```xml
 <response>
 	<header>
 		<resultCode>00</resultCode>
@@ -282,7 +282,7 @@
   * 한 페이지 결과수       numOfRows 
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 > 
-```
+```xml
 <response>
 	<header>
 		<resultCode>00</resultCode>
@@ -352,49 +352,49 @@
 * 요청주소 http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem
 * 서비스URL http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService
 > http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductIrdntItem?serviceKey=Fm4e4k6u%2Faw6gmlRwAZNteSJKphfGBeXcs1UQQfnN2mnyOVV9tO%2BwtjC9bnBcNhllDDjRWmcYkYixHUWDZfyyw%3D%3D&Entrps_prmisn_no=&Prduct=&Entrps=&pageNo=1&numOfRows=3&
-```
+```xml
 <response>
-<header>
-<resultCode>00</resultCode>
-<resultMsg>NORMAL SERVICE.</resultMsg>
-</header>
-<body>
-<numOfRows>3</numOfRows>
-<pageNo>1</pageNo>
-<totalCount>174794</totalCount>
-<items>
-<item>
-<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
-<ENTRPS>(주)종근당</ENTRPS>
-<PRDUCT>종근당염산에페드린정</PRDUCT>
-<MTRAL_SN>1</MTRAL_SN>
-<MTRAL_CODE>M040420</MTRAL_CODE>
-<MTRAL_NM>염산에페드린</MTRAL_NM>
-<QNT>25</QNT>
-<ITEM_SEQ>195500002</ITEM_SEQ>
-</item>
-<item>
-<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
-<ENTRPS>(주)종근당</ENTRPS>
-<PRDUCT>종근당아스피린정</PRDUCT>
-<MTRAL_SN>1</MTRAL_SN>
-<MTRAL_CODE>M040355</MTRAL_CODE>
-<MTRAL_NM>아스피린</MTRAL_NM>
-<QNT>250</QNT>
-<ITEM_SEQ>195500004</ITEM_SEQ>
-</item>
-<item>
-<ENTRPS_PRMISN_NO>1302</ENTRPS_PRMISN_NO>
-<ENTRPS>제이더블유중외제약(주)</ENTRPS>
-<PRDUCT>중외5%포도당생리식염액(수출명:5%DextroseinnormalsalineInj.)</PRDUCT>
-<MTRAL_SN>1</MTRAL_SN>
-<MTRAL_CODE>M040702</MTRAL_CODE>
-<MTRAL_NM>포도당</MTRAL_NM>
-<QNT>50</QNT>
-<ITEM_SEQ>195500005</ITEM_SEQ>
-</item>
-</items>
-</body>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL SERVICE.</resultMsg>
+	</header>
+	<body>
+		<numOfRows>3</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>174794</totalCount>
+		<items>
+			<item>
+				<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
+				<ENTRPS>(주)종근당</ENTRPS>
+				<PRDUCT>종근당염산에페드린정</PRDUCT>
+				<MTRAL_SN>1</MTRAL_SN>
+				<MTRAL_CODE>M040420</MTRAL_CODE>
+				<MTRAL_NM>염산에페드린</MTRAL_NM>
+				<QNT>25</QNT>
+				<ITEM_SEQ>195500002</ITEM_SEQ>
+			</item>
+			<item>
+				<ENTRPS_PRMISN_NO>1459</ENTRPS_PRMISN_NO>
+				<ENTRPS>(주)종근당</ENTRPS>
+				<PRDUCT>종근당아스피린정</PRDUCT>
+				<MTRAL_SN>1</MTRAL_SN>
+				<MTRAL_CODE>M040355</MTRAL_CODE>
+				<MTRAL_NM>아스피린</MTRAL_NM>
+				<QNT>250</QNT>
+				<ITEM_SEQ>195500004</ITEM_SEQ>
+			</item>
+			<item>
+				<ENTRPS_PRMISN_NO>1302</ENTRPS_PRMISN_NO>
+				<ENTRPS>제이더블유중외제약(주)</ENTRPS>
+				<PRDUCT>중외5%포도당생리식염액(수출명:5%DextroseinnormalsalineInj.)</PRDUCT>
+				<MTRAL_SN>1</MTRAL_SN>
+				<MTRAL_CODE>M040702</MTRAL_CODE>
+				<MTRAL_NM>포도당</MTRAL_NM>
+				<QNT>50</QNT>
+				<ITEM_SEQ>195500005</ITEM_SEQ>
+			</item>
+		</items>
+	</body>
 </response>
 ```
 ### 의약품 생산수입실적 서비스 (링크 다운로드 방식)
