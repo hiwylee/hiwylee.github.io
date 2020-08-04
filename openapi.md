@@ -63,7 +63,7 @@
   * 한페이지결과수 numOfRows
   * 페이지 번호 pageNo
   * 진료년월 diagYm
-  * ``성분코드 gnlNmCd``
+  * ``성분코드 gnlNmCd`` - getMsupCdInfoList  > msupCdTp=4인 경우
   * ``보험자구분 insupTp`` - 0:전체, 4: 건강보험, 5: 의료급여, 7: 보훈
   * ``조제처방구분 cpmdPrscTp`` -  01:조제기준 , 02: 처방기준
   * ``시군구코드 siguCd``
