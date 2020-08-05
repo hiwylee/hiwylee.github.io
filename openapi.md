@@ -110,16 +110,51 @@
   * ``보험자구분 insupTp`` - 0:전체, 4: 건강보험, 5: 의료급여, 7: 보훈
   * ``조제처방구분 cpmdPrscTp`` -  01:조제기준 , 02: 처방기준
 
-  >  http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=10&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01
+  >  http://apis.data.go.kr/B551182/msupUserInfoService/getCmpnSickList?ServiceKey=Ilwl21IL5bldm28%2FOjDimlevdf4vn3XKD8z5N6LireVUUjGTicqOl5oFqKYexzrcnUSysJATziLqvgQ2KIpwNA%3D%3D&numOfRows=3&pageNo=1&diagYm=201604&gnlNmCd=100701ACH&insupTp=0&cpmdPrscTp=01
 ```xml
-
-<OpenAPI_ServiceResponse>
-<cmmMsgHeader>
-<errMsg>SERVICE ERROR</errMsg>
-<returnAuthMsg>SERVICE_ACCESS_DENIED_ERROR</returnAuthMsg>
-<returnReasonCode>20</returnReasonCode>
-</cmmMsgHeader>
-</OpenAPI_ServiceResponse>
+<response>
+<header>
+	<resultCode>00</resultCode>
+	<resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+	<items>
+		<item>
+			<diagYm>201604</diagYm>
+			<gnlNmCd>100701ACH</gnlNmCd>
+			<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+			<insupTpCd>4</insupTpCd>
+			<msupUseAmt>250069</msupUseAmt>
+			<st3SickSym>AE10</st3SickSym>
+			<st3SickSymNm>1형 당뇨병</st3SickSymNm>
+			<totUseQty>1189</totUseQty>
+		</item>
+		<item>
+			<diagYm>201604</diagYm>
+			<gnlNmCd>100701ACH</gnlNmCd>
+			<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+			<insupTpCd>5</insupTpCd>
+			<msupUseAmt>88110</msupUseAmt>
+			<st3SickSym>AE10</st3SickSym>
+			<st3SickSymNm>1형 당뇨병</st3SickSymNm>
+			<totUseQty>418</totUseQty>
+		</item>
+		<item>
+			<diagYm>201604</diagYm>
+			<gnlNmCd>100701ACH</gnlNmCd>
+			<gnlNmCdNm>acebrophylline</gnlNmCdNm>
+			<insupTpCd>7</insupTpCd>
+			<msupUseAmt>12540</msupUseAmt>
+			<st3SickSym>AE10</st3SickSym>
+			<st3SickSymNm>1형 당뇨병</st3SickSymNm>
+			<totUseQty>60</totUseQty>
+		</item>
+	</items>
+	<numOfRows>3</numOfRows>
+	<pageNo>1</pageNo>
+	<totalCount>1293</totalCount>
+</body>
+</response>
   ```
 ####  의약품코드정보목록조회(getMsupCdInfoList  > msupCdTp=4인 경우)"  ``없음``
 - URL : http://apis.data.go.kr/B551182/msupUserInfoService/getMsupCdInfoList
