@@ -1,9 +1,2 @@
 ## Dump
-* https://pdf.practicematerial.com/1Z0-1088-20.pdf
-* https://pdf.braindumpsit.com/1Z0-1088-20.pdf
-* https://pdf.koreadumps.com/1Z0-1088-20.pdf
-* https://pdf.itexamsimulator.com/1Z0-1088-20.pdf
-* https://pdf.vcedumps.com/1Z0-1088-20.pdf
-* https://www.itbraindumps.com/#samples
-* https://pdf.validexam.com/1Z0-1088-20.pdf
-* https://pdf.realexamfree.com/1Z0-1088-20.pdf
+
