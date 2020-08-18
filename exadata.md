@@ -13,6 +13,12 @@
 * [Exadata Part 1](https://www.youtube.com/watch?v=CfNLB65w8Fc&list=PLEVmh4UjbWxNRth74cbl6DZwa9m8X3UvZ&index=2)
 * [Exadata Part 2](https://www.youtube.com/watch?v=301EPKUdPyY&list=PLEVmh4UjbWxNRth74cbl6DZwa9m8X3UvZ&index=3)
 * [Exadata Part 3](https://i.ytimg.com/vi/p-tM0MDmbqg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLDWn39gKG7Hz7dao1x2vRyUFOlJzA)
+## Exadata Spec
+### Spec 비교
+* [ Exadata X8-2 ]
+  * ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fkxl0B%2Fbtqv15RP0RH%2FqOdKfAvtJ7nvJkKyZDMTQk%2Fimg.png)
+* [ Exadata X7-2 ]
+  * ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbm2KRs%2Fbtqv4PNQyBc%2FGXikGCbQVKzVR11j3sdYRK%2Fimg.png)
 ## Exadata Advanced
 * Technical Deep Dive
 * Ideal Database HW
