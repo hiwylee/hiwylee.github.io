@@ -5,7 +5,8 @@
 * Application Design
 * Change db Structure(Indexes)
 * Tuning SQL
-* Access Path
+* Access Path - change to indexc
+* Memory Allocation - Instance Tuning
 ### Hint
 * pq_distribute
 * opt_param
