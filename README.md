@@ -13,7 +13,6 @@
 * [GCP.md](GCP.md)
 * [HANA.md](HANA.md)
 * [JET.md](JET.md)
-* [KED_PoC](KED_Po)
 * [KED_PoC.md](KED_Poc.md)
 * [MuShop.md](MuShop.md)
 * [OAC.md](OAC.md)
