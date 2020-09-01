@@ -37,7 +37,7 @@ Copyright (c) 1982, 2020, Oracle.  All rights reserved.
 
 Connected to an idle instance.
 
-SQL> startup nomount pfile='/tmp/initORCL.ora';
+SQL> startup nomount pfile='/tmp/initORCL_STBY.ora';
 ORACLE instance started.
 
 Total System Global Area  381677696 bytes
@@ -49,16 +49,292 @@ SQL>
 
 ```
 * Duplicate Database 
+```bash
+$ rman TARGET sys/WelCome123##@ORCL AUXILIARY sys/WelCome123##@ORCL_stby
+```
 ```sql
-rman TARGET sys/Password1@ORCL AUXILIARY sys/Password1@ORCL_stby
-RMAN>
-DUPLICATE TARGET DATABASE
+RMAN> DUPLICATE TARGET DATABASE
   FOR STANDBY
   FROM ACTIVE DATABASE
   DORECOVER
   SPFILE
     SET db_unique_name='ORCL_STBY' COMMENT 'Is standby'
-  NOFILENAMECHECK;
+  NOFILENAMECHECK; 
+
+Starting Duplicate Db at 01-SEP-20
+using target database control file instead of recovery catalog
+allocated channel: ORA_AUX_DISK_1
+channel ORA_AUX_DISK_1: SID=528 device type=DISK
+current log archived
+
+contents of Memory Script:
+{
+   backup as copy reuse
+   passwordfile auxiliary format  '/u01/app/oracle/product/19c/dbhome_1/dbs/orapwORCL'   ;
+   restore clone from service  'ORCL' spfile to
+ '/u01/app/oracle/product/19c/dbhome_1/dbs/spfileORCL.ora';
+   sql clone "alter system set spfile= ''/u01/app/oracle/product/19c/dbhome_1/dbs/spfileORCL.ora''";
+}
+executing Memory Script
+
+Starting backup at 01-SEP-20
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=11 device type=DISK
+Finished backup at 01-SEP-20
+
+Starting restore at 01-SEP-20
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring SPFILE
+output file name=/u01/app/oracle/product/19c/dbhome_1/dbs/spfileORCL.ora
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 01-SEP-20
+
+sql statement: alter system set spfile= ''/u01/app/oracle/product/19c/dbhome_1/dbs/spfileORCL.ora''
+
+contents of Memory Script:
+{
+   sql clone "alter system set  db_unique_name =
+ ''ORCL_STBY'' comment=
+ ''Is standby'' scope=spfile";
+   shutdown clone immediate;
+   startup clone nomount;
+}
+executing Memory Script
+
+sql statement: alter system set  db_unique_name =  ''ORCL_STBY'' comment= ''Is standby'' scope=spfile
+Oracle instance shut down
+
+connected to auxiliary database (not started)
+Oracle instance started
+
+Total System Global Area   10032774576 bytes
+
+Fixed Size                    12684720 bytes
+Variable Size               1543503872 bytes
+Database Buffers            8455716864 bytes
+Redo Buffers                  20869120 bytes
+duplicating Online logs to Oracle Managed File (OMF) location
+
+contents of Memory Script:
+{
+   restore clone from service  'ORCL' standby controlfile;
+}
+executing Memory Script
+
+Starting restore at 01-SEP-20
+allocated channel: ORA_AUX_DISK_1
+channel ORA_AUX_DISK_1: SID=743 device type=DISK
+
+channel ORA_AUX_DISK_1: starting datafile backup set restore
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring control file
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:02
+output file name=/u01/app/oracle/oradata/ORCL/control01.ctl
+output file name=/u01/app/oracle/oradata/ORCL/control02.ctl
+Finished restore at 01-SEP-20
+
+contents of Memory Script:
+{
+   sql clone 'alter database mount standby database';
+}
+executing Memory Script
+
+sql statement: alter database mount standby database
+RMAN-05538: warning: implicitly using DB_FILE_NAME_CONVERT
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/system01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/sysaux01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/undotbs01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdbseed/system01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdbseed/sysaux01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/users01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdbseed/undotbs01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/orclpdb/tbs_auto_idx01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb2/system01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb2/sysaux01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb2/undotbs01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb3/system01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb3/sysaux01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (datafile) file name /u01/app/oracle/oradata/ORCL/pdb3/undotbs01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (tempfile) file name /u01/app/oracle/oradata/ORCL/temp01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (tempfile) file name /u01/app/oracle/oradata/ORCL/pdbseed/temp012020-08-31_10-51-15-810-AM.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (tempfile) file name /u01/app/oracle/oradata/ORCL/orclpdb/temp01.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (tempfile) file name /u01/app/oracle/oradata/ORCL/pdb2/temp012020-08-31_10-51-15-810-AM.dbf conflicts with a file used by the target database
+RMAN-05158: WARNING: auxiliary (tempfile) file name /u01/app/oracle/oradata/ORCL/pdb3/temp012020-08-31_10-51-15-810-AM.dbf conflicts with a file used by the target database
+
+contents of Memory Script:
+{
+   set newname for tempfile  1 to
+ "/u01/app/oracle/oradata/ORCL/temp01.dbf";
+   set newname for tempfile  2 to
+ "/u01/app/oracle/oradata/ORCL/pdbseed/temp012020-08-31_10-51-15-810-AM.dbf";
+   set newname for tempfile  3 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/temp01.dbf";
+   set newname for tempfile  4 to
+ "/u01/app/oracle/oradata/ORCL/pdb2/temp012020-08-31_10-51-15-810-AM.dbf";
+   set newname for tempfile  5 to
+ "/u01/app/oracle/oradata/ORCL/pdb3/temp012020-08-31_10-51-15-810-AM.dbf";
+   switch clone tempfile all;
+   set newname for datafile  1 to
+ "/u01/app/oracle/oradata/ORCL/system01.dbf";
+   set newname for datafile  3 to
+ "/u01/app/oracle/oradata/ORCL/sysaux01.dbf";
+   set newname for datafile  4 to
+ "/u01/app/oracle/oradata/ORCL/undotbs01.dbf";
+   set newname for datafile  5 to
+ "/u01/app/oracle/oradata/ORCL/pdbseed/system01.dbf";
+   set newname for datafile  6 to
+ "/u01/app/oracle/oradata/ORCL/pdbseed/sysaux01.dbf";
+   set newname for datafile  7 to
+ "/u01/app/oracle/oradata/ORCL/users01.dbf";
+   set newname for datafile  8 to
+ "/u01/app/oracle/oradata/ORCL/pdbseed/undotbs01.dbf";
+   set newname for datafile  9 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf";
+   set newname for datafile  10 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf";
+   set newname for datafile  11 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf";
+   set newname for datafile  12 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf";
+   set newname for datafile  13 to
+ "/u01/app/oracle/oradata/ORCL/orclpdb/tbs_auto_idx01.dbf";
+   set newname for datafile  14 to
+ "/u01/app/oracle/oradata/ORCL/pdb2/system01.dbf";
+   set newname for datafile  15 to
+ "/u01/app/oracle/oradata/ORCL/pdb2/sysaux01.dbf";
+   set newname for datafile  16 to
+ "/u01/app/oracle/oradata/ORCL/pdb2/undotbs01.dbf";
+   set newname for datafile  17 to
+ "/u01/app/oracle/oradata/ORCL/pdb3/system01.dbf";
+   set newname for datafile  18 to
+ "/u01/app/oracle/oradata/ORCL/pdb3/sysaux01.dbf";
+   set newname for datafile  19 to
+ "/u01/app/oracle/oradata/ORCL/pdb3/undotbs01.dbf";
+   restore
+   from  nonsparse   from service
+ 'ORCL'   clone database
+   ;
+   sql 'alter system archive log current';
+}
+executing Memory Script
+
+executing command: SET NEWNAME
+...
+executing command: SET NEWNAME
+
+renamed tempfile 1 to /u01/app/oracle/oradata/ORCL/temp01.dbf in control file
+renamed tempfile 2 to /u01/app/oracle/oradata/ORCL/pdbseed/temp012020-08-31_10-51-15-810-AM.dbf in control file
+renamed tempfile 3 to /u01/app/oracle/oradata/ORCL/orclpdb/temp01.dbf in control file
+renamed tempfile 4 to /u01/app/oracle/oradata/ORCL/pdb2/temp012020-08-31_10-51-15-810-AM.dbf in control file
+renamed tempfile 5 to /u01/app/oracle/oradata/ORCL/pdb3/temp012020-08-31_10-51-15-810-AM.dbf in control file
+
+executing command: SET NEWNAME
+...
+executing command: SET NEWNAME
+
+Starting restore at 01-SEP-20
+using channel ORA_AUX_DISK_1
+
+channel ORA_AUX_DISK_1: starting archived log restore to default destination
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=20
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:01
+channel ORA_AUX_DISK_1: starting archived log restore to default destination
+channel ORA_AUX_DISK_1: using network backup set from service ORCL
+channel ORA_AUX_DISK_1: restoring archived log
+archived log thread=1 sequence=21
+channel ORA_AUX_DISK_1: restore complete, elapsed time: 00:00:02
+Finished restore at 01-SEP-20
+
+datafile 1 switched to datafile copy
+input datafile copy RECID=4 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/system01.dbf
+datafile 3 switched to datafile copy
+input datafile copy RECID=5 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/sysaux01.dbf
+datafile 4 switched to datafile copy
+input datafile copy RECID=6 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/undotbs01.dbf
+datafile 5 switched to datafile copy
+input datafile copy RECID=7 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdbseed/system01.dbf
+datafile 6 switched to datafile copy
+input datafile copy RECID=8 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdbseed/sysaux01.dbf
+datafile 7 switched to datafile copy
+input datafile copy RECID=9 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/users01.dbf
+datafile 8 switched to datafile copy
+input datafile copy RECID=10 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdbseed/undotbs01.dbf
+datafile 9 switched to datafile copy
+input datafile copy RECID=11 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/orclpdb/system01.dbf
+datafile 10 switched to datafile copy
+input datafile copy RECID=12 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/orclpdb/sysaux01.dbf
+datafile 11 switched to datafile copy
+input datafile copy RECID=13 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/orclpdb/undotbs01.dbf
+datafile 12 switched to datafile copy
+input datafile copy RECID=14 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/orclpdb/users01.dbf
+datafile 13 switched to datafile copy
+input datafile copy RECID=15 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/orclpdb/tbs_auto_idx01.dbf
+datafile 14 switched to datafile copy
+input datafile copy RECID=16 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb2/system01.dbf
+datafile 15 switched to datafile copy
+input datafile copy RECID=17 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb2/sysaux01.dbf
+datafile 16 switched to datafile copy
+input datafile copy RECID=18 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb2/undotbs01.dbf
+datafile 17 switched to datafile copy
+input datafile copy RECID=19 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb3/system01.dbf
+datafile 18 switched to datafile copy
+input datafile copy RECID=20 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb3/sysaux01.dbf
+datafile 19 switched to datafile copy
+input datafile copy RECID=21 STAMP=1049988207 file name=/u01/app/oracle/oradata/ORCL/pdb3/undotbs01.dbf
+
+contents of Memory Script:
+{
+   set until scn  2672823;
+   recover
+   standby
+   clone database
+    delete archivelog
+   ;
+}
+executing Memory Script
+
+executing command: SET until clause
+
+Starting recover at 01-SEP-20
+using channel ORA_AUX_DISK_1
+
+starting media recovery
+
+archived log for thread 1 with sequence 20 is already on disk as file /u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_20_hnwsvdyb_.arc
+archived log for thread 1 with sequence 21 is already on disk as file /u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_21_hnwsvg1p_.arc
+archived log file name=/u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_20_hnwsvdyb_.arc thread=1 sequence=20
+archived log file name=/u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_21_hnwsvg1p_.arc thread=1 sequence=21
+media recovery complete, elapsed time: 00:00:01
+Finished recover at 01-SEP-20
+
+contents of Memory Script:
+{
+   delete clone force archivelog all;
+}
+executing Memory Script
+
+released channel: ORA_DISK_1
+released channel: ORA_AUX_DISK_1
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=873 device type=DISK
+deleted archived log
+archived log file name=/u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_20_hnwsvdyb_.arc RECID=1 STAMP=1049988204
+deleted archived log
+archived log file name=/u01/app/oracle/oradata/ORCL/ORCL_STBY/archivelog/2020_09_01/o1_mf_1_21_hnwsvg1p_.arc RECID=2 STAMP=1049988206
+Deleted 2 objects
+
+Finished Duplicate Db at 01-SEP-20
+
+
 ```
 
 
