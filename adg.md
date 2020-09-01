@@ -336,5 +336,66 @@ Finished Duplicate Db at 01-SEP-20
 
 
 ```
+### ``Enable Broker``
+* ``Enable Broker`` : primary / standby db
+```sql
 
+SQL> ALTER SYSTEM SET dg_broker_start=true;
+
+System altered.
+
+SQL>
+```
+*  register the primary server with the broker
+```sql
+SQL> ALTER SYSTEM SET dg_broker_start=true;
+
+System altered.
+
+SQL> Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+[oracle@workshop ~]$ dgmgrl sys/WelCome123##@ORCL
+DGMGRL for Linux: Release 19.0.0.0.0 - Production on Tue Sep 1 15:30:05 2020
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Welcome to DGMGRL, type "help" for information.
+Connected to "ORCL"
+Connected as SYSDBA.
+DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS  ORCL  CONNECT IDENTIFIER IS ORCL;
+Configuration "my_dg_config" created with primary database "orcl"
+DGMGRL>
+Configuration "my_dg_config" created with primary database "orcl"
+```
+* Now add the standby database.
+```sql
+DGMGRL> ADD DATABASE ORCL_STBY AS CONNECT IDENTIFIER IS ORCL_STBY  MAINTAINED AS PHYSICAL;
+Database "orcl_stby" added
+
+
+```
+* we enable the new configuration.
+```sql
+
+```
+*  check the configuration and status of the databases from the broker.
+```sql
+
+```
+
+
+### Database Switchover
+* Switchover
+```sql
+
+```
+* switch back to the original primary
+
+```sql
+
+```
+### Flashback Database
+### Read-Only Standby and Active Data Guard
+### Snapshot Standby
 
