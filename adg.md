@@ -386,6 +386,9 @@ Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 Welcome to DGMGRL, type "help" for information.
 Connected to "ORCL"
 Connected as SYSDBA.
+
+DGMGRL> REMOVE CONFIGURATION;
+
 DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS  ORCL  CONNECT IDENTIFIER IS ORCL;
 Configuration "my_dg_config" created with primary database "orcl"
 DGMGRL>
