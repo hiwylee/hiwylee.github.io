@@ -1,7 +1,9 @@
 ## DB Upgrade 
 * https://mikedietrichde.com/
-### pluggable database
+### Pluggable database
 * 12c : https://oracle-base.com/articles/12c/multitenant-create-and-configure-pluggable-database-12cr1#manual-create-pdb
+### DBA Scripts
+* https://oracle-base.com/dba/scripts
 ### Upgrade : Single Source of Truth
 * MOS Note: 742060.1 : Release Schedule of Current Database Releases
   * https://support.oracle.com/epmos/faces/DocumentDisplay?id=742060.1
