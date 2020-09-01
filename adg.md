@@ -336,6 +336,29 @@ Finished Duplicate Db at 01-SEP-20
 
 
 ```
+### Standby db open
+```sql
+
+
+SQL> startup nomount
+ORACLE instance started.
+
+Total System Global Area 1.0033E+10 bytes
+Fixed Size                 12684720 bytes
+Variable Size            1543503872 bytes
+Database Buffers         8455716864 bytes
+Redo Buffers               20869120 bytes
+SQL> ALTER DATABASE MOUNT STANDBY DATABASE;
+
+Database altered.
+
+SQL> ALTER DATABASE OPEN READ ONLY;
+
+Database altered.
+
+SQL>
+
+```
 ### ``Enable Broker``
 * ``Enable Broker`` : primary / standby db
 ```sql
@@ -472,6 +495,33 @@ DGMGRL>
 ```
 * switch back to the original primary
 
+```sql
+
+```
+* Reinstating a Failed Primary Database
+  * Step 1   Restart the Old Primary Database.
+```sql
+SQL> startup nomount;
+ORACLE instance started.
+
+Total System Global Area 1.0033E+10 bytes
+Fixed Size                 12684720 bytes
+Variable Size            1543503872 bytes
+Database Buffers         8455716864 bytes
+Redo Buffers               20869120 bytes
+SQL>
+
+```
+  * Step 2   Reinstate the old primary database.
+```sql
+
+DGMGRL> rsinstate database 'ORCL_STBY';
+Unrecognized command "rsinstate", try "help"
+DGMGRL> reinstate database 'ORCL_STBY';
+Reinstating database "ORCL_STBY", please wait...
+
+```  
+  * Step 3   Show the Configuration and Databases.
 ```sql
 
 ```
