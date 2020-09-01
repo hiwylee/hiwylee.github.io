@@ -1,4 +1,9 @@
 ## Active Data Guard using Data Guard Broker
+* sys password
+```sql
+alter user sys identified by WelCome123##;
+
+```
 * firewall-cmd
 ```bash
 [opc@workshop ~]$ sudo firewall-cmd --permanent --zone=public --add-port=1521/tcp
@@ -20,7 +25,7 @@ mkdir -p /u01/app/oracle/oradata/ORCL/pdb1
 mkdir -p /u01/app/oracle/fast_recovery_area/ORCL
 mkdir -p /u01/app/oracle/admin/ORCL/adumpquit
 
-orapwd file=/u01/app/oracle/product/19c/dbhome_1/dbs/orapwORCL password=Password1 entries=10
+orapwd file=/u01/app/oracle/product/19c/dbhome_1/dbs/orapwORCL password=WelCome123## entries=10
 
 export ORACLE_SID=ORCL
 [oracle@workshop2 admin]$ sqlplus / as sysdba
