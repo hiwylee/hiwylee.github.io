@@ -377,11 +377,30 @@ Database "orcl_stby" added
 ```
 * we enable the new configuration.
 ```sql
+DGMGRL> ENABLE CONFIGURATION;
+Enabled.
+DGMGRL>
 
 ```
 *  check the configuration and status of the databases from the broker.
 ```sql
 
+DGMGRL> SHOW CONFIGURATION;
+
+Configuration - my_dg_config
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl      - Primary database
+    orcl_stby - Physical standby database
+      Error: ORA-16810: multiple errors or warnings detected for the member
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+ERROR   (status updated 10 seconds ago)
+
+DGMGRL>
 ```
 
 
