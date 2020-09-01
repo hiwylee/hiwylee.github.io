@@ -578,3 +578,5 @@ SUCCESS
 
 
  ```
+### Remove Data Guard Broker Configuration Safely
+* http://www.nazmulhuda.info/remove-data-guard-broker-configuration-safely
