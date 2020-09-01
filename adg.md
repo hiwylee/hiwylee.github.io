@@ -401,8 +401,69 @@ Configuration Status:
 ERROR   (status updated 10 seconds ago)
 
 DGMGRL>
-```
+DGMGRL> show database orcl
 
+Database - orcl
+
+  Role:               PRIMARY
+  Intended State:     TRANSPORT-ON
+  Instance(s):
+    ORCL
+
+Database Status:
+SUCCESS
+
+DGMGRL> show database orcl_stby
+
+Database - orcl_stby
+
+  Role:               PHYSICAL STANDBY
+  Intended State:     APPLY-ON
+  Transport Lag:      0 seconds (computed 0 seconds ago)
+  Apply Lag:          0 seconds (computed 0 seconds ago)
+  Average Apply Rate: 99.00 KByte/s
+  Real Time Query:    ON
+  Instance(s):
+    ORCL
+
+Database Status:
+SUCCESS
+
+DGMGRL>
+
+```
+* FAST_START FAILOVER : https://oracledbwr.com/oracle-19c-disable-fast-start-failover-in-dataguard-broker/
+```sql
+DGMGRL> SHOW FAST_START FAILOVER
+
+Fast-Start Failover:  Disabled
+
+  Protection Mode:    MaxPerformance
+  Lag Limit:          30 seconds
+
+  Threshold:          30 seconds
+  Active Target:      (none)
+  Potential Targets:  (none)
+  Observer:           (none)
+  Shutdown Primary:   TRUE
+  Auto-reinstate:     TRUE
+  Observer Reconnect: (none)
+  Observer Override:  FALSE
+
+Configurable Failover Conditions
+  Health Conditions:
+    Corrupted Controlfile          YES
+    Corrupted Dictionary           YES
+    Inaccessible Logfile            NO
+    Stuck Archiver                  NO
+    Datafile Write Errors          YES
+
+  Oracle Error Conditions:
+    (none)
+
+DGMGRL>
+
+```
 
 ### Database Switchover
 * Switchover
