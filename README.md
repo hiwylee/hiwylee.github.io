@@ -1,4 +1,5 @@
 ## 문서 목록
+* [README_2.md](README_2.md)
 * [19c_nf_ai.md](19c_nf_ai.md)
 * [19c_nf_rt_stats.md](19c_nf_rt_stats.md)
 * [1Z0-1088-20_enterprise_workload.md](1Z0-1088-20_enterprise_workload.md)
