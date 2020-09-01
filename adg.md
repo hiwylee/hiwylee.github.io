@@ -1,5 +1,15 @@
 ## Active Data Guard using Data Guard Broker
+* firewall-cmd
+```bash
+[opc@workshop ~]$ sudo firewall-cmd --permanent --zone=public --add-port=1521/tcp
+success
+[opc@workshop ~]$ sudo firewall-cmd --reload
+success
+[opc@workshop ~]$ sudo firewall-cmd --permanent --zone=public --list-ports
+1521/tcp
 
+
+```
 * https://oracle-base.com/articles/19c/data-guard-setup-using-broker-19c
 ```sh
 "/tmp/initcdb1_stby.ora"
