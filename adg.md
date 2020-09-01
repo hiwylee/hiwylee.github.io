@@ -535,3 +535,43 @@ select name, db_unique_name, database_role, open_mode from v$database;
 ### Read-Only Standby and Active Data Guard
 ### Snapshot Standby
 
+### Steps to Remove a Single Standby 
+ * https://bereansit.com/how-to-remove-one-standby-database-from-a-data-guard-configuration/
+ ```sql
+ DGMGRL> disable database ORCL_STBY;
+Disabled.
+DGMGRL> remove database ORCL_STBY;
+Warning: ORA-16620: one or more members could not be reached for a remove operation
+
+Removed database "orcl_stby" from the configuration
+DGMGRL>  show configuration verbose;
+
+Configuration - my_dg_config
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl - Primary database
+
+  Properties:
+    FastStartFailoverThreshold      = '30'
+    OperationTimeout                = '30'
+    TraceLevel                      = 'USER'
+    FastStartFailoverLagLimit       = '30'
+    CommunicationTimeout            = '180'
+    ObserverReconnect               = '0'
+    FastStartFailoverAutoReinstate  = 'TRUE'
+    FastStartFailoverPmyShutdown    = 'TRUE'
+    BystandersFollowRoleChange      = 'ALL'
+    ObserverOverride                = 'FALSE'
+    ExternalDestination1            = ''
+    ExternalDestination2            = ''
+    PrimaryLostWriteAction          = 'CONTINUE'
+    ConfigurationWideServiceName    = 'ORCL_CFG'
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS
+
+
+ ```
