@@ -475,6 +475,12 @@ DGMGRL>
 ```sql
 
 ```
+* ``Check the CDB DATABASE ROLE``
+```sql
+ 
+
+select name, db_unique_name, database_role, open_mode from v$database;
+```
 ### Flashback Database
 ### Read-Only Standby and Active Data Guard
 ### Snapshot Standby
