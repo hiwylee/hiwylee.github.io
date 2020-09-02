@@ -1,4 +1,7 @@
 ## SQL Tuning 
+### Scripts
+* https://techgoeasy.com/useful-scripts-oracle-database/
+* https://oracle-base.com/dba/scripts
 ### Consideration
 * Business Logic
 * Data Desgin
