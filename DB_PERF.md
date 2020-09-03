@@ -114,9 +114,9 @@ set tab on
 set timing on
 ```
 
-* ``script - SQL plan``   - smonl.sql
+* ``script - SQL plan``   - smon.sql
 ```sql
-```
+
 --:
 --:NAME
 --:
