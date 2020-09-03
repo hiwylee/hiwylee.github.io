@@ -4,6 +4,8 @@
 ## Exadata Basic
 * [Demystify the Exadata installation by Fred Denis](https://www.youtube.com/watch?v=hoS5w_xBsf4)
 * [Migrate Database To Exadata Using RMAN Duplicate](https://www.youtube.com/watch?v=UJH06IVPHE4)
+* [Oracle Exadata System Software 19.1](https://www.youtube.com/watch?v=-5vCFhJ2wFY)
+* [Oracle Exadata System Software 20.1](https://www.youtube.com/watch?v=Uf2ee_7C4Yo&t=3s)
 ### Exadata Basic Training
 * DataSheet
   * [Exadata X8-2 Datasheet](https://www.oracle.com/technetwork/database/exadata/exadata-x8-2-ds-5444350.pdf)
