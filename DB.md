@@ -1,5 +1,7 @@
 ## DB Upgrade 
 * https://mikedietrichde.com/
+### Oracle Internal
+* http://www.juliandyke.com/Projects/Projects.php
 ### Pluggable database
 * 12c : https://oracle-base.com/articles/12c/multitenant-create-and-configure-pluggable-database-12cr1#manual-create-pdb
 ### DBA Scripts
