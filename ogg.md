@@ -9,7 +9,7 @@
 
 ### Distribute Transaction (XA)
 * [Does Oracle Goldengate Extract Support Distributed Transactions? (Doc ID 1235986.1)](https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=1456176.1%3A105&action=inline)
-  * 2. Staring version 11.2.1, Oracle GoldenGate supports XA and PDML distributed transactions in integrated capture mode (but not in classic capture mode). 
+  * page 54.  ``Staring version 11.2.1, Oracle GoldenGate supports XA and PDML distributed transactions in integrated capture mode (but not in classic capture mode). ``
 <pre>
   Required Patches
    – 11.2.0.3.x
