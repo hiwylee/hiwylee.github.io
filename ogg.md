@@ -27,7 +27,19 @@
 * [GoldenGate Support for XA (Doc ID 1565668.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=149gwwhowu_4&_afrLoop=989464321166242)
   * Page 11. XA transactions on RAC are not supported using classic extract and is supported when using integrated extract.
   * However if you make sure all branches of XA goes to the same instance, then it is supported with classic extract. You can follow the below article to implement it.
-<pre>
+```sql
+connect / as sysdba
+alter system set "_clusterwide_global_transactions"=false scope=spfile;
+and restart all the nodes of the cluster.
+```
+  * This will ensure that ALL branches of XA goes to the same Oracle instance. However if the instance fails the whole XA transaction will roll back.
+  * In addition  you also need to Use a singleton service like DTP, so all the connection will go to the same instance. Changing the previous parameter we are reverting to 10.2 behavior. It would be like:
+
+   srvctl add service -d crm -s <service_name> -r RAC01 -a RAC02, RAC03
+   ```bash
+   EXECUTE DBMS_SERVICE.MODIFY_SERVICE(service_name=>'<service_name>', DTP=>TRUE);
+   ```
+   <pre>
   Required Patches
    – 11.2.0.3.x
        11.2.0.3 Database specific bundle patch for Integrated Extract 11.2.x
