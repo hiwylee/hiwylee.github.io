@@ -34,9 +34,10 @@ and restart all the nodes of the cluster.
 ```
   * This will ensure that ALL branches of XA goes to the same Oracle instance. However if the instance fails the whole XA transaction will roll back.
   * In addition  you also need to Use a singleton service like DTP, so all the connection will go to the same instance. Changing the previous parameter we are reverting to 10.2 behavior. It would be like:
-
+ ```bash
    srvctl add service -d crm -s <service_name> -r RAC01 -a RAC02, RAC03
-   ```bash
+   ```
+   ```sql
    EXECUTE DBMS_SERVICE.MODIFY_SERVICE(service_name=>'<service_name>', DTP=>TRUE);
    ```
    <pre>
