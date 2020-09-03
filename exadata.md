@@ -2,6 +2,7 @@
 * [OSAN Home](https://login.oracle.com/oamfed/idp/initiatesso?providerid=https://sso.netexam.com/sp)
 ## Exadata Value Proposition
 ## Exadata Basic
+* [Exadata Database Machine: All about X8M](https://www.youtube.com/watch?v=7HKHKExdR5I)
 * [Demystify the Exadata installation by Fred Denis](https://www.youtube.com/watch?v=hoS5w_xBsf4)
 * [Migrate Database To Exadata Using RMAN Duplicate](https://www.youtube.com/watch?v=UJH06IVPHE4)
 * [Oracle Exadata System Software 19.1](https://www.youtube.com/watch?v=-5vCFhJ2wFY)
