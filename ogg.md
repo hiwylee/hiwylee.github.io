@@ -24,3 +24,18 @@
       (Doc ID 1557031.1)
 <pre>
 -->
+* [GoldenGate Support for XA (Doc ID 1565668.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=149gwwhowu_4&_afrLoop=989464321166242)
+  * Page 11. XA transactions on RAC are not supported using classic extract and is supported when using integrated extract.
+  * However if you make sure all branches of XA goes to the same instance, then it is supported with classic extract. You can follow the below article to implement it.
+<pre>
+  Required Patches
+   – 11.2.0.3.x
+       11.2.0.3 Database specific bundle patch for Integrated Extract 11.2.x
+      (Doc ID 1411356.1)
+       This is a REQUIRED bundled patch for 11.2.0.3 - Integrated Extract
+      cannot run without having this OGG/RDBMS bundled patch installed.
+       Recommended Patches
+   – 11.2.0.4 and 12.1.0.1
+       Oracle GoldenGate -- Oracle RDBMS Server Recommended Patches
+      (Doc ID 1557031.1)
+<pre>
