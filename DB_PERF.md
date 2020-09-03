@@ -309,3 +309,7 @@ SELECT * FROM (
 	SELECT /*+ leading(f p j c) swap_join_inputs(c) swap_join_inputs(j)  swap_join_inputs(p)  pq_replicate(c) pq_replicate(j) pq_replicate(p) no_gather_optimizer_statistics pq_distribute(p none broadcast) */
 ..  
 ```
+### OPTIMIZER_ADAPTIVE_PLANS
+* https://oracle-base.com/articles/12c/adaptive-query-optimization-12cr1
+* ALTER SESSION SET OPTIMIZER_ADAPTIVE_PLANS = FALSE;
+
