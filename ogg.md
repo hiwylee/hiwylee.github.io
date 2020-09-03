@@ -8,8 +8,9 @@
 * https://www.scribd.com/document/334170859/Dell-Shareplex-vs-Oracle-GoldenGate-Competitive-Differentiation
 
 ### Distribute Transaction (XA)
-* [Does Oracle Goldengate Extract Support Distributed Transactions? (Doc ID 1235986.1)](https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=1456176.1%3A105&action=inline)
-  * page 54.  ``Staring version 11.2.1, Oracle GoldenGate supports XA and PDML distributed transactions in integrated capture mode (but not in classic capture mode). ``
+* [Does Oracle Goldengate Extract Support Distributed Transactions? (Doc ID 1235986.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=149gwwhowu_4&_afrLoop=988868350810293)
+  *  ``Staring version 11.2.1, Oracle GoldenGate supports XA and PDML distributed transactions in integrated capture mode (but not in classic capture mode). ``
+<!--
 <pre>
   Required Patches
    – 11.2.0.3.x
@@ -22,3 +23,4 @@
        Oracle GoldenGate -- Oracle RDBMS Server Recommended Patches
       (Doc ID 1557031.1)
 <pre>
+-->
