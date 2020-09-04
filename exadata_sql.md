@@ -336,6 +336,7 @@ CellCLI>
   * sar 등의 OS 명령
   * CellCli list metriccurrent
   * Oracle Wait Interface 조회
+  * [](img/sar.sh.png}
 * Exachk.sh
   * Exadata 진단 및 Health Check을 위한 Tool
   * Oracle Exadata Database Machine exachk or HealthCheck [ID 1070954.1]
@@ -420,8 +421,11 @@ $ ./exachk -diff exachk_krx2adb01_KRX2A_091213_160501 exachk_krx2adb01_RMANC_091
   * Patch 작업을 도와 주는 Tool
     * Patch Apply 및 Rollback에 대한 step-by-step 가이드 제공
 
- 
-
-
-
+### MOS Note
+* Exadata Storage Server Diagnostic Collection Guide (Doc ID 735323.1)
+* Where / How to find OS crashcore file in Exadata Systems [Linux] (Doc ID 1389225.1)
+* How to get the stack trace of kdump in Exadata (Doc ID 1363245.1)
+* How to Configure "kdump" on Oracle Linux 5 (Doc ID 452067.1)
+* Location of Different Logfiles in Exadata Environment (Doc ID 1326382.1)
+* Information Center: Troubleshooting Oracle Exadata Database Machine [Article ID 1346612.2]
 
