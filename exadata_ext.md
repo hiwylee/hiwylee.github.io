@@ -336,7 +336,7 @@ CellCLI>
   * sar 등의 OS 명령
   * CellCli list metriccurrent
   * Oracle Wait Interface 조회
-  * ![sar.sh image](/blob/master/img/sar.sh.png}
+  * ![sar.sh image](img/sar.sh.png)
 * Exachk.sh
   * Exadata 진단 및 Health Check을 위한 Tool
   * Oracle Exadata Database Machine exachk or HealthCheck [ID 1070954.1]
