@@ -214,6 +214,72 @@ CellCLI>
 * 성능 효과 확인 방법
   * “physical read total bytes optimized / physical read total bytes”
 
+### IORM 
+* Exadata 위에 단일 데이터베이스 : 
+  * Intradatabase: by Consumer Group
+  * DB 단 설정 (DBMS_RESOURCE_MANAGER)
+* 복수의 데이터베이스들을 운영   : 
+  * Interdatabase: by Database : Cell 단 설정 (IORMPLAN)
+  * Category: by Category
+    * Category by Consumer Group
+* IORM objective 설정
+  * basic | low_latency | high_throughput | balanced | auto
+* IORM 모니터링 방법
+  * Tool for Gathering I/O Resource Manager Metrics: metric_iorm.pl [ID 1337265.1]
+* IORM의 자원 분배 알고리즘
+  * ① catPlan
+  * ② dbPlan
+  * ③ DBRM Plan
+  * 최종 할당
+###  기타 성능 관련 Topic들
+* DOP의 수동 지정
+  * Default DOP = parallel_threads_per_cpu x cpu_count x instance_count
+  * alter session force parallel query | dml | ddl parallel N;
+  * parallel 힌트
+  * Database Resource Manager
+* Inter-Node Parallelism
+  * Local DB 서버만을 사용  parallel_force_local = true | false
+* 병렬 DML 관련 고려 사항
+  * 세션에 병렬 DML 모드를 설정해야 함
+    * alter session enable parallel dml;
+  * SQL 변환
+    * Direct Path, Nologging 방식의 Insert가 최상의 성능 
+* 병렬 처리의 모니터링 :     Real-Time SQL Monitoring vs v$pq_tqstat
+* Partition Granule 사용 시 DOP는 Partition 개수로 제한
+* 병렬 조인과 데이터 재분배
+  * Parallel Join
+  * PQ_DISTRIBUTE 힌트
+* Exadata 시스템 통계
+  * execute dbms_stats.gather_system_stats('EXADATA');
+  * execute DBMS_STATS.GATHER_FIXED_OBJECTS_STATS;    -- X$...
+* ``HugePage 설정``
+  * HugePage 설정의 필요성
+    * HugePage는 swap되지 않음
+    * Page Table 사이즈 축소
+    * TLB(Translation Lookaside Buffer) Hit 증가, Page Walk 감소
+  * 설정 방법
+    * Shell Script to Calculate Values Recommended Linux HugePages / HugeTLB Configuration ``[ID 401749.1]``
+    *  USE_LARGE_PAGES = TRUE | ONLY | FALSE | AUTO
+### Automatic Storage Management
+* ASM 데이터 보호 수준
+  * Normal Redundancy: 2 개의 Cell에 걸쳐 “Double Mirroring” : 1 개 Cell의 장애까지 커버
+  * High Redundancy: 3 개의 Cell에 걸쳐 “Triple Mirroring”   : 2 개 Cell의 장애까지 커버
+* Rebalancing Power
+  * ``alter diskgroup data_dg rebalance power 16;``
+  * 0 ~ asm_power_limit (최대 값 1,024) / Default 4
+  * 모니터링 : ``V$ASM_OPERATION``
+* Fast Mirror Resync
+  * ``alter diskgroup data_dg set attribute 'disk_repair_time'='7.2h‘;`` 
+  * ASM은 offline 상태가 된 디스크를 영구히 drop하기 전에 disk_repair_time으로 명시된 시간 동안 대기
+    * ASM이 자동으로 Rebalance를 수행하기 전까지의 대기 시간을 의미
+  * 문제의 디스크가 다시 Online 상태가 되면 ASM은 오직 변경이 가해진 Extent에 대해서만 Rebalance를 수행
+    * 따라서 두 번째 Rebalance 작업을 훨씬 더 빠르게 마칠 수 있도록 함
+  * Default 3.6 시간
+### Backup & Recovery
+
+
+
+
 
 
 
