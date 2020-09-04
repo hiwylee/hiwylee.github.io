@@ -1,6 +1,11 @@
 ## ASM - study
 * Automatic Storage Manager (ASM) Enhancements in Oracle Database 11g Release 1 
   * https://oracle-base.com/articles/11g/asm-enhancements-11gr1
+* Basic  from https://hayleyfish.tistory.com/
+  * [ASM](https://hayleyfish.tistory.com/113?category=540223)
+  * [ASM 관리](https://hayleyfish.tistory.com/114_)
+  * [ASM 기반에서는 RMAN으로 복구](https://hayleyfish.tistory.com/115?category=540223)
+  
 ### DBCS ASM
 * ASM VIEWS
 
