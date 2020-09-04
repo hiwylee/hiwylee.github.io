@@ -4,14 +4,14 @@
 ### DBCS ASM
 * ASM VIEWS
 | VIEW | 설명 | 
-| :---|:---|
-|V$ASM_DISKGROUP| 디스크 그룹에 관련된 정보|
+|---|---|
+| V$ASM_DISKGROUP| 디스크 그룹에 관련된 정보|
 | V$ASM_DISK|디스크에 대한 정보|
 | V$ASM_FILE|ASM 내부에 생성된 파일에 대한 정보|
 | V$ASM_TEMPLATE|ASM 내 모든 디스크 그룹에 설정된 템플릿 정보|
 | V$ASM_ALIAS| ASM 디스크 그룹의 ALIAS 정보|
 | V$ASM_OPERATION| ASM 인스턴스상에서 실행되는 작업들 현황 정보|
-|V$ASM_CLIENT||ASM을 사용하는 DB 인스턴스 현황|
+| V$ASM_CLIENT||ASM을 사용하는 DB 인스턴스 현황|
 
 ```bash
 [opc@orcl ~]$ sudo su - grid
