@@ -38,22 +38,22 @@ dclid -g /etc/all_group -l root date
 * Oracle Exadata Deployment Assistant (OEDA)
 * install.sh -cf client-mycluster.xml -s -l # Preparing the installation
 * install.sh -cf client-mycluster.xml -s 2  # Verify ISO
-* install.sh -cf client-mycluster.xml -s 3  # User Creation
-* install.sh -cf client-mycluster.xml -s 4  # Cell Connectivity
-* install.sh -cf client-mycluster.xml -s 5  # Verify Infiniband
-* install.sh -cf client-mycluster.xml -s 6  # Cell I/O Calibrate
-* # Step 7: Cell disks creation
-* # Step 8: Grid disks creation
-* # Step 9: GI installation
-* # Step 10: Initialize Cluster s/w - root.sh
-* # Step 11: Database Installation
-* # Step 12: Relink database with RDS 
-* # Step 13: Create ASM diskgroup
-* # Step 14: Database creation
-* # Step 15: Security fixes
-* # Step 16: Install Exachk
-* # Step 17: Install Summary
-* # Step 18: Rescure the machine
+* Step 3: User Creation
+* Step 4:  Cell Connectivity
+* Step 5:  Verify Infiniband
+* Step 6:  Cell I/O Calibrate
+* Step 7: Cell disks creation
+* Step 8: Grid disks creation
+* Step 9: GI installation
+* Step 10: Initialize Cluster s/w - root.sh
+* Step 11: Database Installation
+* Step 12: Relink database with RDS 
+* Step 13: Create ASM diskgroup
+* Step 14: Database creation
+* Step 15: Security fixes
+* Step 16: Install Exachk
+* Step 17: Install Summary
+* Step 18: Rescure the machine
 
 ## Exadata Basic
 * [Exadata Database Machine: All about X8M](https://www.youtube.com/watch?v=7HKHKExdR5I)
