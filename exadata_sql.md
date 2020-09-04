@@ -83,13 +83,18 @@ round(IO_INTERCONNECT_BYTES/PHYSICAL_READ_BYTES*100, 2) "TRANS(%)"
 from v$sql where sql_text like 'select /*+ parallel(s_%';
 
 ```
-
 |SQL_TEXT |  IO_INTERCONNECT_BYTES |PHYSICAL_READ_BYTES|  TRANS(%)|
 |---|----:|----:|----:|
 |Smart ON|230976|13262848|1.74|
 |Smart OFF|13262848|13262848|100.00|
 
 
-  
+* Hint
+  * cell_offload_plan_display : (auto | always | never)
+    * always : Non-Exadata 환경에서 Exadata Assessment를 위해 활용 가능
+    * never  : Exadata 환경에서 Non-Exadata 환경의 (original) 실행 계획과의  비교를 위해 활용 가능
+
+
+
  
 
