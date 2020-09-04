@@ -3,6 +3,7 @@
   * https://oracle-base.com/articles/11g/asm-enhancements-11gr1
 ### DBCS ASM
 * ASM VIEWS
+
 | VIEW | 설명 | 
 |---|---|
 | V$ASM_DISKGROUP| 디스크 그룹에 관련된 정보|
