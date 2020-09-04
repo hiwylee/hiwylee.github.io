@@ -23,6 +23,17 @@ dclid -g /etc/ib_group -l root -k -s '-o StrickHostKeyChecking=no'
 dclid -g /etc/all_group -l root date
 
 ```
+* /etc/sysctl.config
+  * Total Sga Max Size 
+    * DB Usable MEM = 0.8 * Total Mem_Gib
+    * Sum of Total SGA_MAX_SIZE = round(0.8 * DB Usable MEM) 
+    * vm.nr_higgepages => ``(Sum of Total SGA_MAX_SIZE + 2) * 512``
+    * grubby --args="transparent_hugepage=never" --update-kernel /boot/vmlinuz-3.10.-862.el7.x86_64
+    * alter system set use_large_pages=only scope=spfile
+  * PGA 
+    * PAG_AGGREGATE_TARGET
+    * PGA_AGGREGATE_LIMIT
+    * Sum of Total PGA_AGGREGATE_LIMIT = round(0.2 * DB Usable MEM)
 ## install
 * Oracle Exadata Deployment Assistant (OEDA)
 * install.sh -cf client-mycluster.xml -s -l # Preparing the installation
