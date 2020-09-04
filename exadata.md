@@ -15,6 +15,10 @@ dclid -g /etc/all_group -l root -k -s '-o StrickHostKeyChecking=no'
 dclid -g /etc/ib_group -l root -k -s '-o StrickHostKeyChecking=no'
 dclid -g /etc/all_group -l root date
 ```
+## install
+* Oracle Exadata Deployment Assistant (OEDA)
+* install.sh -cf client-mycluster.xml -s -l
+* install.sh -cf client-mycluster.xml -s 2  # verify ISO
 ## Exadata Basic
 * [Exadata Database Machine: All about X8M](https://www.youtube.com/watch?v=7HKHKExdR5I)
 * [Demystify the Exadata installation by Fred Denis](https://www.youtube.com/watch?v=hoS5w_xBsf4)
