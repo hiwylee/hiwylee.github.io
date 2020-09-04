@@ -1,4 +1,4 @@
-## Exadata 관련 유틸리티 SQL
+## Exadata 관련 유틸리티  
 ### Bundle Patch
 ```sql
 
