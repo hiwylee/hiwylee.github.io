@@ -1,4 +1,5 @@
-## Exadata 관련 유틸리티  
+## Exadata Exadata Storage Software 
+  
 ### Bundle Patch
 ```sql
 
@@ -66,7 +67,7 @@ ora.net1.network
                ONLINE  ONLINE       d02-0c                                                                              
 
 ```
-### smart Scan
+### Smart Scan
 * 
 ```sql
 orcl_high> select n.name,s.value from v$mystat s, v$statname n where n.statistic#=s.statistic# and n.name like '%cell flash cache read%';
