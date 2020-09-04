@@ -83,3 +83,13 @@ round(IO_INTERCONNECT_BYTES/PHYSICAL_READ_BYTES*100, 2) "TRANS(%)"
 from v$sql where sql_text like 'select /*+ parallel(s_%';
 
 ```
+
+|SQL_TEXT |  IO_INTERCONNECT_BYTES |PHYSICAL_READ_BYTES|  TRANS(%)|
+|---|----:|----:|----:|
+|Smart ON|230976|13262848|1.74|
+|Smart OFF|13262848|13262848|100.00|
+
+
+  
+ 
+
