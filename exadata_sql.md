@@ -1,4 +1,18 @@
 ## Exadata 관련 유틸리티 SQL
+### Bundle Patch
+```sql
+
+  1* select patch_id,action_time,description from dba_registry_sqlpatch
+SQL> /
+  PATCH_ID ACTION_TIME                                                                 DESCRIPTION
+---------- --------------------------------------------------------------------------- ------------------------------------------------------------------------------------------
+  30805684 31-AUG-20 10.50.52.822540 AM                                                OJVM RELEASE UPDATE: 19.7.0.0.200414 (30805684)
+  30869156 31-AUG-20 10.50.52.816766 AM                                                Database Release Update : 19.7.0.0.200414 (30869156)
+
+2 rows selected.
+
+```
+
 * CRS 자원의 확인
 ```bash
 <GRID_HOME>/bin/crsctl stat res -t
@@ -51,6 +65,27 @@ ora.net1.network
                ONLINE  ONLINE       d02-0b                                       
                ONLINE  ONLINE       d02-0c                                                                              
 
+```
+### smart Scan
+* 
+```sql
+orcl_high> select n.name,s.value from v$mystat s, v$statname n where n.statistic#=s.statistic# and n.name like '%cell flash cache read%';
+NAME                                                                    VALUE
+------------------------------------------------------------ ----------------
+cell flash cache read hits                                              17229
+cell flash cache read hits for controlfile reads                            0
+cell flash cache read hits for smart IO                                 17159
+orcl_high> select n.name,s.value from v$mystat s, v$statname n where n.statistic#=s.statistic# and n.name like '%physical%optimized%';
+NAME                                                                    VALUE
+------------------------------------------------------------ ----------------
+physical read requests optimized                                        17229
+physical read total bytes optimized                               17963958272
+...
+orcl_high> select n.name,s.value from v$mystat s, v$statname n where n.statistic#=s.statistic# and n.name like '%smart scan%';
+NAME                                                                    VALUE
+------------------------------------------------------------ ----------------
+cell physical IO interconnect bytes returned by smart scan           18662816
+...
 ```
 * Cell Disk Usable size 및 Mirroring 
 ```sql
@@ -276,11 +311,79 @@ CellCLI>
     * 따라서 두 번째 Rebalance 작업을 훨씬 더 빠르게 마칠 수 있도록 함
   * Default 3.6 시간
 ### Backup & Recovery
+* Base Tool은 RMAN
+  * ASM 환경에서 유일한 방안
+* Output 파일 공간 할당량 조절
+  * _file_size_increase_increment=2143289344
+* Exadata 백업 권고 사항
+  * RMAN Recovery Catalog 이용
+    * Repository DB는 별도의 서버에 구성
+  * Backup 용 데이터베이스 서비스 이용
+  * 운영 영향도 최소화
+    * DBRM / IORM을 이용 
+    * ADG를 이용하여 Standby DB에 백업 작업을 Offload
 
+### Exadata 모니터링 / 진단 / 유지 보수 관련 Tool
 
+* OSWatcher Black Box (Includes: [Video]) [ID 301137.1]
+  * OS 레벨의 모니터링 도구
+    *vmstat, netstat, iostat, etc.
+  *두 가지 구성 요소
+    * oswbb: 데이터 수집 & 저장을 위한 shell scripts
+    * oswbba: Graphical한 분석을 위한 java utility
 
+* sar.sh
+  * sar 등의 OS 명령
+  * CellCli list metriccurrent
+  * Oracle Wait Interface 조회
+* Exachk.sh
+  * Exadata 진단 및 Health Check을 위한 Tool
+  * Oracle Exadata Database Machine exachk or HealthCheck [ID 1070954.1]
+* Exa_Health_Check
+  * 간소화된 Health Check
+* ADR (arcli)
+  * Trace, Dump, Log 등 “진단 데이터”를 위한 파일 기반 통합 Repository
+  * Exadata DB 서버 및 Cell 서버 모두
+```sql
+adrci> show alert
 
+Choose the alert log from the following homes to view:
 
+1: diag/clients/user_oracle/host_3824420761_80
+2: diag/tnslsnr/krx3b01/krx3b-scan
+3: diag/tnslsnr/krx3b01/listener_scan1
+4: diag/tnslsnr/krx3b01/listener
+5: diag/asm/+asm/+ASM1
+6: diag/asm/user_oracle/host_3824420761_80
+7: diag/diagtool/user_oracle/host_3824420761_11
+8: diag/rdbms/krx3ba/krx3ba1
+9: diag/rdbms/add1/ADD11
+10: diag/asmtool/user_oracle/host_3824420761_80
+Q: to quit
+
+Please select option: 8
+Output the results to file: /tmp/alert_6617_13992_krx3ba1_1.ado
+
+2013-04-09 17:17:01.197000 +09:00
+Starting ORACLE instance (normal)
+****************** Large Pages Information *****************
+
+Total Shared Global Region in Large Pages = 16 GB (100%)
+
+Large Pages used by this instance: 8193 (16 GB)
+…
+
+```
+* DiagTools
+  * Exadata Storage Server Diagnostic Collection Guide [ID 735323.1]
+  * DbmCheck.sh : Cell 관련 구성 정보
+  * diagget.sh  : DB 서버 관련 구성 정보, 각종 Oracle S/W 로그
+* OPLAN
+  * Oracle Software Patching with OPLAN [ID 1306814.1]
+  * Patch 작업을 도와 주는 Tool
+    * Patch Apply 및 Rollback에 대한 step-by-step 가이드 제공
+
+ 
 
 
 
