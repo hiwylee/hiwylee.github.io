@@ -339,6 +339,40 @@ CellCLI>
 * Exachk.sh
   * Exadata 진단 및 Health Check을 위한 Tool
   * Oracle Exadata Database Machine exachk or HealthCheck [ID 1070954.1]
+```bash
+  $ ./exachk : 1회 수행
+$ ./exachk -m : MAA Scorecard 점검을 skip
+$ ./exachk -d : 데몬 형태로 주기적으로 자동 수행  (추가 설명)
+$ ./exachk -diff  : 결과 비교 (추가 설명) 
+$ ./exachk -u : pre-upgrade 또는 post-upgrade best practices 점검 (11.2.0.3,11.2.0.4.0 및 12.1.0.1)  -o pre 또는 -o post 필수  (예 ./exachk -u -o pre )
+$ ./exachk -v : version 확인
+
+$ ./exachk -profile : Pass specific profile (예 : ./exachk -profile dba)
+asm             asm Checks
+clusterware     clusterware checks
+dba             dba Checks
+goldengate      oracle goldengate checks
+maa             Maximum Availability Architecture Checks
+storage         Storage Server Checks
+switch          Infiniband switch checks
+sysadmin        sysadmin checks
+```
+```sql
+$ ./exachk -d start 
+    exachk 수행과 동일하게 물어봄
+$ ./exachk -d status,   상태확인 
+   Daemon is running. PID : 62661
+$ ./exachk -d nextautorun  
+   AUTORUN_SCHEDULE = 12,13 * * *
+$ ./exachk -d stop    중지
+
+설정변경
+$ ./exachk -set "AUTORUN_SCHEDULE= 12,13 * * *“
+$ ./exachk -set NOTIFICATION_EMAIL=nobody@oracle.com
+
+AUTORUN_SCHEDULE      * * * *       :- Automatic run at specific time in daemon mode.                               ¦ ¦ ¦ ¦                               ¦ ¦ ¦ +----- day of week (0 - 6) (0 to 6 are Sunday to Saturday)                               ¦ ¦ +---------- month (1 – 12)                               ¦ +--------------- day of month (1 – 31)                               +-------------------- hour (0 - 23)
+
+```
 * Exa_Health_Check
   * 간소화된 Health Check
 * ADR (arcli)
@@ -372,6 +406,9 @@ Total Shared Global Region in Large Pages = 16 GB (100%)
 
 Large Pages used by this instance: 8193 (16 GB)
 …
+
+
+$ ./exachk -diff exachk_krx2adb01_KRX2A_091213_160501 exachk_krx2adb01_RMANC_091713_141945
 
 ```
 * DiagTools
