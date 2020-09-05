@@ -68,6 +68,9 @@ ora.net1.network
 
 ```
 ### Smart Scan
+* 스마트스캔 전제조건  
+  *Full Scan, Direct Path Read, Object Stored on Exadata Storage 
+
 * 스마트스캔 수행확인 – 대기이벤트 모니터링을 통한 확인
 ```sql
 mon.sql
