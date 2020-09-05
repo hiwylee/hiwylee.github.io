@@ -259,9 +259,18 @@ from v$sql where sql_text like 'select /*+ parallel(s_%';
   * ASM Disk Group 속성 cell.smart_scan_capable = true | false
     * alter diskgroup … set attribute
 * 인덱스 효용성 검토  INVISIBLE Index 활용
-  * 생성  create index XXX on table(column) INVISIBLE
-  * 정의  alter session set OPTIMIZER_USE_INVISIBLE_INDEX = true
-  * 변경  alter index XXX INVISIBLE(또는 VISIBLE)
+  * 생성 
+  ```SQL 
+  create index XXX on table(column) INVISIBLE
+  ````
+  * 정의 
+  ```SQL 
+  alter session set OPTIMIZER_USE_INVISIBLE_INDEX = true
+  ```
+  * 변경 
+  ```SQL 
+  alter index XXX INVISIBLE(또는 VISIBLE)
+  ```
  
 ### Storage Index
 * 사용확인
