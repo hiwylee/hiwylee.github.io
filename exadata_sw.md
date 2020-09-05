@@ -278,7 +278,7 @@ SQL> ALTER SESSION SET "_kcfis_storageidx_disabled" = TRUE;
 
 ### EHCC
 * 공간절약 및 Disk I/O를 최대한 줄이기 위해 Logical Compression Unit 단위로 행을 묶는 컬럼압축방식을 사용.
-* ![hcc](exadata_hcc_01/png)
+* ![hcc](exadata_hcc_01.png)
 * EHCC를 통한 공간 절감 예측 방법
 ```sql
 dbms_compression.get_compression_ratio(
