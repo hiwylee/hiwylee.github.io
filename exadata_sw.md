@@ -68,7 +68,90 @@ ora.net1.network
 
 ```
 ### Smart Scan
-* 
+* 스마트스캔 수행확인 – 대기이벤트 모니터링을 통한 확인
+```sql
+mon.sql
+select to_char(sysdate, 'yy/mm/dd hh24:mi:ss') time,
+       substrb(to_char(b.inst_id), -1) i,
+       b.sid,
+--     substrb(b.status, 1, 3) stat,
+       substrb(b.event, 1, 32) "EVENT",
+       substrb(b.username, 1, 8) "USER",
+--     substrb(decode(instrb(b.program, '@'), 0, b.program, substrb(b.program, 1, instrb(b.program, '@') - 1)), 1, 16) program,
+       substrb(decode(instrb(b.module, '@'), 0, b.module, substrb(b.module, 1, instrb(b.module, '@') - 1)), 1, 20) "MODULE",
+       substrb((select object_name from dba_objects c where c.object_id = b.row_wait_obj# ),1,20) "OBJECT",
+       decode(b.state, 'WAITING', b.seconds_in_wait, 0) waitsec,
+       (sysdate - b.logon_time)*86400 duration,
+       b.sql_id,
+       b.client_info
+  from gv$session b
+ where 1=1
+   and b.event not like '%SQL*Net%'
+   and b.event not like 'DIAG idle wait%'
+   and b.event not like 'PX Deq%'
+   and b.event not like 'PX qref%'
+   and b.event not like 'Space Manager%'
+   and b.event not like 'Streams AQ%'
+   and b.event not like '%message%'
+   and b.event not like '%timer%'
+   and b.event not like '%null event%'
+   and b.event <> 'jobq slave wait'
+   and b.event <> 'class slave wait'
+   and b.event <> 'VKTM Logical Idle Wait'
+   and b.event <> 'GCR sleep'
+   and b.event <> 'PING'
+   and b.event <> 'VKRM Idle'
+   and b.event <> 'KSV master wait'
+   and b.event not like 'EMON%'
+   and b.type = 'USER'
+--   and username='BMT'
+--   and b.username not in ('SYS', 'SYSTEM', 'BACKUP2', 'DBSNMP')
+--   and b.username in ('HDW1', HDW2')
+--   and b.username is not null
+--   and program not like 'Orange%'
+--   and b.event not like '%SQL*Net%'
+--order by "MODULE", b.inst_id, b.sid
+order by b.client_info, b.inst_id, b.sid
+;
+
+```
+* 스마트스캔 수행확인 – 다이나믹뷰(딕셔너리)를 통한 확인
+  * v$sql
+```sql
+select sql_id,
+       round(physical_read_bytes/1048576,1)                   phyrd_mb,
+       round(io_cell_offload_eligible_bytes/1048576,1)         elig_mb,
+       round(io_cell_offload_returned_bytes/1048576,1)       return_mb,       
+       round(io_interconnect_bytes/1048576,1)               xchange_mb,
+       decode(IO_CELL_OFFLOAD_ELIGIBLE_BYTES,0,'No','Yes') Offloaded,
+       decode(IO_CELL_OFFLOAD_ELIGIBLE_BYTES,0,0,
+              round((IO_CELL_OFFLOAD_ELIGIBLE_BYTES - IO_CELL_OFFLOAD_RETURNED_BYTES)
+                        / IO_CELL_OFFLOAD_ELIGIBLE_BYTES*100,1)) as  "IO_SAVED_%"              
+FROM     v$sql 
+where 1=1
+and   io_cell_offload_returned_bytes > 0
+--and  parsing_schema_name = upper('SCOTT')
+--and   sql_text LIKE '%from sales%';
+
+```
+  * V$SYSSTAT
+```sql
+select   b.name, a.value
+from     v$mystat a, v$statname b
+where  a.STATISTIC# = b.STATISTIC#
+and     (b.name = 'cell session smart scan efficiency' or
+            b.name = 'cell physical IO bytes saved by storage index' or
+            b.name = 'cell physical IO bytes eligible for predicate offload' or
+            b.name = 'cell physical IO interconnect bytes returned by smart scan‘ );
+
+```
+|V$SQL 컬럼|네용|
+|---|---|
+|IO_CELL_OFFLOAD_ELIGIBLE_BYTES|Exadata 스토리지 시스템에서 필터링 할 수 있는 I/O 바이트 수 / Offloading에 의해 절감될 것으로 예상되는 데이터양|
+|IO_CELL_OFFLOAD_RETURNED_BYTES|Exadata 셀에서 반환 된 필터링 된 바이트 수 / 즉, Exadata 셀에서 처리가 오프로드 된 후 반환 된 바이트 수|
+|IO_INTERCONNECT_BYTES|Oracle Database와 스토리지 시스템간 교환되는 I/O 바이트 수 / Storage Server에서 실제 반환된 데이터 양|
+| PHYSICAL_READ_BYTES|모니터링되는 SQL이 디스크에서 읽은 바이트 수|
+
 ```sql
 orcl_high> select n.name,s.value from v$mystat s, v$statname n where n.statistic#=s.statistic# and n.name like '%cell flash cache read%';
 NAME                                                                    VALUE
