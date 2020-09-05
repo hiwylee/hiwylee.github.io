@@ -258,8 +258,27 @@ from v$sql where sql_text like 'select /*+ parallel(s_%';
 
   * ASM Disk Group 속성 cell.smart_scan_capable = true | false
     * alter diskgroup … set attribute
- 
+### Storage Index
+* 사용확인
+```sql
+select   b.name, a.value
+from     v$mystat a, v$statname b
+where  a.STATISTIC# = b.STATISTIC#
+and     (b.name = 'cell session smart scan efficiency' or
+            b.name = 'cell physical IO bytes saved by storage index' or
+            b.name = 'cell physical IO bytes eligible for predicate offload' or
+            b.name = 'cell physical IO interconnect bytes returned by smart scan' );
+
+```
+* 스토리지 인덱스의 제어
+```sql
+SQL> ALTER SESSION SET "_kcfis_storageidx_disabled" = TRUE;
+```
+* 자주 사용되는 조건의 컬럼에 대해 sorting을 하여 Insert를 해 놓으면, 스토리지 인덱스의 효용성을 높일 수 있음.
+
 ### EHCC
+* 공간절약 및 Disk I/O를 최대한 줄이기 위해 Logical Compression Unit 단위로 행을 묶는 컬럼압축방식을 사용.
+* ![hcc](exadata_hcc_01/png)
 * EHCC를 통한 공간 절감 예측 방법
 ```sql
 dbms_compression.get_compression_ratio(
