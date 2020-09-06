@@ -61,4 +61,4 @@
 * Coordinator 위치 확인
   * ``Coordinator는 DML 명령문 위에`` 위치 해야 병렬 처리
 * parallel query parameter
-  * ![pq params](img/exadata_pq.png)
+ ![pq params](img/exadata_pq.png)
