@@ -74,7 +74,49 @@
      SQL> SET TRIMSPOOL ON
      SQL> SET SQLBLANKLINE ON
      --
-     SQL> SQL> select dbms_sqltune.report_sql_monitor(SQL_ID=>'...', REPORT_LEVEL=>'ALL', TYPE=>'TEXT') report from dual;
-
-   
+     SQL> SQL> select dbms_sqltune.report_sql_monitor(SQL_ID=>'...', REPORT_LEVEL=>'ALL', TYPE=>'TEXT') report from dual;   
    ```
+
+## Batch 처리
+* 집합처리  Multi-table Insert 구문
+  * Unconditional Insert All
+```sql
+INSERT ALL
+INTO TAB_A values(empid, hdate, sal)
+INTO TAB_B values(empid, hdate, sal)
+INTO TAB_C values(empid, hdate, sal, managerid)
+select empid, hiredate hdate, salary sal, managerid
+from  emp
+where empid > 1000;
+```
+   *  Conditional Insert All
+```sql
+INSERT ALL
+WHEN sal >=3000 then INTO TAB_A values(empid, hdate, sal)
+WHEN sal >=5000 then INTO TAB_B values(empid, hdate, sal)
+select empid, hiredate hdate, salary sal, managerid
+from emp
+where empid > 1000;
+```
+   * Conditional Insert First 
+```sql
+INSERT FIRST
+WHEN sal >=3000       then INTO TAB_A values(deptno,sal)
+WHEN hdate like '%84' then INTO TAB_84 values(deptno,hdate)
+WHEN hdate like '%85' then INTO TAB_85 values(deptno,hdate)
+ELSE                                INTO TAB_99 values(deptno,hdate)
+select deptno, sal, hdate 
+from emp
+where deptno = 10;
+```
+   * Pivoting Insert
+```sql
+INSERT ALL
+INTO sales_info VALUES(empno, weekid, sales_mon)
+INTO sales_info VALUES(empno, weekid, sales_tue)
+INTO sales_info VALUES(empno, weekid, sales_wed)
+INTO sales_info VALUES(empno, weekid, sales_thur)
+INTO sales_info VALUES(empno, weekid, sales_fri)
+select empno, weekid, sales_mon, sales_tue, sales_wed, sales_thur, sales_fri
+from sales_source;
+```
