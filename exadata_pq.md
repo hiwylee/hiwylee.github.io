@@ -137,7 +137,7 @@ exec dbms_stats.gather_table_stats(
      ownname => 'Schema_name', 
      tabname => 'Table_name', 
      estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE,
-     granularity =>‘AUTO', --> default --> Incremental 방식의 경우 granuality가 ‘GLOBAL and PARTITION’으로 수행되며 Partition Type에 따라 결정됨.
+     granularity =>'AUTO', --> default --> Incremental 방식의 경우 granuality가 ‘GLOBAL and PARTITION’으로 수행되며 Partition Type에 따라 결정됨.
      cascade => TRUE, --> index 생성시
      method_opt => 'FOR ALL COLUMNS SIZE AUTO', --> column histogram 통계(NDV, Cardinality)
      degree => 4);  -->  default is NULL
