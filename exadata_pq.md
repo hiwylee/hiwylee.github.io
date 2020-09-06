@@ -62,3 +62,18 @@
   * ``Coordinator는 DML 명령문 위에`` 위치 해야 병렬 처리
 * parallel query parameter
  ![pq params](img/exadata_pq.png)
+### SQL 실행계획
+* dbms_sqltune.report_sql_monitor
+  * dbms_sqltune.report_sql_monitor 패키지는 반환되는 타입이 CLOB이기 때문에, 볼 때는 옵션(SESSION)에서 LONG ```SIZE를 10000000``` 이상으로 키워 놓아야 충분한 정보를 볼 수 있음. (상용 툴에서도 마찬가지 임)
+   ```sql
+     SQL> SET LONG 10000000
+     SQL> SET LONGCHUNKSIZE 100000000
+     SQL> SET LINESIZE 1000
+     SQL> SET PAGESIZE 0
+     SQL> SET TRIM ON
+     SQL> SET TRIMSPOOL ON
+     SQL> SET SQLBLANKLINE ON
+     --
+     SQL> SELECT DBMS_SQLTUNE.REPORT_SQL_MONITOR() FROM DUAL; 
+   
+   ```
