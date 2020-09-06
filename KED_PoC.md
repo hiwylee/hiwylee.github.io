@@ -11,6 +11,7 @@
 #### 0. 유의미한 목표 변수
 ##### 목표 변수 추출
 * OML4SQL
+
 ```sql
 DECLARE
     v_setlst DBMS_DATA_MINING.SETTING_LIST;
@@ -27,7 +28,9 @@ BEGIN
         TARGET_COLUMN_NAME  => 'IS_TRANSITED');
 END;
 ```
+
 * 목표 변수 
+
 ```sql
 col attribute_name format a20
 SELECT attribute_name, attribute_rank, round(attribute_importance_value,2) attribute_importance_value  
@@ -126,6 +129,7 @@ ENP_FCD                           8                        .04
 ## 데이터
 * ML용 데이터 Data 정합성
 * ML 용  Train/Test 데이터 : TKECP_*/TKECT_* / TKECK_*
+
 ```sql
 SELECT COUNT(*) CNT 
 FROM (
@@ -154,6 +158,7 @@ FROM   tkecp_TRAIN;
 * ``CASE ID`` :  ``ROWID``
 
 ```sql
+--
 /*
 *  중복제거한 유의미한 뷰 : TKECT_TRAIN_DEDUP_V
 *
@@ -376,6 +381,7 @@ RECORD
 
 ### Data Miner Temp (ODMR$...)  Table Drop
 * Procedure
+
 ```sql
 set SERVEROUTPUT ON
 CREATE OR REPLACE TYPE DROP_STATEMENTS IS TABLE OF VARCHAR2(228);
