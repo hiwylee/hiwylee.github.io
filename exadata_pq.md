@@ -74,6 +74,7 @@
      SQL> SET TRIMSPOOL ON
      SQL> SET SQLBLANKLINE ON
      --
-     SQL> SELECT DBMS_SQLTUNE.REPORT_SQL_MONITOR() FROM DUAL; 
+     SQL> SQL> select dbms_sqltune.report_sql_monitor(SQL_ID=>'...', REPORT_LEVEL=>'ALL', TYPE=>'TEXT') report from dual;
+
    
    ```
