@@ -137,7 +137,7 @@ exec dbms_stats.gather_table_stats(
      ownname => 'Schema_name', 
      tabname => 'Table_name', 
      estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE,
-     granularity =>‘AUTO', --> default : Incremental 방식의 경우 granuality가 ‘GLOBAL and PARTITION’으로 수행되며 Partition Type에 따라 결정됨.
+     granularity =>‘AUTO', --> default --> Incremental 방식의 경우 granuality가 ‘GLOBAL and PARTITION’으로 수행되며 Partition Type에 따라 결정됨.
      cascade => TRUE, --> index 생성시
      method_opt => 'FOR ALL COLUMNS SIZE AUTO', --> column histogram 통계(NDV, Cardinality)
      degree => 4);  -->  default is NULL
@@ -157,8 +157,10 @@ from  user_tab_partitions where num_rows = 0;
 exec dbms_stats.COPY_TABLE_STATS('Schema_name','Table_name',‘Source_Partition‘,’Target_partition’,1, NULL,FALSE);
 
 /* Incremental 방식의 통계정보 생성 */
-1) Table Level :  EXEC DBMS_STATS.SET_TABLE_PREFS('Schema_name','Table_name', 'INCREMENTAL', 'TRUE');
-2) Database Level :  EXEC DBMS_STATS.SET_GLOBAL_PREFS('INCREMENTAL', 'TRUE');
+-- 1) Table Level :  
+   EXEC DBMS_STATS.SET_TABLE_PREFS('Schema_name','Table_name', 'INCREMENTAL', 'TRUE');
+   2) Database Level :  
+   EXEC DBMS_STATS.SET_GLOBAL_PREFS('INCREMENTAL', 'TRUE');
 ```
 
 ```sql
