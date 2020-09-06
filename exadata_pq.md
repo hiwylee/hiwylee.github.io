@@ -120,3 +120,11 @@ INTO sales_info VALUES(empno, weekid, sales_fri)
 select empno, weekid, sales_mon, sales_tue, sales_wed, sales_thur, sales_fri
 from sales_source;
 ```
+## 자동 통계정보관리
+*  자동수행확인
+```sql
+SELECT CLIENT_NAME, JOB_SCHEDULER_STATUS
+   FROM DBA_AUTOTASK_CLIENT_JOB  
+   WHERE CLIENT_NAME =
+   ‘auto optimizer stats collection’;
+```
