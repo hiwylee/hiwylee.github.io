@@ -128,3 +128,59 @@ SELECT CLIENT_NAME, JOB_SCHEDULER_STATUS
    WHERE CLIENT_NAME =
    ‘auto optimizer stats collection’;
 ```
+* 통계정보 관련 스크립트
+```sql
+/* Table 통계정보 수동 생성 */
+exec dbms_stats.gather_table_stats(
+     ownname => 'Schema_name', 
+     tabname => 'Table_name', 
+     estimate_percent => DBMS_STATS.AUTO_SAMPLE_SIZE,
+     granularity =>‘AUTO', --> default : Incremental 방식의 경우 granuality가 ‘GLOBAL and PARTITION’으로 수행되며 Partition Type에 따라 결정됨.
+     cascade => TRUE, --> index 생성시
+     method_opt => 'FOR ALL COLUMNS SIZE AUTO', --> column histogram 통계(NDV, Cardinality)
+     degree => 4);  -->  default is NULL
+
+/* 일반적인 통계정보 생성 */
+exec DBMS_STATS.GATHER_TABLE_STATS(‘sh’,’SALES’, degree=>4);  --> 테이블레벨
+exec DBMS_STATS.GATHER_SCHEMA_STATS(‘sh’, degree=>4);  --> 스키마레벨
+
+/* Table 통계정보 삭제 */
+exec dbms_stats.DELETE_TABLE_STATS('Schema_name','Table_name','Partition_name');
+
+/* num_rows = 0인 partition 통계정보 삭제시 대상 Script generation */
+select 'execute dbms_stats.DELETE_TABLE_STATS(''DWADM'','''||TABLE_NAME||''','''||PARTITION_NAME||''');'
+from  user_tab_partitions where num_rows = 0;
+
+/* Table 통계정보 복사 */
+exec dbms_stats.COPY_TABLE_STATS('Schema_name','Table_name',‘Source_Partition‘,’Target_partition’,1, NULL,FALSE);
+
+/* Incremental 방식의 통계정보 생성 */
+1) Table Level :  EXEC DBMS_STATS.SET_TABLE_PREFS('Schema_name','Table_name', 'INCREMENTAL', 'TRUE');
+2) Database Level :  EXEC DBMS_STATS.SET_GLOBAL_PREFS('INCREMENTAL', 'TRUE');
+```
+
+```sql
+/* 자동통계정보 중지하고자 할 경우 */
+--> 통계정보 확인
+col client_name for a40
+select client_name, status from DBA_AUTOTASK_CLIENT where client_name='auto optimizer stats collection';
+
+--> 자동통계정보 중지,
+exec DBMS_AUTO_TASK_ADMIN.DISABLE(client_name => 'auto optimizer stats collection', operation => NULL, window_name => NULL);
+
+/*통계정보 히스토리를 Table별로 확인하는 방법 */
+SELECT *
+FROM DBA_TAB_STATS_HISTORY
+WHERE owner = 'DWADM' ORDER BY 1,2,3,4,5  DESC;
+
+/* DML 변화량 확인 */
+Select * from dba_tab_modifications where table_owner = 'DWADM';
+--> Deletes, Updates, Inserts 컬럼의 합이 num_rows(dba_tables, dba_tab_partitions, dba_tab_statistics)의 10% 이상시 통계정보 대상
+--> 통계정보 수행 후에는 해당 테이블 관련 레코드가 사라짐.
+
+/* 통계정보 대상 확인 : 정기 통계 배치 작업 대상 Table or Partition */
+Select * from dba_tab_statistics where owner = 'DWADM'  and (stale_stats = 'YES' or stale_stats is null)
+order by nvl(to_char(last_analyzed,'yyyy-mm-dd hh24:mi:ss'),'1000-12-31 23:59:59') desc;
+--> Stale_stats 컬럼이 ‘NULL’, ‘YES’로 표시된 테이블이 통계정보 대상이 됨.
+--> Stale_stats 컬럼이 ‘NULL’인 경우는 테이블이 생성된 후 통계정보 수집이 한번도 안된 경우임.
+```
