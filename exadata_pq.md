@@ -38,30 +38,27 @@
   * QC (RANDOM) : 실행 코디네이터는 임의로 입력을 소비
 * Parallel Partition Insert시 Skew 발생
   * Partition된 테이블에 Insert하는 경우, Select된 조건이 특정 Partition에만 들어간다는 것을 알 수 없기 때문에 하나의 Parallel process만 일하게 됨
-```sql
--- Partition KEY 값에 의해 분산되어 Serial하게 Insert됨
-INSERT /*+ APPEND PARALLEL(4) */ INTO GBA604S_T
-select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a 
-where a.proc_ymd between :st_date and :ed_date;
-```
+   ```sql
+   -- Partition KEY 값에 의해 분산되어 Serial하게 Insert됨
+   INSERT /*+ APPEND PARALLEL(4) */ INTO GBA604S_T
+   select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a 
+   where a.proc_ymd between :st_date and :ed_date;
+   ```
      * 해결책
-       Insert시 파티션 지정 Partition
-```sql
---  
-INSERT /*+ APPEND PARALLEL(4)  */ INTO GBA604S_T PARTITION(R_201007)
-select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a
-where a.proc_ymd between :st_date and :ed_date;
-```
+       * Insert시 파티션 지정 Partition
+       ```sql
+       INSERT /*+ APPEND PARALLEL(4)  */ INTO GBA604S_T PARTITION(R_201007)
+       select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a
+       where a.proc_ymd between :st_date and :ed_date;
+       ```
        * 받은 데이터를 분사하지 않거나 Random 하게 INSERT 
-```sql
---  PQ_DISTRIBUTE(T, NONE)  or PQ_DISTRIBUTE(T, RANDOM)
-INSERT /*+ APPEND PARALLEL(4) PQ_DISTRIBUTE(T, NONE) */ INTO GBA604S_T
-select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a
-where a.proc_ymd between :st_date and :ed_date;
-
-```
-
-### 병렬처리 프로세스 처리절차 및 데이터 배분 방식
-### 병렬처리 실행계획 이해 및 모니터링 
-### 사용자별 병렬사용정책 및 제한
-### 개발관점에서의 병렬처리 이해 및 활용
+      ```sql
+      --  PQ_DISTRIBUTE(T, NONE)  or PQ_DISTRIBUTE(T, RANDOM)
+      INSERT /*+ APPEND PARALLEL(4) PQ_DISTRIBUTE(T, NONE) */ INTO GBA604S_T
+      select /*+ FULL(a) PARALLEL(4) */ * from GBA604S a
+      where a.proc_ymd between :st_date and :ed_date;
+      ```
+* Coordinator 위치 확인
+  * ``Coordinator는 DML 명령문 위에`` 위치 해야 병렬 처리
+* parallel query parameter
+  * ![pq params](img/exadata_pq.png)
