@@ -143,8 +143,8 @@ exec dbms_stats.gather_table_stats(
      degree => 4);  -->  default is NULL
 
 /* 일반적인 통계정보 생성 */
-exec DBMS_STATS.GATHER_TABLE_STATS(‘sh’,’SALES’, degree=>4);  --> 테이블레벨
-exec DBMS_STATS.GATHER_SCHEMA_STATS(‘sh’, degree=>4);  --> 스키마레벨
+exec DBMS_STATS.GATHER_TABLE_STATS('sh','SALES', degree=>4);  --> 테이블레벨
+exec DBMS_STATS.GATHER_SCHEMA_STATS('sh', degree=>4);  --> 스키마레벨
 
 /* Table 통계정보 삭제 */
 exec dbms_stats.DELETE_TABLE_STATS('Schema_name','Table_name','Partition_name');
@@ -154,13 +154,13 @@ select 'execute dbms_stats.DELETE_TABLE_STATS(''DWADM'','''||TABLE_NAME||''','''
 from  user_tab_partitions where num_rows = 0;
 
 /* Table 통계정보 복사 */
-exec dbms_stats.COPY_TABLE_STATS('Schema_name','Table_name',‘Source_Partition‘,’Target_partition’,1, NULL,FALSE);
+exec dbms_stats.COPY_TABLE_STATS('Schema_name','Table_name','Source_Partition','Target_partition',1, NULL,FALSE);
 
 /* Incremental 방식의 통계정보 생성 */
 -- 1) Table Level :  
-   EXEC DBMS_STATS.SET_TABLE_PREFS('Schema_name','Table_name', 'INCREMENTAL', 'TRUE');
+EXEC DBMS_STATS.SET_TABLE_PREFS('Schema_name','Table_name', 'INCREMENTAL', 'TRUE');
    2) Database Level :  
-   EXEC DBMS_STATS.SET_GLOBAL_PREFS('INCREMENTAL', 'TRUE');
+EXEC DBMS_STATS.SET_GLOBAL_PREFS('INCREMENTAL', 'TRUE');
 ```
 
 ```sql
