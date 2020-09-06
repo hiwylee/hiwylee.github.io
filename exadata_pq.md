@@ -131,6 +131,7 @@ SELECT CLIENT_NAME, JOB_SCHEDULER_STATUS
 * 통계정보 관련 스크립트
 
 ```sql
+--
 /* Table 통계정보 수동 생성 */
 exec dbms_stats.gather_table_stats(
      ownname => 'Schema_name', 
