@@ -260,6 +260,7 @@ Version 19.5.0.0.0
 
 ```
 * sqldeveloper
+
 ```sql
 DBMS_CLOUD.DROP_CREDENTIAL(credential_name => 'POC_CRED');
 begin
