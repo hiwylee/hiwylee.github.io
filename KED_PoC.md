@@ -208,6 +208,7 @@ SELECT COUNT(*) FROM    TKE001_TRAIN_DEDUP_T;   -- 5829
 
 ## Data Loading 스크립트
 * cloud shell
+
 ```bash
 1. cloud shell
 wonyong_le@cloudshell:ked (ap-seoul-1)$ wonyong_le@cloudshell:~ (ap-seoul-1)$ oci os object list  -bn data --output table
