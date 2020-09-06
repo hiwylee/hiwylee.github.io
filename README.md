@@ -28,6 +28,7 @@
 * [dataminer.md](dataminer.md)
 * [exadata.md](exadata.md)
 * [exadata_sw.md](exadata_sw.md)
+* [exadata_pq.md](exadata_pq.md)
 * [fio.md](fio.md)
 * [k8s.md](k8s.md)
 * [mv2adb.md](mv2adb.md)
