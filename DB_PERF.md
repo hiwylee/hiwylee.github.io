@@ -3,9 +3,25 @@
 * https://techgoeasy.com/useful-scripts-oracle-database/
 * https://oracle-base.com/dba/scripts
 ### stratistics
-* EXEC DBMS_STATS.GATHER_DICTIONARY_STATS;
-* exec dbms_stats.gather_fixed_objects_stats;
-* exec  dbms_stats.GATHER_SCHEMA_STATS ('SYS');
+
+```sql
+EXEC DBMS_STATS.GATHER_DICTIONARY_STATS;
+exec dbms_stats.gather_fixed_objects_stats;
+exec  dbms_stats.GATHER_SCHEMA_STATS ('SYS');
+```
+### Basic Role
+
+```sql
+SQL> GRANT SELECT_CATALOG_ROLE TO WYLEE;
+
+Grant succeeded.
+
+SQL> GRANT ANALYZE ANY TO WYLEE;
+
+Grant succeeded.
+```
+
+
 ### 병렬처리
 * v$pq_tqstat 의 활용법 소개
   * 병렬 쿼리 수행 속도가 예상만큼 빠리지 않다면 테이블 큐를 통한 데이터 전송량에 편차가 크지 않은지 확인
