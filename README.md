@@ -10,6 +10,8 @@
 * [DB_AWR.md](DB_AWR.md)
 * [DB_OPT.md](DB_OPT.md)
 * [DB_PERF.md](DB_PERF.md)
+* [DB_mt1.md](DB_mt1.md)
+* [DB_mt2.md](DB_mt2.md)
 * [GCP.md](GCP.md)
 * [HANA.md](HANA.md)
 * [JET.md](JET.md)
