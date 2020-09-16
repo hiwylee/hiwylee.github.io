@@ -1148,7 +1148,8 @@ SQL>
 ```
 #### Step 10: DBA Views
 
-SQL> select system/oracle@localhost:1523/cdb1```sql
+```sql
+SQL> select system/oracle@localhost:1523/cdb1
 SQL> select P.Con_ID             c1
 ,      P.PDB_Name           c2
 ,      P.PDB_ID             c3
