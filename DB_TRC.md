@@ -6,7 +6,7 @@
 ```sql
 alter session set optimizer_features_eneble='11.2.0.2';
 alter session ser trace_file_indentifier='V11';
-alter session set events '10053 trace name context fojrever, level 1';
+alter session set events '10053 trace name context forever, level 1';
  SQL> EXPLAIN PLAN FOR 
  @query.sql
  Explained.
