@@ -1,4 +1,4 @@
-## DB 버전별 상이한 결과 (PLAN or core dump...) 나올 경우 Trace 를 통해서 문제점 해결하는 방법
+## DB 버전별 상이한 결과 (PLAN /core dump/...) 나올 경우 Trace 를 통해서 문제점 해결하는 방법
 ### Optimizer가 내부적인 비용 계산에 대한 Trace
 * [10053 트레이스 파일](http://wiki.gurubee.net/pages/viewpage.action?pageId=3899776)
 ### 11.2.0.2 vs 19.8 비교시
