@@ -15,9 +15,10 @@ alter session set events '10053 trace name context forever, level 1';
 ```
 * 2) 19.8 각 각 버전을 지정하여 trace 생성
 ```sql
-alter session set optimizer_features_eneble='19.8.0.0';
-alter session ser trace_file_indentifier='V19';
-alter session set events '10053 trace name context fojrever, level 1';
+alter session set optimizer_features_enable='11.2.0.2';
+alter session set tracefile_identifier='V19';
+alter session set events '10053 trace name context forever, level 1';
+
  SQL> EXPLAIN PLAN FOR 
  @query.sql
  Explained.
