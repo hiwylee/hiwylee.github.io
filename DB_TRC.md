@@ -4,8 +4,8 @@
 ### 11.2.0.2 vs 19.8 비교시
 * 1) 11.2.0.2 각 각 버전을 지정하여 trace 생성
 ```sql
-alter session set optimizer_features_eneble='11.2.0.2';
-alter session ser trace_file_indentifier='V11';
+alter session set optimizer_features_enable='11.2.0.2';
+alter session set tracefile_identifier='V11';
 alter session set events '10053 trace name context forever, level 1';
  SQL> EXPLAIN PLAN FOR 
  @query.sql
@@ -26,20 +26,30 @@ alter session set events '10053 trace name context fojrever, level 1';
 ```
 * 3) 10053 내용 [ PARAMETERS /Bug Fix Control ] 각 각 추출
 ```
-*************************************
-  PARAMETERS WITH DEFAULT VALUES
-  ******************************
-  optimizer_mode_hinted               = false
-  optimizer_features_hinted           = 0.0.0
-  parallel_execution_enabled          = true
-  parallel_query_forced_dop           = 0  
+cat "ORCL_ora_28667_V11.trc
+....
+Optimizer state dump:
+Compilation Environment Dump
+optimizer_mode_hinted               = false
+optimizer_features_hinted           = 0.0.0
+parallel_execution_enabled          = true
+parallel_query_forced_dop           = 0
+parallel_dml_forced_dop             = 0
+parallel_ddl_forced_degree          = 0
+parallel_ddl_forced_instances       = 0
+
   ...
   중략
   ...
-  *********************************
-  Bug Fix Control Environment
-  ***************************
-  fix  4611850 = enabled
+ _utl32k_mv_query                    = false
+optimizer_session_type              = NORMAL
+Bug Fix Control Environment
+    fix  3834770 = 1
+    fix  3746511 = enabled
+    fix  4519016 = enabled
+    fix  3118776 = enabled
+    fix  4488689 = enabled
+
   ```
   
   4) 두 버전 별로 상이한 값들만 정리 (parameter and fiexed control)
