@@ -5,6 +5,9 @@
 * https://www.oracle.com/database/technologies/tech-generic-unix-new.html
 
 #### 1. Oracle ASM 과 EMC SRDF Certified 정보 (SRDF Metro 포함)
+* 2012 년 certi 된 것으로 보이는데 내부 사이트에서 cross checking 해 보겠습니다.
+  * http://www.thestoragechap.co.uk/tscblog/2012/05/17/vplex-metro-and-oracle-rac-its-certified/
+  * https://corporate.delltechnologies.com/en-us/newsroom/announcements/2012/05/20120517-04.htm
 #### 2. E980, PEP, LPAR, ADG < 3노드 Primary[61/61/31] / 3노드 Standby[10/10/10] > 에 대한 금융권 구축 사례
 #### 3. E980 에서 1TB 메모리 중 500GB 를 SGA(주로 Buffer Cache)에 할당 한 상태에서 DB 인스턴스 중단 시 전체 DB Freeze (Reconfiguration) 예상 시간 (40G Interconnect 기준)
 ------------------------------------------------------------------------------------------------------------------------------------
