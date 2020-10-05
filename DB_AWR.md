@@ -1,6 +1,7 @@
 ## Oracle AWR report
-	
-Oracle Database Tips by Donald Burleson
+### Perf Guide Portal - RAC Perfomance tuning with AWR/EM reports
+* https://www.hhutzler.de/blog/rac-tuning-with-awr/#Tuning_Step_1_Avoid_sequences_by_using_a_JAVA_generated_sequence
+### Oracle Database Tips by Donald Burleson
 See my notes on Reading Oracle AWR report and see the book Oracle Tuning: The Definitive Reference for a comprehensive treatment of AWR for Oracle tuning.  Also see these tips for Oracle AWR reports:
 
 * [Oracle AWR SQL Tuning Scripts](http://www.dba-oracle.com/art_orafaq_awr_sql_tuning.htm)
