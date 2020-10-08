@@ -36,6 +36,7 @@
 * [exadata_sw.md](exadata_sw.md)
 * [exadata_pq.md](exadata_pq.md)
 * [exadata_cell.md](exadata_cell.md)
+* [exadata_Cod.md](exadata_CoD.md)
 * [fio.md](fio.md)
 * [k8s.md](k8s.md)
 * [mv2adb.md](mv2adb.md)
