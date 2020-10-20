@@ -1,6 +1,16 @@
 ## Oracle AWR report
 ### Perf Guide Portal - RAC Perfomance tuning with AWR/EM reports
 * https://www.hhutzler.de/blog/rac-tuning-with-awr/#Tuning_Step_1_Avoid_sequences_by_using_a_JAVA_generated_sequence
+### AWR report
+<pre>
+@?/rdbms/admin/awrrpt.sql      -- basic AWR report
+@?/rdbms/admin/awrsqrpt.sql    -- Standard SQL statement Report
+@?/rdbms/admin/awrddrpt.sql    -- Period diff on current instance
+@?/rdbms/admin/awrrpti.sql     -- Workload Repository Report Instance (RAC)
+@?/rdbms/admin/awrgrpt.sql     -- AWR Global Report (RAC)
+@?/rdbms/admin/awrgdrpt.sql    -- AWR Global Diff Report (RAC)
+@?/rdbms/admin/awrinfo.sql     -- Script to output general AWR information
+</pre>
 ### Oracle Database Tips by Donald Burleson
 See my notes on Reading Oracle AWR report and see the book Oracle Tuning: The Definitive Reference for a comprehensive treatment of AWR for Oracle tuning.  Also see these tips for Oracle AWR reports:
 
