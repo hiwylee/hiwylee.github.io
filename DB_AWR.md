@@ -1,6 +1,10 @@
 ## Oracle AWR report
 ### Perf Guide Portal - RAC Perfomance tuning with AWR/EM reports
 * https://www.hhutzler.de/blog/rac-tuning-with-awr/#Tuning_Step_1_Avoid_sequences_by_using_a_JAVA_generated_sequence
+
+### TOOLS : www.orapub.com
+* https://www.orapub.com/tools
+
 ### AWR report
 
 ```sql
