@@ -1,4 +1,6 @@
 ## SQL Tuning 
+### Real World Performance (Oracle Video)
+* https://apexapps.oracle.com/pls/apex/f?p=44785:141:0::NO::P141_PAGE_ID,P141_SECTION_ID:119,870
 ### TOOLS : www.orapub.com
 * https://www.orapub.com/tools
 ### Scripts
