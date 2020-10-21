@@ -17,6 +17,7 @@
 * [DB_mt2.md](DB_mt2.md)
 * [DB_pack.md](DB_pack.md)
 * [DB_seq.md](DB_seq.md)
+* [DB_RAT.md](DB_RAT.md)
 * [DB_snapshot_standby.md](DB_snapshot_standby.md)
 * [GCP.md](GCP.md)
 * [HANA.md](HANA.md)
