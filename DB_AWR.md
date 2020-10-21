@@ -4,7 +4,7 @@
 
 ### MOS 
 * [``	AWR Report Interpretation Checklist for Diagnosing Database Performance Issues (Doc ID 1628089.1)``](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=253941980006798&id=1628089.1&displayIndex=5&_afrWindowMode=0&_adf.ctrl-state=hhpe3qlm4_166#aref_section31)
-* [Archive of Database Performance Related Webcasts and Videos (Doc ID 1597373.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=254265968004134&parent=DOCUMENT&sourceId=1628089.1&id=1597373.1&_afrWindowMode=0&_adf.ctrl-state=hhpe3qlm4_264)
+* [``Archive of Database Performance Related Webcasts and Videos (Doc ID 1597373.1``)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=254265968004134&parent=DOCUMENT&sourceId=1628089.1&id=1597373.1&_afrWindowMode=0&_adf.ctrl-state=hhpe3qlm4_264)
 * [Introduction to Performance Analysis Using AWR and ASH](http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=721&get_params=streamId:21)
 * [How to generate 'Automatic Workload Repository' ( AWR), 'Automatic Database Diagnostic Monitor' (ADDM), 'Active Session History' (ASH) reports. (Doc ID 2349082.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=253954498490732&id=2349082.1&displayIndex=10&_afrWindowMode=0&_adf.ctrl-state=hhpe3qlm4_215#aref_section21)
 ### TOOLS : www.orapub.com
