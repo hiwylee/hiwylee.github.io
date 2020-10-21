@@ -13,7 +13,7 @@
 <<<< Database 1 >>>>>
 1. DBCS Setup)
 2. RAT 설정
-3. Sample Schema Setup (SwingBench)
+3. Sample Schema Setup (SwingBench) : https://ittutorial.org/install-swingbench-2-6-and-set-up-order-entry-schema/
    - Scema 생성 : SOE
    - Invalid object : alter package soe.ORDERENTRY compile;
    - 통계 생성: exec dbms_stats.gather_schema_stats('SOE'); 
