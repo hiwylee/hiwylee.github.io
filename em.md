@@ -3,6 +3,12 @@
 ### Monitoring a Database << 매뉴얼 참조할 것
 * https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/monitoringDB.htm
 * RAC 일때 주의 사항 있음.
+* Security list : port (6200,5500,1158)
+```
+6200 - For Oracle Notification Service (ONS).
+5500 - For EM Express. 5500 is the default port
+1158 - For Enterprise Manager Database Control. 1158 is the default port.
+```
 * VM iptable port 열기
 ```bash
 [opc@odi2 .ssh]$ sudo iptables-save > /tmp/iptables-orig
