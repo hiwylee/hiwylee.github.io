@@ -13,6 +13,9 @@
 ```bash
 [opc@odi2 .ssh]$ sudo iptables-save > /tmp/iptables-orig
 [opc@odi2 .ssh]$ sudo iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 5500 -j ACCEPT -m comme                                            nt --comment "Required for EM Express."
+[root@odi1 ~]# iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 1158 -j ACCEPT -m comment --comment "Required for EM Express."
+[root@odi1 ~]# iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 6200 -j ACCEPT -m comment --comment "Required for EM Express."
+
 [opc@odi2 .ssh]$
 [opc@odi2 .ssh]$
 [opc@odi2 .ssh]$ sudo service iptables status
