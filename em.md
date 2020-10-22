@@ -1,5 +1,9 @@
 
 ####  Using EM Express
+### Monitoring a Database << 매뉴얼 참조할 것
+* https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/monitoringDB.htm
+* RAC 일때 주의 사항 있음.
+
 ```
 $ . oraenv
 ORACLE_SID = [oracle] ? orcl
