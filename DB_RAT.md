@@ -1,4 +1,4 @@
-## Real Pllication Testing
+## Real Application Testing (RAT)
 ### 	Database Testing: Best Practices (Doc ID 1535885.1)
 * [	Database Testing: Best Practices (Doc ID 1535885.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=431673761627791&parent=DOCUMENT&sourceId=1268920.1&id=1535885.1&_afrWindowMode=0&_adf.ctrl-state=imgk5degr_293)
 ### Real Application Testing (RAT): Recommended White Papers (Doc ID 1546337.1)
