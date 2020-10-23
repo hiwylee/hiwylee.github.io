@@ -7,3 +7,7 @@
 * [NOTE:445116.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=742645.1&id=445116.1) - Using Workload Capture and Replay
 * [NOTE:463263.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=742645.1&id=463263.1) - Database Capture and Replay: Common Errors and Reasons
 * [NOTE:560977.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=742645.1&id=560977.1) - Mandatory Patches for Database Testing Functionality for Current and Earlier Releases
+
+### Guide
+* https://www.oracle.com/technetwork/articles/oem/298770-132432.pdf
+* [Testing Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/ratug/testing-guide.pdf)
