@@ -4,7 +4,10 @@
 ## 문제 구간 분석 관련
 * [Tool for Gathering I/O Resource Manager Metrics: metric_iorm.pl (Doc ID 1337265.1)](https://mosemp.us.oracle.com/epmos/faces/DocContentDisplay?_afrLoop=284124481059217&id=1337265.1&_afrWindowMode=0&_adf.ctrl-state=rqq1xmzzr_273)
 * 문제를 확인할 수 있도록 특정 구간을 정해서 다음과 같이 수행
+  
+  ```bash
   ./metric_iorm.pl "where collectionTime > '2020-09-23T16:00:00+09:00' and collectionTime < '2020-09-23T17:00:00+09:00'" <<-- 시간은 알맞게 변경!!
+  ```
   * 참고: ++ Tool for Gathering I/O Resource Manager Metrics: metric_iorm.pl (Doc ID 1337265.1)
 * 모든 cell 노드에서 각각 sundiag 데이터를 수집.
   * SRDC - EEST Sundiag (Doc ID 1683842.1)
