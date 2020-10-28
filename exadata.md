@@ -1,6 +1,8 @@
 # Exadata Study Guide
 * [OSAN Home](https://login.oracle.com/oamfed/idp/initiatesso?providerid=https://sso.netexam.com/sp)
 ## Exadata Value Proposition
+## Tool for Gathering I/O Resource Manager Metrics: metric_iorm.pl (Doc ID 1337265.1) 
+* [Tool for Gathering I/O Resource Manager Metrics: metric_iorm.pl (Doc ID 1337265.1)] https://mosemp.us.oracle.com/epmos/faces/DocContentDisplay?_afrLoop=284124481059217&id=1337265.1&_afrWindowMode=0&_adf.ctrl-state=rqq1xmzzr_273
 ## command & config files
 * cellcli
 * dbmcli
