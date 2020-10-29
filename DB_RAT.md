@@ -1,4 +1,5 @@
 ## Real Application Testing (RAT)
+* [Where to Find Information About Performance Related Features (Doc ID 1361401.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=370702162634348&parent=DOCUMENT&sourceId=1600574.1&id=1361401.1&_afrWindowMode=0&_adf.ctrl-state=62i5lkkl6_210#aref_section257)
 ### Real Application Testing (It's not RAC !)
 * [Real Application Testing: Step by Step](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntdbi/enabling-and-disabling-database-options-after-installation.html#GUID-C45D75FC-34B5-4C24-9DE8-1518044A3BB3)
 * [NOTE:445116.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=742645.1&id=445116.1) - Using Workload Capture and Replay
@@ -6,6 +7,11 @@
  * AWR report : ``bytes received via SQL*Net from client * 2``
 * Overhead : The main overhead is from the ``writing of the capture files``. It is about ``4% to 5%``
 * 여러번 반복 replay : Flashback 
+
+#### SPA
+* [Document 455889.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1361401.1&id=455889.1) SQL PERFORMANCE ANALYZER EXAMPLE
+* [Document 562899.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1361401.1&id=562899.1) Using SQL Performance Analyzer to Test SQL Performance Impact of 9i to 10gR2 Upgrade
+
 ### 	Database Testing: Best Practices (Doc ID 1535885.1)
 * [	Database Testing: Best Practices (Doc ID 1535885.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=431673761627791&parent=DOCUMENT&sourceId=1268920.1&id=1535885.1&_afrWindowMode=0&_adf.ctrl-state=imgk5degr_293)
 ### Real Application Testing (RAT): Recommended White Papers (Doc ID 1546337.1)
