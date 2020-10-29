@@ -1,4 +1,5 @@
 ## SQL Tuning 
+* [Where to Find Information About Performance Related Features (Doc ID 1361401.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=370702162634348&parent=DOCUMENT&sourceId=1600574.1&id=1361401.1&_afrWindowMode=0&_adf.ctrl-state=62i5lkkl6_210#aref_section257)
 ### Real World Performance (Oracle Video)
 * https://apexapps.oracle.com/pls/apex/f?p=44785:141:0::NO::P141_PAGE_ID,P141_SECTION_ID:119,870
 ### TOOLS : www.orapub.com
