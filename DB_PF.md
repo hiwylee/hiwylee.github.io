@@ -1,6 +1,72 @@
 
 * https://oracle-base.com/articles/misc/pipelined-table-functions
 * http://www.oracle-developer.net/display.php?id=429
+
+### TEST
+* PROTOTYPE PF
+
+```sql
+DROP TYPE rec_tab_type;
+DROP TYPE rec_row_type;
+
+CREATE TYPE rec_row_type AS OBJECT (
+    id0   VARCHAR2(5),
+    id1   VARCHAR2(5),
+    id2   VARCHAR2(5)
+  );
+
+/
+
+CREATE TYPE rec_tab_type IS TABLE OF rec_row_type ; -- INDEX BY PLS_INTEGER;
+/
+
+CREATE OR REPLACE FUNCTION pf_func (p_param IN varchar) RETURN rec_tab_type PIPELINED AS
+
+   v_test VARCHAR2(100);
+
+   TYPE v_rec IS RECORD (
+    id0   VARCHAR2(5),
+    id1   VARCHAR2(5),
+    id2   VARCHAR2(5)
+  );
+
+  TYPE v_tab_type IS TABLE OF v_rec INDEX BY PLS_INTEGER;
+
+  v_rec_l v_tab_type := v_tab_type() ;
+
+  cnt number;
+
+BEGIN
+
+    cnt := 0;
+    for i in 1..51 loop
+       v_rec_l(i).id0 := 'id' || i;
+       v_rec_l(i).id1 := 'id' || i;
+       v_rec_l(i).id2 := 'id' || i;
+    end loop;
+
+       PIPE ROW(rec_row_type('id0', 'id2','id2'));
+
+    for j in 1..v_rec_l.count loop
+       PIPE ROW(rec_row_type(v_rec_l(j).id0,v_rec_l(j).id1,v_rec_l(j).id2));
+       if (p_param = v_rec_l(j).id0  or p_param = v_rec_l(j).id1 or p_param = v_rec_l(j).id2)  then
+         cnt := cnt + 1;
+         for i in 1..v_rec_l.count loop
+            PIPE ROW(rec_row_type(v_rec_l(i).id0,v_rec_l(i).id1,v_rec_l(i).id2));
+         end loop;
+       end if;
+
+    end loop;
+END;
+/
+
+
+```
+
+```sql
+select * from TABLE(pf_func('id0'));
+```
+
 ```sql
 GRANT EXECUTE ONdmbmnimpTO PUBLIC WITH GRANT OPTION;
 ```
