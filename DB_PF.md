@@ -3,8 +3,86 @@
 * http://www.oracle-developer.net/display.php?id=429
 
 ### TEST
-* PROTOTYPE PF
+* PROTOTYPE PF 2
 
+```sql
+DROP TYPE rec_tab_type;
+DROP TYPE rec_row_type;
+
+CREATE TYPE rec_row_type AS OBJECT (
+    id0   VARCHAR2(30),
+    id1   VARCHAR2(30),
+    id2   VARCHAR2(30)
+  );
+
+/
+
+CREATE TYPE rec_tab_type IS TABLE OF rec_row_type ; -- INDEX BY PLS_INTEGER;
+/
+
+CREATE OR REPLACE FUNCTION pf_func3(
+  p_pri in number default 1000,
+  p_sty in number default 52,
+  p_param IN varchar
+)
+RETURN rec_tab_type PIPELINED
+-- PARALLEL_ENABLE(PARTITION parameter-name BY [{HASH | RANGE} (column-list) | ANY ]) IS
+
+AS
+
+   v_test VARCHAR2(100);
+
+   TYPE v_rec IS RECORD (
+    id0   VARCHAR2(35),
+    id1   VARCHAR2(35),
+    id2   VARCHAR2(35)
+  );
+
+  TYPE v_tab_type IS TABLE OF v_rec INDEX BY PLS_INTEGER;
+
+  v_rec_l v_tab_type := v_tab_type() ;
+
+  v_cnt number := 0;
+  v_sub number :=  p_sty ;
+  v_max number :=  p_pri;
+
+BEGIN
+
+    for i in 1..v_sub loop
+       v_rec_l(i).id0 := 'id' || i;
+       v_rec_l(i).id1 := 'id' || i;
+       v_rec_l(i).id2 := 'id' || i;
+    end loop;
+    --for j in 1..v_rec_l.count loop
+    for k in 1..v_max loop
+       v_cnt := v_cnt + 1;
+       if v_cnt = 52 then
+          v_cnt := 1;
+       end if;
+       -- PIPE ROW(rec_row_type(p_param,v_rec_l(v_cnt).id1,v_rec_l(v_cnt).id2));
+       for i in 1..v_rec_l.count loop
+          if (p_param = v_rec_l(v_cnt).id0  or p_param = v_rec_l(v_cnt).id1 or p_param = v_rec_l(v_cnt).id2)  then
+              v_cnt := v_cnt + 1;
+              -- PIPE ROW(rec_row_type(v_rec_l(i).id0,v_rec_l(i).id1,v_rec_l(i).id2));
+              PIPE ROW(rec_row_type('cnt = ' || k ||'/' || i ,v_rec_l(i).id1,v_rec_l(i).id2));
+           end if;
+       end loop;
+
+    end loop;
+END;
+/
+~
+
+```
+
+```sql
+
+alter session force parallel QUERY parallel 8;
+
+select max(id0) from TABLE(pf_func3(p_pri=>1000000, p_sty=> 52, p_param=>'id1'));
+```
+
+* PROTOTYPE PF
 ```sql
 DROP TYPE rec_tab_type;
 DROP TYPE rec_row_type;
