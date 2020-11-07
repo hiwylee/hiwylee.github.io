@@ -1,7 +1,9 @@
 
 * https://oracle-base.com/articles/misc/pipelined-table-functions
 * http://www.oracle-developer.net/display.php?id=429
-
+```sql
+GRANT EXECUTE ONdmbmnimpTO PUBLIC WITH GRANT OPTION;
+```
 ```sql
 SELECT * FROM TABLE(ST_MON_F(CURSOR(SELECT * FROM CUST), CURSOR(SELECT * FROM ST_MON));
 ST_MON_F
