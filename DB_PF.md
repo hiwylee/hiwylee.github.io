@@ -36,6 +36,34 @@ ST_MON : TABLE OF ST_MON <= SINGLE TONE
 출처: https://argolee.tistory.com/40 [놀멍]
 
 ```
+
+* bulk pipe row
+```sql
+create or replace package body mypkg
+as
+   function execute_query(startNode in varchar2) RETURN node PIPELINED
+    AS
+        results node;
+        my_query VARCHAR2(100);
+        output VARCHAR2(1000);
+        c sys_refcursor;
+    BEGIN -- don't use concatenation, it leads to sql injections:
+        my_query := 'SELECT DISTINCT * FROM EDGES WHERE src=:startNode';
+        -- use bind variables and bind them using cluase "using":
+        open c for my_query using startNode;
+        loop
+            fetch c bulk collect into results limit 100;
+            -- "results" is a collection, so you need to iterate it to pipe rows:
+            for i in 1..results.count loop
+                PIPE Row(results(i));
+            end loop;
+            exit when c%notfound;
+        end loop;
+        close c;
+    END;
+end;
+/
+```
 ```sql
 
 1) bulk fetch
