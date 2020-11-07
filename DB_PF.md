@@ -3,30 +3,27 @@
 * http://www.oracle-developer.net/display.php?id=429
 
 ```sql
-SELECT * FROM TABLE(ST_MON_F(CURSOR(SELECT * FROM CUST));
+SELECT * FROM TABLE(ST_MON_F(CURSOR(SELECT * FROM CUST), CURSOR(SELECT * FROM ST_MON));
 ST_MON_F
 {
-       ARRAY_LIST OF ST_MON
+
+       FETCH ST_MON_cur 
+            BULK COLLECT INTO l_ST_MON;
        FETCH CUST_cur 
             BULK COLLECT INTO l_CUST LIMIT limit_in;     // 100,000건
 			FOR indx IN 1 .. l_CUST.COUNT 
 			LOOP
 			    ST_MON_F_List
-				if l_CUST(indx)).ST_DAY ;
-				ST_MON_F_List
-			END LOOP;
-}
-				FOR indx2 IN 1 .. ST_MON_F_List.COUNT 
+				FOR indx2 IN 1 .. l_CUST.COUNT 
 				LOOP
-					ST_MON_F_List
-					if l_CUST(indx)).ST_DAY <  ST_MON_F_List(indx2)).ST_DAY <= l_CUST(indx)).ED_DAY
+					if l_CUST(indx)).ST_DAY <  l_ST_MON(indx2)).ST_DAY <= l_CUST(indx)).ED_DAY
 						out_rec.x := ST_MON_F_List(indx2)).ST_DAY;
 						out_rec.y := ST_MON_F_List(indx2)).ST_DAY;
 						out_rec.z := ST_MON_F_List(indx2)).ST_DAY;
 						PIPE ROW(out_rec);					   
 					END IF    
 				END LOOP;
-
+			END LOOP;
 ST_MON_F_List
 
 TYPE 필요 : OUT_REC, IN_REC
@@ -36,9 +33,8 @@ ST_MON : TABLE OF ST_MON <= SINGLE TONE
 
 출처: https://argolee.tistory.com/40 [놀멍]
 
-출처: https://argolee.tistory.com/40 [놀멍]
-
-
+```
+```sql
 
 1) bulk fetch
 /////////////////////////////////////////////////////////////////
