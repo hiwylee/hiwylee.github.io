@@ -1,5 +1,6 @@
 
 * https://oracle-base.com/articles/misc/pipelined-table-functions
+* http://www.oracle-developer.net/display.php?id=429
 
 ```sql
 SELECT * FROM TABLE(ST_MON_F(CURSOR(SELECT * FROM CUST));
