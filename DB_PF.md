@@ -166,7 +166,7 @@ select count(*)
  where (case when (p.cust_no = s.id0 or p.cust_no = s.id1 or p.cust_no = s.id2) then 1 else 0 end) = 1;
 
 ```
-*  백만건
+#####  ``백만건``
 ```sql
 
 SYS@odidb2> @ft41
@@ -193,7 +193,7 @@ Elapsed: 00:00:01.51
 SYS@odidb2>
 
 ```
-* 4백만건
+##### ``4백만건``
 ```sql
 SYS@odidb2> @ft42
 
@@ -217,10 +217,13 @@ Elapsed: 00:00:05.66
 
 ```
 
-* 8백만건
+##### ``8백만건``
 ```
 SYS@odidb2> @ft42
 
+Session altered.
+
+Elapsed: 00:00:00.00
 
 Function created.
 
@@ -234,9 +237,11 @@ Nomarl sql : 262144
 
 PL/SQL procedure successfully completed.
 
+Elapsed: 00:00:52.46
+
 ```
 
-* 천육백만건
+##### ``천육백만건``
 
 ```sql
 
