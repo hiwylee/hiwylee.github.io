@@ -37,22 +37,20 @@ commit;
 ```sql
 CREATE OR REPLACE PACKAGE PF AS
 
-  TYPE rec_row_type IS RECORD (
-    id0   VARCHAR2(5),
-    id1   VARCHAR2(5),
-    id2   VARCHAR2(5)
+  TYPE ret_row_type IS RECORD (
+    id0   ST_MON.id0%TYPE,
+    id1   ST_MON.id0%TYPE,
+    id2   ST_MON.id0%TYPE
   );
 
 
-  TYPE ret_tab_type IS TABLE OF rec_row_type ;
+  TYPE ret_tab_type IS TABLE OF ret_row_type ;
 
   TYPE pri_ref_cursor IS REF CURSOR RETURN PRI%ROWTYPE;
-  TYPE sty_ref_cursor IS REF CURSOR RETURN ST_MON%ROWTYPE;
 
 
   FUNCTION pf_func4 (
-    p_pri_cursor in pri_ref_cursor,
-    p_sty_cursor in sty_ref_cursor
+    p_pri_cursor in pri_ref_cursor
   )
   RETURN ret_tab_type PIPELINED
   PARALLEL_ENABLE(PARTITION p_pri_cursor BY HASH (CUST_NO));
@@ -60,9 +58,6 @@ CREATE OR REPLACE PACKAGE PF AS
 END PF;
 /
 
-```
-* Package Body
-```sql
 CREATE OR REPLACE PACKAGE BODY PF AS
 
   FUNCTION pf_func4 (
@@ -103,10 +98,9 @@ CREATE OR REPLACE PACKAGE BODY PF AS
 
   BEGIN
 
-    DBMS_OUTPUT.ENABLE;
-    DBMS_OUTPUT.PUT_LINE( 'BEGIN' );
+ --DBMS_OUTPUT.ENABLE('1000000000');
+ --  DBMS_OUTPUT.PUT_LINE( 'BEGIN' );
 
-    DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
 
     -- ST_MON
     OPEN p_sty_cursor;
@@ -122,55 +116,34 @@ CREATE OR REPLACE PACKAGE BODY PF AS
        v_rec_l(i).id2 := 'id' || i;
        DBMS_OUTPUT.PUT_LINE( v_rec_l(i).id0);
     end loop;
-/*
-    -- SAMPLE CODE
-    OPEN sales_cur
-    FETCH sales_cur BULK COLLECT INTO  sales_tbl LIMIT 1000;
-    FOR i IN sales_tbl.FIRST..sales_tbl.LAST LOOP
-       sales_tbl(i).AMOUNT_SOLD := sales_tbl(i).AMOUNT_SOLD * 1.5;
-    END LOOP;
-    CLOSE sales_cur;
-*/
 
 
-
-    DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
+--    DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
 
     v_sub := 0;
     LOOP   -- ST_MON
       v_sub := v_sub + 1;
-      FETCH p_pri_cursor BULK COLLECT INTO v_pri_tab limit 10000 ;
+      FETCH p_pri_cursor BULK COLLECT INTO v_pri_tab limit 100000 ;
       DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
-      FOR i in v_pri_tab.first..v_pri_tab.last
---    FOR i in 1..v_pri_tab.COUNT
-      LOOP
-          DBMS_OUTPUT.PUT_LINE( 'STEP LOOPING' );
---          PIPE ROW(ret_row_type(' loop ' || v_sub, ' ', ' ' );
+      FOR k in v_pri_tab.first..v_pri_tab.last LOOP
+--          DBMS_OUTPUT.PUT_LINE( 'STEP LOOPING' );
+         -- check pri is in st_mon
+         v_cnt := 1;
+         FOR i in 1..v_rec_l.count LOOP
+            v_cnt := v_cnt + 1;
+            IF (   v_pri_tab(k).cust_no = v_rec_l(i).id0
+                or v_pri_tab(k).cust_no  = v_rec_l(i).id1
+                or v_pri_tab(k).cust_no  = v_rec_l(i).id2)  then
+                v_cnt := v_cnt + 1;
+                -- PIPE ROW(rec_row_type(v_rec_l(i).id0,v_rec_l(i).id1,v_rec_l(i).id2));
+                PIPE ROW(ret_row_type('cnt = ' || k ||'/' || i ,v_rec_l(i).id1,v_rec_l(i).id2));
+             end if;
+         end loop;
       END LOOP;
-      PIPE ROW(ret_row_type(' loop ' || v_sub, ' ', ' ') );
-
-      EXIT WHEN p_sty_cursor%NOTFOUND;
+      EXIT WHEN p_pri_cursor%NOTFOUND;
     END LOOP;
 
-/*
-    --for j in 1..v_rec_l.count loop
-    for k in 1..v_max loop
-       v_cnt := v_cnt + 1;
-       if v_cnt = 52 then
-          v_cnt := 1;
-       end if;
-       -- PIPE ROW(rec_row_type(p_param,v_rec_l(v_cnt).id1,v_rec_l(v_cnt).id2));
-       for i in 1..v_rec_l.count loop
-          if (p_param = v_rec_l(v_cnt).id0  or p_param = v_rec_l(v_cnt).id1 or p_param = v_rec_l(v_cnt).id2)  then
-              v_cnt := v_cnt + 1;
-              -- PIPE ROW(rec_row_type(v_rec_l(i).id0,v_rec_l(i).id1,v_rec_l(i).id2));
-              PIPE ROW(rec_row_type('cnt = ' || k ||'/' || i ,v_rec_l(i).id1,v_rec_l(i).id2));
-           end if;
-       end loop;
-
-    end loop;
-    DBMS_OUTPUT.PUT_LINE( 'END' );
-*/
+--    DBMS_OUTPUT.PUT_LINE( 'END' );
   END;
 END PF;
 /
