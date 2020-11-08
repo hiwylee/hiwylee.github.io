@@ -3,6 +3,44 @@
 * http://www.oracle-developer.net/display.php?id=429
 
 ### TEST
+#### ENV 
+* TABLE
+```sql
+drop table PRI purge;
+drop table ST_MON purge;
+
+CREATE TABLE PRI
+nologging
+PARTITION BY HASH (CUST_NO)
+PARTITIONS 32
+AS
+SELECT 'id' || level AS CUST_NO,'id'||level AS id0 , 'id'||level AS id1 , 'id'||level AS id2
+FROM   dual
+CONNECT BY level <= 1000000;
+
+create table ST_MON
+nologging
+AS
+SELECT 'id' || level AS id0, 'id'||level AS id1 , 'id'||level AS id2
+FROM   dual
+CONNECT BY level <= 52;
+
+INSERT /*+ APPEND */ INTO PRI (SELECT * FROM PRI);
+commit;
+INSERT /*+ APPEND */ INTO PRI (SELECT * FROM PRI);
+commit;
+
+```
+
+#### Pipelined function
+```sql
+```
+#### Test
+```sql
+```
+
+
+### TEST
 * PROTOTYPE PF 2
 
 ```sql
@@ -15,7 +53,7 @@ CREATE TYPE rec_row_type AS OBJECT (
     id2   VARCHAR2(30)
   );
 
-/
+/ed ins4.sql
 
 CREATE TYPE rec_tab_type IS TABLE OF rec_row_type ; -- INDEX BY PLS_INTEGER;
 /
