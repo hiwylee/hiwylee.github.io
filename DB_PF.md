@@ -122,6 +122,11 @@ END PF;
 
 #### Test
 ```sql
+alter session force parallel QUERY parallel 16;
+
+select /*+ monitor */ count(id0)
+  from TABLE(pf.pf_func4(CURSOR(SELECT * FROM PRI)));
+
 ```
 
 
