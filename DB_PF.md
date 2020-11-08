@@ -154,9 +154,12 @@ END PF;
 ```sql
 alter session force parallel QUERY parallel 16;
 
-select /*+ monitor */ count(id0)
+select  count(*)
   from TABLE(pf.pf_func4(CURSOR(SELECT * FROM PRI)));
 
+select count(*)
+  from pri p, st_mon s
+ where (case when (p.cust_no = s.id0 or p.cust_no = s.id1 or p.cust_no = s.id2) then 1 else 0 end) = 1
 ```
 
 
