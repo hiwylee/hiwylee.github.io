@@ -33,7 +33,33 @@ commit;
 ```
 
 #### Pipelined function
+* Head
 ```sql
+CREATE OR REPLACE PACKAGE PF AS
+
+  TYPE rec_row_type IS RECORD (
+    id0   VARCHAR2(5),
+    id1   VARCHAR2(5),
+    id2   VARCHAR2(5)
+  );
+
+
+  TYPE ret_tab_type IS TABLE OF rec_row_type ;
+
+  TYPE pri_ref_cursor IS REF CURSOR RETURN PRI%ROWTYPE;
+  TYPE sty_ref_cursor IS REF CURSOR RETURN ST_MON%ROWTYPE;
+
+
+  FUNCTION pf_func4 (
+    p_pri_cursor in pri_ref_cursor,
+    p_sty_cursor in sty_ref_cursor
+  )
+  RETURN ret_tab_type PIPELINED
+  PARALLEL_ENABLE(PARTITION p_pri_cursor BY HASH (CUST_NO));
+
+END PF;
+/
+
 ```
 #### Test
 ```sql
