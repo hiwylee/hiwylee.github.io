@@ -241,9 +241,28 @@ Elapsed: 00:00:52.46
 
 ```
 
-##### ``천육백만건``
+##### ``천육백만건`` (fetch size 10000)
 
 ```sql
+SYS@odidb2> @ft42
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Function created.
+
+Elapsed: 00:00:00.00
+Pipeline function : 196608
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:01:16.31
+Nomarl sql : 131072
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:01:20.24
 
 ```
 * PGA
