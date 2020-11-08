@@ -154,12 +154,55 @@ END PF;
 ```sql
 alter session force parallel QUERY parallel 16;
 
-select  count(*)
-  from TABLE(pf.pf_func4(CURSOR(SELECT * FROM PRI)));
+CREATE OR REPLACE FUNCTION get_stat (p_stat IN VARCHAR2) RETURN NUMBER AS
+  l_return  NUMBER;
+BEGIN
+  SELECT ms.value
+  INTO   l_return
+  FROM   v$mystat ms,
+         v$statname sn
+  WHERE  ms.statistic# = sn.statistic#
+  AND    sn.name = p_stat;
+  RETURN l_return;
+END get_stat;
+/
 
-select count(*)
-  from pri p, st_mon s
- where (case when (p.cust_no = s.id0 or p.cust_no = s.id1 or p.cust_no = s.id2) then 1 else 0 end) = 1
+SET SERVEROUTPUT ON
+
+DECLARE
+  l_start  NUMBER;
+BEGIN
+  l_start := get_stat('session pga memory');
+
+  FOR cur_rec IN (SELECT *
+                 from TABLE(pf.pf_func4(CURSOR(SELECT * FROM PRI))))
+  LOOP
+    NULL;
+  END LOOP;
+
+  DBMS_OUTPUT.put_line('Pipeline function : ' ||
+                        (get_stat('session pga memory') - l_start));
+END;
+/
+
+
+DECLARE
+  l_start  NUMBER;
+BEGIN
+  l_start := get_stat('session pga memory');
+
+  FOR cur_rec IN (SELECT p.*
+                    from pri p, st_mon s
+                   where (case when (p.cust_no = s.id0 or p.cust_no = s.id1 or p.cust_no = s.id2) then 1 else 0 end) = 1)
+  LOOP
+    NULL;
+  END LOOP;
+
+  DBMS_OUTPUT.put_line('Nomarl sql : ' ||
+                        (get_stat('session pga memory') - l_start));
+END;
+/
+
 ```
 
 
