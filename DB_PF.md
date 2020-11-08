@@ -83,19 +83,30 @@ CREATE OR REPLACE PACKAGE BODY PF AS
     CURSOR p_sty_cursor IS SELECT * FROM ST_MON;
 
     -- for fetch st_mon bulk into
-    TYPE v_tab_type IS TABLE OF ST_MON%ROWTYPE INDEX BY PLS_INTEGER;
-    v_rec_l v_tab_type := v_tab_type() ;
+    TYPE stmon_tab_type IS TABLE OF ST_MON%ROWTYPE INDEX BY PLS_INTEGER;
+    v_rec_l stmon_tab_type := stmon_tab_type() ;
 
-    v_rec_row_type ST_MON%ROWTYPE;
+    -- pri
+    TYPE pri_tab_type IS TABLE OF PRI%ROWTYPE  INDEX BY PLS_INTEGER;
+
+    v_pri_row PRI%ROWTYPE;
+    v_pri_tab pri_tab_type;
+
+    v_ret_row ret_row_type := ret_row_type();
+    v_ret_tab ret_tab_type := ret_tab_type();
+
 
     v_cnt number := 0;
     v_sub number :=  52 ;
     v_max number :=  1000000;
 
+
   BEGIN
 
     DBMS_OUTPUT.ENABLE;
     DBMS_OUTPUT.PUT_LINE( 'BEGIN' );
+
+    DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
 
     -- ST_MON
     OPEN p_sty_cursor;
@@ -105,6 +116,12 @@ CREATE OR REPLACE PACKAGE BODY PF AS
     END LOOP;
     CLOSE p_sty_cursor;
 
+    for i in 1..v_rec_l.count loop
+       v_rec_l(i).id0 := 'id' || i;
+       v_rec_l(i).id1 := 'id' || i;
+       v_rec_l(i).id2 := 'id' || i;
+       DBMS_OUTPUT.PUT_LINE( v_rec_l(i).id0);
+    end loop;
 /*
     -- SAMPLE CODE
     OPEN sales_cur
@@ -113,6 +130,46 @@ CREATE OR REPLACE PACKAGE BODY PF AS
        sales_tbl(i).AMOUNT_SOLD := sales_tbl(i).AMOUNT_SOLD * 1.5;
     END LOOP;
     CLOSE sales_cur;
+*/
+
+
+
+    DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
+
+    v_sub := 0;
+    LOOP   -- ST_MON
+      v_sub := v_sub + 1;
+      FETCH p_pri_cursor BULK COLLECT INTO v_pri_tab limit 10000 ;
+      DBMS_OUTPUT.PUT_LINE( 'STEP 1' );
+      FOR i in v_pri_tab.first..v_pri_tab.last
+--    FOR i in 1..v_pri_tab.COUNT
+      LOOP
+          DBMS_OUTPUT.PUT_LINE( 'STEP LOOPING' );
+--          PIPE ROW(ret_row_type(' loop ' || v_sub, ' ', ' ' );
+      END LOOP;
+      PIPE ROW(ret_row_type(' loop ' || v_sub, ' ', ' ') );
+
+      EXIT WHEN p_sty_cursor%NOTFOUND;
+    END LOOP;
+
+/*
+    --for j in 1..v_rec_l.count loop
+    for k in 1..v_max loop
+       v_cnt := v_cnt + 1;
+       if v_cnt = 52 then
+          v_cnt := 1;
+       end if;
+       -- PIPE ROW(rec_row_type(p_param,v_rec_l(v_cnt).id1,v_rec_l(v_cnt).id2));
+       for i in 1..v_rec_l.count loop
+          if (p_param = v_rec_l(v_cnt).id0  or p_param = v_rec_l(v_cnt).id1 or p_param = v_rec_l(v_cnt).id2)  then
+              v_cnt := v_cnt + 1;
+              -- PIPE ROW(rec_row_type(v_rec_l(i).id0,v_rec_l(i).id1,v_rec_l(i).id2));
+              PIPE ROW(rec_row_type('cnt = ' || k ||'/' || i ,v_rec_l(i).id1,v_rec_l(i).id2));
+           end if;
+       end loop;
+
+    end loop;
+    DBMS_OUTPUT.PUT_LINE( 'END' );
 */
   END;
 END PF;
