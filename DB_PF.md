@@ -265,6 +265,29 @@ PL/SQL procedure successfully completed.
 Elapsed: 00:01:20.24
 
 ```
+#### 32,000,000
+```sql
+SYS@odidb2> @ft42
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Function created.
+
+Elapsed: 00:00:00.01
+Pipeline function : 131072
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:02:47.25
+Nomarl sql : 65536
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:02:39.03
+
+```
 * PGA
 ```sql
 alter session force parallel QUERY parallel 16;
