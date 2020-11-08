@@ -61,6 +61,65 @@ END PF;
 /
 
 ```
+* Package Body
+```sql
+CREATE OR REPLACE PACKAGE BODY PF AS
+
+  FUNCTION pf_func4 (
+    p_pri_cursor in pri_ref_cursor
+  )
+  RETURN ret_tab_type PIPELINED
+  PARALLEL_ENABLE(PARTITION p_pri_cursor BY HASH (CUST_NO))
+  IS
+
+    TYPE v_ret IS RECORD (
+      id0   ST_MON.id0%TYPE,
+      id1   ST_MON.id0%TYPE,
+      id2   ST_MON.id0%TYPE
+    );
+
+    -- for ST_MON cursor
+    TYPE sty_ref_cursor IS REF CURSOR RETURN ST_MON%ROWTYPE;
+    CURSOR p_sty_cursor IS SELECT * FROM ST_MON;
+
+    -- for fetch st_mon bulk into
+    TYPE v_tab_type IS TABLE OF ST_MON%ROWTYPE INDEX BY PLS_INTEGER;
+    v_rec_l v_tab_type := v_tab_type() ;
+
+    v_rec_row_type ST_MON%ROWTYPE;
+
+    v_cnt number := 0;
+    v_sub number :=  52 ;
+    v_max number :=  1000000;
+
+  BEGIN
+
+    DBMS_OUTPUT.ENABLE;
+    DBMS_OUTPUT.PUT_LINE( 'BEGIN' );
+
+    -- ST_MON
+    OPEN p_sty_cursor;
+    LOOP   -- ST_MON
+      FETCH p_sty_cursor BULK COLLECT INTO v_rec_l  ;
+      EXIT WHEN p_sty_cursor%NOTFOUND;
+    END LOOP;
+    CLOSE p_sty_cursor;
+
+/*
+    -- SAMPLE CODE
+    OPEN sales_cur
+    FETCH sales_cur BULK COLLECT INTO  sales_tbl LIMIT 1000;
+    FOR i IN sales_tbl.FIRST..sales_tbl.LAST LOOP
+       sales_tbl(i).AMOUNT_SOLD := sales_tbl(i).AMOUNT_SOLD * 1.5;
+    END LOOP;
+    CLOSE sales_cur;
+*/
+  END;
+END PF;
+/
+
+```
+
 #### Test
 ```sql
 ```
