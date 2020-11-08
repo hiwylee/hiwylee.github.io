@@ -151,6 +151,48 @@ END PF;
 ```
 
 #### Test
+* Perf 
+
+```sql
+SYS@odidb2> !cat ft41.sql
+
+alter session force parallel QUERY parallel 16;
+
+select  count(*)
+  from TABLE(pf.pf_func4(CURSOR(SELECT * FROM PRI)));
+
+select count(*)
+  from pri p, st_mon s
+ where (case when (p.cust_no = s.id0 or p.cust_no = s.id1 or p.cust_no = s.id2) then 1 else 0 end) = 1;
+
+```
+```sql
+
+SYS@odidb2> @ft41
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+  COUNT(*)
+----------
+        52
+
+1 row selected.
+
+Elapsed: 00:00:05.23
+
+  COUNT(*)
+----------
+        52
+
+1 row selected.
+
+Elapsed: 00:00:01.51
+SYS@odidb2>
+
+```
+* PGA
 ```sql
 alter session force parallel QUERY parallel 16;
 
