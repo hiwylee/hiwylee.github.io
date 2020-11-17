@@ -12,8 +12,8 @@ import (
 	"time"
 )
 
-const pub_folder string = "https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder"
-const root_folder string = "https://publicdocs-corp.documents.us2.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"
+const pub_folder string = "https://securesites-prodapp.cec.ocp.oraclecloud.com/documents/folder"
+const root_folder string = "https://securesites-prodapp.cec.ocp.oraclecloud.com/documents/folder/F77790F8151A323321386D76F6C3FF17C1177E4725F3"
 const pub_file string = ""
 const root_id string = "F77790F8151A323321386D76F6C3FF17C1177E4725F3"
 
@@ -49,9 +49,12 @@ func Is_valid_folder(name string) bool {
 	switch name {
 	case
 		"Bigdata Team",
+		"00.고려해운 제안 폴더 (KwangSik Jeong)",
 		"Workspace",
 		".tmp",
-		"01.계양전기 (KwangSik Jeong)":
+		"01.계양전기 (KwangSik Jeong)",
+		"외부공유",
+		"Shared-Folder Website Confidential Files (peo-scs-troubleshooter_ww peo-scs-troubleshooter_ww)":
 		return false
 	}
 	return true

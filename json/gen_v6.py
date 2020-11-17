@@ -49,7 +49,7 @@ def scan_dir(dir, pid, parent_url,file):
     for name in os.listdir(dir):            
         
         path = os.path.join(dir, name)    
-        if os.path.isdir(path) and name  in ["00.고려해운 제안 폴더 (KwangSik Jeong)","Bigdata Team","Workspace",".tmp","01.계양전기 (KwangSik Jeong)","Shared-Folder Website Confidential Files (peo-scs-troubleshooter_ww peo-scs-troubleshooter_ww)"]:   
+        if os.path.isdir(path) and name  in ["외부공유","00.고려해운 제안 폴더 (KwangSik Jeong)","Bigdata Team","Workspace",".tmp","01.계양전기 (KwangSik Jeong)","Shared-Folder Website Confidential Files (peo-scs-troubleshooter_ww peo-scs-troubleshooter_ww)"]:   
             continue
 
         if os.path.isfile(path) and name  in ["gen_v6.py","gen_v5.py","JTree-WIP2.html", "desktop.ini","JTree_Candidate.html","tree_json.js","tree_json2.js"]:   

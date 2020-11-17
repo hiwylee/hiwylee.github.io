@@ -13,6 +13,8 @@
 * [5. Create an Integration Task to Configure and Run a Data Flow](https://docs.cloud.oracle.com/en-us/iaas/data-integration/tutorial/tutorials/04-define-an-integration-task-to-configure-and-run-a-data-flow.htm#create-an-integration-task-to-configure-and-run-a-data-flow)
 * [6. Load Data into Autonomous Data Warehouse Using a Data Loader Task](https://docs.cloud.oracle.com/en-us/iaas/data-integration/tutorial/tutorials/05-loading-data-into-object-storage-using-a-data-loader-task.htm#loading-data-into-object-storage-using-a-data-loader-task)
 
+### github
+* https://github.com/oracle/learning-library/tree/97bc8f46ee200d24ef6af25e6e61cc56eb5e477c/data-management-library/odi
 ### ODI in real world
 * License 관련
   * https://cloudmarketplace.oracle.com/marketplace/en_US/listing/62627436
