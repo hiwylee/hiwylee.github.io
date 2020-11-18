@@ -22,6 +22,7 @@
 * [DB_pack.md](DB_pack.md)
 * [DB_seq.md](DB_seq.md)
 * [DB_RAT.md](DB_RAT.md)
+* [DB_RAT_SPA.md](DB_RAT_SPA.md)
 * [DB_RAC.md](DB_RAC.md)
 * [DB_snapshot_standby.md](DB_snapshot_standby.md)
 * [GCP.md](GCP.md)
