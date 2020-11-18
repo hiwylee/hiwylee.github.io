@@ -4,6 +4,17 @@
 
 #### SPA
 * [Document 455889.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1361401.1&id=455889.1) SQL PERFORMANCE ANALYZER EXAMPLE
+
+```
+1) Create the Sql Tuning Set (STS).
+2) Create a task to run Sql Performance Analyzer.
+3) Execute Before Change TEST EXECUTE (Pre-Change SQL Trial).
+         Make a change that needs to tested.
+4) Execute After Change TEST EXECUTE (Post-Change SQL Trial).
+5) Comparing SQL Trials.
+6) Generate Compare report.
+```
+* [SQL Performance Analyzer in Oracle Database 11g Release 1](https://oracle-base.com/articles/11g/sql-performance-analyzer-11gr1)
 * [Document 562899.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1361401.1&id=562899.1) Using SQL Performance Analyzer to Test SQL Performance Impact of 9i to 10gR2 Upgrade
 
 ### Real Application Testing: How to Run Workload Analyzer (Doc ID 1268920.1)	 
