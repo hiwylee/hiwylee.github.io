@@ -5,7 +5,7 @@
 * [Creating Plug-in Visualizations for Oracle Data Visualization](https://blog.daanalytics.nl/2018/06/11/creating-plug-in-visualizations-for-oracle-data-visualization/)
 *[Create Your Own DVD Plugin in 22 minutes](https://www.rittmanmead.com/blog/2017/03/create-your-own-dvd-plugin-in-22-minutes/ )
 ###  Embed Analytics Content into Web Pages << Token Based 
-* https://youtu.be/in75h40Jlko
+* [Mike Durran: "Embedding with Oracle Analytics Cloud"](https://youtu.be/in75h40Jlko)
 * [Oracle Analytics Cloud (OAC) Embedding— Public User Access — Part 1](https://medium.com/@insight2action/oracle-analytics-cloud-oac-embedding-public-user-access-part-1-5fb0f513508a)
 * [Oracle Analytics Cloud (OAC) Embedding— Public User Access — Part 2](https://medium.com/@insight2action/oracle-analytics-cloud-oac-embedding-public-user-access-part-2-cb0c9cdb0d8)
 ### Embed Analytics Content into Web Pages
