@@ -22,3 +22,6 @@
 ### ADG
 * [Oracle Data Guard 11gR2 Administration Beginner's Guide](https://learning.oreilly.com/library/view/oracle-data-guard/9781849687904/ch07.html)
 * [Oracle High Availability, Disaster Recovery, and Cloud Services : Explore RAC, Data Guard, and Cloud Technology](https://learning.oreilly.com/library/view/oracle-high-availability/9781484243510/)
+
+### DBCS
+* [The Cloud DBA-Oracle : Managing Oracle Database in the Cloud](https://learning.oreilly.com/library/view/the-cloud-dba-oracle/9781484226353/)
