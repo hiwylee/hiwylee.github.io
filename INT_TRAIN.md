@@ -9,3 +9,9 @@
 * [ Get tech smart learning plan](http://app.internalcomms.oracle.com/e/er?s=2142201763&lid=5134&elqTrackId=852686395d194de097d7589f4aae2ce5&elq=c36675aa66fe433ba8e4039a92f5fb38&elqaid=2325&elqat=1)
 * Slack [#ww-learning-careerdev](http://app.internalcomms.oracle.com/e/er?s=2142201763&lid=5135&elqTrackId=bac53ea6e9ae46ffb78b5714c4598ac2&elq=c36675aa66fe433ba8e4039a92f5fb38&elqaid=2325&elqat=1)
 * [Technical Skills Development Classes (Non-Oracle)](https://oradocs-prodapp.cec.ocp.oraclecloud.com/site/authsite/Employee-Training-Services/technical-and-business-skills-training/technical-skills-development-classes-(non-oracle).html)
+### O'Reilly Book 
+#### Exadata 
+* [publisher logoOracle Exadata Recipes: A Problem-Solution Approach](https://learning.oreilly.com/library/view/oracle-exadata-recipes/9781430249146/9781430249146_Contents_at_a_Glance.xhtml)
+* [Achieving Extreme Performance with Oracle Exadata](https://learning.oreilly.com/library/view/achieving-extreme-performance/9780071752596/)
+* [Oracle Exadata Expert’s Handbook](https://learning.oreilly.com/library/view/oracle-exadata-experts/9780133824957/)
+* [Running Applications on Oracle Exadata](https://learning.oreilly.com/library/view/running-applications-on/9780071833127/)
