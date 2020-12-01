@@ -13,7 +13,7 @@ SQL> /
 2 rows selected.
 
 ```
-
+* 
 * CRS 자원의 확인
 ```bash
 <GRID_HOME>/bin/crsctl stat res -t
@@ -68,6 +68,18 @@ ora.net1.network
 
 ```
 ### Smart Scan
+* Smart Scans and Cell Offloading
+  * functions that Exadata supports for Cell Offloading : query the V$ view V$SQLFN_METADATA view (look at the OFFLOADABLE column).
+* Paramter
+  * ![paramter](https://learning.oreilly.com/library/view/oracle-exadata-experts/9780133824957/graphics/04tab02.jpg)
+* cell offload  하지 않는 경우
+  * When the I/O access path is not based on direct path reads
+  * Image While scanning a clustered table or an index-organized table
+  * Image When we use ROWID as the sort order in a query
+  * Image When performing a fast full scan on compressed indexes or reverse key indexes
+  * Image When querying a table with more than 255 columns, unless the table is compressed with HCC
+  * Image When the predicate evaluation is on a virtual column
+  * Image When there are user-defined hard-coded hints, which may well push Oracle to prevent Cell Offloading capabilities
 * 스마트스캔 전제조건  
   *Full Scan, Direct Path Read, Object Stored on Exadata Storage 
 
@@ -135,6 +147,19 @@ where 1=1
 and   io_cell_offload_returned_bytes > 0
 --and  parsing_schema_name = upper('SCOTT')
 --and   sql_text LIKE '%from sales%';
+SQL_ID          PHYRD_MB    ELIG_MB  RETURN_MB XCHANGE_MB OFF IO_SAVED_%
+------------- ---------- ---------- ---------- ---------- --- ----------
+397tpc55tsp6u          0          0          0         .1 No           0
+397tpc55tsp6u          0          0          0         .1 No           0
+397tpc55tsp6u          0          0          0         .1 No           0
+397tpc55tsp6u          0          0          0          0 No           0
+b6usrg82hwsa3     1690.9          0      158.4     1928.4 No           0
+fhf8upax5cxsz         17          0       10.7         33 No           0
+....
+0za9fv0j1vgkk       10.6          0        7.1       21.3 No           0
+0w26sk6t6gq98       14.8          0        9.9       29.7 No           0
+
+108 rows selected.
 
 ```
   * V$SYSSTAT
@@ -145,7 +170,16 @@ where  a.STATISTIC# = b.STATISTIC#
 and     (b.name = 'cell session smart scan efficiency' or
             b.name = 'cell physical IO bytes saved by storage index' or
             b.name = 'cell physical IO bytes eligible for predicate offload' or
-            b.name = 'cell physical IO interconnect bytes returned by smart scan‘ );
+            b.name = 'cell physical IO interconnect bytes returned by smart scan, );
+
+NAME                                                                  VALUE
+---------------------------------------------------------------- ----------
+cell physical IO bytes eligible for predicate offload                     0
+cell physical IO bytes saved by storage index                             0
+cell physical IO interconnect bytes returned by smart scan                0
+
+3 rows selected.
+
 
 ```
 |V$SQL 컬럼|네용|
@@ -273,6 +307,8 @@ from v$sql where sql_text like 'select /*+ parallel(s_%';
   ```
  
 ### Storage Index
+* 파라미터
+  *![파라미터](https://learning.oreilly.com/library/view/oracle-exadata-experts/9780133824957/graphics/04tab03.jpg)
 * 사용확인
 ```sql
 select   b.name, a.value
@@ -282,6 +318,11 @@ and     (b.name = 'cell session smart scan efficiency' or
             b.name = 'cell physical IO bytes saved by storage index' or
             b.name = 'cell physical IO bytes eligible for predicate offload' or
             b.name = 'cell physical IO interconnect bytes returned by smart scan' );
+NAME                                                                  VALUE
+---------------------------------------------------------------- ----------
+cell physical IO bytes eligible for predicate offload                     0
+cell physical IO bytes saved by storage index                             0
+cell physical IO interconnect bytes returned by smart scan                0
 
 ```
 * 스토리지 인덱스의 제어
