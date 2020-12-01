@@ -174,3 +174,4 @@ cell physical IO interconnect bytes returned by smart scan                0
 
 
 ```
+### EXADATA RAC TUNING
