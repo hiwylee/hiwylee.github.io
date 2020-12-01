@@ -174,7 +174,7 @@ cell physical IO interconnect bytes returned by smart scan                0
 
 
 ```
-### EXADATA RAC TUNING
+
 * Top Ten Waits and Time Model Categories
 
 ```sql
@@ -219,43 +219,114 @@ db file parallel write                      3,276,183        6,210   1.92
 enq: TM - contention                           17,262        6,031   1.86
 
 ```
+### EXADATA RAC TUNING
 
-* Top Ten SQL Statements
+* Summary of Wait Categories Showing Cluster Overhead
+
+```sql
+SELECT wait_class time_cat,
+       ROUND((time_secs),2) time_secs,
+       ROUND((time_secs) * 100 / SUM(time_secs)
+           OVER (), 2) pct
+FROM (SELECT wait_class wait_class,
+             SUM(time_waited_micro)/1000000 time_secs
+      FROM gv$system_event
+      WHERE wait_class <> 'Idle' AND time_waited > 0
+      GROUP BY wait_class
+      UNION
+      SELECT 'CPU', ROUND((SUM(VALUE)/1000000),2) time_secs
+      FROM gv$sys_time_model
+      WHERE stat_name IN ('background cpu time', 'DB CPU'))
+ORDER BY time_secs DESC;
+Time category           Time (s)    pct
+-------------------- ----------- ------
+User I/O              721,582.92  41.61
+System I/O            459,658.69  26.51
+CPU                   389,056.04  22.44
+Other                 124,291.97   7.17
+Cluster                18,341.66   1.06
+Concurrency            11,545.14    .67
+Application             6,503.29    .38
+Commit                  2,433.27    .14
+Configuration             525.96    .03
+Network                    87.24    .01
+Administrative             82.90    .00
+Scheduler                   2.53    .00
+
+```
+* Breakdown of Cluster Waits
 
 ```sql
 
-  SELECT sql_id, child_number,elapsed_time_sec, sql_text
-    FROM (  SELECT sql_id, child_number,  substr(sql_text,1,90) sql_text,
-                   SUM (elapsed_time/1000000) elapsed_time_sec,
-                   SUM (cpu_time) cpu_time,
-                   SUM (disk_reads) disk_reads,
-                   RANK () OVER (ORDER BY SUM (elapsed_time) DESC)
-                      AS elapsed_rank
-              FROM gv$sql
-          GROUP BY sql_id, child_number, sql_text)
-   WHERE elapsed_rank <= 5
-ORDER BY elapsed_rank;
+WITH system_event AS
+   (SELECT CASE
+             WHEN wait_class = 'Cluster' THEN event
+             ELSE wait_class
+           END  wait_type, e.*
+     FROM gv$system_event e)
+SELECT wait_type,  ROUND(total_waits/1000,2) waits_1000 ,
+       ROUND(time_waited_micro/1000000/3600,2) time_waited_hours,
+       ROUND(time_waited_micro/1000/total_waits,2) avg_wait_ms  ,
+       ROUND(time_waited_micro*100
+          /SUM(time_waited_micro) OVER(),2) pct_time
+FROM (SELECT wait_type, SUM(total_waits) total_waits,
+             SUM(time_waited_micro) time_waited_micro
+        FROM system_event e
+       GROUP BY wait_type
+       UNION
+      SELECT 'CPU',   NULL, SUM(VALUE)
+        FROM gv$sys_time_model
+       WHERE stat_name IN ('background cpu time', 'DB CPU'))
+WHERE wait_type <> 'Idle'
+ORDER BY  time_waited_micro  DESC;
 
-              Child
-SQL_ID            no Elapsed Time (s) SQL Text
--------------- ----- ---------------- ------------------------------
-bunfu3xcs0634      0       182,559.17 SELECT l.total n_logs, l.mb si
-                                      ze_mb,        DECODE(d.log_mod
-                                      e,'ARCHIVELOG',(l.unarchived*1
+                                     Waits       Time  Avg Wait Pct of
+Wait Type                            \1000      Hours        Ms   Time
+------------------------------ ----------- ---------- --------- ------
+CPU                                              6.15            43.62
+Other                               38,291       1.76       .17  12.50
+Application                             32       1.41    157.35  10.00
+User I/O                               822        .97      4.25   6.88
+System I/O                             995        .96      3.46   6.78
+gc current multi block request       9,709        .87       .32   6.15
+gc cr multi block request           16,210        .48       .11   3.37
+Commit                                 300        .44      5.31   3.13
+gc current block 2-way               5,046        .37       .26   2.59
+gc current block 3-way               2,294        .28       .43   1.97
+gc cr block busy                       984        .16       .58   1.11
 
-faz5nc0wt4qg4      0        64,186.13 BEGIN   FOR i IN 1..1 LOOP   F
-                                      OR r IN (SELECT latency_ms, co
-                                      unt(*)  FROM EXA_TXN_DATA_SSD
 
-4v52dj4c5ds0p      0        64,138.46 SELECT LATENCY_MS, COUNT(*) FR
-                                      OM EXA_TXN_DATA_SSD WHERE CATE
-                                      GORY='A' GROUP BY LATENCY_MS
+```
 
-98txwdrsb0acf      1        18,208.88 SELECT se.event,        NVL2 (
-                                                 qec.name,
-                                       qec.topcategory || ' - ' || q
+* Breakdown of Cluster Waits
 
-4dvx8jkw0g505      2        14,578.22 SELECT NVL2 (           qec.na
-                                      me,           qec.topcategory
-                                      || ' - ' || qec.subcategory,
+```sql
+SELECT event, SUM(total_waits) total_waits,
+       ROUND(SUM(time_waited_micro) / 1000000, 2)
+         time_waited_secs,
+       ROUND(SUM(time_waited_micro) / 1000 /
+         SUM(total_waits), 2) avg_ms
+FROM gv$system_event
+WHERE       event LIKE 'gc%block%way'
+      OR event LIKE 'gc%multi%'
+      OR event LIKE 'gc%grant%'
+      OR event LIKE 'cell single%'
+GROUP BY event
+HAVING SUM(total_waits) > 0
+ORDER BY event;
+
+                                           Total         Time  Avg Wait
+Wait event                                 Waits       (secs)      (ms)
+----------------------------------- ------------ ------------ ---------
+cell single block physical rea        58,658,569      343,451      5.86
+gc cr block 2-way                      1,226,123          133       .11
+gc cr grant 2-way                      3,557,547          329       .09
+gc cr grant congested                     33,230            3       .10
+gc cr multi block request              1,867,799        2,716      1.45
+gc current block 2-way                 4,245,674          449       .11
+gc current grant 2-way                 1,885,528          166       .09
+gc current grant busy                    656,165          145       .22
+gc current grant congested                17,004            2       .10
+gc current multi block request            10,996            2       .18
+
 ```
