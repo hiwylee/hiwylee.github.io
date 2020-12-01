@@ -308,7 +308,7 @@ from v$sql where sql_text like 'select /*+ parallel(s_%';
  
 ### Storage Index
 * 파라미터
-  *![파라미터](https://learning.oreilly.com/library/view/oracle-exadata-experts/9780133824957/graphics/04tab03.jpg)
+  * ![파라미터](https://learning.oreilly.com/library/view/oracle-exadata-experts/9780133824957/graphics/04tab03.jpg)
 * 사용확인
 ```sql
 select   b.name, a.value
