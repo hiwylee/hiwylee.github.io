@@ -297,8 +297,16 @@ gc cr block busy                       984        .16       .58   1.11
 
 
 ```
+* Global Cache wait events:
+   * **gc cr/current block 2-way**—These are waits for Global Cache block requests involving only two instances. As outlined at the beginning of the chapter, this occurs when the block master instance is able to forward a block directly to the requesting instance.
+   * **gc cr/current block 3-way**—These waits occur when the block master does not have the block concerned and forwards the request to a third instance.
+   * **gc cr/current multi block request**—A wait that occurs when requesting multiple blocks in a single request. This is typically associated with full table or index scans.
+   * **gc cr/current grant 2-way**—The block master informs the requesting instance that the requested block is not available from another instance. The requesting instance then performs a disk I/O to retrieve the block.
+   * **gc cr/current block busy**—The requesting instance must wait for the instance that holds the block to complete some other operation before the block can be forwarded. This can happen because the block concerned is under heavy contention or because the requesting instance must flush undo records to the redo log before shipping a consistent copy.
+   * **gc cr/current block congested**—This wait can be reported when CPU or memory pressure prevents the LMS process from keeping up with requests. It may occur because one of the instances in the Exadata cluster is overloaded.
+   * **gc cr/current block lost**—Lost block waits occur when a block that has been transmitted is not received. Moderate rates might suggest that the interconnect is overloaded. High rates probably indicate network hardware issues.
 
-* Breakdown of Cluster Waits
+* Reducing Global Cache Latency-Breakdown of Cluster Waits
 
 ```sql
 SELECT event, SUM(total_waits) total_waits,
