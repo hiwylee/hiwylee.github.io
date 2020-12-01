@@ -305,7 +305,7 @@ gc cr block busy                       984        .16       .58   1.11
    * **gc cr/current block busy**—The requesting instance must wait for the instance that holds the block to complete some other operation before the block can be forwarded. This can happen because the block concerned is under heavy contention or because the requesting instance must flush undo records to the redo log before shipping a consistent copy.
    * **gc cr/current block congested**—This wait can be reported when CPU or memory pressure prevents the LMS process from keeping up with requests. It may occur because one of the instances in the Exadata cluster is overloaded.
    * **gc cr/current block lost**—Lost block waits occur when a block that has been transmitted is not received. Moderate rates might suggest that the interconnect is overloaded. High rates probably indicate network hardware issues.
-
+   * gc cr (select) / gc current(Update) block : [참조](https://m.blog.naver.com/PostView.nhn?blogId=tpgpfkwkem0&logNo=220643523916&proxyReferer=https:%2F%2Fwww.google.com%2F)
 * Reducing Global Cache Latency-Breakdown of Cluster Waits
 
 ```sql
