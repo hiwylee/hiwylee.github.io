@@ -330,3 +330,127 @@ gc current grant congested                17,004            2       .10
 gc current multi block request            10,996            2       .18
 
 ```
+
+* Identifying Lost Blocks : Lost blocks occur when a block is transmitted but never received. 
+ * Time spent waiting for lost block retransmission is recorded in the wait events gc cr request retry, gc cr block lost, and gc current block lost. The times associated with these waits should be low: typically less than 1% of the total when compared to the total number of blocks recorded in the gc cr/current blocks received/served statistics.
+ 
+```sql
+SELECT name, SUM (VALUE)
+    FROM gv$sysstat
+   WHERE    name LIKE 'gc%lost'
+         OR name LIKE 'gc%received'
+         OR name LIKE 'gc%served'
+GROUP BY name
+ORDER BY name;
+
+NAME                                               SUM(VALUE)
+-------------------------------------------------- ----------
+gc blocks lost                                              0
+gc claim blocks lost                                        0
+gc cr blocks received                                 1492713
+gc cr blocks served                                   1492713
+gc current blocks received                            7834472
+gc current blocks served                              7834472
+```
+
+* LMS(Lock Management Service) Latency 
+  * reason: CPU or I/O bottlenect
+```sql
+
+WITH sysstats AS (
+    SELECT instance_name,
+           SUM(CASE WHEN name LIKE 'gc cr%time'
+                    THEN VALUE END) cr_time,
+           SUM(CASE WHEN name LIKE 'gc current%time'
+                    THEN VALUE END) current_time,
+           SUM(CASE WHEN name LIKE 'gc current blocks served'
+                    THEN VALUE END) current_blocks_served,
+           SUM(CASE WHEN name LIKE 'gc cr blocks served'
+                    THEN VALUE END) cr_blocks_served
+      FROM gv$sysstat JOIN gv$instance
+      USING (inst_id)
+    WHERE name IN
+                  ('gc cr block build time',
+                   'gc cr block flush time',
+                   'gc cr block send time',
+                   'gc current block pin time',
+                   'gc current block flush time',
+                   'gc current block send time',
+                   'gc cr blocks served',
+                   'gc current blocks served')
+    GROUP BY instance_name)
+SELECT instance_name , current_blocks_served,
+       ROUND(current_time*10/current_blocks_served,2) avg_current_ms,
+       cr_blocks_served,
+       ROUND(cr_time*10/cr_blocks_served,2) avg_cr_ms
+  FROM sysstats;
+  
+             Current Blks    Avg      CR Blks    Avg
+Instance           Served  CU ms       Served  Cr ms
+------------ ------------ ------ ------------ ------
+Node2           3,997,991    .28      636,299    .14
+Node1           3,838,045    .21      856,684    .15  
+
+```
+* LMS Flush Time Calculation
+  * calculate the proportion of blocks that required flushing and the proportion of LMS time spent performing the flush
+
+```sql
+WITH sysstat AS (
+    SELECT SUM(CASE WHEN name LIKE '%time'
+                    THEN VALUE END) total_time,
+           SUM(CASE WHEN name LIKE '%flush time'
+                    THEN VALUE END) flush_time,
+           SUM(CASE WHEN name LIKE '%served'
+                    THEN VALUE END) blocks_served
+    FROM gv$sysstat
+    WHERE name IN
+                  ('gc cr block build time',
+                   'gc cr block flush time',
+                   'gc cr block send time',
+                   'gc current block pin time',
+                   'gc current block flush time',
+                   'gc current block send time',
+                   'gc cr blocks served',
+                   'gc current blocks served')),
+     cr_block_server as (
+    SELECT SUM(flushes) flushes,
+           SUM(data_requests) data_requests
+    FROM gv$cr_block_server     )
+SELECT ROUND(flushes*100/blocks_served,2) pct_blocks_flushed,
+       ROUND(flush_time*100/total_time,2) pct_lms_flush_time
+  FROM sysstat CROSS JOIN cr_block_server;
+
+PCT_BLOCKS_FLUSHED PCT_LMS_FLUSH_TIME
+------------------ ------------------
+              1.13              39.97  
+```
+
+* Balancing an Exadata RAC Database
+  * Sessions on busy instances get poor service time
+  * Sessions on idle instances wait for blocks from busy instances
+  * Benefits of adding new instances may not be realized
+  * Tuning is harder because each instance has different symptoms
+  
+```sql
+  WITH sys_time AS (
+    SELECT inst_id, SUM(CASE stat_name WHEN 'DB time'
+                        THEN VALUE END) db_time,
+        SUM(CASE WHEN stat_name IN ('DB CPU', 'background cpu time')
+            THEN  VALUE  END) cpu_time
+      FROM gv$sys_time_model
+     GROUP BY inst_id                 )
+SELECT instance_name,
+       ROUND(db_time/1000000,2) db_time_secs,
+       ROUND(db_time*100/SUM(db_time) over(),2) db_time_pct,
+       ROUND(cpu_time/1000000,2) cpu_time_secs,
+       ROUND(cpu_time*100/SUM(cpu_time) over(),2)  cpu_time_pct
+  FROM     sys_time
+  JOIN gv$instance USING (inst_id);
+
+Instance       DB Time  Pct of      CPU Time   Pct of
+Name            (secs) DB Time        (secs) CPU Time
+-------- ------------- ------- ------------- --------
+Node1     1,209,611.63   73.65    309,136.54    72.20
+Node2       432,728.60   26.35    119,025.94    27.80			  
+  ```
