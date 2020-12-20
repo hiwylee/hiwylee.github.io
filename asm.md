@@ -93,9 +93,9 @@ ORDER BY
 /
 SQL> @free
 old  60: --                            and a.name like '&&db_name'
-new  60: --                            and a.name like 'DB0902'
+new  60: --                            and a.name like 'DB0902_YNY19M'
 old  66: --    and dbname like '&db_name'
-new  66: --    and dbname like 'DB0902'
+new  66: --    and dbname like 'DB0902_YNY19M'
 
 GNAME           DBNAME          FILE_TYPE              MB         GB     #FILES
 --------------- --------------- -------------- ---------- ---------- ----------
