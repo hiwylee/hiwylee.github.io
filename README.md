@@ -28,6 +28,7 @@
 * [DB_RMAN.md](DB_RMAN.md)
 * [DB_RMAN1.md](DB_RMAN1.md)
 * [DBCS_RMAN.md](DBCS_RMAN.md)
+* [DBSC_Atuo_bkp.md](DBSC_Atuo_bkp.md)
 * [GCP.md](GCP.md)
 * [HANA.md](HANA.md)
 * [JET.md](JET.md)
