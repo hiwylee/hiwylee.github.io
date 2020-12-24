@@ -16,9 +16,8 @@ exec dbms_stats.gather_fixed_objects_stats;
 ### stale 통계정보 재 수집 가이드 
 
 #### STEP 1. 대상 확인
-
+* 기준 : **변경이 10% 이상인 경우**  : ``ROUND ( (DELETES + UPDATES + INSERTS) / NUM_ROWS * 100) >= 10``
 ```sql
-
 col OWNER format a20
 col TABLE_NAME format a30
 COL PERCENTAGE format 999,999
