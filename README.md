@@ -24,6 +24,7 @@
 * [DB_RAT.md](DB_RAT.md)
 * [DB_RAT_SPA.md](DB_RAT_SPA.md)
 * [DB_RAC.md](DB_RAC.md)
+* [DB_Stat.md](DB_Stat.md)
 * [DB_snapshot_standby.md](DB_snapshot_standby.md)
 * [DB_RMAN.md](DB_RMAN.md)
 * [DB_RMAN1.md](DB_RMAN1.md)
