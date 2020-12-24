@@ -3,8 +3,8 @@
 * 스키마 레벨 통계 수집
 
 ```sql
-exec dbms_stats.gather_schema_stats(ownname=>'SYS');
-exec dbms_stats.gather_schema_stats(ownname=>'SYSTEM');
+exec dbms_stats.gather_schema_stats(ownname=>'SYS',degree=>4));
+exec dbms_stats.gather_schema_stats(ownname=>'SYSTEM',degree=>4));
 ```
 * Data Dictionary / fixed object  통계정보 생성
 
