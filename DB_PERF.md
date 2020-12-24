@@ -7,6 +7,54 @@
 ### Scripts
 * https://techgoeasy.com/useful-scripts-oracle-database/
 * https://oracle-base.com/dba/scripts
+### 오라클 AWR 에서 Top SQL 추출하는 SQL 스크립트 (dba_hist_sqlstat, dba_hist_sqltext)
+* AWR에서 10초 이상 실행된 SQL문 추출
+
+```sql
+-- AWR에서 10초 이상 실행된 SQL문 추출
+set linesize 200
+col username for a15
+col sqltext for a100
+col "elapsed_time(s)" for 999,999,999
+col "buffer_get" for 999,999,999,999
+
+select s.parsing_schema_name as username, s.sql_id, 
+       round(elapsed_time_total/executions_total/1000000) "elapsed_time(s)", 
+       round(buffer_gets_total/executions_total) "buffer_get", 
+       executions_total "executions", 
+       substr(t.sql_text,1,100) as sqltext
+from dba_hist_sqlstat s, dba_hist_sqltext t
+where s.sql_id = t.sql_id
+  and parsing_schema_name not in ('SYS', 'SYSTEM')
+  and round(elapsed_time_total/executions_total/1000000) > 10
+  and executions_total > 0
+order by 3;
+```
+
+* sql_id 값으로 SQL문 확인 
+
+```sql
+-- sql_id 값으로 SQL문 확인
+set long 10000000
+
+select sql_text
+from dba_hist_sqltext
+where sql_id = '&1';
+```
+* Bind 변수값 확인
+
+```sql
+-- Bind 변수값 확인
+col name for a20
+col value_string for a50
+col datatype_string for a20
+
+select snap_id, position, name, value_string, datatype_string
+from dba_hist_sqlbind
+where sql_id = '&1'
+order by 1,2;
+```
+
 ### stratistics
 
 ```sql
