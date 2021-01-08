@@ -1,4 +1,22 @@
 ## OGG
+### How to Step by Step
+#### [19c OGG 구성 테스트](https://unioneinc.tistory.com/64#)
+*  사전 설정(SRC/TGT)
+*  엔진설치(SRC/TGT)
+  * 설치 파일 다운로드
+    * 18c, 19c의 경우는 oracle.com 에서 다운로드 할 수 있다. 
+    * 12c의 경우 suport.oracle.com -> 패치 및 업데이트 -> oracle software delivery cloud에서 검색하여 다운로드
+  * 패치 다운로드 
+  * rsp 수정
+* ogg가 사용 할 유저 생성(SRC/TGT)
+* (옵션)ddl문을 동기화 하기 위한 스크립트 실행(SRC/TGT)
+* ogg configuration
+  * EXTRACT 생성(SRC)
+  * Datapump 설정(SRC)
+  * Checkpoint table 설정 및 생성(TGT)
+  * Replicat 생성(TGT)
+  * OGG PROCESS START
+  
 ### Basic
 * [FY2021 - Training, Immersion and Enablement for GoldenGate](https://confluence.oraclecorp.com/confluence/display/GGProducts/FY2021+-+Training%2C+Immersion+and+Enablement+for+GoldenGate)
 * [Competitive Intelligence](https://salescentral.oracle.com/SCPortal/index.html?root=offeringDetails%2F50655)
