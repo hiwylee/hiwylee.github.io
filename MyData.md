@@ -4,6 +4,7 @@
 * [네이버와 카카오가 뛰어든 ‘마이데이터 사업’ 완벽정리](https://media.fastcampus.co.kr/newsletter/wennews/%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%B9%B4%EC%B9%B4%EC%98%A4%EA%B0%80-%EB%9B%B0%EC%96%B4%EB%93%A0-%EB%A7%88%EC%9D%B4%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%82%AC%EC%97%85-%EC%99%84%EB%B2%BD%EC%A0%95/)
 ### 관련 용어 및 연관 항목
   * 데이터 3법(개인정보보호법, 정보통신망법,신용정보법)
+    * [2020년 데이터 3법 주요 일정과 그 의미](https://newsroom.koscom.co.kr/21971?print=pdf)
   * 마이데이터 사업
   * 사업자 : 은행이나 보험 등 뿐만 아니라 KT, 네이버 등 IT기업
   * 정부에서 추진중인 데이터 뉴딜
