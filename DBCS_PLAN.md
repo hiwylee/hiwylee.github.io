@@ -26,7 +26,7 @@ alter session force parallel query parallel 4;
 ```sql
 @env.sql
 
-drop table R_on purge;
+drop table R_base purge;
 
 set timing on
 create table R_base   nologging tablespace users
