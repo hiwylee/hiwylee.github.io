@@ -24,6 +24,7 @@ alter session force parallel query parallel 4;
 * r_base.sql
 
 ```sql
+
 @env.sql
 
 drop table R_base purge;
@@ -47,7 +48,8 @@ from ( select level + 10000000 as empno,
 ```
 * norecycle.sql
 
-'''sql
+```sql
+
 @env.sql
 alter session set statistics_level=typical;
 alter session set "_rowsource_execution_statistics"=false;
@@ -81,4 +83,54 @@ as
 select * from r_base
 ;
 
+```
+
+* norecycle 수행
+
+```
+SYS@krx5e3> @r_off
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+recyclebin                           string      OFF
+drop table R_on purge
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+Elapsed: 00:00:00.05
+
+Table created.
+
+Elapsed: 00:02:19.52
+SYS@krx5e3>
 ```
