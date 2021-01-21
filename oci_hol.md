@@ -6,3 +6,5 @@
 * http://oracle-blogs-test.compendiumblog.com/
 ### Oracle Architecture Center
 * https://docs.oracle.com/solutions/?lang=en
+### Oracle Help Center Learn
+* https://docs.oracle.com/learn/
