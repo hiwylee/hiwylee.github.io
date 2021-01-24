@@ -34,7 +34,7 @@ See my notes on Reading Oracle AWR report and see the book Oracle Tuning: The De
 * [Oracle Creating an AWR Report](http://www.dba-oracle.com/oracle10g_tuning/t_oracle_creating_awr_report_awrrpt.htm)
 * [Oracle AWR disk file statistics](http://www.praetoriate.com/t_awr_disk_file_statistics.htm)
 
-### SQL Tuning Script
+### [SQL Tuning Script](https://kosate.tistory.com/109)
 * SQL 튜닝 대상선정(10g)하기
 
 ```sql
