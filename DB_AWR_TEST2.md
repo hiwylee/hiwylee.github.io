@@ -5,7 +5,7 @@
 * 문제 sql_id 식별
 * 문제 sql_id 의 시간대별 통계 변화 확인
 * Top 30 SQL
- * !{](http://www.dba-oracle.com/images/awr_sql_tables.jpg)
+ * ![](http://www.dba-oracle.com/images/awr_sql_tables.jpg)
 ### 문제 sql_id 의 시간대별 통계 변화 확인
 
 ```sql
