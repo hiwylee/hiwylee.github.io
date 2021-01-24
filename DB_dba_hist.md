@@ -11,59 +11,33 @@
 
 ```sql
 col c1 heading ‘SQL|ID’              format a13
-
 col c2 heading ‘Cost’                format 9,999,999
-
 col c3 heading ‘SQL Text’            format a200
 
- 
-
- 
-
 select
-
   p.sql_id            c1,
-
   p.cost              c2,
-
   to_char(s.sql_text) c3
-
 from
-
   dba_hist_sql_plan    p,
-
   dba_hist_sqltext     s
-
 where
-
       p.id = 0
-
   and
-
       p.sql_id = s.sql_id
-
   and
-
       p.cost is not null
-
 order by 
-
   p.cost desc
-
 ;
-
- 
 
 The output of the above query might look like this, showing the high cost SQL statements over time:
 
- 
+
 
 SQL
-
 ID                  Cost SQL Text
-
 ------------- ---------- -------------------------------------------
-
 847ahztscj4xw    358,456 select
                             s.begin_interval_time  c1,
                             pl.sql_id               c2,
