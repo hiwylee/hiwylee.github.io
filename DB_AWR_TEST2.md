@@ -1,4 +1,5 @@
 ## 실행 시간이 일정하지 않은 SQL 원인 분석
+* [Active Session History (ASH)](https://oracle-base.com/articles/10g/active-session-history)
 ### 문제 접근 방법
 * 해당 시간대(비교 시간대) awr ash addm 리포트 분석
 * 문제 sql의 시간대별 plan 변경 여부 확인 
