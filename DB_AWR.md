@@ -83,8 +83,10 @@ select p.plan_table_output
          where s.address = '' or 
                s.sql_id = '0as4u6a4fky2n') s,
         table(dbms_xplan.display_cursor (s.sql_id, s.child_number, 'typical')) p;
-
+```
 --  awr plan보기
+
+```sql
 select sql_id,lpad(' ',depth*4,'  ')||' '||operation|| ' ' ||options|| ' '
  ||object_name|| ' (' ||cost||')'plan, to_char(timestamp,'YYYY-MM-DD HH24:MI:SS') as "date"
    from DBA_HIST_SQL_PLAN 
