@@ -14,6 +14,7 @@
 * [DB.md](DB.md)
 * [DB_adg.md](DB_adg.md)
 * [DB_AWR.md](DB_AWR.md)
+* [DB_AWR_TEST.md](DB_AWR_TEST.md)
 * [DB_AWR_TEST2.md](DB_AWR_TEST2.md)
 * [DB_OPT.md](DB_OPT.md)
 * [DB_PERF.md](DB_PERF.md)
