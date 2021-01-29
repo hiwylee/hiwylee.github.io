@@ -1137,6 +1137,42 @@ WARNING   (status updated 7 seconds ago)
 DGMGRL>
 
 ```
+
+* stadby remove 방법
+
+```sql
+DGMGRL> SHOW CONFIGURATION;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database (disabled)
+      ORA-16795: the standby database needs to be re-created
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS   (status updated 56 seconds ago)
+
+DGMGRL> disable database orcl_yny166;
+Disabled.
+DGMGRL> remove database orcl_yny166;
+Removed database "orcl_yny166" from the configuration
+DGMGRL> show configuration ;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl - Primary database
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+
+```
 ----
 ### lag check
 
