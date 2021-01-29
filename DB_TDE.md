@@ -1001,7 +1001,7 @@ RMAN>
 
 ```sql
 
-RMAN> shutdown immediate;
+SQL> shutdown immediate;
 
 database dismounted
 Oracle instance shut down
