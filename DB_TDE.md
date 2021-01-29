@@ -813,6 +813,48 @@ ORCL =
 
 ```
 
+* Set TCP socket size, (opc user) and reload
+
+```
+[opc@dbsty .ssh]$ sudo vi /etc/sysctl.conf
+net.core.rmem_max = 134217728 
+net.core.wmem_max = 134217728
+```
+
+```
+[opc@dbsty .ssh]$ sudo /sbin/sysctl -p
+fs.file-max = 6815744
+kernel.sem = 250 32000 100 128
+kernel.shmmni = 4096
+kernel.shmall = 1073741824
+kernel.shmmax = 4398046511104
+kernel.panic_on_oops = 1
+net.core.rmem_default = 262144
+net.core.wmem_default = 262144
+net.ipv4.conf.all.rp_filter = 2
+net.ipv4.conf.default.rp_filter = 2
+fs.aio-max-nr = 1048576
+net.ipv4.ip_local_port_range = 9000 65500
+fs.suid_dumpable = 1
+kernel.core_pattern = core.%e.%p
+net.ipv4.conf.all.arp_announce = 2
+net.ipv4.conf.all.arp_ignore = 1
+net.ipv4.conf.all.arp_filter = 1
+net.core.rmem_max = 134217728
+net.core.wmem_max = 134217728
+net.ipv4.tcp_rmem = 4096 87380 134217728
+net.ipv4.tcp_wmem = 4096 65536 134217728
+net.core.netdev_max_backlog = 300000
+net.ipv4.tcp_moderate_rcvbuf = 1
+sysctl: cannot stat /proc/sys/net/ipv6/conf/all/disable_ipv6: No such file or directory
+sysctl: cannot stat /proc/sys/net/ipv6/conf/default/disable_ipv6: No such file or directory
+vm.min_free_kbytes = 524288
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+kernel.pid_max = 99999
+vm.nr_hugepages = 3226
+
+```
 ### Clear all online and standby redo logs
 * 
 
