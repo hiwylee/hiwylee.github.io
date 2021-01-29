@@ -1134,4 +1134,72 @@ WARNING   (status updated 7 seconds ago)
 DGMGRL>
 
 ```
+----
+### lag check
 
+```sql
+
+SQL> alter database recover managed standby database cancel;
+
+Database altered.
+
+SQL> alter database recover managed standby database using current logfile disconnect;
+
+Database altered.
+
+SQL> select open_mode,database_role from v$database;
+
+OPEN_MODE         DATABASE_ROLE
+-------------------- ----------------
+READ ONLY WITH APPLY PHYSICAL STANDBY
+
+SQL> ed dgstat.sql
+set linesize 120;
+column name format a25;
+column value format a20;
+column time_computed format a20;
+column datum_time format a20;
+select name, value, time_computed, datum_time from v$dataguard_stats;
+
+SQL> @dgstat
+
+NAME                      VALUE                TIME_COMPUTED        DATUM_TIME
+------------------------- -------------------- -------------------- --------------------
+transport lag             +00 00:00:00         01/29/2021 17:08:27  01/29/2021 17:08:27
+apply lag                 +00 00:00:00         01/29/2021 17:08:27  01/29/2021 17:08:27
+apply finish time         +00 00:00:00.000     01/29/2021 17:08:27
+estimated startup time    15                   01/29/2021 17:08:27
+
+SQL>
+
+```
+
+```sql
+[oracle@dbstby ~]$ dgmgrl sys/Ora_DB4U@orcl
+DGMGRL for Linux: Release 19.0.0.0.0 - Production on Sat Sep 5 07:25:52 2020
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Welcome to DGMGRL, type "help" for information.
+Connected to "ORCL"
+Connected as SYSDBA.
+DGMGRL> show database orcl_yny166
+
+Database - orcl_yny166
+
+  Role:               PHYSICAL STANDBY
+  Intended State:     APPLY-ON
+  Transport Lag:      0 seconds (computed 1 second ago)
+  Apply Lag:          0 seconds (computed 1 second ago)
+  Average Apply Rate: 20.00 KByte/s
+  Real Time Query:    ON
+  Instance(s):
+    ORCL
+
+Database Status:
+SUCCESS
+
+
+DGMGRL> 
+```
