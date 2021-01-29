@@ -1088,7 +1088,7 @@ SQL> select pname from v$process where pname like 'DMON%';
 PNAME
 -----
 DMON
-
+```
 
 * Register the database via DGMGRL. Replace ORCL_yny166 with your standby db unique name.' '
 
