@@ -1032,10 +1032,106 @@ SQL>
 * 
 
 ```sql
+SQL>   set pagesize 0 feedback off linesize 120 trimspool on
+SQL>
+SQL>   select distinct 'alter database clear logfile group '||group#||';' from v$logfile;
+alter database clear logfile group 1;
+alter database clear logfile group 2;
+alter database clear logfile group 3;
+alter database clear logfile group 4;
+alter database clear logfile group 5;
+alter database clear logfile group 6;
+alter database clear logfile group 7;
+
 ```
 ### Configure Data Guard broker* 
+* 아래 명령어를 primay/standby 양쪽에서 실행할 것
 
 ```sql
+show parameter dg_broker_config_file;
+show parameter dg_broker_start;
+alter system set dg_broker_start=true;
+select pname from v$process where pname like 'DMON%';
+```
+```sql
+[oracle@primary ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Jan 29 16:22:14 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> show parameter dg_broker_config_file;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+dg_broker_config_file1               string      /u01/app/oracle/product/19c/db
+                                                 home_1/dbs/dr1ORCL.dat
+dg_broker_config_file2               string      /u01/app/oracle/product/19c/db
+                                                 home_1/dbs/dr2ORCL.dat
+SQL> show parameter dg_broker_start;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+dg_broker_start                      boolean     FALSE
+SQL> alter system set dg_broker_start=true;
+
+System altered.
+
+SQL> select pname from v$process where pname like 'DMON%';
+
+PNAME
+-----
+DMON
+
+
+* Register the database via DGMGRL. Replace ORCL_yny166 with your standby db unique name.' '
+
+```
+dgmgrl sys/Ora_DB4U@ORCL
+CREATE CONFIGURATION adgconfig AS PRIMARY DATABASE IS ORCL CONNECT IDENTIFIER IS ORCL;
+ADD DATABASE ORCL_yny166 AS CONNECT IDENTIFIER IS ORCL_yny166 MAINTAINED AS PHYSICAL;
+enable configuration;
+SHOW CONFIGURATION;
 ```
 
+```sql
+[oracle@dbsty ~]$ dgmgrl sys/Ora_DB4U@ORCL
+DGMGRL for Linux: Release 19.0.0.0.0 - Production on Fri Jan 29 16:24:21 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Welcome to DGMGRL, type "help" for information.
+Connected to "ORCL"
+Connected as SYSDBA.
+DGMGRL> create configuration adgconfig as primary database is ORCL connect identifier is ORCL;
+Configuration "adgconfig" created with primary database "orcl"
+DGMGRL> ADD DATABASE ORCL_yny166 AS CONNECT IDENTIFIER IS ORCL_yny166 maintained as physical;
+Database "orcl_yny166" added
+DGMGRL> enable configuration;
+Enabled.
+DGMGRL> show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+      Warning: ORA-16854: apply lag could not be determined
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+WARNING   (status updated 7 seconds ago)
+
+DGMGRL>
+
+```
 
