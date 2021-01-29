@@ -596,9 +596,9 @@ SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT=(SHA1)
 * copy file and correct file permission
 
 ```
-[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/ewallet.p12 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_nrt1d4
+[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/ewallet.p12 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166/
 ewallet.p12                                                                                             100% 5467     8.1MB/s   00:00
-[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/cwallet.sso /opt/oracle/dcs/commonstore/wallets/tde/ORCL_nrt1d4
+[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/cwallet.sso /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166/
 cwallet.sso                                                                                             100% 5512     8.0MB/s   00:00
 [oracle@dbsty .ssh]$ chmod 600 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166/*wallet*
 
@@ -675,16 +675,17 @@ LISTENER =
 SID_LIST_LISTENER=
   (SID_LIST=
      (SID_DESC=
-     (GLOBAL_DBNAME=ORCL_nrt1d4)
+     (GLOBAL_DBNAME=ORCL_yny166)
      (ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1)
      (SID_NAME=ORCL)
      )
      (SID_DESC=
-     (GLOBAL_DBNAME=ORCL_nrt1d4_DGMGRL)
+     (GLOBAL_DBNAME=ORCL_yny166_DGMGRL)
      (ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1)
      (SID_NAME=ORCL)
      )
   )
+
 ```
 * 리스너 재기동
 
