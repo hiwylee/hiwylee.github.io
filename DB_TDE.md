@@ -3,7 +3,7 @@
 * [Samples Usage ](https://semode.tistory.com/260)
 ### Enable TDE
 
-* 
+* wallet directory
 ```bash
 
 sudo su - oracle
@@ -98,6 +98,112 @@ FILE                                                          OPEN              
 
 ```
 ### Encrypt the Data Files
+#### encrypt the USERS tablespace in the pdb.
+* Connect to the orclpdb, check the encrypt status of the tablespace.
+
+```sql
+SQL> alter session set container=orclpdb;
+
+Session altered.
+
+SQL>
+SQL> show pdbs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         3 ORCLPDB                        READ WRITE NO
+
+```
+*  encrypt the USERS tablespace online
+
+```sql
+
+SQL> select tablespace_name, encrypted from dba_tablespaces;
+
+TABLESPACE_NAME                ENC
+------------------------------ ---
+SYSTEM                         NO
+SYSAUX                         NO
+UNDOTBS1                       NO
+TEMP                           NO
+USERS                          NO
+
+SQL>
+
+
+SQL> alter tablespace users encryption online encrypt;
+
+Tablespace altered.
+
+
+SQL> select tablespace_name, encrypted from dba_tablespaces;
+
+TABLESPACE_NAME                ENC
+------------------------------ ---
+SYSTEM                         NO
+SYSAUX                         NO
+UNDOTBS1                       NO
+TEMP                           NO
+USERS                          YES
+
+```
+
 
 ### Enable the Network Encryption
 
+*
+
+```sql
+
+SQL>
+SQL> connect / as sysdba
+Connected.
+SQL>  set linesize 120
+SQL> col network_service_banner for a85
+SQL> select i.network_service_banner from v$session_connect_info i, v$session s where s.sid=i.sid and s.serial# = i.serial# and s.username = 'SYS';
+
+NETWORK_SERVICE_BANNER
+-------------------------------------------------------------------------------------
+Oracle Bequeath NT Protocol Adapter for Linux: Version 19.0.0.0.0 - Production
+Authentication service for Linux: Version 19.0.0.0.0 - Production
+Encryption service for Linux: Version 19.0.0.0.0 - Production
+Crypto-checksumming service for Linux: Version 19.0.0.0.0 - Production
+
+
+```
+* Edit the sqlnet.ora file.
+
+```
+NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)
+ENCRYPTION_WALLET_LOCATION =
+    (SOURCE = (METHOD = FILE)
+      (METHOD_DATA =
+       (DIRECTORY = /u01/app/oracle/admin/ORCL/wallet)
+      )
+    )
+## 
+SQLNET.ENCRYPTION_SERVER=REQUIRED
+ SQLNET.CRYPTO_CHECKSUM_SERVER=REQUIRED
+ SQLNET.ENCRYPTION_TYPES_SERVER=(AES256,AES192,AES128)
+ SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER=(SHA1)
+ SQLNET.ENCRYPTION_CLIENT=REQUIRED
+ SQLNET.CRYPTO_CHECKSUM_CLIENT=REQUIRED
+ SQLNET.ENCRYPTION_TYPES_CLIENT=(AES256,AES192,AES128)
+ SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT=(SHA1)
+```
+
+*  network service banner again, the network encryption is enable now
+
+```sql
+SQL>  select i.network_service_banner from v$session_connect_info i, v$session s where s.sid=i.sid and s.serial# = i.serial# and s.username = 'SYS';
+
+NETWORK_SERVICE_BANNER
+--------------------------------------------------------------------------------
+Oracle Bequeath NT Protocol Adapter for Linux: Version 19.0.0.0.0 - Production
+Authentication service for Linux: Version 19.0.0.0.0 - Production
+Encryption service for Linux: Version 19.0.0.0.0 - Production
+Crypto-checksumming service for Linux: Version 19.0.0.0.0 - Production
+
+SQL>
+
+```
