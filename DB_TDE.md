@@ -409,7 +409,7 @@ SQL>  alter system set fast_start_mttr_target=300 scope=both;
 System altered.
 
 ```
-### STEP 2 : Stnady DB
+### STEP 2 : Stnady DB 
 ---
 ### Provision DBCS on OCI
 * DBCS 프로비전한 후에 DB 삭제하고 standby 다시 생성
@@ -445,7 +445,7 @@ Connection closed by foreign host.
 
 ```
 
-* step 1: primary :  oracle 계정에 ssh key pair 설정 (primary -> stdnby)
+* primary :  oracle 계정에 ssh key pair 설정 (primary -> stdnby)
   * primay db 에서 key pair 생성후 pub key를 standby db 에 복사
 ```
 oracle@primary ~]$ ssh-keygen -t rsa
@@ -495,4 +495,43 @@ Warning: Permanently added 'dbstby,152.67.196.89' (ECDSA) to the list of known h
 Test
 
 ```
-*  step 2: stdnby에서도 똑같이  oracle 계정에 ssh key pair 설정 (stdnby -> primary ) 
+*  **stdnby에서도 똑같이  oracle 계정에 ssh key pair 설정 (stdnby -> primary ) **
+
+### STEP 3 : Deploy Active Data Guard (with LVM)
+---
+### Manually Delete the standby Database Created by Tooling
+* 
+
+```sql
+```
+### Copy the Password File and wallet file to the standby
+* 
+
+```sql
+```
+### Configure Static Listeners
+* 
+
+```sql
+```
+### TNS Entries for Redo Transport
+* 
+
+```sql
+```
+### Instantiate the Standby Database
+* 
+
+```sql
+```
+### Clear all online and standby redo logs
+* 
+
+```sql
+```
+### Configure Data Guard broker* 
+
+```sql
+```
+
+
