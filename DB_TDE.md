@@ -500,15 +500,110 @@ Test
 ### STEP 3 : Deploy Active Data Guard (with LVM)
 ---
 ### Manually Delete the standby Database Created by Tooling
-* 
+* list datafile to delete and create pfile
 
 ```sql
+SQL> set heading off linesize 999 pagesize 0 feedback off trimspool on
+SQL> select 'rm '||name from v$datafile union all select 'rm '||name from v$tempfile union all select 'rm '||member from v$logfile;
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_system_j1848fgx_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_sysaux_j1848fg5_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_undotbs1_j1848fgs_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_system_j1849fmg_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_sysaux_j1848fg5_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_users_j184fpfz_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_undotbs1_j1849y5n_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_system_j1849omv_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_sysaux_j1849x39_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_undotbs1_j18496kc_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_users_j184frt2_.dbf
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_temp_j184d5kp_.tmp
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_temp_j184d8op_.tmp
+rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_temp_j184do22_.tmp
+rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_3_j184c2qk_.log
+rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_2_j184c2o1_.log
+rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_1_j184c2ln_.log
+SQL> create pfile='/tmp/ORCL_yny166.pfile' from spfile;
+
+```
+
+```
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_system_j1848fgx_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_sysaux_j1848fg5_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_undotbs1_j1848fgs_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_system_j1849fmg_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_sysaux_j1848fg5_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_users_j184fpfz_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_undotbs1_j1849y5n_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_system_j1849omv_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_sysaux_j1849x39_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_undotbs1_j18496kc_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_users_j184frt2_.dbf
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_temp_j184d5kp_.tmp
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19ACD479CCF0662E0530804F40A7CBF/datafile/o1_mf_temp_j184d8op_.tmp
+[oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/A19AF823ADF20D72E0530804F40A73FA/datafile/o1_mf_temp_j184do22_.tmp
+[oracle@dbsty .ssh]$ rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_3_j184c2qk_.log
+[oracle@dbsty .ssh]$ rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_2_j184c2o1_.log
+[oracle@dbsty .ssh]$ rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_1_j184c2ln_.log
+
+```
+*  shutdown db and delete datafile
+
+```sql
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>
+
+```
+
+```
 ```
 ### Copy the Password File and wallet file to the standby
-* 
+* Copy the Password File
 
-```sql
 ```
+[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/product/19c/dbhome_1/dbs/orapwORCL $ORACLE_HOME/dbs/
+orapwORCL                                                       100% 2048     3.4MB/s   00:00
+[oracle@dbsty .ssh]$
+
+```
+* copy wallet file from primary (/u01/app/oracle/admin/ORCL/wallet) to DIRECTORY=/opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166
+
+```
+[oracle@dbsty .ssh]$ cat $ORACLE_HOME/network/admin/sqlnet.ora
+# sqlnet.ora Network Configuration File: /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/sqlnet.ora
+# Generated by Oracle configuration tools.
+
+NAMES.DIRECTORY_PATH= (TNSNAMES, ONAMES, HOSTNAME)
+
+ENCRYPTION_WALLET_LOCATION=
+ (SOURCE=
+  (METHOD=FILE)
+   (METHOD_DATA=
+    (DIRECTORY=/opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166)
+   )
+ )
+SQLNET.ENCRYPTION_SERVER=REQUIRED
+SQLNET.CRYPTO_CHECKSUM_SERVER=REQUIRED
+SQLNET.ENCRYPTION_TYPES_SERVER=(AES256,AES192,AES128)
+SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER=(SHA1)
+SQLNET.ENCRYPTION_CLIENT=REQUIRED
+SQLNET.CRYPTO_CHECKSUM_CLIENT=REQUIRED
+SQLNET.ENCRYPTION_TYPES_CLIENT=(AES256,AES192,AES128)
+SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT=(SHA1)
+```
+* copy file and correct file permission
+
+```
+[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/ewallet.p12 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_nrt1d4
+ewallet.p12                                                                                             100% 5467     8.1MB/s   00:00
+[oracle@dbsty .ssh]$ scp oracle@primary:/u01/app/oracle/admin/ORCL/wallet/cwallet.sso /opt/oracle/dcs/commonstore/wallets/tde/ORCL_nrt1d4
+cwallet.sso                                                                                             100% 5512     8.0MB/s   00:00
+[oracle@dbsty .ssh]$ chmod 600 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny166/*wallet*
+
+```
+
 ### Configure Static Listeners
 * 
 
