@@ -525,6 +525,16 @@ rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_1_j184c2ln_.log
 SQL> create pfile='/tmp/ORCL_yny166.pfile' from spfile;
 
 ```
+*  shutdown db and delete datafile
+
+```sql
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>
+
+```
 
 ```
 [oracle@dbsty .ssh]$ rm /u02/app/oracle/oradata/ORCL_yny166/ORCL_YNY166/datafile/o1_mf_system_j1848fgx_.dbf
@@ -546,16 +556,7 @@ SQL> create pfile='/tmp/ORCL_yny166.pfile' from spfile;
 [oracle@dbsty .ssh]$ rm /u03/app/oracle/redo/ORCL_YNY166/onlinelog/o1_mf_1_j184c2ln_.log
 
 ```
-*  shutdown db and delete datafile
 
-```sql
-SQL> shutdown immediate;
-Database closed.
-Database dismounted.
-ORACLE instance shut down.
-SQL>
-
-```
 
 ```
 ```
