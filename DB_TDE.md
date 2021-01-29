@@ -2,6 +2,8 @@
 
 * [Samples Usage ](https://semode.tistory.com/260)
 * [Oracle Database Hybrid Active Data Guard Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=609&p210_type=3&session=12913666657648)
+### STEP 1 : Primary DB
+---
 ### Enable TDE
 
 * wallet directory
@@ -407,4 +409,90 @@ SQL>  alter system set fast_start_mttr_target=300 scope=both;
 System altered.
 
 ```
+### STEP 2 : Stnady DB
+---
+### Provision DBCS on OCI
+* DBCS 프로비전한 후에 DB 삭제하고 standby 다시 생성
+### Set connectivity between on-premise host and cloud host
+* DB 노드간 Name Resolution Configure
 
+```bash
+## primay db
+[opc@primary ~]$  sudo vi /etc/hosts
+xxx.xxx.xxx.xxx dbstby.sub01291310280.standbyvcn.oraclevcn.com  dbstby
+sudo yum -y install telnet
+[opc@primary ~]$ telnet dbstby 1521
+  Trying 158.101.136.61...
+  Connected to 158.101.136.61.
+  Escape character is '^]'.
+  ^]
+
+ telnet> q
+  Connection closed.
+[opc@primary ~]$  
+## stdby db
+sudo vi /etc/hosts
+xxx.xxx.xxx.xxx primary.subnet1.primaryvcn.oraclevcn.com primary
+[opc@dbsty ~]$ telnet primary 1521
+Trying 152.67.197.86...
+Connected to primary.
+Escape character is '^]'.
+^C^]
+telnet>
+q
+Connection closed by foreign host.
+[opc@dbsty ~]$
+
+```
+
+* step 1: primary :  oracle 계정에 ssh key pair 설정 (primary -> stdnby)
+  * primay db 에서 key pair 생성후 pub key를 standby db 에 복사
+```
+oracle@primary ~]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/oracle/.ssh/id_rsa):
+Created directory '/home/oracle/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/oracle/.ssh/id_rsa.
+Your public key has been saved in /home/oracle/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:sHuktidyWkix6EkAdUV8i26VPrvq081N3wKDkkbo+Cg oracle@primary
+The key's randomart image is:
++---[RSA 2048]----+
+|... .+o          |
+|.  .  . .        |
+|.   . .+ o       |
+| . . ooo=        |
+|  o o+.+S. .     |
+| o o..++* . +    |
+|  o .+=o.* o + . |
+|  E oo=o+ o . o .|
+|   ..=+=..     . |
++----[SHA256]-----+
+[oracle@primary ~]$ cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGvDLo5kRbFdRH8bji5wVRxBwv3i/0BjA39QvhPtPU KyYGBsO4lTeUifnk0F3D5lQI4V3ji+RCMIjkEifiqJsRagHN+Cf3qI9rz1liQZwo3Rqhh+ifxIJ+mu3G mHgDQALefesF8A4slCsN9DmwIhMA3obPPKyZLp3deZuKhSkKF6dTt1R3k/aTGMlx/Qq8O7RgNjvST8wA bPA74rb+eMqM1jin5rIuViq+Ld+h9HeQlSnS/6jmTmDsCusAmhM2H3V2f6+z1ssfWdf4FOvSS3yABZFl B+8h5roesTYU8pUwinaq+25OEinuhDtmc8Pi8OE+XkFe3xArtf4w+vmu3Hlh oracle@primary
+
+```
+* standby db 에 pubkey 내용 복사
+
+```
+vi .ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGvDLo5kRbFdRH8bji5wVRxBwv3i/0BjA39QvhPtPU KyYGBsO4lTeUifnk0F3D5lQI4V3ji+RCMIjkEifiqJsRagHN+Cf3qI9rz1liQZwo3Rqhh+ifxIJ+mu3G mHgDQALefesF8A4slCsN9DmwIhMA3obPPKyZLp3deZuKhSkKF6dTt1R3k/aTGMlx/Qq8O7RgNjvST8wA bPA74rb+eMqM1jin5rIuViq+Ld+h9HeQlSnS/6jmTmDsCusAmhM2H3V2f6+z1ssfWdf4FOvSS3yABZFl B+8h5roesTYU8pUwinaq+25OEinuhDtmc8Pi8OE+XkFe3xArtf4w+vmu3Hlh oracle@primary
+
+chmod 600 .ssh/authorized_keys
+```
+
+* primay -> standby 로 바로 로그인이 되는 지 확인
+
+```bash
+[oracle@primary ~]$  ssh oracle@dbstby echo Test
+The authenticity of host 'dbstby (152.67.196.89)' can't be established.
+ECDSA key fingerprint is SHA256:Fvg5p58/+P8Z/ifDONK49WGzbf2J4Pj5MBg17XePkJU.
+ECDSA key fingerprint is MD5:43:92:21:a4:e8:6d:05:0c:d7:f9:c0:26:3d:bd:a4:8d.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'dbstby,152.67.196.89' (ECDSA) to the list of known hosts.
+Test
+
+```
+*  step 2: stdnby에서도 똑같이  oracle 계정에 ssh key pair 설정 (stdnby -> primary ) 
