@@ -5,3 +5,4 @@
 * [Backup and Recovery to the Cloud Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=580)
 * [Oracle Data Integrator - Advanced Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=775&p210_type=3&session=117270244369178)
 * [GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=692)
+* [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
