@@ -175,21 +175,23 @@ Crypto-checksumming service for Linux: Version 19.0.0.0.0 - Production
 
 ```
 NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)
+## TDE
 ENCRYPTION_WALLET_LOCATION =
     (SOURCE = (METHOD = FILE)
       (METHOD_DATA =
        (DIRECTORY = /u01/app/oracle/admin/ORCL/wallet)
       )
     )
-## 
+## in-fligh encryption
 SQLNET.ENCRYPTION_SERVER=REQUIRED
- SQLNET.CRYPTO_CHECKSUM_SERVER=REQUIRED
- SQLNET.ENCRYPTION_TYPES_SERVER=(AES256,AES192,AES128)
- SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER=(SHA1)
- SQLNET.ENCRYPTION_CLIENT=REQUIRED
- SQLNET.CRYPTO_CHECKSUM_CLIENT=REQUIRED
- SQLNET.ENCRYPTION_TYPES_CLIENT=(AES256,AES192,AES128)
- SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT=(SHA1)
+SQLNET.CRYPTO_CHECKSUM_SERVER=REQUIRED
+SQLNET.ENCRYPTION_TYPES_SERVER=(AES256,AES192,AES128)
+SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER=(SHA1)
+SQLNET.ENCRYPTION_CLIENT=REQUIRED
+SQLNET.CRYPTO_CHECKSUM_CLIENT=REQUIRED
+SQLNET.ENCRYPTION_TYPES_CLIENT=(AES256,AES192,AES128)
+SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT=(SHA1)
+
 ```
 
 *  network service banner again, the network encryption is enable now
@@ -202,7 +204,10 @@ NETWORK_SERVICE_BANNER
 Oracle Bequeath NT Protocol Adapter for Linux: Version 19.0.0.0.0 - Production
 Authentication service for Linux: Version 19.0.0.0.0 - Production
 Encryption service for Linux: Version 19.0.0.0.0 - Production
+AES256 Encryption service adapter for Linux: Version 19.0.0.0.0 - Production
 Crypto-checksumming service for Linux: Version 19.0.0.0.0 - Production
+SHA1 Crypto-checksumming service adapter for Linux: Version 19.0.0.0.0 - Production
+
 
 SQL>
 
