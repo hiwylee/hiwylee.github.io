@@ -934,8 +934,9 @@ channel ORA_DISK_1: restore complete, elapsed time: 00:00:02
 output file name=/u02/app/oracle/oradata/ORCL_yny166/control01.ctl
 output file name=/u03/app/oracle/fast_recovery_area/ORCL_YNY166/control02.ctl
 Finished restore at 29-JAN-21
-'''
-'''
+```
+
+```
 RMAN> alter database mount;
 
 released channel: ORA_DISK_1
