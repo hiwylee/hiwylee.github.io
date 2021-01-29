@@ -726,7 +726,6 @@ SQL>
 
 ```
 
-### Instantiate the Standby Database
 * primary  db
 
 ``` 
@@ -853,6 +852,180 @@ net.ipv4.conf.all.accept_redirects = 0
 net.ipv4.conf.default.accept_redirects = 0
 kernel.pid_max = 99999
 vm.nr_hugepages = 3226
+
+```
+
+### Instantiate the Standby Database
+
+* 폴더생성
+
+```
+[oracle@dbsty ~]$ mkdir -p /u02/app/oracle/oradata/ORCL_yny166/pdbseed
+[oracle@dbsty ~]$ mkdir -p /u02/app/oracle/oradata/ORCL_yny166/orclpdb
+[oracle@dbsty ~]$ mkdir -p /u03/app/oracle/redo/ORCL_yny166/onlinelog
+
+```
+
+*  The different database domain name of the on-premise and cloud will cause DML Redirection error, in this lab, we **don't use the database domain**.
+
+```sql
+alter system set db_file_name_convert='/u01/app/oracle/oradata/ORCL','/u02/app/oracle/oradata/ORCL_yny166' scope=spfile;
+alter system set db_create_online_log_dest_1='/u03/app/oracle/redo/ORCL_yny166/onlinelog' scope=spfile;
+alter system set log_file_name_convert='/u01/app/oracle/oradata/ORCL','/u03/app/oracle/redo/ORCL_yny166/onlinelog' scope=spfile;
+alter system set db_domain='' scope=spfile;
+alter system set db_file_name_convert='/u01/app/oracle/oradata/ORCL','/u02/app/oracle/oradata/ORCL_yny166' scope=spfile;
+alter system set db_create_online_log_dest_1='/u03/app/oracle/redo/ORCL_yny166/onlinelog' scope=spfile;
+alter system set db_domain='' scope=spfile;
+```
+
+* Shutdown the database, connect with RMAN. Then startup database nomount.
+
+```sql
+SQL> shutdown immediate;
+exit
+ORA-01109: database not open
+
+
+Database dismounted.
+ORACLE instance shut down.
+SQL> Disconnected from Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+```
+
+```sql
+[oracle@dbsty ~]$ rman target /
+
+Recovery Manager: Release 19.0.0.0.0 - Production on Fri Jan 29 16:05:23 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database (not started)
+
+RMAN> startup nomount;
+
+Oracle instance started
+
+Total System Global Area    6442449472 bytes
+
+Fixed Size                     9148992 bytes
+Variable Size               1090519040 bytes
+Database Buffers            5318377472 bytes
+Redo Buffers                  24403968 bytes
+RMAN>
+```
+
+* Restore control file from on-premise database and mount the cloud database.
+
+```sql
+RMAN> restore standby controlfile from service 'ORCL';
+
+Starting restore at 29-JAN-21
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=181 device type=DISK
+
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: restoring control file
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:02
+output file name=/u02/app/oracle/oradata/ORCL_yny166/control01.ctl
+output file name=/u03/app/oracle/fast_recovery_area/ORCL_YNY166/control02.ctl
+Finished restore at 29-JAN-21
+
+RMAN> alter database mount;
+
+released channel: ORA_DISK_1
+Statement processed
+
+RMAN>
+``` 
+
+* restore database from on-premise database.
+
+```sql
+
+RMAN> restore database from service 'ORCL' section size 5G;
+
+Starting restore at 29-JAN-21
+Starting implicit crosscheck backup at 29-JAN-21
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=181 device type=DISK
+Crosschecked 1 objects
+Finished implicit crosscheck backup at 29-JAN-21
+
+Starting implicit crosscheck copy at 29-JAN-21
+using channel ORA_DISK_1
+Finished implicit crosscheck copy at 29-JAN-21
+
+searching for all files in the recovery area
+cataloging files...
+cataloging done
+
+List of Cataloged Files
+=======================
+File Name: /u03/app/oracle/fast_recovery_area/ORCL_YNY166/archivelog/2021_01_29/o1_mf_1_2_j184fn1w_.arc
+File Name: /u03/app/oracle/fast_recovery_area/ORCL_YNY166/archivelog/2021_01_29/o1_mf_1_1_j184f1k6_.arc
+File Name: /u03/app/oracle/fast_recovery_area/ORCL_YNY166/archivelog/2021_01_29/o1_mf_1_3_j184lf9l_.arc
+
+using channel ORA_DISK_1
+
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00001 to /u02/app/oracle/oradata/ORCL_yny166/system01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:16
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00003 to /u02/app/oracle/oradata/ORCL_yny166/sysaux01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+...
+...
+...
+channel ORA_DISK_1: restoring datafile 00012 to /u02/app/oracle/oradata/ORCL_yny166/orclpdb/users01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 29-JAN-21
+
+RMAN>
+
+```
+
+* Shutdown the database, connect to sqlplus as sysdba and mount the database again.
+
+```sql
+
+RMAN> shutdown immediate;
+
+database dismounted
+Oracle instance shut down
+
+```
+
+```sql
+
+[oracle@dbsty ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Jan 29 16:13:17 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+Connected to an idle instance.
+
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 6442449472 bytes
+Fixed Size                  9148992 bytes
+Variable Size            1090519040 bytes
+Database Buffers         5318377472 bytes
+Redo Buffers               24403968 bytes
+Database mounted.
+SQL>
 
 ```
 ### Clear all online and standby redo logs
