@@ -6,7 +6,7 @@
 * [Oracle Data Integrator - Advanced Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=775&p210_type=3&session=117270244369178)
 * [GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=692)
 * [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
-
+* [Converged Database with Weblogic for Developers Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=748&p210_type=3&session=110719162873870)
 ### Architecture Center/Solution Playbooks
 * [Best practices for securing workloads in the cloud](https://docs.oracle.com/en/solutions/oci-best-practices-security/secure-compute-instances1.html#GUID-FF972866-3865-45FD-B651-72A624FE6AAE)
 * [Create a CI/CD pipeline for Bots custom components](https://docs.oracle.com/en/solutions/create-cicd-pipeline-custom-components/index.html#GUID-3F118956-E1B3-44CE-A8EE-E9062DB5F73A)
