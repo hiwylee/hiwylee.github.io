@@ -613,7 +613,6 @@ cwallet.sso                                                                     
 vi $ORACLE_HOME/network/admin/listener.ora
 ```
 
-* standby db
 
 ```
 [oracle@primary ~]$ cat $ORACLE_HOME/network/admin/listener.ora
@@ -657,8 +656,8 @@ Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=primary.subnet1.primaryv
 The command completed successfully
 
 ```
-### TNS Entries for Redo Transport
-* 
+* standby db
+
 
 ```
 [oracle@dbsty .ssh]$ vi $ORACLE_HOME/network/admin/listener.ora
@@ -703,6 +702,8 @@ The command completed successfully
 [oracle@dbsty .ssh]$
 
 ```
+### TNS Entries for Redo Transport
+
 * standby DB 마운트
 
 ```sql
