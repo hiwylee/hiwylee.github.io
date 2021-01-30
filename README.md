@@ -1,9 +1,10 @@
 ## 문서 목록
+* [**LIVE LABS : Workshop**](oci_labs/oci_labs.md)
+  * [oci_labs_adg.md](oci_labs/oci_labs-adg.md)
+  * [oci_labs_adg_asm.md](oci_labs/oci_labs_adg-asm.md)
+---
 * [README_2.md](README_2.md)
-* [oci_labs.md](oci_labs.md)
-* [oci_labs_adg.md](oci_labs-adg.md)
-* [oci_labs_adg_asm.md](oci_labs_adg-asm.md)
-* [19c_cert.md](19c_cert.md)
+* [19c_cert.md](oci_labs/19c_cert.md)
 * [19c_nf_ai.md](19c_nf_ai.md)
 * [19c_nf_rt_stats.md](19c_nf_rt_stats.md)
 * [1Z0-1088-20_enterprise_workload.md](1Z0-1088-20_enterprise_workload.md)
