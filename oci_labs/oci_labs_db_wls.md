@@ -11,12 +11,12 @@
 * Labs 
 
 |Lab Seq.| Name	 |
-|:---|:---|  
-|Initialize Environment (Start Services)|	 
-|eSHOP Application                      |
-|Data Type Demonstration Tool           |
-|JSON With Java	                        |
-|XML With Java	                        |
-|SPATIAL With Java                      |
-|(Optional) Cross Data Type             |
-|ORDS as Microservice                   |
+|---|:---|  
+|3|Initialize Environment (Start Services)|	 
+|4|eSHOP Application                      |
+|5|Data Type Demonstration Tool           |
+|6|JSON With Java	                        |
+|7|XML With Java	                         |
+|8|SPATIAL With Java                      |
+|9|(Optional) Cross Data Type             |
+|10|ORDS as Microservice                   |
