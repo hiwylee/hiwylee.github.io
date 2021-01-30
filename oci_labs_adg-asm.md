@@ -754,3 +754,228 @@ SUCCESS   (status updated 27 seconds ago)
 
 DGMGRL>
 ```
+
+* Check Lag
+
+```
+DGMGRL> show database ORCL_yny1zh;
+
+Database - orcl_yny1zh
+
+  Role:               PHYSICAL STANDBY
+  Intended State:     APPLY-ON
+  Transport Lag:      0 seconds (computed 7 seconds ago)
+  Apply Lag:          0 seconds (computed 7 seconds ago)
+  Average Apply Rate: 0 Byte/s
+  Real Time Query:    ON
+  Instance(s):
+    ORCL
+
+Database Status:
+SUCCESS
+
+DGMGRL>
+```
+
+### Test DML Redirection
+* From the standby side : 
+  * enable DML Redirection 
+```
+alter session enable adg_redirect_dml;
+```
+
+```
+[oracle@dbstby ~]$  sqlplus testuser/testuser@dbstby:1521/orclpdb
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jan 30 09:04:29 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+Last Successful login time: Fri Jan 29 2021 17:18:12 +00:00
+
+Connected to:
+Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> set timing on
+SQL> insert into test values(2,'line2');
+insert into test values(2,'line2')
+            *
+ERROR at line 1:
+ORA-16000: database or pluggable database open for read-only access
+
+Elapsed: 00:00:00.02
+
+SQL> alter session enable adg_redirect_dml;
+
+Session altered.
+
+Elapsed: 00:00:00.00
+```
+
+* (속도가 엄청 느리다 : 기본 설정이 ASYNC/MaxPerformance 임.
+```
+SQL> insert into test values(2,'line2');
+
+1 row created.
+
+Elapsed: 00:00:18.74
+SQL> commit;
+
+Commit complete.
+
+Elapsed: 00:00:09.85
+SQL>
+
+```
+* Switch the redo transport mode and protection mode : redirect 성능향상을 위해서
+
+* Before : ASYNC, MaxPerformance (INSERT 18초)
+
+```
+DGMGRL>  show database orcl_yny1zh LogXptMode;
+  LogXptMode = 'ASYNC'
+DGMGRL> show database orcl  LogXptMode;
+  LogXptMode = 'ASYNC'
+DGMGRL>
+DGMGRL> show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+    orcl_yny1zh - Physical standby database
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS   (status updated 30 seconds ago)
+
+```
+* Change : ASYNC, MaxPerformance (INSERT 18초) -> SYNC, MaxAvailability
+```
+
+DGMGRL> EDIT DATABASE orcl SET PROPERTY LogXptMode='SYNC';
+Property "logxptmode" updated
+DGMGRL> EDIT DATABASE orcl_yny1zh  SET PROPERTY LogXptMode='SYNC';
+Property "logxptmode" updated
+DGMGRL> EDIT CONFIGURATION SET PROTECTION MODE AS MAXAVAILABILITY;
+Succeeded.
+DGMGRL>
+
+```
+* AFTER :  SYNC/MaxAvailability
+
+```DGMGRL> show database orcl_yny1zh LogXptMode;
+  LogXptMode = 'SYNC'
+DGMGRL>  show database orcl  LogXptMode;
+  LogXptMode = 'ASYNC'  LogXptMode = 'SYNC'
+
+DGMGRL>  show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxAvailability
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+    orcl_yny1zh - Physical standby database
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS   (status updated 15 seconds ago)
+
+DGMGRL>
+```
+#### 속도 비교
+
+
+*  ASYNC, MaxPerformance (INSERT 18초)
+
+```sql
+
+```
+*  SYNC, MaxAvailability
+
+```sql
+SQL> insert into test values(3,'line3');
+
+1 row created.
+
+Elapsed: 00:00:00.87
+SQL> commit;
+
+Commit complete.
+
+Elapsed: 00:00:01.04
+SQL>
+```
+### Switchover to the standby
+
+* validate the standby database to see if Ready For **Switchover is Yes**
+```
+
+DGMGRL> validate database orcl;
+
+  Database Role:    Primary database
+
+  Ready for Switchover:  Yes
+
+  Managed by Clusterware:
+    orcl:  NO
+    Validating static connect identifier for the primary database orcl...
+    The static connect identifier allows for a connection to database "orcl".
+
+DGMGRL>  validate database orcl_yny1zh;
+
+  Database Role:     Physical standby database
+  Primary Database:  orcl
+
+  Ready for Switchover:  Yes
+  Ready for Failover:    Yes (Primary Running)
+
+  Flashback Database Status:
+    orcl       :  On
+    orcl_yny1zh:  Off
+
+  Managed by Clusterware:
+    orcl       :  NO
+    orcl_yny1zh:  YES
+    Validating static connect identifier for the primary database orcl...
+    The static connect identifier allows for a connection to database "orcl".
+
+  Standby Apply-Related Information:
+    Apply State:      Running
+    Apply Lag:        9 seconds (computed 5 seconds ago)
+    Apply Delay:      0 minutes
+
+
+```
+* Switch over to  standby : orcl_yny1zh
+
+```
+DGMGRL> switchover to orcl_yny1zh
+Performing switchover NOW, please wait...
+Operation requires a connection to database "orcl_yny1zh"
+Connecting ...
+Connected to "ORCL_yny1zh"
+Connected as SYSDBA.
+New primary database "orcl_yny1zh" is opening...
+Operation requires start up of instance "ORCL" on database "orcl"
+Starting instance "ORCL"...
+Connected to an idle instance.
+ORACLE instance started.
+Connected to "ORCL"
+Database mounted.
+Database opened.
+Connected to "ORCL"
+Switchover succeeded, new primary is "orcl_yny1zh"
+DGMGRL>
+
+
+```
+
