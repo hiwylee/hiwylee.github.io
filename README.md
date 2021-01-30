@@ -1,6 +1,8 @@
 ## 문서 목록
 * [README_2.md](README_2.md)
 * [oci_labs.md](oci_labs.md)
+* [oci_labs_adg.md](oci_labs-adg.md)
+* [oci_labs_adg_asm.md](oci_labs_adg-asm.md)
 * [19c_cert.md](19c_cert.md)
 * [19c_nf_ai.md](19c_nf_ai.md)
 * [19c_nf_rt_stats.md](19c_nf_rt_stats.md)
