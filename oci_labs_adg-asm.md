@@ -118,9 +118,7 @@ logout
 Last login: Sat Jan 30 07:02:15 UTC 2021
 [grid@dbstby ~]$
 [grid@dbstby ~]$ asmcmd
-ASMCMD> pwdcopy --dbuniquename ORCL_yny1zh -f /tmp/orapwORCL +DATA/ORCL_YNY1ZH
-ASMCMD-8022: unknown command 'pwdcopy' specified
-ASMCMD> pwcopy --dbuniquename ORCL_yny1zh -f /tmp/orapwORCL +DATA/ORCL_YNY1ZH
+ASMCMD> pwcopy --dbuniquename ORCL_yny1zh -f /tmp/orapwORCL +DATA/ORCL_YNY1ZH/orapwORCL_yny1zh
 copying /tmp/orapwORCL -> +DATA/ORCL_YNY1ZH/ORCL_YNY1ZH
 ASMCMD-9453: failed to register password file as a CRS resource
 ASMCMD>
@@ -292,7 +290,7 @@ The command completed successfully
 Last login: Sat Jan 30 07:32:16 UTC 2021
 [oracle@primary .ssh]$ vi $ORACLE_HOME/network/admin/tnsnames.ora
 
-ORCL_ynyizh =
+ORCL_yny1zh =
  (DESCRIPTION =
      (SDU=65536)
      (RECV_BUF_SIZE=134217728)
@@ -302,7 +300,7 @@ ORCL_ynyizh =
      )
      (CONNECT_DATA =
         (SERVER = DEDICATED)
-        (SERVICE_NAME = ORCL_ynyizh)
+        (SERVICE_NAME = ORCL_yny1zh)
         (UR=A)
      )
   )
@@ -438,27 +436,137 @@ RMAN>
 * Restore control file from primary database
 
 ```
+[oracle@dbstby ~]$ rman target /
+
+Recovery Manager: Release 19.0.0.0.0 - Production on Sat Jan 30 08:25:35 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: ORCL (not mounted)
+
+RMAN> restore standby controlfile from service 'ORCL';
+
+Starting restore at 30-JAN-21
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=29 device type=DISK
+
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: restoring control file
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:04
+output file name=+RECO/ORCL_YNY1ZH/CONTROLFILE/current.256.1063135219
+Finished restore at 30-JAN-21
+
+RMAN>
 
 ```
 
 * startup mount
 
 ```
+RMAN> alter database mount;
+
+released channel: ORA_DISK_1
+Statement processed
+
+RMAN>
+
 ```
 
 * restore database from primary database
 
 ```
+RMAN> restore database from service 'ORCL' section size 5G;
+
+Starting restore at 30-JAN-21
+Starting implicit crosscheck backup at 30-JAN-21
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=186 device type=DISK
+Crosschecked 1 objects
+Finished implicit crosscheck backup at 30-JAN-21
+
+Starting implicit crosscheck copy at 30-JAN-21
+using channel ORA_DISK_1
+Finished implicit crosscheck copy at 30-JAN-21
+
+searching for all files in the recovery area
+cataloging files...
+cataloging done
+
+List of Cataloged Files
+=======================
+File Name: +RECO/ORCL_YNY1ZH/ARCHIVELOG/2021_01_29/thread_1_seq_1.260.1063136415
+
+using channel ORA_DISK_1
+
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00001 to +DATA/ORCL_YNY1ZH/system01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:17
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: using network backup set from service ORCL
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00003 to +DATA/ORCL_YNY1ZH/sysaux01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+...
+...
+channel ORA_DISK_1: restoring datafile 00012 to +DATA/ORCL_YNY1ZH/orclpdb/users01.dbf
+channel ORA_DISK_1: restoring section 1 of 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:56
+Finished restore at 30-JAN-21
+
+RMAN>
+
 ```
 
-* Shutdown and mount the database again
+* Shutdown   
 
 ```
+
+RMAN> shutdown immediate;
+
+database dismounted
+Oracle instance shut down
+
+RMAN>
+
+```
+
+* startup mount the database again
+
+```
+[oracle@dbstby ~]$ srvctl start database -d ORCL_yny1zh -o mount
+
 ```
 
 * Clear all online and standby redo logs
 
 ```sql
+
+SQL> set pagesize 0 feedback off linesize 120 trimspool on
+SQL> select distinct 'alter database clear logfile group '||group#||';' from v$logfile;
+alter database clear logfile group 1;
+alter database clear logfile group 2;
+alter database clear logfile group 3;
+alter database clear logfile group 4;
+alter database clear logfile group 5;
+alter database clear logfile group 6;
+alter database clear logfile group 7;
+SQL>
+SQL> alter database clear logfile group 1;
+alter database clear logfile group 2;
+alter database clear logfile group 3;
+alter database clear logfile group 4;
+alter database clear logfile group 5;
+alter database clear logfile group 6;
+alter database clear logfile group 7;
+
+SQL>
+
 ```
 
 ### Configure Data Guard broker
@@ -466,11 +574,100 @@ RMAN>
 * Configure Data Guard broker From primay side
 
 ```
+show parameter dg_broker_config_file;
+show parameter dg_broker_start;
+alter system set dg_broker_start=true;
+select pname from v$process where pname like 'DMON%';
 ```
 
 * Configure Data Guard broker From standby side
 
 ```
+
+SQL> show parameter dg_broker_config_file;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+dg_broker_config_file1               string      /u01/app/oracle/product/19.0.0
+                                                 .0/dbhome_1/dbs/dr1ORCL_yny1zh
+                                                 .dat
+dg_broker_config_file2               string      /u01/app/oracle/product/19.0.0
+                                                 .0/dbhome_1/dbs/dr2ORCL_yny1zh
+                                                 .dat
+SQL> show parameter dg_broker_start;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+dg_broker_start                      boolean     FALSE
+SQL> alter system set dg_broker_start=true;
+
+System altered.
+
+SQL> select pname from v$process where pname like 'DMON%';
+
+PNAME
+-----
+DMON
 ```
 
 * Register the database via DGMGRL
+
+```
+DGMGRL> show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS   (status updated 42 seconds ago)
+
+Database "orcl_yny1zh" added
+DGMGRL>
+
+```
+
+```
+DGMGRL> show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+    orcl_yny1zh - Physical standby database (disabled)
+      ORA-16905: The member was not enabled yet.
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+SUCCESS   (status updated 44 seconds ago)
+
+DGMGRL> enable database orcl_yny1zh;
+Enabled.
+DGMGRL>  show configuration;
+
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    orcl_yny166 - Physical standby database
+    orcl_yny1zh - Physical standby database
+      Error: ORA-16810: multiple errors or warnings detected for the member
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+ERROR   (status updated 35 seconds ago)
+
+DGMGRL> DGMGRL>
+
+```
