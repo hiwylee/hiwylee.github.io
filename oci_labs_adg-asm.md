@@ -106,7 +106,7 @@ PRCC-1016 : ORCL_yny1zh was already stopped
 orapwORCL   
 ```
 
-* copy wallet file from primary (/u01/app/oracle/admin/ORCL/wallet)
+
 ```
 ```
 * Switch to **grid** user, use asmcmd, replace ORCL_nrt1d4 with your standby db unique name, using capital letters in the directory names
@@ -170,6 +170,32 @@ Maximum memory: 0
 Default network number for database services:
 Database is administrator managed
 [oracle@dbstby ~]$
+
+```
+### Copying the Wallet File  
+* wallet localtion : $ORACLE_HOME/network/admin/sqlnet.ora 
+```sql
+## primary
+  ENCRYPTION_WALLET_LOCATION =
+    (SOURCE = (METHOD = FILE)
+      (METHOD_DATA =
+        (DIRECTORY = /u01/app/oracle/admin/ORCL/wallet)
+      )
+    )
+ ```
+  * primary : /u01/app/oracle/admin/ORCL/wallet
+  * dbstby  : /opt/oracle/dcs/commonstore/wallets/tde/$ORACLE_UNQNAME
+
+```bash
+[oracle@dbstby ~]$ scp primary:/u01/app/oracle/admin/ORCL/wallet/ewallet.p12 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/
+ewallet.p12                                                                       100% 5467     1.6MB/s   00:00
+[oracle@dbstby ~]$ scp primary:/u01/app/oracle/admin/ORCL/wallet/cwallet.sso  /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/
+cwallet.sso                                                                        100% 5512     2.3MB/s   00:00
+[oracle@dbstby ~]$ chmod 600 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/*wallet*
+[oracle@dbstby ~]$ ls -l  /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/*wallet*
+-rw------- 1 oracle asmadmin 5512 Jan 30 07:27 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/cwallet.sso
+-rw------- 1 oracle asmadmin 5467 Jan 30 07:26 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/ewallet.p12
+-rw------- 1 oracle asmadmin 2555 Jan 29 19:40 /opt/oracle/dcs/commonstore/wallets/tde/ORCL_yny1zh/ewallet_2021012919401289_defaultTag.p12
 
 ```
 ### Configure Static Listeners
