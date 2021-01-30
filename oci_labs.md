@@ -19,3 +19,47 @@
 * [Enterprise data warehousing - an integrated data lake example](https://docs.oracle.com/en/solutions/oci-curated-analysis/index.html#GUID-7FF7A024-5EB0-414B-A1A5-4718929DC7F2)
 
 
+### ARHI Component
+
+* Architecture
+  * Cloud Architect Reference
+  * Security Architect
+  * Analhytic Architect
+  * Data Integration Architect
+  * Application Architect
+  * Data Architect
+* Data Management
+  * DB
+  * Big Data
+  * Object Storage  
+  * NoSQL
+* MIddle Ware
+  * Web/Was
+  * Container/K8s
+  * CI/CD  
+* Analytics
+  * Visualization/Dashboard
+  * BI (reporting)
+  * Stream Analytics
+* AI/ML
+  * Cloud Serivce
+  * Dev Tools
+* Integration
+  * CDC
+  * ETL
+  * Streaming
+* HA/DR
+  * High Avaiablility
+  * Disater Recovery
+* Connectivity
+  * Network Topology
+  * OP <-> Cloud
+  * Inter Cloud Connectivity
+  * Region <-> Region
+* Security  
+  * SSO
+  * Network Security
+  * Authentication/Authorization
+* Development
+  * Intefrated Dev Tools
+  * Dev Language
