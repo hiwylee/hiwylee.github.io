@@ -16,6 +16,6 @@
 * [Create a CI/CD pipeline for Bots custom components](https://docs.oracle.com/en/solutions/create-cicd-pipeline-custom-components/index.html#GUID-3F118956-E1B3-44CE-A8EE-E9062DB5F73A)
 * [eploy a hybrid DR topology for an on-premises database](https://docs.oracle.com/en/solutions/standby-database-in-cloud/index.html#GUID-89E40108-8E76-4C10-A236-6D1683CD08E4)
 * [Migrate data to a high performance database in the cloud using Oracle ACFS](https://docs.oracle.com/en/solutions/migrate-database-with-data-pump/index.html#GUID-EFE82F3A-2C6B-44B3-8158-E39D36E86FAF)
-* [Enterprise data warehousing - an integrated data lake example](Enterprise data warehousing - an integrated data lake example)
+* [Enterprise data warehousing - an integrated data lake example](https://docs.oracle.com/en/solutions/oci-curated-analysis/index.html#GUID-7FF7A024-5EB0-414B-A1A5-4718929DC7F2)
 
 
