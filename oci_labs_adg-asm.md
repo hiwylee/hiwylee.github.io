@@ -347,20 +347,98 @@ net.core.wmem_max = 134217728
 * create pdb directory in ASM (os user : **grid**)
 
 ```
-```
-* create pdb directory in ASM (os user : **oracle **)
+[grid@dbstby ~]$ id
+uid=102(grid) gid=1001(oinstall) groups=1001(oinstall),1002(dbaoper),1004(asmadmin),1005(asmoper),1006(asmdba)
+[grid@dbstby ~]$
+[grid@dbstby ~]$ asmcmd
+ASMCMD> ls
+DATA/
+RECO/
+ASMCMD> mkdir DATA/ORCL_YNY1ZH/pdbseed
+ASMCMD>  mkdir DATA/ORCL_YNY1ZH/orclpdb
+ASMCMD>  mkdir DATA/ORCL_YNY1ZH/ONLINELOG
+ASMCMD> exit
+[grid@dbstby ~]$
 
 ```
+* modify the db and log file name convert parameter (os user : **oracle **)
+
+  * param.sql
+```
+ALTER SYSTEM SET db_file_name_convert='/u01/app/oracle/oradata/ORCL','+DATA/ORCL_YNY1ZH' scope=spfile;
+ALTER SYSTEM SET db_create_online_log_dest_1='+RECO' scope=spfile;
+ALTER SYSTEM SET log_file_name_convert='/u01/app/oracle/oradata/ORCL','+RECO/ORCL_YNY1ZH/ONLINELOG' scope=spfile;
+ALTER SYSTEM SET db_domain='' scope=spfile;
+```
+  * set params
+```
+[opc@dbstby .ssh]$ sudo su - oracle
+Last login: Sat Jan 30 08:02:18 UTC 2021
+[oracle@dbstby ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jan 30 08:04:14 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> @param
+
+System altered.
+
+System altered.
+
+System altered.
+
+System altered.
+
+SQL> exit
+Disconnected from Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+[oracle@dbstby ~]$
 ```
 
-* startup database nomount
+* Shutdown and connect RMAN / startup database nomount
 
 ```
+[oracle@dbstby ~]$ srvctl stop database -d ORCL_yny1zh -o immediate;
+
 ```
+
+```sql
+[oracle@dbstby ~]$ rman target /
+
+Recovery Manager: Release 19.0.0.0.0 - Production on Sat Jan 30 08:12:05 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database (not started)
+
+RMAN> startup nomount;
+
+Oracle instance started
+
+Total System Global Area    6442449472 bytes
+
+Fixed Size                     9148992 bytes
+Variable Size               1140850688 bytes
+Database Buffers            5268045824 bytes
+Redo Buffers                  24403968 bytes
+
+RMAN>
+
+```
+
 
 * Restore control file from primary database
 
 ```
+
 ```
 
 * startup mount
