@@ -1,7 +1,9 @@
 ## 문서 목록
 * [**LIVE LABS : Workshop**](oci_labs/oci_labs.md)
-  * [oci_labs_adg.md](oci_labs/oci_labs-adg.md)
+  * [oci_labs.md](oci_labs/oci_labs.md)
+  * [oci_labs_adg.md](oci_labs/oci_labs_adg.md)
   * [oci_labs_adg_asm.md](oci_labs/oci_labs_adg-asm.md)
+  * [oci_labs_ogg.md](oci_labs/oci_labs_ogg.md)
 ---
 ### DB / DBCS
 #### 19c
