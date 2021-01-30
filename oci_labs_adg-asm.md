@@ -344,11 +344,55 @@ net.core.wmem_max = 134217728
 ```
 
 ### Instantiate the Standby Database
+* create pdb directory in ASM (os user : **grid**)
 
 ```
 ```
-### Clear all online and standby redo logs
+* create pdb directory in ASM (os user : **oracle **)
+
+```
+```
+
+* startup database nomount
+
+```
+```
+
+* Restore control file from primary database
+
+```
+```
+
+* startup mount
+
+```
+```
+
+* restore database from primary database
+
+```
+```
+
+* Shutdown and mount the database again
+
+```
+```
+
+* Clear all online and standby redo logs
 
 ```sql
 ```
+
 ### Configure Data Guard broker
+
+* Configure Data Guard broker From primay side
+
+```
+```
+
+* Configure Data Guard broker From standby side
+
+```
+```
+
+* Register the database via DGMGRL
