@@ -19,7 +19,7 @@
 * [Enterprise data warehousing - an integrated data lake example](https://docs.oracle.com/en/solutions/oci-curated-analysis/index.html#GUID-7FF7A024-5EB0-414B-A1A5-4718929DC7F2)
 
 
-### ARHI Component
+### Category
 
 * Architecture
   * Cloud Architect Reference
