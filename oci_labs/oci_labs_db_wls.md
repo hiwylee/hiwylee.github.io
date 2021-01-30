@@ -11,7 +11,7 @@
 * Labs 
 
 |Lab Seq.| Name	 |
-|---|:---|  
+|:---:|:---|  
 |3|Initialize Environment (Start Services)|	 
 |4|eSHOP Application                      |
 |5|Data Type Demonstration Tool           |
