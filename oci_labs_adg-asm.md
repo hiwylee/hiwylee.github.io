@@ -1,6 +1,6 @@
 ###  Oracle Database Hybrid Active Data Guard Workshop
 
-### STEP 2 : Stnady DB - ASM
+### STEP 2 : Standy DB - ASM
 ---
 ### Manually Delete the standby Database Created by Tooling
 * list datafile to delete and create pfile
