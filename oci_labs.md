@@ -7,7 +7,7 @@
 * [GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=692)
 * [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
 
-### Architecture CenterSolution Playbooks
+### Architecture Center/Solution Playbooks
 * [Best practices for securing workloads in the cloud](https://docs.oracle.com/en/solutions/oci-best-practices-security/secure-compute-instances1.html#GUID-FF972866-3865-45FD-B651-72A624FE6AAE)
 * [Learn about architecting a highly available cloud topology](https://docs.oracle.com/en/solutions/design-ha/index.html#GUID-D246FCD4-A9A1-47BB-9D72-A27633D539BD)
 * [Develop a sales enablement website](https://docs.oracle.com/en/solutions/develop-sales-enablement-site/index.html#GUID-6AB1DBBA-F9F7-4A63-BBC4-DE65D8A640D4)
