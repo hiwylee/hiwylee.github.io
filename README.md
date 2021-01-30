@@ -4,6 +4,7 @@
   * [oci_labs_adg.md](oci_labs/oci_labs_adg.md)
   * [oci_labs_adg_asm.md](oci_labs/oci_labs_adg-asm.md)
   * [oci_labs_ogg.md](oci_labs/oci_labs_ogg.md)
+  * [Converged Database with Weblogic for Developers](oci_labs/oci_labs_db_wls.md)
 ---
 ### DB / DBCS
 #### 19c
