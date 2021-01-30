@@ -18,7 +18,7 @@
 * [Migrate data to a high performance database in the cloud using Oracle ACFS](https://docs.oracle.com/en/solutions/migrate-database-with-data-pump/index.html#GUID-EFE82F3A-2C6B-44B3-8158-E39D36E86FAF)
 * [Enterprise data warehousing - an integrated data lake example](https://docs.oracle.com/en/solutions/oci-curated-analysis/index.html#GUID-7FF7A024-5EB0-414B-A1A5-4718929DC7F2)
 * [Deploy a hybrid DR topology for an on-premises database](https://docs.oracle.com/en/solutions/standby-database-in-cloud/index.html#GUID-59963446-74C0-4C95-BC66-F9FC63D1DA3A)
-
+* [Best practices framework for Oracle Cloud Infrastructure](https://docs.oracle.com/en/solutions/oci-best-practices/manage-identities-and-authorization.html#GUID-ECDA4F04-3010-4E40-A93F-CD516869A24F)
 ### Category
 
 * Architecture
