@@ -7,9 +7,10 @@
 * Consume out of box REST options from Converged Database in application
 ### Lab Overview
 * Architecture
-  * ![]()
-|||  
+  * ![](https://oracle.github.io/learning-library/developer-library/converged-db/converged-db-with-wls/intro/images/wls-cdb-lab-architecture.png)
+* Labs 
 |Lab Seq.| Name	 |
+|||  
 |Initialize Environment (Start Services)|	 
 |eSHOP Application                      |
 |Data Type Demonstration Tool           |
