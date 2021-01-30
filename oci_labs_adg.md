@@ -409,7 +409,8 @@ SQL>  alter system set fast_start_mttr_target=300 scope=both;
 System altered.
 
 ```
-### STEP 2 : Stnady DB 
+### [STEP 2 : Stnady DB - ASM](oci_labs_adg-asm.md)
+### STEP 2 : Stanby DB - LVM
 ---
 ### Provision DBCS on OCI
 * DBCS 프로비전한 후에 DB 삭제하고 standby 다시 생성
