@@ -6,7 +6,7 @@
 * Develop REST end points for database development
 * Consume out of box REST options from Converged Database in application
 ### Lab Overview
-* Architecture
+* Architecture - Osaka
   * ![](https://oracle.github.io/learning-library/developer-library/converged-db/converged-db-with-wls/intro/images/wls-cdb-lab-architecture.png)
 * Labs 
 
