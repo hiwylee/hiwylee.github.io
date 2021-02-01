@@ -31,6 +31,8 @@
 * [Learn about creating an intranet website](https://docs.oracle.com/en/solutions/learn-about-create-intranet-website/index.html#GUID-F2EDA5BD-66BE-48CF-A0B6-5D04DBACACDA)
 * [Develop an intranet website](https://docs.oracle.com/en/solutions/develop-intranet-website/index.html#GUID-82892EAC-386A-4922-9952-5A7ABC8FA7D6)
 
+### OCI Basic
+* [Oracle Functions Samples (github)](https://github.com/oracle/oracle-functions-samples)
 ### Category
 
 * Architecture
