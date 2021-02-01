@@ -1140,7 +1140,7 @@ DGMGRL>
 
 ```
 
-* stadby remove 방법
+* standby remove 방법
 
 ```sql
 DGMGRL> SHOW CONFIGURATION;
