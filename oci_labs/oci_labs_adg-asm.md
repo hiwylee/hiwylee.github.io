@@ -626,10 +626,10 @@ Fast-Start Failover:  Disabled
 
 Configuration Status:
 SUCCESS   (status updated 42 seconds ago)
+DGMGRL> ADD DATABASE ORCL_yny1zh AS CONNECT IDENTIFIER IS ORCL_yny1zh maintained as physical;
 
 Database "orcl_yny1zh" added
-DGMGRL>
-
+DGMGRL> 
 ```
 
 ```
@@ -648,7 +648,9 @@ Fast-Start Failover:  Disabled
 
 Configuration Status:
 SUCCESS   (status updated 44 seconds ago)
+```
 
+```sql
 DGMGRL> enable database orcl_yny1zh;
 Enabled.
 DGMGRL>  show configuration;
@@ -671,7 +673,7 @@ ERROR   (status updated 35 seconds ago)
 DGMGRL> DGMGRL>
 
 ```
-* From cloud side, open the standby database as read only.
+* From standby side, open the standby database as read only.
 
 ```sql
 [oracle@dbstby ~]$ sqlplus / as sysdba
