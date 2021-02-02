@@ -150,7 +150,155 @@ SQL>
 
 ### STEP 2: Configure the Source Database
 
+* source 설정 script - ogg amdin & 환경설정
+
+```sql
+create user C##user01 identified by WElcome_123#;
+grant connect, resource, dba to c##user01;
+alter database add supplemental log data;
+exec dbms_goldengate_auth.grant_admin_privilege('C##user01', container=>'all');
+alter system set ENABLE_GOLDENGATE_REPLICATION=true scope=both;
+```
+
+```sql
+[oracle@primary ogg]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Feb 2 07:57:20 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> create user C##user01 identified by WElcome_123#;
+
+User created.
+
+SQL> grant connect, resource , dba to c##user01;
+
+Grant succeeded.
+
+SQL> alter database add supplemental log data;
+
+Database altered.
+
+SQL> exec dbms_goldengate_auth.grant_admin_privilege('C##user01', container=>'all');
+
+PL/SQL procedure successfully completed.
+
+SQL> alter system set enable_goldengate_replication=true scope=both;
+
+System altered.
+
+SQL> show parameter ENABLE_GOLDENGATE_REPLICATION;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+enable_goldengate_replication        boolean     TRUE
+SQL>
+
+```
+
+*  create a schema user:  appschema in PDB 
+   * scripts
+
+```sql
+alter session set container=orclpdb;
+create user appschema identified by WElcome_123# default tablespace users;
+grant connect, resource, dba to appschema;
+CREATE TABLE appschema.COMMENTS
+   (  "COMMENT_ID" NUMBER(10,0),
+  "ITEM_ID" NUMBER(10,0),
+  "COMMENT_BY" NUMBER(10,0),
+  "COMMENT_CREATE_DATE" DATE DEFAULT sysdate,
+  "COMMENT_TEXT" VARCHAR2(500)
+   ) ;
+alter user appschema quota unlimited on users;
+```
+
 ### STEP 3: Configure the Target Database
+* Target 설정 script - ogg amdin & 환경설정
+
+```sql
+-- cr_app.sql
+create user C##user01 identified by WElcome_123#;
+grant connect, resource, dba to c##user01;
+alter database add supplemental log data;
+exec dbms_goldengate_auth.grant_admin_privilege('C##user01', container=>'all');
+alter system set ENABLE_GOLDENGATE_REPLICATION=true scope=both;
+```
+
+```sql
+SQL> show pdbs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB                        READ WRITE NO
+SQL> @cr_app
+
+Session altered.
+
+User created.
+
+Grant succeeded.
+
+Table created.
+
+User altered.
+```
+
+[oracle@dbsty ogg]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Feb 2 08:22:33 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> @cr_user
+
+User created.
+
+Grant succeeded.
+
+Database altered.
+
+PL/SQL procedure successfully completed.
+
+System altered.
+
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+enable_goldengate_replication        boolean     TRUE
+SQL>
+
+```
+*  create a schema user:  appschema in PDB 
+   * scripts
+
+```sql
+alter session set container=orclpdb;
+create user appschema identified by WElcome_123# default tablespace users;
+grant connect, resource, dba to appschema;
+CREATE TABLE appschema.COMMENTS
+   (  "COMMENT_ID" NUMBER(10,0),
+  "ITEM_ID" NUMBER(10,0),
+  "COMMENT_BY" NUMBER(10,0),
+  "COMMENT_CREATE_DATE" DATE DEFAULT sysdate,
+  "COMMENT_TEXT" VARCHAR2(500)
+   ) ;
+alter user appschema quota unlimited on users;
+```
+
 
 ### STEP 4: Configure Goldengate Service
 * gui part
