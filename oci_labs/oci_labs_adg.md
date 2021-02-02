@@ -1139,6 +1139,49 @@ WARNING   (status updated 7 seconds ago)
 DGMGRL>
 
 ```
+* standby database open; 
+
+```
+[oracle@dbsty ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Jan 30 08:53:46 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> select open_mode,database_role from v$database;
+
+OPEN_MODE            DATABASE_ROLE
+-------------------- ----------------
+MOUNTED              PHYSICAL STANDBY
+
+SQL> alter database open;
+
+Database altered.
+
+SQL> alter pluggable database orclpdb open;
+
+Pluggable database altered.
+
+SQL> show pdbs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB                        READ ONLY  NO
+SQL> select open_mode,database_role from v$database;
+
+OPEN_MODE            DATABASE_ROLE
+-------------------- ----------------
+READ ONLY WITH APPLY PHYSICAL STANDBY
+
+SQL>
+```
 
 * standby remove 방법
 
