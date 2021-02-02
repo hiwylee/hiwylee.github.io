@@ -139,3 +139,23 @@ BEFORE_OGG              3594066 02-FEB-21 05.40.25.000000000 AM                 
 SQL>
 
 ```
+--- 
+### Real-time Migration with Oracle Goldengate Replication
+* source/target : nomarl DBCS  
+  * [참조문서](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=756&p210_type=3&session=7583365448709)
+  * ![](https://oracle.github.io/learning-library/solutions-library/exacs-mdw/golden-gate/images/gg_arch.png)
+  
+----
+### STEP 1: Provision a Goldengate Microservice from OCI Marketplace
+
+### STEP 2: Configure the Source Database
+
+### STEP 3: Configure the Target Database
+
+### STEP 4: Configure Goldengate Service
+* gui part
+
+---
+### 데이터베이스 원상 복수
+#### 소스 원상 복구
+#### 타겟 원상 복구
