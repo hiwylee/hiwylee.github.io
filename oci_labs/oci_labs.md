@@ -75,6 +75,6 @@
   * [Network Security            ]()
   * [Authentication/Authorization]()
 * Development
-  * [Intefrated Dev Tools]()
+  * [Integrated Dev Tools]()
   * [Dev Language        ]()
 			
