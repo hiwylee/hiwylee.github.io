@@ -302,7 +302,88 @@ User altered.
 ```
 
 ### STEP 4: Configure Goldengate Service
-* gui part
+* OGG Deployment name : **Databases**
+
+* /etc/hosts
+```bash
+# source DB
+152.67.197.86 primary.subnet1.primaryvcn.oraclevcn.com         primary
+# target DB
+152.67.196.89   dbsty.sub01291310280.standbyvcn.oraclevcn.com  dbsty
+
+```
+* tnsmames.ora 설정 : /u02/deployments/[Deployment name]/etc
+
+```
+-bash-4.2$ cd /u02/deployments/Databases/etc
+-bash-4.2$ cat tnsnames.ora
+
+cdb_source =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = primary)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = ORCL)
+    )
+  )
+
+pdb_source =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = primary)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orclpdb)
+    )
+  )
+
+cdb_target =
+ (DESCRIPTION =
+     (SDU=65536)
+     (RECV_BUF_SIZE=134217728)
+     (SEND_BUF_SIZE=134217728)
+     (ADDRESS_LIST =
+     (ADDRESS = (PROTOCOL = TCP)(HOST = dbsty)(PORT = 1521))
+     )
+     (CONNECT_DATA =
+        (SERVER = DEDICATED)
+        (SERVICE_NAME = ORCL_yny166)
+        (UR=A)
+     )
+  )
+
+
+pdb_target =
+ (DESCRIPTION =
+     (SDU=65536)
+     (RECV_BUF_SIZE=134217728)
+     (SEND_BUF_SIZE=134217728)
+     (ADDRESS_LIST =
+     (ADDRESS = (PROTOCOL = TCP)(HOST = dbsty)(PORT = 1521))
+     )
+     (CONNECT_DATA =
+        (SERVER = DEDICATED)
+        (SERVICE_NAME = orclpdb)
+        (UR=A)
+     )
+  )
+
+```
+* sqlnet.ora
+
+```
+```
+
+* OGG 설정 
+  * url :  [https://<ip_address_of_goldengate_image> ex) https://152.67.192.10](https://152.67.192.10)
+  * id/password : opc home 아래 ogg-credentials.json 참조 
+```
+-bash-4.2$ cd
+-bash-4.2$ cat ogg-credentials.json
+{"username": "oggadmin", "credential": "EDJT7Hpk.Q2qNrN1"}
+-
+```
+
+#### OGG : Extract, Pump, Repica 설정
 
 ---
 ### 데이터베이스 원상 복수
