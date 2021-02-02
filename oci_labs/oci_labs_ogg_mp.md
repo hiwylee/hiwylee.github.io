@@ -3,7 +3,7 @@
 * OGG source : primary db /  Target DB : ADG  snapshot standby 활용
 * OGG : Goldengate Microservice 
 
-### ADG  snapshot standby 설덜
+### 사전 준비:  ADG  snapshot standby 설정
 
 * PHYSICAL STANDBY 확인
 
