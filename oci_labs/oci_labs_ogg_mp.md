@@ -371,6 +371,7 @@ pdb_target =
 * sqlnet.ora
 
 ```
+WALLET_LOCATION = (SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY="/u02/deployments/Databases/etc")))
 ```
 
 * OGG 설정 
@@ -382,6 +383,7 @@ pdb_target =
 {"username": "oggadmin", "credential": "EDJT7Hpk.Q2qNrN1"}
 -
 ```
+* **Administration Server	** Stop 후 Start 해야 위에서 변경한 내용(tnsnames.ora/sqlnet.ora)이 반영됨
 
 #### OGG : Extract, Pump, Repica 설정
 
