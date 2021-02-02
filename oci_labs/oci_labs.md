@@ -16,7 +16,9 @@
   * [Oracle Data Integrator Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=619&session=110719162873870)
   * [Oracle Data Integrator - Basics Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=774&p210_type=3&session=110719162873870)
   * [Oracle Data Integrator - Advanced Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=775&session=110719162873870)
- 
+* OGG
+  * [GoldenGate 19c Microservices Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=585&session=3383649751305)
+  * [GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=692&session=3383649751305)
 ### Architecture Center/Solution Playbooks
 * [Best practices for securing workloads in the cloud](https://docs.oracle.com/en/solutions/oci-best-practices-security/secure-compute-instances1.html#GUID-FF972866-3865-45FD-B651-72A624FE6AAE)
 * [Create a CI/CD pipeline for Bots custom components](https://docs.oracle.com/en/solutions/create-cicd-pipeline-custom-components/index.html#GUID-3F118956-E1B3-44CE-A8EE-E9062DB5F73A)
