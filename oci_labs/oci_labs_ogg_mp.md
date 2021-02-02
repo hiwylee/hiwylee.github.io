@@ -399,11 +399,76 @@ WALLET_LOCATION = (SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY="/u02/deployments
 #### 소스 원상 복구
 * Source DB - flashback database to a restore point (**before_ogg**)
    * [Guarantee Restore Point tips ](http://www.dba-oracle.com/t_flashback_guaranteed_restore_point.htm)
- 
+   * 
  ```sql
- 
- ```
- 
+ SQL>
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 4647286504 bytes
+Fixed Size                  9144040 bytes
+Variable Size            1929379840 bytes
+Database Buffers         2701131776 bytes
+Redo Buffers                7630848 bytes
+Database mounted.
+SQL>
+SQL> flashback database to restore point before_ogg;
+
+Flashback complete.
+
+SQL>
+SQL> alter database open read only;
+
+Database altered.
+
+SQL>
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 4647286504 bytes
+Fixed Size                  9144040 bytes
+Variable Size            1929379840 bytes
+Database Buffers         2701131776 bytes
+Redo Buffers                7630848 bytes
+Database mounted.
+SQL>
+SQL>
+SQL> alter database open resetlogs;
+
+Database altered.
+SQL>
+SQL>  select database_role, open_mode from v$database;
+
+DATABASE_ROLE    OPEN_MODE
+---------------- --------------------
+PRIMARY          READ WRITE
+
+SQL>
+
+```
+
+
+* To **recover** the database to the restore point
+
+```sql
+RECOVER DATABASE UNTIL RESTORE POINT before_ogg;
+```
+
+* To drop a restore point
+
+```sql
+DROP RESTORE POINT before_load
+```
 #### 타겟 원상 복구
 
 * [참고문서](https://dbaclass.com/article/convert-physical-standby-to-snapshot-standby-database/)
