@@ -223,7 +223,7 @@ alter user appschema quota unlimited on users;
 * Target 설정 script - ogg amdin & 환경설정
 
 ```sql
--- cr_app.sql
+-- cr_user.sql
 create user C##user01 identified by WElcome_123#;
 grant connect, resource, dba to c##user01;
 alter database add supplemental log data;
@@ -231,25 +231,6 @@ exec dbms_goldengate_auth.grant_admin_privilege('C##user01', container=>'all');
 alter system set ENABLE_GOLDENGATE_REPLICATION=true scope=both;
 ```
 
-```sql
-SQL> show pdbs
-
-    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
----------- ------------------------------ ---------- ----------
-         2 PDB$SEED                       READ ONLY  NO
-         3 ORCLPDB                        READ WRITE NO
-SQL> @cr_app
-
-Session altered.
-
-User created.
-
-Grant succeeded.
-
-Table created.
-
-User altered.
-```
 ```sql
 [oracle@dbsty ogg]$ sqlplus / as sysdba
 
@@ -286,6 +267,7 @@ SQL>
   * scripts
 
 ```sql
+-- cr_app.sql
 alter session set container=orclpdb;
 create user appschema identified by WElcome_123# default tablespace users;
 grant connect, resource, dba to appschema;
@@ -299,6 +281,25 @@ CREATE TABLE appschema.COMMENTS
 alter user appschema quota unlimited on users;
 ```
 
+```sql
+SQL> show pdbs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 ORCLPDB                        READ WRITE NO
+SQL> @cr_app
+
+Session altered.
+
+User created.
+
+Grant succeeded.
+
+Table created.
+
+User altered.
+```
 
 ### STEP 4: Configure Goldengate Service
 * gui part
