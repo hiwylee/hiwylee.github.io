@@ -386,8 +386,29 @@ WALLET_LOCATION = (SOURCE=(METHOD=FILE)(METHOD_DATA=(DIRECTORY="/u02/deployments
 * **Administration Server	** Stop 후 Start 해야 위에서 변경한 내용(tnsnames.ora/sqlnet.ora)이 반영됨
 
 #### OGG : Extract, Pump, Repica 설정
+* stream pool size : [참고](https://www.oracle-scn.com/memory-requirement-for-oracle-goldengate-integrated-extract/)
+```
+ alter system set streams_pool_size=1G scope=both;
 
+```
 ---
 ### 데이터베이스 원상 복구
+* OGG Micro Service 종료.
+  * stop extract/replica
+---
 #### 소스 원상 복구
+* Source DB - flashback database to a restore point (**before_ogg**)
+   * [Guarantee Restore Point tips ](http://www.dba-oracle.com/t_flashback_guaranteed_restore_point.htm)
+ 
+ ```sql
+ 
+ ```
+ 
 #### 타겟 원상 복구
+
+* [참고문서](https://dbaclass.com/article/convert-physical-standby-to-snapshot-standby-database/)
+
+ ```sql
+ 
+ ```
+ 
