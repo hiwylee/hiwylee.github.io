@@ -3,7 +3,7 @@
 * OGG source : primary db /  Target DB : ADG  snapshot standby 활용
 * OGG : Goldengate Microservice 
 ---
-### 사전 준비:  ADG  snapshot standby 설정
+### 사전 준비 1:  ADG  snapshot standby 설정
 * [참고문서](https://dbaclass.com/article/convert-physical-standby-to-snapshot-standby-database/)
 * PHYSICAL STANDBY 확인
 
@@ -114,7 +114,7 @@ source (ORCL)         : 10.0.1.2  / 152.67.196.89   dbsty.sub01291310280.standby
 target (ORCL_yny166)  : 10.0.0.2  / 152.67.197.86 primary.subnet1.primaryvcn.oraclevcn.com primary
 ```
 ---
-### 환경 설정.
+### 사전 준비 2 :  SOurce DB RESTORE POINT
 * primary database : **CREATE RESTORE POINT** (테스트 후 primy 로 원래 상태로)
  * [Guarantee Restore Point tips ](http://www.dba-oracle.com/t_flashback_guaranteed_restore_point.htm)
 ```sql
