@@ -447,6 +447,10 @@ SQL> alter database open resetlogs;
 
 Database altered.
 SQL>
+SQL> DROP RESTORE POINT before_ogg;
+
+Restore point dropped.
+SQL>
 SQL>  select database_role, open_mode from v$database;
 
 DATABASE_ROLE    OPEN_MODE
@@ -456,8 +460,6 @@ PRIMARY          READ WRITE
 SQL>
 
 ```
-
-
 * To **recover** the database to the restore point
 
 ```sql
@@ -467,13 +469,115 @@ RECOVER DATABASE UNTIL RESTORE POINT before_ogg;
 * To drop a restore point
 
 ```sql
-DROP RESTORE POINT before_load
+DROP RESTORE POINT before_ogg
 ```
-#### 타겟 원상 복구
 
+* ADG Status check : orcl_yny166 **incorrect database role**
+
+```sql
+[oracle@primary checkpoints]$ dgmgrl sys/Ora_DB4U@orcl
+DGMGRL for Linux: Release 19.0.0.0.0 - Production on Tue Feb 2 12:09:37 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Welcome to DGMGRL, type "help" for information.
+Connected to "ORCL"
+Connected as SYSDBA.
+DGMGRL> show configuration;
+
+Configuration - adgconfig
+
+  Protection Mode: MaxPerformance
+  Members:
+  orcl        - Primary database
+    Error: ORA-16778: redo transport error for one or more members
+
+    orcl_yny1zh - Physical standby database
+      Error: ORA-16810: multiple errors or warnings detected for the member
+
+    orcl_yny166 - Physical standby database
+      Error: ORA-16816: incorrect database role
+
+Fast-Start Failover:  Disabled
+
+Configuration Status:
+ERROR   (status updated 60 seconds ago)
+
+```
+#### 타겟 원상 복구 : 
+* convert  Snapshot Standb to Physical standby database
 * [참고문서](https://dbaclass.com/article/convert-physical-standby-to-snapshot-standby-database/)
 
- ```sql
- 
+```sql
+alter database convert to physical standby;
+alter database recover managed standby database using current logfile disconnect;
+```
+
+```sql
+ [oracle@dbsty ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Feb 2 12:13:04 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE High Perf Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL>
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+
+ORACLE instance shut down.
+SQL> SQL>
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 6442449472 bytes
+Fixed Size                  9148992 bytes
+Variable Size            2164260864 bytes
+Database Buffers         4244635648 bytes
+Redo Buffers               24403968 bytes
+Database mounted.
+SQL>  select FLASHBACK_ON from v$database;
+
+FLASHBACK_ON
+------------------
+YES
+
+SQL> alter database convert to physical standby;
+
+Database altered.
+
+SQL> select database_role, open_mode from v$database;
+
+DATABASE_ROLE    OPEN_MODE
+---------------- --------------------
+PHYSICAL STANDBY MOUNTED
+
+SQL> shutdown immediate;
+ORA-01109: database not open
+
+
+Database dismounted.
+ORACLE instance shut down.
+SQL>
+SQL> startup ;
+ORACLE instance started.
+
+Total System Global Area 6442449472 bytes
+Fixed Size                  9148992 bytes
+Variable Size            2164260864 bytes
+Database Buffers         4244635648 bytes
+Redo Buffers               24403968 bytes
+Database mounted.
+Database opened.
+SQL>
+SQL> alter database recover managed standby database using current logfile disconnect;
+
  ```
  
