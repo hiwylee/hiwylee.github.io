@@ -250,7 +250,7 @@ Table created.
 
 User altered.
 ```
-
+```sql
 [oracle@dbsty ogg]$ sqlplus / as sysdba
 
 SQL*Plus: Release 19.0.0.0.0 - Production on Tue Feb 2 08:22:33 2021
@@ -283,7 +283,7 @@ SQL>
 
 ```
 *  create a schema user:  appschema in PDB 
-   * scripts
+  * scripts
 
 ```sql
 alter session set container=orclpdb;
