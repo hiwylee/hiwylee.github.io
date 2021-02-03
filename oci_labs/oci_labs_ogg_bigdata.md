@@ -103,7 +103,7 @@ GGSCI (quickstart.cloudera) 2>
 * 
 
 ----
-### Replication from MySQL to MySQL 
+### [Replication from MySQL to MySQL](https://github.com/oracle/learning-library/blob/master/data-management-library/goldengate/bigdata/mysql-to-mysql/mysql-to-mysql.md) 
 
 *  Architectue
 ![](https://oracle.github.io/learning-library/data-management-library/goldengate/bigdata/mysql-to-mysql/images/image200_1.png)
@@ -440,7 +440,7 @@ GGSCI (quickstart.cloudera) 3>
 
 ----
 
-### Replication from MySQL to HDFS
+### [Replication from MySQL to HDFS](https://github.com/oracle/learning-library/blob/master/data-management-library/goldengate/bigdata/mysql-to-hdfs/mysql-to-hdfs.md)
 
 *
 ```
