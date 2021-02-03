@@ -240,13 +240,8 @@ Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
 MANAGER     STOPPED
 
-
-GGSCI (quickstart.cloudera) 2> start mge
-ERROR: Invalid command.
-
 GGSCI (quickstart.cloudera) 3> start mgr
 Manager started.
-
 
 GGSCI (quickstart.cloudera) 4> info all
 
@@ -254,9 +249,9 @@ Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
 MANAGER     RUNNING
 
-
 ```
 
+* create extract, pump, replicat
 ```
 GGSCI (quickstart.cloudera) 2> obey ./dirprm/create_mysql_gg_procs.oby
 
@@ -332,7 +327,7 @@ EXTRACT     RUNNING     PMPMYSQL    00:00:00      00:00:02
 REPLICAT    STOPPED     REPMYSQL    00:00:00      00:02:04
 
 ```
-* start replica
+* start replicat
 
 ```
 GGSCI (quickstart.cloudera) 12> start repmysql
@@ -395,4 +390,64 @@ REPLICAT    RUNNING     REPMYSQL    00:00:00      00:00:02
 
 *
 ```
+```
+
+
+#### Alias
+
+```bash
+alias adminmenu='$CONFIG/admin_menu.sh'
+alias casscount='clear; $GGCASS/run_count.sh'
+alias cassselect='clear; $GGCASS/run_select.sh'
+alias config='cd $CONFIG; ls -l'
+alias consumetopic='cd $GGKAFKA;./run-consumer.sh'
+alias counthbasetables='cd $GGHBASE;./count_tables.sh'
+alias cqlsh='clear; $GGCASS/apache-cassandra-3.0.10/bin/cqlsh'
+alias createcasskeyspace='clear; $CONFIG/create_cass_keyspace_for_gg.sh'
+alias creategg='clear; $CONFIG/create_gg_procs.sh'
+alias ddlsource='clear; $CONFIG/mysql_add_column.sh'
+alias deletegg='clear; $CONFIG/delete_gg_procs.sh'
+alias deletetopics='cd $GGKAFKA;./clear-topics.sh'
+alias dmlsource='clear; $CONFIG/mysql_dml_source.sh'
+alias dropcasskeyspace='clear; $CONFIG/drop_cass_keyspace_for_gg.sh'
+alias drophbasetables='cd $GGHBASE;./drop_tables.sh'
+alias gghadoop='cd $GGHADOOP;pwd'
+alias ggmysql='cd $GGMYSQL;pwd'
+alias ggscihadoop='cd $GGHADOOP; ./ggsci'
+alias ggscimysql='cd $GGMYSQL; ./ggsci'
+alias hdfscat='hdfs dfs -cat /user/ggtarget/hdfs/*/*'
+alias hdfsls='hdfs dfs -ls /user/ggtarget/hdfs/*/*'
+alias hdfsrm='hdfs dfs -rm -r /user/ggtarget/hdfs/*'
+alias hivecat='hdfs dfs -cat /user/ggtarget/hive/*/*'
+alias hivecatavsc='hdfs dfs -cat /user/ggtarget/hive/schema/*'
+alias hivels='hdfs dfs -ls /user/ggtarget/hive/*/*'
+alias hivelsavsc='hdfs dfs -ls /user/ggtarget/hive/schema/*'
+alias hiverm='hdfs dfs -rm -r /user/ggtarget/hive/*'
+alias hiveselect='hive -f $GGHIVE/select.hql'
+alias infogg='clear; $CONFIG/info_gg.sh'
+alias l.='ls -d .* --color=auto'
+alias labmenu='$LABS/lab_menu.sh'
+alias listhbasetables='cd $GGHBASE;./list_tables.sh'
+alias ll='ls -lrt'
+alias loadsource='clear; $CONFIG/mysql_load_source.sh'
+alias ls='ls --color=auto'
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+alias mysqlreset='clear; $CONFIG/mysql_reset_source_target_schema.sh'
+alias mysqlselect='clear; $CONFIG/mysql_select_source_target.sh'
+alias mysqlsource='mysql -u ggdemo -poracle -D ggsource'
+alias mysqltarget='mysql -u ggdemo -poracle -D ggtarget'
+alias mysqltruncsource='clear; $CONFIG/mysql_truncate_source.sh'
+alias mysqltrunctarget='clear; $CONFIG/mysql_truncate_target.sh'
+alias purgeggtargethadoopfiles='$CONFIG/purge_gg_target_hadoop_files.sh'
+alias selecthbasetable='cd $GGHBASE;./scan_table.sh'
+alias showtopics='cd $GGKAFKA;./show-topics.sh'
+alias startcass='clear; sudo $GGCASS/apache-cassandra-3.0.10/bin/cassandra -f'
+alias startgg='clear; $CONFIG/start_gg.sh; sleep 5; infogg'
+alias startkafkabroker='cd $GGKAFKA;./start-kafka.sh'
+alias statsgg='clear; $CONFIG/stats_gg.sh'
+alias statsgghadoop='clear; $CONFIG/stats_gg_hadoop.sh'
+alias statsggmysql='clear; $CONFIG/stats_gg_mysql.sh'
+alias stopgg='clear; $CONFIG/stop_gg.sh; sleep 5; infogg'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 ```
