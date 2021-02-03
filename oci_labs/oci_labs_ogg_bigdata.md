@@ -349,8 +349,97 @@ REPLICAT    RUNNING     REPMYSQL    00:00:00      00:00:02
 ```
 ### STEP 3:Load Data into Source Database
 
+* loadsource
+
+```
+```
+
+* stats repmysql total
+```
+
+GGSCI (quickstart.cloudera) 1> stats extmysql total
+
+Sending STATS request to EXTRACT EXTMYSQL ...
+
+Start of Statistics at 2021-02-03 02:30:05.
+
+Output to ./dirdat/et:
+
+Extracting from ggsource.dept to ggsource.dept:
+
+*** Total statistics since 2021-02-03 02:29:38 ***
+ Total inserts                               4.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                            4.00
+
+Extracting from ggsource.emp to ggsource.emp:
+
+*** Total statistics since 2021-02-03 02:29:38 ***
+ Total inserts                              14.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                           14.00
+
+Extracting from ggsource.salgrade to ggsource.salgrade:
+
+*** Total statistics since 2021-02-03 02:29:38 ***
+ Total inserts                               5.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                            5.00
+
+End of Statistics.
+```
+* stats repmysql total
+
+```
+GGSCI (quickstart.cloudera) 2> stats repmysql total
+
+Sending STATS request to REPLICAT REPMYSQL ...
+
+Start of Statistics at 2021-02-03 02:30:17.
+
+Replicating from ggsource.dept to ggtarget.dept:
+
+*** Total statistics since 2021-02-03 02:29:42 ***
+ Total inserts                               4.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                            4.00
+
+Replicating from ggsource.emp to ggtarget.emp:
+
+*** Total statistics since 2021-02-03 02:29:42 ***
+ Total inserts                              14.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                           14.00
+
+Replicating from ggsource.salgrade to ggtarget.salgrade:
+
+*** Total statistics since 2021-02-03 02:29:42 ***
+ Total inserts                               5.00
+ Total updates                               0.00
+ Total deletes                               0.00
+ Total discards                              0.00
+ Total operations                            5.00
+
+End of Statistics.
+
+
+GGSCI (quickstart.cloudera) 3>
+
+
+```
 
 ----
+
 ### Replication from MySQL to HDFS
 
 *
