@@ -447,35 +447,35 @@ GGSCI (quickstart.cloudera) 3>
 ```
 
 ----
-### Replication from MySQL to Hive 
+### [Replication from MySQL to Hive ](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-hive)
 
 *
 ```
 ```
 
 ----
-### Replication from MySQL to HBase
+### [Replication from MySQL to HBase](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-hbase)
 
 *
 ```
 ```
 
 ----
-### Replication from MySQL to Kafka 
+### [Replication from MySQL to Kafka ](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-kafka)
 
 *
 ```
 ```
 
 ----
-### Replication from MySQL to Cassandra 
+### [Replication from MySQL to Cassandra](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-cassandra)
 
 *
 ```
 ```
 
 ----
-### Replication from MySQL to Oracle 
+### [Replication from MySQL to Oracle](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-oracle)
 
 *
 ```
