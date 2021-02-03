@@ -11,7 +11,9 @@
   * Lab4 : Replication from MySQL to HBase
   * Lab5 : Replication from MySQL to Kafka 
   * Lab6 : Replication from MySQL to Cassandra 
+<!--
   * Lab7 : Replication from MySQL to Oracle 
+-->
 ----
 
 ### [Deploy GoldenGate for Big Data](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/deploy-gg-for-bd)
@@ -479,6 +481,7 @@ GGSCI (quickstart.cloudera) 3>
 *
 ```
 ```
+<!--
 
 ----
 ### [Replication from MySQL to Oracle](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-oracle)
@@ -489,7 +492,6 @@ GGSCI (quickstart.cloudera) 3>
 ```
 ```
 
-<!--
 #### Alias
 
 ```bash
