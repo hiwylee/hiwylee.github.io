@@ -449,7 +449,7 @@ GGSCI (quickstart.cloudera) 3>
 ----
 ### [Replication from MySQL to Hive ](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/mysql-to-hive)
 * Architecture
-![](https://oracle.github.io/learning-library/data-management-library/goldengate/bigdata/mysql-to-hdfs/images/image401_1.png)
+![](https://oracle.github.io/learning-library/data-management-library/goldengate/bigdata/mysql-to-hive/images/image401_1.png)
 *
 ```
 ```
