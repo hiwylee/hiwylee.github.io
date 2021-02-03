@@ -14,7 +14,7 @@
   * Lab7 : Replication from MySQL to Oracle 
 ----
 
-### Deploy GoldenGate for Big Data
+### [Deploy GoldenGate for Big Data](https://github.com/oracle/learning-library/tree/master/data-management-library/goldengate/bigdata/deploy-gg-for-bd)
 
 *
 ```
