@@ -5,13 +5,13 @@
 * Arhitect
  * ![](https://oracle.github.io/learning-library/data-management-library/goldengate/bigdata/introduction/images/image110_1.png)
 * Lab Overview
-  * Replication from MySQL to MySQL 
-  * Replication from MySQL to HDFS
-  * Replication from MySQL to Hive 
-  * Replication from MySQL to HBase
-  * Replication from MySQL to Kafka 
-  * Replication from MySQL to Cassandra 
-  * Replication from MySQL to Oracle 
+  * Lab1 : Replication from MySQL to MySQL 
+  * Lab2 : Replication from MySQL to HDFS
+  * Lab3 : Replication from MySQL to Hive 
+  * Lab4 : Replication from MySQL to HBase
+  * Lab5 : Replication from MySQL to Kafka 
+  * Lab6 : Replication from MySQL to Cassandra 
+  * Lab7 : Replication from MySQL to Oracle 
 ----
 
 ### Replication from MySQL to MySQL 
@@ -20,37 +20,43 @@
 ```
 ```
 
-----### Replication from MySQL to HDFS
+----
+### Replication from MySQL to HDFS
 
 *
 ```
 ```
 
-----### Replication from MySQL to Hive 
+----
+### Replication from MySQL to Hive 
 
 *
 ```
 ```
 
-----### Replication from MySQL to HBase
+----
+### Replication from MySQL to HBase
 
 *
 ```
 ```
 
-----### Replication from MySQL to Kafka 
+----
+### Replication from MySQL to Kafka 
 
 *
 ```
 ```
 
-----### Replication from MySQL to Cassandra 
+----
+### Replication from MySQL to Cassandra 
 
 *
 ```
 ```
 
-----### Replication from MySQL to Oracle 
+----
+### Replication from MySQL to Oracle 
 
 *
 ```
