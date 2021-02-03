@@ -489,7 +489,7 @@ GGSCI (quickstart.cloudera) 3>
 ```
 ```
 
-
+<!--
 #### Alias
 
 ```bash
@@ -548,3 +548,4 @@ alias stopgg='clear; $CONFIG/stop_gg.sh; sleep 5; infogg'
 alias vi='vim'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 ```
+-->
