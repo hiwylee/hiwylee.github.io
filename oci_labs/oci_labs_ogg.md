@@ -17,7 +17,7 @@ X11UseLocalhost yes
 $ sudo  systemctl restart sshd
 
 ```
-* Deployment 생성/삭제
+* XClient (MobiTerm) : Deployment 생성/삭제
 
 ``` bash
 [opc@ggma-workshop-s01-2021-02-02-134339 Lab2]$ cd $OGG_HOME/bin
