@@ -137,6 +137,7 @@ uid=504(ggadmin) gid=504(ggadmin) groups=504(ggadmin),27(mysql),474(vboxsf),501(
 Press ENTER to return to the Lab Menu or Q to Quit:
 
 ```
+#### STEP 1: Explore GoldenGate Configuration
 
 ```
 [ggadmin@quickstart ~]$ cd /u01/gg4mysql/dirprm
@@ -211,6 +212,151 @@ map ggsource.*, target ggtarget.*;
 [ggadmin@quickstart dirprm]$
 
 ```
+
+
+#### STEP 2: Start GoldenGate Processes
+* Go to the GG Home for MySQL
+
+```
+[ggadmin@quickstart dirprm]$ cd /u01/gg4mysql
+[ggadmin@quickstart gg4mysql]$
+```
+
+* Login to ggsci 
+
+```
+[ggadmin@quickstart gg4mysql]$ ./ggsci
+
+Oracle GoldenGate Command Interpreter for MySQL
+Version 12.2.0.1.1 OGGCORE_12.2.0.1.0_PLATFORMS_151211.1401
+Linux, x64, 64bit (optimized), MySQL Enterprise on Dec 11 2015 16:23:51
+Operating system character set identified as UTF-8.
+
+Copyright (C) 1995, 2015, Oracle and/or its affiliates. All rights reserved.
+
+
+
+GGSCI (quickstart.cloudera) 1> info all
+
+Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+
+MANAGER     STOPPED
+
+
+GGSCI (quickstart.cloudera) 2> start mge
+ERROR: Invalid command.
+
+GGSCI (quickstart.cloudera) 3> start mgr
+Manager started.
+
+
+GGSCI (quickstart.cloudera) 4> info all
+
+Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+
+MANAGER     RUNNING
+
+
+```
+
+```
+GGSCI (quickstart.cloudera) 2> obey ./dirprm/create_mysql_gg_procs.oby
+
+GGSCI (quickstart.cloudera) 3> add extract extmysql, tranlog, begin now
+
+EXTRACT added.
+
+
+GGSCI (quickstart.cloudera) 4> add exttrail ./dirdat/et, extract extmysql, megabytes 10
+
+EXTTRAIL added.
+
+GGSCI (quickstart.cloudera) 5>
+
+GGSCI (quickstart.cloudera) 5> add extract pmpmysql, EXTTRAILSOURCE ./dirdat/et
+
+EXTRACT added.
+
+
+GGSCI (quickstart.cloudera) 6> add rmttrail ./dirdat/rt, extract pmpmysql, megabytes 10
+
+RMTTRAIL added.
+
+GGSCI (quickstart.cloudera) 7>
+
+GGSCI (quickstart.cloudera) 7> add replicat repmysql, exttrail ./dirdat/rt nodbcheckpoint
+
+REPLICAT added.
+
+
+GGSCI (quickstart.cloudera) 8>
+
+```
+* start extractor
+
+```
+GGSCI (quickstart.cloudera) 8> start extmysql
+
+Sending START request to MANAGER ...
+EXTRACT EXTMYSQL starting
+
+
+GGSCI (quickstart.cloudera) 9> info all
+
+Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+
+MANAGER     RUNNING
+EXTRACT     RUNNING     EXTMYSQL    00:01:21      00:00:06
+EXTRACT     STOPPED     PMPMYSQL    00:00:00      00:01:26
+REPLICAT    STOPPED     REPMYSQL    00:00:00      00:01:24
+
+
+GGSCI (quickstart.cloudera) 10>
+
+```
+
+* Start pump
+```
+
+GGSCI (quickstart.cloudera) 10> start pmpmysql
+
+Sending START request to MANAGER ...
+EXTRACT PMPMYSQL starting
+
+
+GGSCI (quickstart.cloudera) 11> info all
+
+Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+
+MANAGER     RUNNING
+EXTRACT     RUNNING     EXTMYSQL    00:00:00      00:00:06
+EXTRACT     RUNNING     PMPMYSQL    00:00:00      00:00:02
+REPLICAT    STOPPED     REPMYSQL    00:00:00      00:02:04
+
+```
+* start replica
+
+```
+GGSCI (quickstart.cloudera) 12> start repmysql
+
+Sending START request to MANAGER ...
+REPLICAT REPMYSQL starting
+
+
+GGSCI (quickstart.cloudera) 13> info all
+
+Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+
+MANAGER     RUNNING
+EXTRACT     RUNNING     EXTMYSQL    00:00:00      00:00:07
+EXTRACT     RUNNING     PMPMYSQL    00:00:00      00:00:02
+REPLICAT    RUNNING     REPMYSQL    00:00:00      00:00:02
+
+
+```
+### STEP 3:Load Data into Source Database
+
+
 ----
 ### Replication from MySQL to HDFS
 
