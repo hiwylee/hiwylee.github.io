@@ -158,8 +158,6 @@ add exttrail ./dirdat/et, extract extmysql, megabytes 10
 ```
 port 8000
 ```
-[ggadmin@quickstart dirprm]$
-```
 
 * [ggadmin@quickstart dirprm]$ cat extmysql.prm
 
