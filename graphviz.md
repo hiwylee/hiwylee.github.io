@@ -3,6 +3,9 @@
 * https://graphviz.org/doc/info/output.html
 * https://graphs.grevian.org/example
 
+### Dot Guide
+* https://graphviz.org/pdf/dotguide.pdf
+### Samples
 * type large.gv
 ```dot
 digraph {
