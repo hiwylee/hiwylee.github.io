@@ -2,8 +2,8 @@
 * [Graphviz - Graph Visualization Software](https://graphviz.org/documentation/)
 * https://graphviz.org/doc/info/output.html
 * https://graphs.grevian.org/example
-
-### SQL table dependency 그래프
+-------------------------
+### SQL 문장에 사용되는 테이블  종속  관계 그래프
 
 * python pip install
 
