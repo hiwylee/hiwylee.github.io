@@ -20,7 +20,7 @@ $  pip install --upgrade pip
 
 ```
 
-* install require pacakge
+* python 필요 패키지 설치 : sqlparse/sql_metadata
 
 ```
 pip install sqlparse
@@ -64,10 +64,11 @@ if __name__ == '__main__':    # 프로그램의 시작점일 때만 아래 코�
       sql_list(sys.argv[1])
 ```
 
-* digraph 를 이미지로 변환
+* digraph 파일 생성 및 이미지로 변환
 
 ```dot
-dot -Tgif gv.gv -o gv.gif
+$ python gv.py y.sql > gv.gv
+$ dot -Tgif gv.gv -o gv.gif
 ```
 ---
 ### WebGraphvz
