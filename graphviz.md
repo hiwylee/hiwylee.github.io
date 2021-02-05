@@ -5,6 +5,28 @@
 
 ### SQL table dependency 그래프
 
+* python pip install
+
+```
+$ curl https://bootstrap.pypa.io/get-pip.py -o ge
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 1884k  100 1884k    0     0  1516k      0  0:00:01  0:00:01 --:--:-- 1517k
+
+$ python get-pip.py
+
+$  pip install --upgrade pip
+
+```
+
+* install require pacakge
+
+```
+pip install sqlparse
+pip install sql_metadata
+```
+
 * gv.py : sql 문장을 파싱하여 테이블 참조를 만들어 graphviz 파일로 만듬
 
 ```python
@@ -51,7 +73,7 @@ dot -Tgif gv.gv -o gv.gif
 ### WebGraphvz
 ### Dot Guide
 * https://graphviz.org/pdf/dotguide.pdf
-
+* Download & Install graphvis
 ### Samples
 * type large.gv
 ```dot
