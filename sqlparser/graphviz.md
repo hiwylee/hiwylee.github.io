@@ -2,8 +2,10 @@
 * [Graphviz - Graph Visualization Software](https://graphviz.org/documentation/)
 * https://graphviz.org/doc/info/output.html
 * https://graphs.grevian.org/example
--------------------------
-### SQL 문장에 사용되는 테이블  종속  관계 그래프
+---
+
+### SQL 문장에 사용되는 테이블  종속  관계 그래프 (python)
+---
 
 * python pip install
 
@@ -93,9 +95,9 @@ digraph {
 dot -Tpdf large.gv -o large.pdf
 ```
 ![](https://camo.githubusercontent.com/e61fc68123555d2542a82d5f008d3f400661b6f7dacd23e4e846718206d91550/68747470733a2f2f7261772e6769746875622e636f6d2f78666c72362f677261706876697a2f6d61737465722f646f63732f726f756e642d7461626c652e706e67)
-
-## java SQLParser 사용법
-
+---
+## java SQLParser 사용법 (java version)
+---
 ### 순서
 * maven download
 * 환경변수 설정
