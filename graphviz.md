@@ -93,3 +93,17 @@ digraph {
 dot -Tpdf large.gv -o large.pdf
 ```
 ![](https://camo.githubusercontent.com/e61fc68123555d2542a82d5f008d3f400661b6f7dacd23e4e846718206d91550/68747470733a2f2f7261772e6769746875622e636f6d2f78666c72362f677261706876697a2f6d61737465722f646f63732f726f756e642d7461626c652e706e67)
+
+## java SQLParser 사용법
+
+### 순서
+* maven download
+* 환경변수 설정
+* javacc download [github](https://github.com/javacc/javacc)
+* JSQLParser download and build [github](https://github.com/JSQLParser/JSqlParser) [original home](http://jsqlparser.sourceforge.net/)
+* sql parser 프로그램 개발
+
+```
+set MAVEN_HOME=D:\Tools\apache-maven-3.6.3
+set JAVA_HOME=C:\Program Files\Java\jre1.8.0_281
+```
