@@ -7,6 +7,12 @@
 ### SQL 문장에 사용되는 테이블  종속  관계 그래프 (python)
 ---
 
+#### 필요 S/W
+* python
+  *  sqlparse / sql_metadata
+* graphviz
+
+#### 테스트 
 * python pip install
 
 ```
@@ -67,7 +73,7 @@ if __name__ == '__main__':    # 프로그램의 시작점일 때만 아래 코�
 ```
 
 * digraph 파일 생성 및 이미지로 변환
-
+  * graphviz [섩치](https://graphviz.org/download/)
 ```dot
 $ python gv.py y.sql > gv.gv
 $ dot -Tgif gv.gv -o gv.gif
