@@ -113,7 +113,7 @@ dot -Tpdf large.gv -o large.pdf
 
 ```
 set MAVEN_HOME=D:\Tools\apache-maven-3.6.3
-set JAVA_HOME=C:\Program Files\Java\jre1.8.0_281
+set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_281
 ```
 
 ```
