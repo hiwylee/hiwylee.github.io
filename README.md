@@ -20,6 +20,8 @@
  * [adg.md](adg.md)
 
 * [DB.md](DB.md)
+* [DB.CLOB](DB_CLOB.md)
+* [DB_DW.md](DB_DW.md)
 * [DB_adg.md](DB_adg.md)
 * [DB_AWR.md](DB_AWR.md)
 * [DB_AWR_TEST.md](DB_AWR_TEST.md)
