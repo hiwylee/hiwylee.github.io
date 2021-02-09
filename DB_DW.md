@@ -11,19 +11,20 @@ _parallel_load_balancing                           falsesho
 _optimizer_group_by_placement                      false       >> group by 
 _px_groupby_pushdown                               off         >>
 
+parallel_execution_message_size                    16384
 
 -- pq slave 가 사용가능한 최대 메모리
 _pga_max_size                                      2097152  
 
--- 한 퀴리가 사용할 수 있는  최대 작업 메모리 (pga의 1/2)
+-- 한 퀴리가 사용할 수 있는  최대 작업 메모리 (pga의 1/2) ;  
 _smm_px_max_size                                   50331648
 _smm_px_max_size_static                            50331648
 
 parallel_min_servers                               960
 
 
-pga_aggregate_limit                                13824M
-pga_aggregate_target                               6912M
+pga_aggregate_limit                                192G
+pga_aggregate_target                                96G
 
 ```
 
