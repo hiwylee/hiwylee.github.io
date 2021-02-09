@@ -1,4 +1,4 @@
-## PAG TUNING 
+## PGA TUNING 
 ###
 * 참고 문서 : 
   * https://weidongzhou.wordpress.com/2016/02/25/pga_aggregate_target-vs-pga_aggregate_limit/comment-page-1/
