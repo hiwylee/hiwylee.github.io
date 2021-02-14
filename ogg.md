@@ -1,4 +1,7 @@
 ## OGG
+
+### Blogger
+* [DBA Genesis Support](https://www.support.dbagenesis.com/home/categories/oracle-golden-gate)
 ### How to Step by Step
 #### [19c OGG 구성 테스트](https://unioneinc.tistory.com/64#)
 *  사전 설정(SRC/TGT)
@@ -24,7 +27,8 @@
 * [GoldenGate on YouTube!](https://www.youtube.com/channel/UCQZN-1TrusmKNLgJbq5SxNQ)
 ### 경쟁사 비교
 * https://www.scribd.com/document/334170859/Dell-Shareplex-vs-Oracle-GoldenGate-Competitive-Differentiation
-
+### DownStream Mode
+* [Downstream Mode](ogg/ogg_downstream_extract.md)
 ### Distribute Transaction (XA)
 * [Does Oracle Goldengate Extract Support Distributed Transactions? (Doc ID 1235986.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=149gwwhowu_4&_afrLoop=988868350810293)
   *  ``Staring version 11.2.1, Oracle GoldenGate supports XA and PDML distributed transactions in integrated capture mode (but not in classic capture mode). ``
