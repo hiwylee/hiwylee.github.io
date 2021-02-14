@@ -7,7 +7,7 @@
 * https://www.oracle-scn.com/oracle-goldengate-integrated-capture/
 
 ### Important MOS Notes
-• Specific patches for Integrated Capture: 1411356.1
-• Integrated Capture health check script 1448324.1
-• OGG Best Practices: Configuring Downstream Integrated Capture 1485620.1
-• Performance Tuning for OGG [1488668.1](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=540428795909541&id=1488668.1&_adf.ctrl-state=nrjz6fd9l_229)
+* Specific patches for Integrated Capture: 1411356.1
+* Integrated Capture health check script 1448324.1
+* OGG Best Practices: Configuring Downstream Integrated Capture 1485620.1
+* Performance Tuning for OGG [1488668.1](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=540428795909541&id=1488668.1&_adf.ctrl-state=nrjz6fd9l_229)
