@@ -165,7 +165,7 @@ SELECT /*+ NO_PARALLEL */ rownum + b.begin_no as no, a.* FROM  H_P PARTITION (SY
      30170     239982 xyz 239982
      30171     239987 xyz 239987
      30172     239991 xyz 239991
-
+```
 * >> partiton 2.  first 10 rows
 
 ```sql
