@@ -212,10 +212,3 @@ SELECT /*+ NO_PARALLEL */ rownum + b.begin_no as no , a.* FROM  H_P PARTITION (S
     210231         59 xyz 59
 ```
 
-```sql
- SELECT /*+ NO_PARALLEL */ rownum + b.begin_no as no , a.* FROM  H_P PARTITION (SYS_P1790) a , h_p_s b
- where b.part_name = 'SYS_P1790'
-   and b.table_owner = 'KCB'
-   and b.TABLE_NAME = 'H_P'
- offset 239989-210221 rows fetch first 10 rows only 
-```
