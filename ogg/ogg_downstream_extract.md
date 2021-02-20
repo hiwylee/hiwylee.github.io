@@ -12,3 +12,15 @@
 * Integrated Capture health check script 1448324.1
 * OGG Best Practices: Configuring Downstream Integrated Capture 1485620.1
 * Performance Tuning for OGG [1488668.1](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=540428795909541&id=1488668.1&_adf.ctrl-state=nrjz6fd9l_229)
+
+### 테스트 시나리오 
+* 환경
+  * source : 2 node rac db 11.2.0.2
+  * mining : single db 12.2.0.1
+  * target : 2 node RAC
+ * 테스트 내용
+   * Realtime downstream
+   * standby redo log shipping delay
+   * online redo log shipping
+   * extract perf
+   * apply perf
