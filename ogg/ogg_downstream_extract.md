@@ -15,9 +15,9 @@
 
 ### 테스트 시나리오 
 * 환경
-  * source : 2 node rac db 11.2.0.2
-  * mining : single db 12.2.0.1
-  * target : 2 node RAC
+  * source : 2 node rac db 11.2.0.2   // ogg 12.2.0.0
+  * mining : single db 12.2.0.1        
+  * target : 2 node RAC               // ogg 19.1.0.0
  * 테스트 내용
    * Realtime downstream
    * standby redo log shipping delay
