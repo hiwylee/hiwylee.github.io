@@ -1,5 +1,5 @@
 ## downstream integrated capture
-
+* [Downstream Mining Configuration 예제-Realtime mode](https://docs.oracle.com/goldengate/c1230/gg-winux/GGODB/example-downstream-mining-configuration.htm#GGODB-GUID-41D56EB7-0C14-438C-8791-8F93CB0DCAF8)
 ### Basic 
 * [Oracle GoldenGate 문서](https://docs.oracle.com/en/middleware/goldengate/index.html)
 * [** Best Practices from Oracle Development's A‑Team**](https://www.ateam-oracle.com/oracle-goldengate-best-practice-goldengate-downstream-extract-with-oracle-data-guard)
