@@ -1,6 +1,7 @@
 ## downstream integrated capture
 
 ### Basic 
+* [Oracle GoldenGate 문서](https://docs.oracle.com/en/middleware/goldengate/index.html)
 * [** Best Practices from Oracle Development's A‑Team**](https://www.ateam-oracle.com/oracle-goldengate-best-practice-goldengate-downstream-extract-with-oracle-data-guard)
 * [Configuring Oracle GoldenGate OGG 11gR2 downstream integrated capture](https://gjilevski.com/2012/10/31/configuring-oracle-goldengate-ogg-11gr2-downstream-integrated-capture/)
 
