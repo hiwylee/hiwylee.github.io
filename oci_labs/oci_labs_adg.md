@@ -2,7 +2,8 @@
 
 * [Samples Usage ](https://semode.tistory.com/260)
 * [Oracle Database Hybrid Active Data Guard Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=609&p210_type=3&session=12913666657648)
-### STEP 1 : Primary DB
+### STEP 1 : Primary DB 
+<!-- 152.67.197.86 -->
 ---
 ### Enable TDE
 
