@@ -25,3 +25,83 @@
    * online redo log shipping
    * extract perf
    * apply perf
+### 테스트
+#### Source Database 준비 :-> primary : 1x2.xx.197,86
+```
+[oracle@db21c ~]$ env | grep SID
+ORACLE_SID=DB0901
+```
+#### Mining Database 준비 : db21c :  1x0.xxx.x.213
+
+* Prepare the Mining Database to Archive its Local Re
+
+```sql
+SYS@db21> startup mount;
+alter databseORACLE instance started.
+
+Total System Global Area 3.0602E+10 bytes
+Fixed Size                 14423176 bytes
+Variable Size            3758096384 bytes
+Database Buffers         2.6776E+10 bytes
+Redo Buffers               52682752 bytes
+archievelog;Database mounted.
+SYS@db21> alter database archivelog;
+
+Database altered.
+
+Elapsed: 00:00:00.00
+SYS@db21> alter database open;
+
+Database altered.
+
+Elapsed: 00:00:07.80
+
+SYS@db21> archive log list
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            USE_DB_RECOVERY_FILE_DEST
+Oldest online log sequence     14
+Next log sequence to archive   16
+Current log sequence           16
+
+SYS@db21> show parameter db_recovery_file_dest
+
+NAME                                 TYPE                   VALUE
+------------------------------------ ---------------------- ------------------------------
+db_recovery_file_dest                string                 /u03/app/oracle/fast_recovery_area
+db_recovery_file_dest_size           big integer            250G
+
+```
+
+* arhive log 위치
+
+```
+[oracle@db21c DB21_KIX1T6]$ ls -l
+total 18616
+drwxr-x--- 15 oracle oinstall     4096 Feb 27 12:42 archivelog
+drwxr-x---  3 oracle oinstall     4096 Jan 19 01:37 autobackup
+-rw-r-----  1 oracle oinstall 19054592 Feb 27 13:18 control02.ctl
+[oracle@db21c DB21_KIX1T6]$ cd /u03/app/oracle/fast_recovery_area/
+[oracle@db21c fast_recovery_area]$ ls -l
+total 8
+drwxr-x--- 6 oracle oinstall 4096 Jan 19 02:29 CDB21
+drwxr-x--- 4 oracle oinstall 4096 Jan 19 01:37 DB21_KIX1T6
+[oracle@db21c fast_recovery_area]$ cd DB21_KIX1T6/
+[oracle@db21c DB21_KIX1T6]$ ls -l
+total 18616
+drwxr-x--- 15 oracle oinstall     4096 Feb 27 12:42 archivelog
+drwxr-x---  3 oracle oinstall     4096 Jan 19 01:37 autobackup
+-rw-r-----  1 oracle oinstall 19054592 Feb 27 13:18 control02.ctl
+[oracle@db21c DB21_KIX1T6]$
+
+```
+
+
+* set log_archive_dest_1 to archive local red & Enable log_archive_dest_1
+```
+SYS@db21> ALTER SYSTEM SET log_archive_dest_1='LOCATION=/u03/app/oracle/arc_dest/local VALID_FOR=(ONLINE_LOGFILE, PRIMARY_ROLE)';
+
+
+```
+
+* Enable log_archive_dest_1
