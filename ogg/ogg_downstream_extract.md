@@ -110,7 +110,7 @@ SYS@db21> ALTER SYSTEM SET log_archive_dest_1='LOCATION=/u03/app/oracle/arc_dest
 
 ```
 
-* Enable log_archive_dest_1
+* Prepare the Mining Database to Archive Redo Received in Standby Redo Logs from the Source Database
 
 ```sql
 SYS@db21> ed
@@ -129,9 +129,62 @@ NAME                                 TYPE                   VALUE
 log_archive_config                   string
 SYS@db21>
 SYS@db21>
-SYS@db21> alter system set LOG_ARCHIVE_CONFIG='DG_CONFIG=(orcl,db21c)';
+SYS@db21> alter system set LOG_ARCHIVE_CONFIG='DG_CONFIG=(orcl,db21)';
 
 System altered.
 
+```
+
+* Prepare the Source Database to Send Redo to the Mining Database
+  *  Make sure that the source database is running with the required compatibility
+  *  tnsname.ora
+ 
+ ```
+ db21_kix1t6 =
+ (DESCRIPTION =
+     (SDU=65536)
+     (RECV_BUF_SIZE=134217728)
+     (SEND_BUF_SIZE=134217728)
+     (ADDRESS_LIST =
+     (ADDRESS = (PROTOCOL = TCP)(HOST = db21)(PORT = 1521))
+     )
+     (CONNECT_DATA =
+        (SERVER = DEDICATED)
+         (SERVICE_NAME = db21_kix1t6.sub01190114250.oskvcn.oraclevcn.com)
+        (UR=A)
+     )
+  )
+
+ ```
+  *  Set DG_CONFIG at the source database.
+
+```sql
+SQL> ed
+Wrote file afiedt.buf
+
+  1*   alter system set log_archive_config='dg_config=(ORCL,orcl_yny1zh,orcl_yny166, db21_kix1t6)';
+
+System altered.
 
 ```
+  *  Set up redo transport at the source database.
+  
+```sql
+ ALTER  SYSTEM SET log_archive_dest_4='service="db21_kix1t6" ASYNC optional db_unique_name="db21_kix1t6" valid_for=(online_logfile,primary_roles)'
+  2  /
+
+System altered.
+  
+```
+    
+  *  Enable the downstream destination.
+    
+```sql
+SQL> ALTER SYSTEM SET LOG_ARCHIVE_DEST_STATE_4=ENABLE;
+
+System altered.
+
+SQL>
+
+```
+   
