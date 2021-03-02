@@ -192,4 +192,5 @@ SQL>
 
 #### primary DB
 #### 마이닝 DB
+* 참조문서 : https://m.blog.naver.com/xogstar/221804735194
 #### target DB
