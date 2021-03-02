@@ -26,6 +26,12 @@
    * extract perf
    * apply perf
 ### 테스트
+
+### User
+* ``primary DB``
+  * user : ggadm1 /DB :  orcl  / ogg alias : ggadm1, logins as  ggadm1@orcl
+* ``Mining DB``
+  * user : ggadmcap   /DB :  db21c  / ogg alias : ggadmcap , logins as  ggadmcap@db21c
 #### Source Database 준비 :-> primary : 1x2.xx.197,86
 ```
 [oracle@db21c ~]$ env | grep SID
@@ -105,3 +111,27 @@ SYS@db21> ALTER SYSTEM SET log_archive_dest_1='LOCATION=/u03/app/oracle/arc_dest
 ```
 
 * Enable log_archive_dest_1
+
+```sql
+SYS@db21> ed
+Wrote file afiedt.buf
+
+  1*  alter system set log_archive_dest_2='LOCATION=/u03/app/oracle/sr1_orcl, VALID_FOR=(STANDBY_LOGFILE,PRIMARY_ROLE)'
+SYS@db21> /
+
+System altered.
+
+Elapsed: 00:00:00.03
+SYS@db21> show parameter LOG_ARCHIVE_CONFIG
+
+NAME                                 TYPE                   VALUE
+------------------------------------ ---------------------- ------------------------------
+log_archive_config                   string
+SYS@db21>
+SYS@db21>
+SYS@db21> alter system set LOG_ARCHIVE_CONFIG='DG_CONFIG=(orcl,db21c)';
+
+System altered.
+
+
+```
