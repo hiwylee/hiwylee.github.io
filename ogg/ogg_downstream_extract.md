@@ -122,17 +122,6 @@ SYS@db21> /
 System altered.
 
 Elapsed: 00:00:00.03
-SYS@db21> show parameter LOG_ARCHIVE_CONFIG
-
-NAME                                 TYPE                   VALUE
------------------------------------- ---------------------- ------------------------------
-log_archive_config                   string
-SYS@db21>
-SYS@db21>
-SYS@db21> alter system set LOG_ARCHIVE_CONFIG='DG_CONFIG=(orcl,db21)';
-
-System altered.
-
 ```
 
 * Prepare the Source Database to Send Redo to the Mining Database
