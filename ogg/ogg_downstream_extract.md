@@ -187,4 +187,9 @@ System altered.
 SQL>
 
 ```
-   
+
+### ogg 설정
+
+#### primary DB
+#### 마이닝 DB
+#### target DB
