@@ -49,6 +49,7 @@
   * [Big Data       ]()
   * [Object Storage ]()
   * [NoSQL          ]()
+  * [Oracle Database Consolidation](oci_labs_mv2adb.md)
 * MIddle Ware
   * [Web/Was      ]()
   * [Container/K8s]()
