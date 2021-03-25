@@ -9,6 +9,7 @@
 * [Converged Database with Weblogic for Developers Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=748&p210_type=3&session=110719162873870)
 * OKE
   * [Otube - Cloud Native Meetup: Deep Dive into Kubernetes (NA & LAD Session)](https://otube.oracle.com/media/Cloud+Native+MeetupA+Deep+Dive+into+Kubernetes+%28NA+%26+LAD+Session%29/1_fohtmm32)
+  * [Otube - Cloud Native Meetup: Oracle Container Engine update 02/04/2021](https://otube.oracle.com/media/Cloud+Native+MeetupA+Oracle+Container+Engine+update+-+Cluster+Autoscaler+and+Native+Endpoint+%28JAPAC%29/1_sd2iy4kr)
   * [Deploy an OKE Cluster Using Oracle Cloud Shell](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=649&session=9636972373094) 
   * [Deploying Microservices in Kubernetes and OCI Supporting Features](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=733&session=9636972373094)
   * [Migration of Monolith to Cloud Native](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=732&session=9636972373094)
