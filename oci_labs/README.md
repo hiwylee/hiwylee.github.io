@@ -8,6 +8,7 @@
 * [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
 * [Converged Database with Weblogic for Developers Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=748&p210_type=3&session=110719162873870)
 * OKE
+  * [Otube - Cloud Native Meetup: Deep Dive into Kubernetes (NA & LAD Session)](https://otube.oracle.com/media/Cloud+Native+MeetupA+Deep+Dive+into+Kubernetes+%28NA+%26+LAD+Session%29/1_fohtmm32)
   * [Deploy an OKE Cluster Using Oracle Cloud Shell](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=649&session=9636972373094) 
   * [Deploying Microservices in Kubernetes and OCI Supporting Features](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=733&session=9636972373094)
   * [Migration of Monolith to Cloud Native](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=732&session=9636972373094)
@@ -81,6 +82,7 @@
   * [Network Security            ]()
   * [Authentication/Authorization]()
 * Development
+ * [OTube - Cloud Native Meetup: Introduction to Micronaut and GraalVM](https://otube.oracle.com/media/Cloud+Native+MeetupA+Introduction+to+Micronaut+and+GraalVM/1_npovea36)
   * [Intefrated Dev Tools]()
   * [Dev Language        ]()
 			
