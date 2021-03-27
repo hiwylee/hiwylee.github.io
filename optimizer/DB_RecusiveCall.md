@@ -1,11 +1,5 @@
 ## Oracle Metric recursive calls
-* [Statistics Descriptions](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/statistics-descriptions-2.html#GUID-2FBC1B7E-9123-41DD-8178-96176260A639)
-  * recursive calls
-    * class : 1
-    * Number of recursive calls generated at both the user and system level. Oracle maintains tables used for internal processing. When Oracle needs to make a change to these tables, it internally generates an internal SQL statement, which in turn generates a recursive call.
-  * recursive cpu usage
-    * class : 1
-    * Total CPU time used by non-user calls (recursive calls). Subtract this value from "CPU used by this session" to determine how much CPU time was used by the user calls.
+
 * Case
   *  Hard Parsing
   * cache misses
@@ -22,6 +16,15 @@
      * 32, Real Application Clusters
      * 64, SQL
      * 128, Debug
+
+* [Statistics Descriptions](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/statistics-descriptions-2.html#GUID-2FBC1B7E-9123-41DD-8178-96176260A639)
+  * ``recursive calls``
+    * class : 1
+    * Number of recursive calls generated at both the user and system level. Oracle maintains tables used for internal processing. When Oracle needs to make a change to these tables, it internally generates an internal SQL statement, which in turn generates a recursive call.
+  * ``recursive cpu usage``
+    * class : 1
+    * Total CPU time used by non-user calls (recursive calls). Subtract this value from "CPU used by this session" to determine how much CPU time was used by the user calls.
+    * 
 ###  Database Statistics Descriptions 
 
 <table cellpadding="4" cellspacing="0" class="FormalWide" title="Database Statistics Descriptions" summary="This table includes the names, class, and description for several database statistics. A value of Y in the TIMED_STATISTICS column indicates that the statistic is only populated when the TIMED_STATISTICS initialization parameter is set to true." width="100%" frame="hsides" border="1" rules="rows">
