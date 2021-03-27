@@ -24,7 +24,164 @@
   * ``recursive cpu usage``
     * class : 1
     * Total CPU time used by non-user calls (recursive calls). Subtract this value from "CPU used by this session" to determine how much CPU time was used by the user calls.
-    * 
+
+### Scripts
+
+* [현재 세션의 stat 보기](https://oracle-base.com/dba/script?category=miscellaneous&file=get_stat.sql)
+
+```sql
+-- -----------------------------------------------------------------------------------
+-- File Name    : https://oracle-base.com/dba/miscellaneous/get_stat.sql
+-- Author       : Tim Hall
+-- Description  : A function to return the specified statistic value.
+-- Requirements : Select on V_$MYSTAT and V_$STATNAME.
+-- Call Syntax  : Example of checking the amount of PGA memory allocated.
+-- 
+-- DECLARE
+--   l_start NUMBER;
+-- BEGIN
+--   l_start := get_stat('recursive calls');
+-- 
+--   -- Do SQL something.
+-- 
+--   DBMS_OUTPUT.put_line('recursive calls : ' || (get_stat('recursive calls') - g_start) || ' bytes');
+-- END;
+-- /
+-- 
+-- Last Modified: 05/03/2018
+-- -----------------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION get_stat (p_stat IN VARCHAR2) RETURN NUMBER AS
+  l_return  NUMBER;
+BEGIN
+  SELECT ms.value
+  INTO   l_return
+  FROM   v$mystat ms,
+         v$statname sn
+  WHERE  ms.statistic# = sn.statistic#
+  AND    sn.name = p_stat;
+  RETURN l_return;
+END get_stat;
+/
+```
+
+* [HOW TO TUNE USING V$MYSTAT](https://blog.pythian.com/tuning-using-vmystat/)
+```bash
+#!/bin/sh
+
+export v_sql_text=$(cat sql_runstat_source_query.sql)
+
+echo 'Enter username:';read username
+echo 'Please enter your password: ';stty -echo;read passwd;stty echo
+
+sqlplus -S /nolog<
+prompt connecting...
+connect $username/$passwd
+
+set echo off feed off verify off
+set serveroutput on size 2000
+col name for a50
+
+prompt verifying the existence of the table query_stats...
+declare
+ table_exists number;
+begin
+ select count(*) into table_exists from dba_tables where owner = user and table_name='QUERY_STATS';
+ if table_exists = 0 then
+    execute immediate 'CREATE TABLE '||user||'.query_stats AS SELECT systimestamp as timestamp, '' '' before, 0 run, name, value FROM v\$statname NATURAL JOIN v\$mystat where 1=2';
+    dbms_output.put_line('Table '||user||'.query_stats created.');
+ else
+    dbms_output.put_line('Warning! Table '||user||'.query_stats exists already. Appending...');
+ end if;
+end;
+/
+drop type query_stats_table_type;
+create or replace type query_stats_type
+as object
+(TIMESTAMP TIMESTAMP(6) WITH TIME ZONE,
+ BEFORE    CHAR(1),
+ RUN       NUMBER,
+ NAME      VARCHAR2(64),
+ VALUE     NUMBER
+);
+/
+create or replace type query_stats_table_type
+as table of query_stats_type;
+/
+prompt executing the query and saving pre and post session stats...
+declare
+  next_run     number;
+  stats_before query_stats_table_type;
+  stats_after  query_stats_table_type;
+  type cur_type is ref cursor;
+  c            cur_type;
+begin
+  -- capturing pre-stats
+  select nvl(max(run),-1)+1 into next_run from query_stats;
+  SELECT query_stats_type(systimestamp, 'Y', next_run, name, value) bulk collect into stats_before FROM v\$statname NATURAL JOIN v\$mystat;
+  -- executing the query from the var v_sql_text, which is loaded from file sql_runstat_source_query.sql
+  open c for $v_sql_text;
+  -- capturing post-stats
+  next_run := next_run + 1;
+  SELECT query_stats_type(systimestamp, 'N', next_run, name, value) bulk collect into stats_after FROM v\$statname NATURAL JOIN v\$mystat;
+  -- saving stats
+  insert into query_stats 
+  select * from table(cast(stats_before as query_stats_table_type))
+  union all
+  select * from table(cast(stats_after as query_stats_table_type))
+  ;
+  commit;
+end;
+/
+
+prompt getting the run id list...
+col max_run new_value run noprint
+select max(run) max_run from query_stats;
+
+-- get the run ids and their durations and join them as CSVs to pass to the pivot query
+col runlist new_value runs noprint
+select listagg(run,',') within group (order by run) runlist
+  from
+       (select ''''||ceil(run/2)||'-'||duration_H_M_S||'''' run
+          from ( SELECT distinct run,
+                        to_char(extract(HOUR   FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00')||':'||
+                        to_char(extract(MINUTE FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00')||':'||
+                        to_char(extract(SECOND FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00.0000') AS duration_H_M_S
+                   FROM query_stats
+               )
+         where duration_H_M_S is not null
+           and mod(run,2)<>0
+         order by 1
+       )
+;
+
+prompt pivoting the run statistics where there is a value difference...
+set linesize 200 trim on
+select *
+  from (
+   select ceil(run/2)||'-'||duration_H_M_S as run,
+          name,
+          value_diff
+     from (
+           SELECT run,
+                  name,
+                  value,
+                  value-lag(value) OVER (partition by name ORDER BY name, run) as value_diff,
+                  to_char(extract(HOUR   FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00')||':'||
+                  to_char(extract(MINUTE FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00')||':'||
+                  to_char(extract(SECOND FROM timestamp-lag(timestamp) OVER (ORDER BY name, run)),'FM00.0000') AS duration_H_M_S
+             FROM query_stats
+           )
+   where mod(run,2)<>0
+     and value_diff > 0
+   )
+pivot (sum(value_diff) for run in (&runs))
+order by name
+;
+prompt done!
+exit
+EOF
+```
+
 ###  Database Statistics Descriptions 
 
 <table cellpadding="4" cellspacing="0" class="FormalWide" title="Database Statistics Descriptions" summary="This table includes the names, class, and description for several database statistics. A value of Y in the TIMED_STATISTICS column indicates that the statistic is only populated when the TIMED_STATISTICS initialization parameter is set to true." width="100%" frame="hsides" border="1" rules="rows">
