@@ -1,13 +1,7 @@
 ## Oracle Metric recursive calls
-* Shared Pool
- * Library Cache : SQL 및 PL/SQL 공유![image](https://user-images.githubusercontent.com/7068088/112779568-fb865d80-9081-11eb-8c37-8c6fa29eb11e.png)
-  * Shared SQL Area (Shared Cursoe Area)
-  * * Shared PL/SQL Area
- * Row Cache : SQL 연산에 참조되는 각종 딕셔너리 정보 공유![image](https://user-images.githubusercontent.com/7068088/112779585-03460200-9082-11eb-828d-5709803c7441.png)
 
-  * Dictionary Cache
-* 
-* Recursive SQL![image](https://user-images.githubusercontent.com/7068088/112779287-5b303900-9081-11eb-9352-d36970e2af4e.png)
+* Recursive SQL
+  * SQL 연산에 참조되는 각종 딕셔너리 정보 공유
   * 단일 SQL 문장이라도 파생적인 SQL 실행 발생
   * SQL 문장 수행 중에 내부적으로 수행 되는 SQL
   * SQL 구문 분석 단계
@@ -18,6 +12,69 @@
    * Data Dictionary 정보 변경
   * Sub Query, View
    * 일부 Sub Query나 View의 경우 별도의 SQL 블록이 사용될 수 있음.
+* 공유 커서의 무효화
+  * 관련 스키마 변경 시 관련된 모든 공유 커서 무효화
+    * 인덱스 생성, 컬럼 추가/삭제 시
+    * 해당 테이블에 대한 모든 SQL 커서
+    * PIN 상태의 관련 Recursive SQL 문장
+    * Data Dictionary에 대한 변경이 있는 경우
+* 공유 커서 무효화
+
+```sql
+SELECT sql_text, version_count, loads, invalidations,
+       parse_calls, sorts
+FROM   V$SQLAREA
+WHERE  parsing_user_id > 0 AND  -- no SYS
+       command_type = 3         -- SELECT Only
+ORDER  BY sql_text
+
+SQL_TEXT               VERSION_COUNT  LOADS INVALIDATIONS PARSE_CALLS SORTS
+---------------------- -------------  ----- ------------- ----------- -----
+select e.ename,d.dname             1      4             3           5    10
+from emp e, dept d
+where e.empno=d.deptno
+```
+
+* Shared Pool
+ * Library Cache : SQL 및 PL/SQL 공유 
+  * Shared SQL Area (Shared Cursoe Area)
+  * Shared PL/SQL Area
+ * Row Cache : SQL 연산에 참조되는 각종 딕셔너리 정보 공유 
+  * Dictionary Cache
+
+```sql
+SELECT namespace, gets, gethitratio, pinhitratio, 
+       reloads, invalidations
+FROM V$LIBRARYCACHE
+ORDER BY gets DESC 
+
+NAMESPACE        GETS GETHITRATIO PINHITRATIO  RELOADS INVALIDATIONS
+--------------- ----- ----------- ----------- -------- -------------
+SQL AREA         6606  .939146231  .974660877       12             0
+TABLE/PROCEDURE  6381  .949851121  .926080477        0             0
+INDEX            1739  .975848189  .975409836        0             0
+CLUSTER           176  .960227273  .965957447        0             0
+BODY               40          .7  .717948718        0             0
+TRIGGER            26  .730769231  .730769231        0             0
+OBJECT              0           1           1        0             0
+PIPE                0           1           1        0             0
+JAVA SOURCE         0           1           1        0             0
+JAVA RESOURCE       0           1           1        0             0
+JAVA DATA           0           1           1        0             0 
+
+```
+
+* 구문분석/실행 계획
+  * 공유 풀에서 동일한
+    * 실행 계획이 있는 지
+    * 검색(커서 공유)
+  * SQL Syntax 검사
+  * Semantic 검사(의미 및 권한 검사)
+    * Data Dictionary
+      * 참조 객체 검사 (유효성, 보안 제약 조건 등을 검사)
+      * SQL 문장에 대한 실행 권한 조사(스키마, 롤, 권한)
+  * 실행 계획 작성  
+
 
 
 * Case
