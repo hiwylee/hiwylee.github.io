@@ -1,17 +1,17 @@
 ## Oracle Metric recursive calls
 
-* Recursive SQL
+* ``Recursive SQL``
   * SQL 연산에 참조되는 각종 딕셔너리 정보 공유
   * 단일 SQL 문장이라도 파생적인 SQL 실행 발생
   * SQL 문장 수행 중에 내부적으로 수행 되는 SQL
   * SQL 구문 분석 단계
-   * SQL 문장의 semantic 검증
-   * Data Dictionary 정보 질의
+    * SQL 문장의 semantic 검증
+    * Data Dictionary 정보 질의
   * DDL 문장 수행 중
-   * 데이터 변경에 의해 DB 구조 변경
-   * Data Dictionary 정보 변경
+    * 데이터 변경에 의해 DB 구조 변경
+    * Data Dictionary 정보 변경
   * Sub Query, View
-   * 일부 Sub Query나 View의 경우 별도의 SQL 블록이 사용될 수 있음.
+    * 일부 Sub Query나 View의 경우 별도의 SQL 블록이 사용될 수 있음.
 * 공유 커서의 무효화
   * 관련 스키마 변경 시 관련된 모든 공유 커서 무효화
     * 인덱스 생성, 컬럼 추가/삭제 시
