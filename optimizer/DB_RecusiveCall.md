@@ -1,4 +1,24 @@
 ## Oracle Metric recursive calls
+* Shared Pool
+ * Library Cache : SQL 및 PL/SQL 공유![image](https://user-images.githubusercontent.com/7068088/112779568-fb865d80-9081-11eb-8c37-8c6fa29eb11e.png)
+  * Shared SQL Area (Shared Cursoe Area)
+  * * Shared PL/SQL Area
+ * Row Cache : SQL 연산에 참조되는 각종 딕셔너리 정보 공유![image](https://user-images.githubusercontent.com/7068088/112779585-03460200-9082-11eb-828d-5709803c7441.png)
+
+  * Dictionary Cache
+* 
+* Recursive SQL![image](https://user-images.githubusercontent.com/7068088/112779287-5b303900-9081-11eb-9352-d36970e2af4e.png)
+  * 단일 SQL 문장이라도 파생적인 SQL 실행 발생
+  * SQL 문장 수행 중에 내부적으로 수행 되는 SQL
+  * SQL 구문 분석 단계
+   * SQL 문장의 semantic 검증
+   * Data Dictionary 정보 질의
+  * DDL 문장 수행 중
+   * 데이터 변경에 의해 DB 구조 변경
+   * Data Dictionary 정보 변경
+  * Sub Query, View
+   * 일부 Sub Query나 View의 경우 별도의 SQL 블록이 사용될 수 있음.
+
 
 * Case
   *  Hard Parsing
