@@ -36,11 +36,11 @@ where e.empno=d.deptno
 ```
 
 * Shared Pool
- * Library Cache : SQL 및 PL/SQL 공유 
-  * Shared SQL Area (Shared Cursoe Area)
-  * Shared PL/SQL Area
- * Row Cache : SQL 연산에 참조되는 각종 딕셔너리 정보 공유 
-  * Dictionary Cache
+  * Library Cache : SQL 및 PL/SQL 공유 
+    * Shared SQL Area (Shared Cursoe Area)
+    * Shared PL/SQL Area
+  * Row Cache : SQL 연산에 참조되는 각종 딕셔너리 정보 공유 
+    * Dictionary Cache
 
 ```sql
 SELECT namespace, gets, gethitratio, pinhitratio, 
