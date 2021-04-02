@@ -5,6 +5,8 @@
 ### 참조 자료
 * Blog (Upgrade your Database - NOW!) - Mike Dietrichde
   * [Recorded Web Seminars](https://mikedietrichde.com/videos/)
+    * [Upgrade to 19c Virtual Classroom Series: Release Strategy and Patching Best Practices](https://videohub.oracle.com/media/Upgrade+to+19c+Virtual+Classroom+SeriesA+Release+Strategy+and+Patching+Best+Practices/1_5acfk3kk)
+    * [Upgrade to 19c Virtual Classroom Series: Upgrade to Oracle Database 19c using AutoUpgrade](https://videohub.oracle.com/media/Upgrade+to+19c+Virtual+Classroom+SeriesA+Upgrade+to+Oracle+Database+19c+using+AutoUpgrade/1_kwrolije)
 * youtube
   * [Oracle Database Upgrades and Migrations](https://www.youtube.com/channel/UCTKvCZwAbOeTSRFQDAh7yXw)
 * 참조
