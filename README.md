@@ -12,7 +12,7 @@
 * [19c_nf_ai.md](19c_nf_ai.md)
 * [19c_nf_rt_stats.md](19c_nf_rt_stats.md)
 #### DB
-||||||
+| | | | | |
 |:---:|:---:|:---:|:---:|:---:|
 |[pdb.md](pdb.md) |[rman.md](rman.md) |[asm.md](asm.md) |[datainer.md](datainer.md) |[adg.md](adg.md)|
 
