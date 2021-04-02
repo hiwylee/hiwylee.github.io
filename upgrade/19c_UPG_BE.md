@@ -8,6 +8,7 @@
 * [Oracle Database - Overview of Database Patch Delivery Methods for 12.2.0.1 and greater (Doc ID 2337415.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=193605881154502&id=2337415.1&_adf.ctrl-state=brnvjhqit_295)
     * [``Oracle Patch Assurance - Data Guard Standby-First Patch Apply (Doc ID 1265700.1)``](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=194650764118919&id=1265700.1&_adf.ctrl-state=brnvjhqit_352)
 * [Master Note For OPatch (Doc ID 293369.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=brnvjhqit_352&_afrLoop=194969508580897#aref_section35) 
+* [Assistant: Download Reference for Oracle Database/GI Update, Revision, PSU, SPU(CPU), Bundle Patches, Patchsets and Base Releases (Doc ID 2118136.2)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=196333768751269&id=2118136.2&_adf.ctrl-state=brnvjhqit_541)
 ### 참조 자료
 * Blog (Upgrade your Database - NOW!) - Mike Dietrichde
   * [Recorded Web Seminars](https://mikedietrichde.com/videos/)
