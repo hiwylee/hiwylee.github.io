@@ -5,7 +5,7 @@
   * [oci_labs_adg_asm.md](oci_labs/oci_labs_adg-asm.md)
   * [oci_labs_ogg.md](oci_labs/oci_labs_ogg.md)
   * [Converged Database with Weblogic for Developers](oci_labs/oci_labs_db_wls.md)
-* [**github : Workshop**]()
+* [**PartnerIMC - github : Workshop**](https://github.com/hiwylee/workshops)
   * [Container Engine for Kubernetes (OKE) on OCI Workshop](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/k8s/OKE/README.md)
   * [DevOps: Deploying Microservices to OKE with Jenkins Pipelines (CI/CD)](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/k8s/jenkinspipelines/README.md) 
   * [Oracle Functions](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/functions/README.md)
