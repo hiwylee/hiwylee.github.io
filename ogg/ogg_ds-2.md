@@ -116,4 +116,25 @@ C##GGADMIN@DB09021>
     )
   )
 ```
-  
+```
+SQL> desc
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> show parameter enable_goldengate_replication
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+enable_goldengate_replication        boolean     FALSE
+SQL> alter system set enable_goldengate_replication=true;
+
+System altered.
+
+SQL>  show parameter enable_goldengate_replication
+
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+enable_goldengate_replication        boolean     TRUE
+SQL>
+```
+
+
