@@ -14,15 +14,15 @@
 * Set LOG_ARCHIVE_CONFIG
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(< Primary database DB_UNQUE_NAME>, <Standby database DB_UNIQUE_NAME>, <Mining database DB_UNIQUE_NAME>)’;
   
-  ```sql
+```sql
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(SRC_01, STBY_02, MINING)’;
-  ```
+```
 * Set LOG_ARCHIVE_DEST_3
   * SQL> Alter system set LOG_ARCHIVE_DEST_2=’SERVICE=<connect string for the mining database> ASYNC NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=<db unique name of the mining server>’;
-  ```sql
-  
+
+```sql
   * SQL> Alter system set LOG_ARCHIVE_DEST_3=’SERVICE=to_mining ASYNC NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=mining’;
-  ```
+```
 ```sql
 [opc@rac1 ~]$ sudo su - oracle
 Last login: Tue Apr  6 09:44:35 UTC 2021 on pts/0
