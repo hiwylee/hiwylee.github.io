@@ -54,12 +54,9 @@ SYS@DB09021> alter system set log_archive_config='DG_CONFIG=(ORCL)';
 System altered.
 
 Elapsed: 00:00:00.52
-SYS@DB09021> show pdbs
+SYS@DB09021> alter system set LOG_ARCHIVE_DEST_3='SERVICE=mining async NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=ORCL';
+System altered.
 
-    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
----------- ------------------------------ ---------- ----------
-         2 PDB$SEED                       READ ONLY  NO
-         3 DB0902_PDB1                    READ WRITE NO
 SYS@DB09021> alter database add supplemental log data;
 
 Database altered.
@@ -70,12 +67,6 @@ SYS@DB09021> create user c##ggadmin identified by ggadmin;
 User created.
 
 Elapsed: 00:00:00.37
-SYS@DB09021> exec dbms_goldengate_auth.grant_admin_privilege('C##GGAMIN, container='ALL');
-ERROR:
-ORA-01756: quoted string not properly terminated
-
-
-Elapsed: 00:00:00.00
 SYS@DB09021> exec dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
 
 PL/SQL procedure successfully completed.
@@ -91,3 +82,16 @@ Connected.
 C##GGADMIN@DB09021>
 
 ```
+* source tnsnames.ora
+  ```bash
+ mining =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = mining)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = ORCL)
+    )
+  )
+ 
+  ```
+  
