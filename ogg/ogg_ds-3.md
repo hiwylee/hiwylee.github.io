@@ -27,10 +27,66 @@ System altered.
 
 ```
 * Set Standby Logfile Groups
+
+```sql
+
+SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 4 ('/u01/app/oracle/oradata/ORCL/slog4a.rdo', '/u01/app/oracle/oradata/ORCL/slog4b.rdo') SIZE 1024M;
+
+Database altered.
+
+SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 5 ('/u01/app/oracle/oradata/ORCL/slog5a.rdo', '/u01/app/oracle/oradata/ORCL/slog5b.rdo') SIZE 1024M;
+
+Database altered.
+
+SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 6 ('/u01/app/oracle/oradata/ORCL/slog6a.rdo', '/u01/app/oracle/oradata/ORCL/slog6b.rdo') SIZE 1024M;
+
+Database altered.
+
+SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 7 ('/u01/app/oracle/oradata/ORCL/slog7a.rdo', '/u01/app/oracle/oradata/ORCL/slog7b.rdo') SIZE 1024M;
+
+Database altered.
+
+SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 4 ('/u01/app/oracle/oradata/ORCL/slog4a.rdo', '/u01/app/oracle/oradata/ORCL/slog4b.rdo') SIZE 1024M;
+
+```
 * Copy password file from Source to Downstream
 * Open SQL*Net Port
   * Create TNSNAMES entry for Source System
 * Create Mining Database Capture User 
+
+```sql
+[oracle@db19c ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Apr 6 10:26:40 2021
+Version 19.7.0.0.0
+
+Copyright (c) 1982, 2020, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.7.0.0.0
+
+SQL> alter user sys identified by WElcome123##;
+
+User altered.
+
+SQL> create user c##min identified by ogg;
+
+User created.
+
+SQL> exec dbms_goldengate_auth.grant_admin_privilege('C##MIN',container=>'ALL');
+
+PL/SQL procedure successfully completed.
+
+SQL> grant dba to c##min container=all;
+
+Grant succeeded.
+
+SQL> connect c##min/ogg
+Connected.
+SQL>
+```
 * Enable Supplemental Logging
 * Create & Start Downstream Extract Process
 
