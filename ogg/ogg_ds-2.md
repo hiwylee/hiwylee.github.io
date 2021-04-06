@@ -86,7 +86,7 @@ C##GGADMIN@DB09021>
 
 * source tnsnames.ora
 
-  ```bash
+```bash
  mining =
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = mining)(PORT = 1521))
@@ -95,5 +95,5 @@ C##GGADMIN@DB09021>
       (SERVICE_NAME = ORCL)
     )
   )
-  ```
+```
   
