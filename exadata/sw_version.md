@@ -6,4 +6,4 @@
 * [Exadata Product Development Blog](https://blogs.oracle.com/exadata/)
 * [Exadata System Software Updates - May 2020](https://blogs.oracle.com/exadata/software-2020-may)
 
-* Upgrading to Exadata 19.1 will also ~~upgrade the operating system to Oracle Linux 7 Update 5 in a rolling fashion~~
+* Upgrading to Exadata 19.1 will also ``upgrade the operating system to Oracle Linux 7 Update 5 in a rolling fashion``
