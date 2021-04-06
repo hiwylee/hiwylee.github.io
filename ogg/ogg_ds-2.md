@@ -95,6 +95,5 @@ C##GGADMIN@DB09021>
       (SERVICE_NAME = ORCL)
     )
   )
- 
   ```
   
