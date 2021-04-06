@@ -1,7 +1,7 @@
 ## GoldenGate Capture from a DataGuard with Cascaded Redo Logs
 ### Source RDBMS Configuration Steps
 
-```
+---
 * source    : rac1.sh    (DB09021, db0902_yny19m, rac-scan.subnet1.labvcn.oraclevcn.com) 
 * mining db : db19c.sh   (ORCL,ORCL)
 * target    : primary.sh (ORCL) 
@@ -14,9 +14,9 @@
 * Set LOG_ARCHIVE_CONFIG
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(< Primary database DB_UNQUE_NAME>, <Standby database DB_UNIQUE_NAME>, <Mining database DB_UNIQUE_NAME>)’;
   
-```sql
+  ```sql
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(SRC_01, STBY_02, MINING)’;
-```
+  ```
 * Set LOG_ARCHIVE_DEST_3
   * SQL> Alter system set LOG_ARCHIVE_DEST_2=’SERVICE=<connect string for the mining database> ASYNC NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=<db unique name of the mining server>’;
 
