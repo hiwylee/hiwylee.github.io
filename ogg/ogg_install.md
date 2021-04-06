@@ -97,3 +97,38 @@ Please check '/u01/app/oraInventory/logs/silentInstall2021-03-02_09-28-50AM.log'
 ```
 $ORACLE_HOME/OPatch/opatch  apply [patch dir]
 ```
+
+* ogg install
+```
+[oracle@primary Disk1]$  ./runInstaller -silent -nowait -responseFile /home/oracle/ogg/fbo_ggs_Linux_x64_shiphome/Disk1/response/oggcore.rsp
+Starting Oracle Universal Installer...
+
+Checking Temp space: must be greater than 120 MB.   Actual 33913 MB    Passed
+Checking swap space: must be greater than 150 MB.   Actual 8131 MB    Passed
+Preparing to launch Oracle Universal Installer from /tmp/OraInstall2021-04-06_12-01-37PM. Please wait ...[oracle@primary Disk1]$ You can find the log of this install session at:
+ /u01/app/oraInventory/logs/installActions2021-04-06_12-01-37PM.log
+
+[oracle@primary Disk1]$
+[oracle@primary Disk1]$ Successfully Setup Software.
+The installation of Oracle GoldenGate Core was successful.
+Please check '/u01/app/oraInventory/logs/silentInstall2021-04-06_12-01-37PM.log' for more details.
+
+[oracle@primary Disk1]$
+[oracle@primary Disk1]$ vi /u01/app/oraInventory/logs/installActions2021-04-06_12-01-37PM.log
+
+[oracle@primary ~]$ vi .bashrc
+[oracle@primary ~]$ export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+[oracle@primary ~]$ addpath /u01/app/oracle/ogg
+[oracle@primary ~]$ ggsci
+
+Oracle GoldenGate Command Interpreter for Oracle
+Version 19.1.0.0.4 OGGCORE_19.1.0.0.0_PLATFORMS_191017.1054_FBO
+Linux, x64, 64bit (optimized), Oracle 19c on Oct 17 2019 21:16:29
+Operating system character set identified as UTF-8.
+
+Copyright (C) 1995, 2019, Oracle and/or its affiliates. All rights reserved.
+
+
+GGSCI (primary) 1>
+
+```
