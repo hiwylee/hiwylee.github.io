@@ -11,6 +11,21 @@
 * Set LOG_ARCHIVE_CONFIG
 * Set LOG_ARCHIVE_DEST_1 : location for local archives
 * Set LOG_ARCHIVE_DEST_2 : for foreign archives
+
+```sql
+SQL> alter system set log_archive_config='DG_CONFIG=(DB0902_YNY19M, ORCL)';
+
+System altered.
+
+SQL> alter system set LOG_ARCHIVE_DEST_1='LOCATION=/u01/app/oracle/fra/ORCL/ORCL/archivelog VALID_FOR=(ONLINE_LOGFILE, PRIMARY_ROLE)';
+
+System altered.
+
+SQL> alter system set LOG_ARCHIVE_DEST_2='LOCATION=/u01/app/oracle/foreign_archives VALID_FOR=(STANDBY_LOGFILES, ALL_ROLES)';
+
+System altered.
+
+```
 * Set Standby Logfile Groups
 * Copy password file from Source to Downstream
 * Open SQL*Net Port
