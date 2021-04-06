@@ -14,15 +14,34 @@
 * Set LOG_ARCHIVE_CONFIG
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(< Primary database DB_UNQUE_NAME>, <Standby database DB_UNIQUE_NAME>, <Mining database DB_UNIQUE_NAME>)’;
   
-  ```sql
+```sql
   SQL> Alter system set LOG_ARCHIVE_CONFIG=’DG_CONFIG=(SRC_01, STBY_02, MINING)’;
-  ```
+```
 * Set LOG_ARCHIVE_DEST_3
   * SQL> Alter system set LOG_ARCHIVE_DEST_2=’SERVICE=<connect string for the mining database> ASYNC NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=<db unique name of the mining server>’;
 
-    ```sql
+```sql
   * SQL> Alter system set LOG_ARCHIVE_DEST_3=’SERVICE=to_mining ASYNC NOREGISTER VALID_FOR=(STANDBY_LOGFILES, STANDBY_ROLE) REOPEN=10 DB_UNIQUE_NAME=mining’;
-    ```
+```
+
+```sql
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SYS@DB09021>  alter system set enable_goldengate_replication=true;
+
+System altered.
+
+Elapsed: 00:00:00.50
+SYS@DB09021>  show parameter enable_goldengate_replication
+
+NAME                                 TYPE                   VALUE
+------------------------------------ ---------------------- ------------------------------
+enable_goldengate_replication        boolean                TRUE
+SYS@DB09021>
+
+```
 
 ```sql
 [opc@rac1 ~]$ sudo su - oracle
@@ -83,6 +102,7 @@ Connected.
 C##GGADMIN@DB09021>
 
 ```
+
 
 * source tnsnames.ora
 
