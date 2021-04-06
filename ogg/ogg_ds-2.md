@@ -7,7 +7,7 @@
 * target    : primary.sh (ORCL) 
 ---
 
-### 
+###  순서
 * Enable Cascading Redo Log Shipping
 * Create OGG Extract User
 * Open SQL*Net Port
@@ -50,7 +50,7 @@ NAME                                 TYPE                   VALUE
 ------------------------------------ ---------------------- ------------------------------
 log_archive_config                   string
 
-SYS@DB09021> alter system set log_archive_config='DG_CONFIG=(ORCL)';
+SYS@DB09021> alter system set log_archive_config='DG_CONFIG=(DB0902_YNY19M, ORCL)';
 
 System altered.
 
