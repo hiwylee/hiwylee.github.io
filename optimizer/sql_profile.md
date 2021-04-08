@@ -8,8 +8,26 @@
 ### 실습
 * sql profile
   * script spt.sql
+
+```sql
+SYS@DB09021> ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+
+
+Session altered.
+
+Elapsed: 00:00:00.00
+SYS@DB09021> SYS@DB09021>
+SYS@DB09021>  create user coet identified by coet;
+
+User created.
+
+Elapsed: 00:00:00.07
+SYS@DB09021>
+```
   
 ```sql
+sqlplus coet/coet
+
 DROP TABLE DEPT;
 
 CREATE TABLE DEPT
@@ -71,39 +89,16 @@ SQL> @spt
 
 Table dropped.
 
-
 Table created.
-
-
 1 row created.
-
-
 1 row created.
-
-
 1 row created.
-
-
 1 row created.
-
-
 Commit complete.
-
-
-Commit complete.
-
-
 Index created.
-
-
 PL/SQL procedure successfully completed.
-
-
 Explained.
-
-
 Plan hash value: 1124108434
-
 ---------------------------------------------------------------------------------------
 | Id  | Operation                   | Name    | Rows  | Bytes | Cost (%CPU)| Time     |
 ---------------------------------------------------------------------------------------
@@ -111,11 +106,8 @@ Plan hash value: 1124108434
 |   1 |  TABLE ACCESS BY INDEX ROWID| DEPT    |     1 |    20 |     1   (0)| 00:00:01 |
 |*  2 |   INDEX UNIQUE SCAN         | DEPT_U1 |     1 |       |     0   (0)| 00:00:01 |
 ---------------------------------------------------------------------------------------
-
 Outline Data
--------------
-
-
+------------
   /*+
       BEGIN_OUTLINE_DATA
       INDEX_RS_ASC(@"SEL$1" "D"@"SEL$1" ("DEPT"."DEPTNO"))
@@ -129,21 +121,13 @@ Outline Data
 
 Predicate Information (identified by operation id):
 ---------------------------------------------------
-
-
    2 - access("D"."DEPTNO"=TO_NUMBER(:B1))
-
 28 rows selected.
-
 
 Explained.
 
-
 PL/SQL procedure successfully completed.
-
-
         10 ACCOUNTING     NEW YORK
-
 
 Plan hash value: 3383998547
 
@@ -176,7 +160,6 @@ Predicate Information (identified by operation id):
    1 - filter("D"."DEPTNO"=TO_NUMBER(:B1))
 
 27 rows selected.
-
 
 9yb33yh2fhjun SELECT SQL_ID,        SQL_TEXT,        S SELECT SQL_ID,
               QL_FULLTEXT FROM   V$SQL WHERE  SQL_TEXT        SQL_TEXT,
@@ -241,7 +224,6 @@ BEGIN
     SELECT SQL_FULLTEXT
     INTO   V_SQL_TEXT
     FROM   V$SQL
-    --WHERE  SQL_ID = '21thr1v5tk9xm';
     WHERE  SQL_ID = '&1';
 
     DBMS_SQLTUNE.IMPORT_SQL_PROFILE(
