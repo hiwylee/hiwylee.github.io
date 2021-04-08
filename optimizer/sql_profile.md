@@ -261,3 +261,97 @@ END;
 /
 
 ```
+```sql
+
+COET@DB09021> @spcr abfnv4rva7df9
+
+Explained.
+
+Elapsed: 00:00:00.00
+
+Plan hash value: 1124108434
+
+---------------------------------------------------------------------------------------
+| Id  | Operation                   | Name    | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT            |         |     1 |    20 |     1   (0)| 00:00:01 |
+|   1 |  TABLE ACCESS BY INDEX ROWID| DEPT    |     1 |    20 |     1   (0)| 00:00:01 |
+|*  2 |   INDEX UNIQUE SCAN         | DEPT_U1 |     1 |       |     0   (0)| 00:00:01 |
+---------------------------------------------------------------------------------------
+
+Outline Data
+-------------
+
+  /*+
+      BEGIN_OUTLINE_DATA
+      INDEX_RS_ASC(@"SEL$1" "D"@"SEL$1" ("DEPT"."DEPTNO"))
+      OUTLINE_LEAF(@"SEL$1")
+      ALL_ROWS
+      DB_VERSION('19.1.0')
+      OPTIMIZER_FEATURES_ENABLE('19.1.0.1')
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      END_OUTLINE_DATA
+  */
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("D"."DEPTNO"=TO_NUMBER(:B1))
+
+28 rows selected.
+
+Elapsed: 00:00:00.08
+
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:00:00.14
+
+Session altered.
+
+Elapsed: 00:00:00.00
+
+Explained.
+
+Elapsed: 00:00:00.01
+
+Plan hash value: 3383998547
+
+--------------------------------------------------------------------------
+| Id  | Operation         | Name | Rows  | Bytes | Cost (%CPU)| Time     |
+--------------------------------------------------------------------------
+|   0 | SELECT STATEMENT  |      |     1 |    20 |     3   (0)| 00:00:01 |
+|*  1 |  TABLE ACCESS FULL| DEPT |     1 |    20 |     3   (0)| 00:00:01 |
+--------------------------------------------------------------------------
+
+Outline Data
+-------------
+
+  /*+
+      BEGIN_OUTLINE_DATA
+      FULL(@"SEL$1" "D"@"SEL$1")
+      OUTLINE_LEAF(@"SEL$1")
+      ALL_ROWS
+      DB_VERSION('19.1.0')
+      OPTIMIZER_FEATURES_ENABLE('19.1.0.1')
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      END_OUTLINE_DATA
+  */
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter("D"."DEPTNO"=TO_NUMBER(:B1))
+
+Note
+-----
+   - SQL profile "DEPT_PROFILE_0" used for this statement
+
+31 rows selected.
+
+Elapsed: 00:00:00.08
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:00:00.01
+```
