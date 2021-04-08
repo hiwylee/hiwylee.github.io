@@ -22,7 +22,9 @@ SYS@DB09021>  create user coet identified by coet;
 User created.
 
 Elapsed: 00:00:00.07
-SYS@DB09021>
+SYS@DB09021> grant dba to coet;
+
+Grant succeeded.
 ```
   
 ```sql
