@@ -3,4 +3,5 @@
 * [통계생성 관련 - DB_statistics.md](DB_statistics.md)
 * [Partition-wise group by -  DB_pw_gby.md](DB_pw_gby.md)
 * [DB 통계 확인 - DB_RecusiveCall.md](DB_RecusiveCall.md)
-* [SPM 과 SQL PROFILE](sql_profile.md)
+* [SQL Plan Management](DB_spm.md)
+* [SQL PROFILE](DB_sql_profile.md)
