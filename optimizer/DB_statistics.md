@@ -1,4 +1,6 @@
 ## Gathering Statistics
+* [How to Gather Optimizer Statistics Fast!](https://blogs.oracle.com/optimizer/how-to-gather-optimizer-statistics-fast)
+* 
 ### Master Note: 
 * [ Master Note: Optimizer Statistics (Doc ID 1369591.1)](https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=90kjb4hnm_4&_afrLoop=381271140089258#aref_section213)
 ### Global set_global_prefs
