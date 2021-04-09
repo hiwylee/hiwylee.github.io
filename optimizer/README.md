@@ -7,4 +7,6 @@
 * [SQL Profile](DB_sql_profile.md)
 * [SQL Patch ](DB_SQL_Patch.md)
 
-* Tools : [awr.sh](awr.sh)
+### Tools 
+* [awr.sh](awr.sh)
+* [Oracle Github - optimizer](https://github.com/oracle/oracle-db-examples/tree/master/optimizer)
