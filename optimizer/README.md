@@ -8,5 +8,6 @@
 * [SQL Patch ](DB_SQL_Patch.md)
 
 ### Tools 
-* [awr.sh](awr.sh)
+* [Generating AWR or ASH reports using Oracle Client - awr.sh](awr.sh)
+  * [사용법](https://github.com/oracle/oracle-db-examples/tree/master/optimizer/RWPG/awr)
 * [Oracle Github - optimizer](https://github.com/oracle/oracle-db-examples/tree/master/optimizer)
