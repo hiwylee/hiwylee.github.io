@@ -6,3 +6,5 @@
 * [SQL Plan Management](DB_spm.md)
 * [SQL Profile](DB_sql_profile.md)
 * [SQL Patch ](DB_SQL_Patch.md)
+
+* Tools : [awr.sh](awr.sh)
