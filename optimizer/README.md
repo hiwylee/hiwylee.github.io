@@ -4,4 +4,5 @@
 * [Partition-wise group by -  DB_pw_gby.md](DB_pw_gby.md)
 * [DB 통계 확인 - DB_RecusiveCall.md](DB_RecusiveCall.md)
 * [SQL Plan Management](DB_spm.md)
-* [SQL PROFILE](DB_sql_profile.md)
+* [SQL Profile](DB_sql_profile.md)
+* [SQL Patch ](DB_SQL_Patch.md)
