@@ -4,7 +4,7 @@
   * [How to Use SQL Plan Baselines and SQL Profiles](https://www.youtube.com/watch?v=OJog42VkcBM&t=308s)
 * 참조 블로그
   * [SQL_PROFILE을 통한 비효율SQL 문장 plan fix](https://redkite777.tistory.com/entry/오라클SQLPROFILE을-통한-비효율SQL-문장-plan-fix) 
-
+  * [SQL Profile - Use bind variables instead of literals with force match in SQL Profile ](https://smarttechways.com/2021/01/22/use-bind-variables-instead-of-literals-with-force-match-in-sql-profile-generated-from-sql-tuning-advisory/)
 ### 실습
 * sql profile
   * script spt.sql
