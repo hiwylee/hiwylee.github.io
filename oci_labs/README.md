@@ -8,6 +8,14 @@
 * [GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=692)
 * [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
 * [Converged Database with Weblogic for Developers Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=748&p210_type=3&session=110719162873870)
+* 19c Upgrade
+  * Liblabs
+    * [Upgrade to Oracle Database 19c Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=606&p210_type=3&session=12703389139098)
+  * Video 
+    * [Session 1: Release Strategy and Patching Best Practices](https://videohub.oracle.com/media/Webinar1_Release+Strategy+and+Patching+Best+Practices_EMEA/1_tgn14n7w?elqTrackId=cbadae583c1c44d5ad55f95bd2df1a35&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Session 2: Upgrade to Oracle Database 19c using AutoUpgrade](https://videohub.oracle.com/media/Webinar2_Upgrade+to+Oracle+Database+19c+using+AutoUpgrade_EMEA/1_05tfzpzc?elqTrackId=a8646954b53d45d8adea9c54ed70d850&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Session 3: Performance Stability, Tips, Tricks & Underscores](https://videohub.oracle.com/media/Webinar3_Performance+Stability%2C+Tips%2C+Tricks+%26+Underscores_EMEA/1_zdm4g4bz?elqTrackId=a654b2fd54a04b56af8e4d921ddfa116&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Sesson 4: Migrate to Multitenant Architecture](https://videohub.oracle.com/media/Webinar4_Migrate+to+Multitenant+Architecture_EMEA/1_nk5s2vuj?elqTrackId=e1e4d7418c904f79b0dd99df7f9f0f1b&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
 * RAC
   * [oci_labs - RAC Fundamentals Workshop](oci_labs_rac.md)
 * OKE
