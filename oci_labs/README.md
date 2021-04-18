@@ -9,7 +9,7 @@
 * [Disaster Recovery RackWare Deployment on OCI Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=718&session=17550120240843)
 * [Converged Database with Weblogic for Developers Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=748&p210_type=3&session=110719162873870)
 * 19c Upgrade
-  * Liblabs
+  * Live labs
     * [Upgrade to Oracle Database 19c Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=606&p210_type=3&session=12703389139098)
   * Video 
     * [Session 1: Release Strategy and Patching Best Practices](https://videohub.oracle.com/media/Webinar1_Release+Strategy+and+Patching+Best+Practices_EMEA/1_tgn14n7w?elqTrackId=cbadae583c1c44d5ad55f95bd2df1a35&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
