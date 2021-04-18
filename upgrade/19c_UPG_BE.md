@@ -1,5 +1,14 @@
 ## 19c Database Self-Guided Upgrade with Best Practices (Doc ID 1919.2)	To BottomTo Bottom	
-
+### Basic Training
+* 19c Upgrade
+  * Live labs
+    * [Upgrade to Oracle Database 19c Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=606&p210_type=3&session=12703389139098)
+  * Video 
+    * [Session 1: Release Strategy and Patching Best Practices](https://videohub.oracle.com/media/Webinar1_Release+Strategy+and+Patching+Best+Practices_EMEA/1_tgn14n7w?elqTrackId=cbadae583c1c44d5ad55f95bd2df1a35&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Session 2: Upgrade to Oracle Database 19c using AutoUpgrade](https://videohub.oracle.com/media/Webinar2_Upgrade+to+Oracle+Database+19c+using+AutoUpgrade_EMEA/1_05tfzpzc?elqTrackId=a8646954b53d45d8adea9c54ed70d850&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Session 3: Performance Stability, Tips, Tricks & Underscores](https://videohub.oracle.com/media/Webinar3_Performance+Stability%2C+Tips%2C+Tricks+%26+Underscores_EMEA/1_zdm4g4bz?elqTrackId=a654b2fd54a04b56af8e4d921ddfa116&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    * [Sesson 4: Migrate to Multitenant Architecture](https://videohub.oracle.com/media/Webinar4_Migrate+to+Multitenant+Architecture_EMEA/1_nk5s2vuj?elqTrackId=e1e4d7418c904f79b0dd99df7f9f0f1b&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+    
 ### Oracle Support
 * [Database 19 Release Updates and Revisions Bugs Fixed Lists (Doc ID 2523220.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=197020759887817&id=2523220.1&_afrWindowMode=0&_adf.ctrl-state=brnvjhqit_702)
 * [Oracle Database 19c Important Recommended One-off Patches (Doc ID 555.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=196928211584878&id=2720807.1&_afrWindowMode=0&_adf.ctrl-state=brnvjhqit_653)
