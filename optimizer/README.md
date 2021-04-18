@@ -7,6 +7,8 @@
 * [SQL Profile](DB_sql_profile.md)
 * [SQL Patch ](DB_SQL_Patch.md)
 
+### SQL 튜닝 대상 추출
+  * [오라클 업그레이드 SQL 튜닝 대상 추출](https://argolee.tistory.com/103)
 ### Tools 
 * [Generating AWR or ASH reports using Oracle Client - awr.sh](awr.sh)
   * [사용법](https://github.com/oracle/oracle-db-examples/tree/master/optimizer/RWPG/awr)
