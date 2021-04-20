@@ -1,4 +1,4 @@
-## 19c Database Self-Guided Upgrade with Best Practices (Doc ID 1919.2)	To BottomTo Bottom	
+## 19c Database Self-Guided Upgrade with Best Practices (Doc ID 1919.2)	 
 ### Basic Training
 * 19c Upgrade
   * Live labs
