@@ -1,0 +1,240 @@
+## Upgrade to Oracle Database 19c 
+* [Live Labs Upgrade to Oracle Database 19c ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=606&p210_type=3&session=114292430617317)
+
+### Capture and Preserve SQL
+
+* Collect Statements from Cursor Cache: @/home/oracle/scripts/capture_awr.sql
+
+```sql
+-- -----------------------------------------------------------------------------------
+-- File Name    : https://MikeDietrichDE.com/wp-content/scripts/12c/capture_awr.sql
+-- Author       : Mike Dietrich
+-- Description  : Capture SQL Statements from AWR into a SQL Tuning Set
+-- Requirements : Access to the DBA role.
+-- Call Syntax  : @capture_awr.sql
+-- Last Modified: 31/05/2017
+-- -----------------------------------------------------------------------------------
+
+SET SERVEROUT ON
+SET PAGESIZE 1000
+SET LONG 2000000
+SET LINESIZE 400
+
+--
+-- Drop the SQL Tuning SET if it exists
+--
+
+DECLARE
+
+  sts_exists number;
+  stmt_count number;
+  cur sys_refcursor;
+  begin_id   number;
+  end_id     number;
+
+BEGIN
+
+  SELECT count(*)
+  INTO   sts_exists
+  FROM   DBA_SQLSET
+  WHERE  rownum = 1 AND
+         name = 'STS_CaptureAWR';
+
+  IF sts_exists = 1 THEN
+    SYS.DBMS_SQLTUNE.DROP_SQLSET(
+       sqlset_name=>'STS_CaptureAWR'
+       );
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('SQL Tuning Set does not exist - will be created ...');
+  END IF;
+
+
+--
+-- Create a SQL Tuning SET 'STS_CaptureCursorCache'
+--
+
+  SYS.DBMS_SQLTUNE.CREATE_SQLSET(
+     sqlset_name=>'STS_CaptureAWR',
+     description=>'Statements from AWR Before-Change'
+     );
+
+DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
+
+SELECT min(snap_id)
+INTO begin_id
+FROM dba_hist_snapshot;
+
+
+SELECT max(snap_id)
+INTO end_id
+FROM dba_hist_snapshot;
+
+DBMS_OUTPUT.PUT_LINE('Snapshot Range between ' || begin_id || ' and ' || end_id || '.');
+
+open cur for
+  select value(p) from table(dbms_sqltune.select_workload_repository(
+       begin_snap       => begin_id,
+       end_snap         => end_id,
+       basic_filter     => 'parsing_schema_name not in (''DBSNMP'',''SYS'',''ORACLE_OCM'',''LBACSYS'',''WMSYS'',''XDB'')',
+       ranking_measure1 => 'elapsed_time',
+       result_limit     => 5000,
+       attribute_list   => 'ALL')) p;
+  dbms_sqltune.load_sqlset('STS_CaptureAWR', cur);
+close cur;
+
+--
+-- Display the amount of statements collected in the STS
+--
+
+SELECT statement_count
+INTO stmt_count
+FROM dba_sqlset
+WHERE name = 'STS_CaptureAWR';
+
+DBMS_OUTPUT.PUT_LINE('There are ' || stmt_count || ' SQL Statements in STS_CaptureAWR.');
+
+--
+-- If you need more details please use:
+--
+--    SELECT sql_text,cpu_time,elapsed_time, executions, buffer_gets
+--      FROM dba_sqlset_statements
+--      WHERE sqlset_name='STS_CaptureAWR';
+--
+
+END;
+/
+
+```
+* Collect Statements from Cursor Cache: @/home/oracle/scripts/capture_cc.sql
+
+```sql
+-- -----------------------------------------------------------------------------------
+-- File Name    : https://MikeDietrichDE.com/wp-content/scripts/12c/check_patches.sql
+-- Author       : Mike Dietrich
+-- Description  : Capture SQL Statements from Cursor Cache into a SQL Tuning Set
+-- Requirements : Access to the DBA role.
+-- Call Syntax  : @capture_cc.sql
+-- Last Modified: 29/05/2017
+-- -----------------------------------------------------------------------------------
+
+SET SERVEROUT ON
+SET PAGESIZE 1000
+SET LONG 2000000
+SET LINESIZE 400
+
+--
+-- Drop the SQL Tuning SET if it exists
+--
+
+DECLARE
+
+  sts_exists number;
+  stmt_count number;
+
+BEGIN
+
+  SELECT count(*)
+  INTO   sts_exists
+  FROM   DBA_SQLSET
+  WHERE  rownum = 1 AND
+         name = 'STS_CaptureCursorCache';
+
+  IF sts_exists = 1 THEN
+    SYS.DBMS_SQLTUNE.DROP_SQLSET(
+       sqlset_name=>'STS_CaptureCursorCache'
+       );
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('SQL Tuning Set does not exist - will be created ...');
+  END IF;
+
+
+--
+-- Create a SQL Tuning SET 'STS_CaptureCursorCache'
+--
+
+  SYS.DBMS_SQLTUNE.CREATE_SQLSET(
+     sqlset_name=>'STS_CaptureCursorCache',
+     description=>'Statements from Before-Change'
+     );
+
+
+--
+-- Poll the Cursor Cache
+-- time_limit: The total amount of time, in seconds, to execute
+-- repeat_interval: The amount of time, in seconds, to pause between sampling
+-- Adjust both settings based on needs
+--
+
+ DBMS_OUTPUT.PUT_LINE('Now polling the cursor cache for 240 seconds every 10 seconds ...');
+ DBMS_OUTPUT.PUT_LINE('You will get back control in 4 minutes.');
+ DBMS_OUTPUT.PUT_LINE('.');
+
+ DBMS_SQLTUNE.CAPTURE_CURSOR_CACHE_SQLSET(
+        sqlset_name => 'STS_CaptureCursorCache',
+        time_limit => 240,
+        repeat_interval => 10,
+        capture_option => 'MERGE',
+        capture_mode => DBMS_SQLTUNE.MODE_ACCUMULATE_STATS,
+        basic_filter => 'parsing_schema_name not in (''DBSNMP'',''SYS'',''ORACLE_OCM'',''LBACSYS'',''XDB'',''WMSYS'')',
+        sqlset_owner => NULL,
+        recursive_sql => 'HAS_RECURSIVE_SQL');
+
+--
+-- Display the amount of statements collected in the STS
+--
+
+SELECT statement_count
+INTO stmt_count
+FROM dba_sqlset
+WHERE name = 'STS_CaptureCursorCache';
+
+DBMS_OUTPUT.PUT_LINE('There are now ' || stmt_count || ' SQL Statements in this STS.');
+
+--
+-- If you need more details please use:
+--
+--    SELECT sql_text,cpu_time,elapsed_time, executions, buffer_gets
+--      FROM dba_sqlset_statements
+--      WHERE sqlset_name='STS_CaptureCursorCache';
+--
+
+END;
+/
+
+```
+
+* Optional - Export AWR
+*
+```sql
+@?/rdbms/admin/awrextr.sql
+```
+
+### AutoUpgrade
+* Prepare cfg
+
+```bash
+. upgr
+cd /home/oracle/scripts
+java -jar $OH19/rdbms/admin/autoupgrade.jar -create_sample_file config
+vi /home/oracle/scripts/sample_config.cfg
+mv /home/oracle/scripts/sample_config.cfg /home/oracle/scripts/UPGR.cfg
+```
+* Analyze Phase
+
+```bash
+. upgr
+java -jar $OH19/rdbms/admin/autoupgrade.jar -config /home/oracle/scripts/UPGR.cfg -mode analyze
+```
+* Upgrade
+ 
+```bash
+java -jar $OH19/rdbms/admin/autoupgrade.jar -config /home/oracle/scripts/UPGR.cfg -mode deploy
+```
+* check 
+
+```sql
+sudo su - oracle
+. upgr19
+cd /home/oracle/scripts
+sqlplus / as sysdba
+```
