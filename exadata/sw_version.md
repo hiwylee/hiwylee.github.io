@@ -1,4 +1,4 @@
-## Exadata Database Machine and Exadata Storage Serve
+## Exadata Database Machine and Exadata Storage Server
 ### Software Supported Versions
 * [Exadata Database Machine and Exadata Storage Server Supported Versions (Doc ID 888828.1)](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=183213295821232&parent=DOCUMENT&sourceId=888828.1&id=888828.1&_afrWindowMode=0&_adf.ctrl-state=19ur4vz3kk_291#aref_section315)
 * [Exadata Patching Overview and Patch Testing Guidelines (Doc ID 1262380.1)](https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=183338382665954&parent=DOCUMENT&sourceId=888828.1&id=1262380.1&_afrWindowMode=0&_adf.ctrl-state=19ur4vz3kk_340)
