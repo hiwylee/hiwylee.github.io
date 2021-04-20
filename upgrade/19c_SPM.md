@@ -13,7 +13,7 @@
   * Plan selection
   * Plan evolution
 
-* Load and fixd
+* Load and fixed
 
 ```sql
 
