@@ -355,7 +355,7 @@ BEGIN
      execution_params =>
        DBMS_ADVISOR.ARGLIST(
                'comparison_metric',
-               'cpu_time',
+               'cpu_time',     -- or 'elapsed_time',
                'execution_name1','EXEC_SPA_TASK_11204',
                'execution_name2','EXEC_SPA_TASK_19C'),
      execution_desc => 'Compare 11204 to 19c CPU_TIME'
