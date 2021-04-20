@@ -16,6 +16,10 @@
     * [Session 2: Upgrade to Oracle Database 19c using AutoUpgrade](https://videohub.oracle.com/media/Webinar2_Upgrade+to+Oracle+Database+19c+using+AutoUpgrade_EMEA/1_05tfzpzc?elqTrackId=a8646954b53d45d8adea9c54ed70d850&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
     * [Session 3: Performance Stability, Tips, Tricks & Underscores](https://videohub.oracle.com/media/Webinar3_Performance+Stability%2C+Tips%2C+Tricks+%26+Underscores_EMEA/1_zdm4g4bz?elqTrackId=a654b2fd54a04b56af8e4d921ddfa116&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
     * [Sesson 4: Migrate to Multitenant Architecture](https://videohub.oracle.com/media/Webinar4_Migrate+to+Multitenant+Architecture_EMEA/1_nk5s2vuj?elqTrackId=e1e4d7418c904f79b0dd99df7f9f0f1b&elqaid=95661&elqat=2&source=:ow:lp:cpo::)
+* EM
+  * [Enterprise Manager Fundamentals](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=574&clear=180&session=114292430617317)
+  * [EM - Database Performance Management: Find-Fix-Validate](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=660&clear=180&session=114292430617317)
+  * [EM - Automated Database Patching at Scale with Fleet Maintenance](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=661&clear=180&session=114292430617317)
 * RAC
   * [oci_labs - RAC Fundamentals Workshop](oci_labs_rac.md)
 * OKE
