@@ -400,4 +400,4 @@ SPOOL OFF
 
 ```
 
-### SQL Plan Management
+### [SQL Plan Management](19c_SPM.md)
