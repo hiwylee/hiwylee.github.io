@@ -1,7 +1,7 @@
 ## Upgrade to Oracle Database 19c 
 * [Live Labs Upgrade to Oracle Database 19c ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=606&p210_type=3&session=114292430617317)
 * [SQL TUNING SET 요약](https://m.blog.naver.com/qowndyd/221334359445)
-* [How to Move a SQL Tuning Set from One Database to Another (Doc ID 751068.1)] (https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=194405980567391&parent=EXTERNAL_SEARCH&sourceId=HOWTO&id=751068.1&_afrWindowMode=0&_adf.ctrl-state=199scbuynz_4) 
+* [How to Move a SQL Tuning Set from One Database to Another (Doc ID 751068.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=194405980567391&parent=EXTERNAL_SEARCH&sourceId=HOWTO&id=751068.1&_afrWindowMode=0&_adf.ctrl-state=199scbuynz_4) 
 * [Moving SQL Tuning Set (STS) Accross Databases](https://taliphakanozturken.wordpress.com/2011/12/20/moving-sql-tuning-set-sts-accross-databases/)
 * 
 ### Capture and Preserve SQL
