@@ -7,3 +7,6 @@
 * SINGLE DIAGNOSTIC INTERFACE
 * ONE INTEGRATED FRAMEWORK
 
+### Tools included
+* ``ORAchk/EXAchk`` compliance check results – To proactively warn you of risks
+* ``Trace File Analyzer (TFA)`` diagnostic collections - Taken automatically on detection of a fault
