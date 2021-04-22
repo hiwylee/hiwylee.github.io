@@ -2,7 +2,7 @@
 
 | | | | | | | |
 |:---: |:---: |:---: |:---: |:---: |:---: |:---: |
-|[DB](db) |[]() |[]() |[]() | []()| []()|[]() |
+|[DB](DB) |[apex](apex) |[exadata](exadata) |[]() | []()| []()|[]() |
 
 * [**LIVE LABS : Workshop**](oci_labs/oci_labs.md)
   * [oci_labs.md](oci_labs/oci_labs.md)
