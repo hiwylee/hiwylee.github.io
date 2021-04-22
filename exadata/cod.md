@@ -38,3 +38,25 @@ DBMCLI> list dbserver attributes pendingCoreCount
 $ dbmcli
 DBMCLI> list dbserver attributes coreCount
 ```
+
+### 3 node rac 
+
+```
+DBMCLI> LIST DBSERVER attributes coreCount
+```
+* Example below from an Exadata X7-2, from 3 database compute nodes. The example below shows only 16 out of the total 48 physical cores are enabled.
+
+```bash
+[root@prod_node1 ~]# dbmcli
+DBMCLI: Release  - Production on Wed Jul 24 00:06:08 GMT-00:00 2019 Copyright (c) 2007, 2016, Oracle and/or its affiliates. All rights reserved. 
+DBMCLI> LIST DBSERVER attributes coreCount         
+16/48
+[root@prod_node2 ~]# dbmcli
+DBMCLI: Release  - Production on Wed Jul 24 00:32:34 GMT 2019 Copyright (c) 2007, 2016, Oracle and/or its affiliates. All rights reserved.
+DBMCLI> LIST DBSERVER attributes coreCount         
+16/48                          
+[root@prod_node3 ~]# dbmcli
+DBMCLI: Release  - Production on Wed Jul 24 00:35:20 GMT 2019 Copyright (c) 2007, 2016, Oracle and/or its affiliates. All rights reserved.
+DBMCLI> LIST DBSERVER attributes coreCount         
+16/48
+```
