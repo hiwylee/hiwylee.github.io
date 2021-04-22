@@ -21,9 +21,12 @@ DBMCLI> LIST DBSERVER DETAIL
 ```
 
 ```
-DBMCLI> LIST DBSERVER attributes coreCount,cpuCount
-         48/48   96/96
+DBMCLI> LIST DBSERVER attributes coreCount
+         48/48 
 ```
+
+* core count 48 = CPU_COUNT=96 : `` one physical core== 2 hyper threading  ``
+
 * CoD 변경
 
 ```
@@ -39,7 +42,7 @@ $ dbmcli
 DBMCLI> list dbserver attributes coreCount
 ```
 
-### 3 node rac 
+### 3 node rac CoD
 
 ```
 DBMCLI> LIST DBSERVER attributes coreCount
