@@ -21,6 +21,9 @@ LIST DBSERVER [ name |  attribute_filters ]  [attribute_list]  [DETAIL]
 ```
 
 ```bash
+$ su -
+$ dbmcli
+
 DBMCLI> LIST DBSERVER DETAIL
          name:                   krx8madb01
          bbuStatus:              normal
