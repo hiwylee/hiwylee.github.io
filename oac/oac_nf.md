@@ -9,12 +9,30 @@
     * Blending Multi Table Data-Sets
     * Hybrid DataSets 
     * Multi Table Datasets 
+  * Canvas Auto-Refresh  
+  * Scheduled Datasets Reload
+  * Waterfall Viz Weighted Averages
+  * Non-Joined Datasets for Oracle Analytics Maps
+  * Oracle Analytics On Canvas Filter Enhancements
+    * List Box
+  * Viz Interactions Enhancements
+    * Custom Order 
+    * Custom Tooltip
+    * Export Enhancement
+  * Database Timeseries Function
+    * Leveraging OML Timeseries
+  * Graph Function 
+    * Shortest Path Graph Function
+      * Network 10k pluggin
+    * PageRank Graph Function
+    * Sub-Network Graph Function
+    * Graph Clustering Function
+  
+  * Hierarchical Columns (RPD)
+
   * Google Big Query Connector
   * Generic JDBC Connector
     * Remote Data Connectivity -> Data Gateway : jdbc driver 위치 : install/domain/jettybase/lib/ext
-  
-  * Scheduled Datasets Reload
-  * Hierarchical Columns
 
 * publisher : delivery (Object store)
   * Search and Scheduled Refresh 
