@@ -3,7 +3,8 @@
 * [Oracle's Spatial and Graph Technologies](https://www.youtube.com/channel/UCZqBavfLlCuS0il6zNY696w)
 * Oracle Live Labs
   * [Analyze, Query, and Visualize Graphs in Oracle Database](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=686&p210_type=3&session=109381570794329) 
-  * [Oracle Big Data Spatial and Graph - technical tips, best practices, and news from the product team](https://blogs.oracle.com/bigdataspatialgraph/)
+  * [Introduction to Autonomous Database Tools ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=789)
+* [Oracle Big Data Spatial and Graph - technical tips, best practices, and news from the product team](https://blogs.oracle.com/bigdataspatialgraph/)
 ### Core Tech
 * [PGQL - Property Graph Query Language](https://github.com/oracle/pgql-lang)
 * Prperty Graph Visualization
