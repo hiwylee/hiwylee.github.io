@@ -37,6 +37,7 @@
 * Oracle Live Labs
   * [Analyze, Query, and Visualize Graphs in Oracle Database](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=686&p210_type=3&session=109381570794329) 
   * [Introduction to Autonomous Database Tools ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=789)
+  * [Getting Started with Graph Studio](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=758&p210_type=3&session=6871376584532)
 
 ### 참조
 * [PGQL - Property Graph Query Language](https://github.com/oracle/pgql-lang)
