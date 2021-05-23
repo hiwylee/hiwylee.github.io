@@ -19,6 +19,9 @@
 * Blog: [Introducing Oracle Machine Learning Services             ](https://blogs.oracle.com/machinelearning/introducing-oracle-machine-learning-services)
 * Blog: [Graph Databases: What Can They Do?                       ](https://blogs.oracle.com/database/graph-databases%3a-what-can-they-do)
 * Blog: [It’s Independence Day Every Day with the new Autonomous Data Warehouse Tools](https://blogs.oracle.com/database/it%E2%80%99s-independence-day-every-day-with-the-new-autonomous-data-warehouse-data-tools)
+* [AskTOM Video ](https://asktom.oracle.com/pls/apex/f?p=100:570::::RR,570::&cs=3F_7s6G92amYF_t_dVLLIGT-Aw9Ghwynk0zAe180bNokncp0LRt3iX6rdrCHIC-dKcv5etByIEprB5ZZr9ItbSg)
+* [Oracle Big Data Spatial and Graph - technical tips, best practices, and news from the product team](https://blogs.oracle.com/bigdataspatialgraph/)
+
 ### NEW PAGES  Videos
 * [Data Tools (series of 5)                         ](https://www.youtube.com/playlist?list=PLcFwxJMrxygCThL2ww6NQyL7w33rlHYbw)
 * [Introducing Graph Studio Interface               ](https://www.youtube.com/watch?v=URdchKSsy3E&feature=emb_logo)
@@ -28,3 +31,15 @@
 * [Query and Visualize a Graph                      ](https://www.youtube.com/watch?v=DLRlnw-NI1g)
 * [Oracle Machine Learning Services                 ](https://youtu.be/ORu4AbilJSk)
 * [Oracle Machine Learning AutoML User Interface    ](https://www.youtube.com/watch?v=OJruGWToLrI) 
+
+### Live Labs
+* [Oracle's Spatial and Graph Technologies](https://www.youtube.com/channel/UCZqBavfLlCuS0il6zNY696w)
+* Oracle Live Labs
+  * [Analyze, Query, and Visualize Graphs in Oracle Database](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=686&p210_type=3&session=109381570794329) 
+  * [Introduction to Autonomous Database Tools ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=789)
+
+### 참조
+### Core Tech
+* [PGQL - Property Graph Query Language](https://github.com/oracle/pgql-lang)
+* Prperty Graph Visualization
+* Graph Anlytics
