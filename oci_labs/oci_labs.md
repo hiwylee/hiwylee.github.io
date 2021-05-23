@@ -80,5 +80,5 @@
   * [Integrated Dev Tools]()
   * [Dev Language        ]()
 			
-* DB COnsolidation
+* DB Consolidation
   * [racle Database Consolidation Consolidate Workloads to Autonomous Database using MV2ADB](https://oracle.github.io/learning-library/data-management-library/database-consolidation/workshop/index.html?lab=mv2adb)
