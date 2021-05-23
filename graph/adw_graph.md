@@ -39,7 +39,6 @@
   * [Introduction to Autonomous Database Tools ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=789)
 
 ### 참조
-### Core Tech
 * [PGQL - Property Graph Query Language](https://github.com/oracle/pgql-lang)
 * Prperty Graph Visualization
 * Graph Anlytics
