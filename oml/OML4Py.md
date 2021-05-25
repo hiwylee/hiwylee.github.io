@@ -7,7 +7,10 @@
 * OML LiveLab: https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=560
 * OML4Py LiveLab: https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=786
 * Interactive tour: https://docs.oracle.com/en/cloud/paas/autonomous-database/oml-tour
-
+* [Oracle Machine Learning for Python on Autonomous Database ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=786&p210_type=3&session=6993257296281)
+* [Predicting Auto Claim Fraud with Oracle Machine Learning](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=786&clear=180&session=105071082550216)
+* [Picking a Good Wine Using ADW, OML and OAC](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=807&p210_type=3&session=113438370286500)
+* [Predicting Auto Claim Fraud with Oracle Machine Learning](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=782&p210_type=3&session=113438370286500)
 ### OML OFFICE HOURS 
 * https://asktom.oracle.com/pls/apex/asktom.search?office=6801#sessionss
 ### ORACLE ANALYTICS CLOUD
