@@ -1,5 +1,7 @@
 ## ADW Graph - Data Science Community
-
+### 소개 비디오
+* [Relationships Unlocked: An Easier Path to Oracle Graph Analytics](https://www.youtube.com/watch?v=C9UlSVfrCnc)
+  * 슬라이드 : http://bit.ly/slidedeck-210518 
 ### NEW PAGES
 * Get started page: [Autonomous Data Warehouse](https://www.oracle.com/goto/adw-get-started)
 * Product page: [Graph in Autonomous Database](https://www.oracle.com/database/graph/)
