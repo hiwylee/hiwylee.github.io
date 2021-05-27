@@ -36,6 +36,10 @@
 
 ### Live Labs
 * [그래프 연관 Live Labs 모음 ](https://apexapps.oracle.com/pls/apex/f?p=133:100:134497777802106::::SEARCH:Graph)
+  * Getting started with Oracle Property Graph on Docker 
+  * Getting Started with Graph Studio
+  * Analyze, Query, and Visualize Graphs in Oracle Database
+  * Oracle Property Graph for Real-Time Recommendations 
 * [Oracle's Spatial and Graph Technologies](https://www.youtube.com/channel/UCZqBavfLlCuS0il6zNY696w)
 * Oracle Live Labs
   * [Analyze, Query, and Visualize Graphs in Oracle Database](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=686&p210_type=3&session=109381570794329) 
