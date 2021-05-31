@@ -3,6 +3,8 @@
 
 * [Run HPC on OCI - SE](https://salescentral.oracle.com/SCPortal/index.html?root=offeringDetails%2F52280)
 * [Run HPC on OCI - Simulation, Rendering & Big Compute - Field](https://salescentral.oracle.com/SCPortal/index.html?root=offeringDetails%2F50876)
+### Oracle Blog
+* [NVIDIA and Oracle Cloud Infrastructure NVIDIA GPU Cloud Platform](https://www.oracle.com/cloud/partners/gpu.html)
 ### KEY Message
 * OCI for HPC
   * Consistent Performance and Pricing
