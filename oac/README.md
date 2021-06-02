@@ -10,4 +10,4 @@
   * [Recording of the Live Webinar:](https://securesites-prodapp.cec.ocp.oraclecloud.com/documents/link/LD1A9839723FA3CE0812C7102AF1F52507F099BA4D71/fileview/DDA736D54B654ECE0E04596D7D75D7DD320654FC6F37/_Oracle_Analytics_Live_May_2021.mp4)
 
 ## Medata 설계
-* [RPD](rpd.md)
+* [RPD 설계](rpd.md)
