@@ -1,12 +1,12 @@
 ## Policy
 
-### Root  Compartment
+### Root  Compartment Policy
 
 ```
 allow group <group-name> to inspect compartments in tenancy
 ```
 
-### Compartment
+### Compartment Policy
 
 * Service policy:
 
