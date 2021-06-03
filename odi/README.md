@@ -15,3 +15,4 @@
   * [OCI Data Management Services](https://otube.oracle.com/channel/OCI+Data+Management+Services/152850991)
 * a-team
   * [Publish an Oracle Cloud Infrastructure Data Integration task to Oracle Cloud Infrastructure Data Flow](https://www.ateam-oracle.com/publish-oci-data-integration-task-to-oci-data-flow)
+* [PM training Data Integration Service Dec 2020](https://otube.oracle.com/media/PM+training+Data+Integration+Service+Dec+2020/1_qktydexg)
