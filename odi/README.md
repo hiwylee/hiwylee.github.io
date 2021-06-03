@@ -6,5 +6,6 @@
 ### OCI Data Integration
 * Otube 
   * [OCI  Data Integration Search Result](https://otube.oracle.com/esearch/search?fields=all&sortBy=recent&keyword=OCI%20%20Data%20Integration)
+  * [Data ](https://otube.oracle.com/channel/OCI+Data+Management+Services/152850991)
 * a-team
   * [Publish an Oracle Cloud Infrastructure Data Integration task to Oracle Cloud Infrastructure Data Flow](https://www.ateam-oracle.com/publish-oci-data-integration-task-to-oci-data-flow)
