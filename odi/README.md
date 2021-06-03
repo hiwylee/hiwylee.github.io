@@ -4,6 +4,7 @@
   * [Oracle Data Integrator - Basics Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=774&p210_type=3&session=110719162873870)
   * [Oracle Data Integrator - Advanced Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=775&session=110719162873870)
 ### OCI Data Integration
-* Otub 
+* Otube 
   * [OCI  Data Integration Search Result](https://otube.oracle.com/esearch/search?fields=all&sortBy=recent&keyword=OCI%20%20Data%20Integration)
-  * [a-team:Publish an Oracle Cloud Infrastructure Data Integration task to Oracle Cloud Infrastructure Data Flow](https://www.ateam-oracle.com/publish-oci-data-integration-task-to-oci-data-flow)
+* a-team
+  * [Publish an Oracle Cloud Infrastructure Data Integration task to Oracle Cloud Infrastructure Data Flow](https://www.ateam-oracle.com/publish-oci-data-integration-task-to-oci-data-flow)
