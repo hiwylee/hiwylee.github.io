@@ -1,6 +1,6 @@
 ## Policy
 
-* Root  Compartment
+### Root  Compartment
 
 ```
 allow group <group-name> to inspect compartments in tenancy
