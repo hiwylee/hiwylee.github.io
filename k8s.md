@@ -2,6 +2,8 @@
 ### Concept
 * [쿠버네티스 차근차근 다지기(Full영상)](https://www.youtube.com/watch?v=l42GttmnnZ4)
 
+### OCI Livelabs
+* [Deploying Microservices in Kubernetes and OCI Supporting Features](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=733&p210_type=3&session=105038111466476)
 ### 쿠버네티스 강의 동영상
 * [쿠버네티스 랩](https://www.youtube.com/watch?v=bQfBneTSzuY&list=PL_58hibZyl7kBEV9zi8QoLnaXA9TzvVAU)
 * [Kubernetes를 이용한 서비스 구축과 Openshift](https://www.youtube.com/watch?v=J1k0H2fx4K4)
