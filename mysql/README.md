@@ -1,5 +1,6 @@
 ##  MySQL Database Service
 ### Tutorial - Youtube 
+* [MySQL](https://www.youtube.com/channel/UCyjIHIhCAiAkRh23RjuD5zg)
 * [Tutorial: Introduction to Oracle MySQL Database Service](https://www.youtube.com/watch?v=D7kOxhB7BJs)
 
 ### Developer Live
