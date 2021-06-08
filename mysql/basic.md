@@ -126,4 +126,70 @@ Fetching schema names for autocompletion... Press ^C to stop.
 Your MySQL connection id is 36 (X protocol)
 Server version: 8.0.25-u2-cloud MySQL Enterprise - Cloud
 No default schema selected; type \use <schema> to set one.
+ MySQL  10.0.0.134:33060+ ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.0008 sec)
+ MySQL  10.0.0.134:33060+ ssl  SQL > select * from mysql.user where user='admin'\G
+*************************** 1. row ***************************
+                    Host: %
+                    User: admin
+             Select_priv: Y
+             Insert_priv: Y
+             Update_priv: Y
+             Delete_priv: Y
+             Create_priv: Y
+               Drop_priv: Y
+             Reload_priv: N
+           Shutdown_priv: N
+            Process_priv: Y
+               File_priv: N
+              Grant_priv: Y
+         References_priv: Y
+              Index_priv: Y
+              Alter_priv: Y
+            Show_db_priv: Y
+              Super_priv: N
+   Create_tmp_table_priv: Y
+        Lock_tables_priv: Y
+            Execute_priv: Y
+         Repl_slave_priv: Y
+        Repl_client_priv: Y
+        Create_view_priv: Y
+          Show_view_priv: Y
+     Create_routine_priv: Y
+      Alter_routine_priv: Y
+        Create_user_priv: Y
+              Event_priv: Y
+            Trigger_priv: Y
+  Create_tablespace_priv: N
+                ssl_type:
+              ssl_cipher:
+             x509_issuer:
+            x509_subject:
+           max_questions: 0
+             max_updates: 0
+         max_connections: 0
+    max_user_connections: 0
+                  plugin: caching_sha2_password
+   authentication_string: $A$005$@9s58IC#;`oupG5sECOJJoHUtJ4q2oD2I7TF6TD0z6pL78fGeEMpSqkw4
+        password_expired: N
+   password_last_changed: 2021-06-08 16:14:54
+       password_lifetime: NULL
+          account_locked: N
+        Create_role_priv: Y
+          Drop_role_priv: Y
+  Password_reuse_history: NULL
+     Password_reuse_time: NULL
+Password_require_current: NULL
+         User_attributes: {"Restrictions": [{"Database": "sys", "Privileges": ["CREATE", "DROP", "REFERENCES", "INDEX", "ALTER", "CREATE TEMPORARY TABLES", "LOCK TABLES", "CREATE VIEW", "CREATE ROUTINE", "ALTER ROUTINE", "EVENT", "TRIGGER"]}, {"Database": "mysql", "Privileges": ["INSERT", "UPDATE", "DELETE", "CREATE", "DROP", "REFERENCES", "INDEX", "ALTER", "CREATE TEMPORARY TABLES", "LOCK TABLES", "EXECUTE", "CREATE VIEW", "CREATE ROUTINE", "ALTER ROUTINE", "EVENT", "TRIGGER"]}]}
+1 row in set (0.0011 sec)
+ MySQL  10.0.0.134:33060+ ssl  SQL >
+
 ````
