@@ -99,9 +99,9 @@ db.User.find()
 * ![image](https://user-images.githubusercontent.com/7068088/122071989-2b97fe00-ce32-11eb-93d9-c0e3c4ff64ac.png)
 
 ### ant media status
+
 * [how to enable SSL](https://www.youtube.com/watch?v=gxkUHyH-WpU)
-* status check
-*
+ 
 ### ant media server status
 
 ```
