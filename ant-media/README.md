@@ -23,10 +23,11 @@
 
 ### 초기 패스워드
 
-```mongo
+```
+mongo
 use serverdb
 db.User.find()
-
+```
 ### 방화벽 열기
 
 ```
