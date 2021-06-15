@@ -1,4 +1,47 @@
 ## ANT Media Server 
+### S/W 설치 
+* 주의사항 : 반드시 아래 버전을 사용해야 함 : 2.3.3 은 안됨.
+ * [``ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip`` ](https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip)
+
+```
+wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
+wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh && chmod 755 install_ant-media-server.sh
+./install_ant-media-server.sh  -i ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
+
+```
+### 방화벽 열기
+* Port List
+*
+```
+TCP:1935 (RTMP)
+TCP:5080 (HTTP)
+TCP:5443 (HTTPS)
+UDP:5000-65000 (WebRTC)
+TCP:5000-65000 (You need to open this range in only cluster mode for internal network. It should not be open to public.)
+```
+
+* cloud (OCI) : VCN ingress rule
+* ubuntu O/S : iptables
+
+```
+sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5000:65000 -j ACCEPT
+sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
+
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+```
+### 접속 URL
+
+```
+http://ipaddress:5080
+```
+* hiwylee/OracleWelcome1
+* ![image](https://user-images.githubusercontent.com/7068088/122047767-7a866900-ce1b-11eb-8e9f-5ffa740c7764.png)
+* ![image](https://user-images.githubusercontent.com/7068088/122047942-abff3480-ce1b-11eb-9523-a4409c83597a.png)
+
 ### WIKI page
 * https://github.com/ant-media/Ant-Media-Server/wiki
  
@@ -73,9 +116,9 @@ Codename:       focal
 * [Install guide](https://github.com/ant-media/Ant-Media-Server/wiki/Getting-Started)
 
 ```
--rw-rw-r-- 1 ubuntu ubuntu 241709345 Jun  7 07:49 ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip
+-rw-rw-r-- 1 ubuntu ubuntu 241709345 Jun  7 07:49 ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
 -rwxr-xr-x 1 ubuntu ubuntu     12572 Jun 14 06:36 install_ant-media-server.sh
-ubuntu@mysql:~/ant$ sudo ./install_ant-media-server.sh  -i ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip  -d true
+ubuntu@mysql:~/ant$ sudo ./install_ant-media-server.sh  -i ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
 
 - OpenJDK 11 (openjdk-11-jdk)
 - De-archiver (unzip)
