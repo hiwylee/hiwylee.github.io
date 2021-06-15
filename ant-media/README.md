@@ -53,6 +53,8 @@ http://ipaddress:5080
 * ![image](https://user-images.githubusercontent.com/7068088/122047767-7a866900-ce1b-11eb-8e9f-5ffa740c7764.png)
 * ![image](https://user-images.githubusercontent.com/7068088/122048028-c20cf500-ce1b-11eb-95f6-3ec25c5ed885.png)
 
+### WEB RTMP 
+* https://your_domain_name:5443/WebRTCAppEE in Enterprise Edition or https://your_domain_name:5443/WebRTCApp in CE
 ### WIKI page
 * https://github.com/ant-media/Ant-Media-Server/wiki
  
