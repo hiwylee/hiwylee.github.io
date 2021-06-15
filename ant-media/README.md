@@ -11,7 +11,6 @@ wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-medi
 ```
 ### 방화벽 열기
 * Port List
-*
 ```
 TCP:1935 (RTMP)
 TCP:5080 (HTTP)
