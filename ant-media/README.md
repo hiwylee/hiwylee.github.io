@@ -36,7 +36,7 @@ sudo netfilter-persistent reload
 ```
 
 ### SSL Enable
-*
+* SSL Enable : 대부분의 경우 https 를 사용해야 함. 
 ```
 cd /usr/local/antmedia
 sudo ./enable_ssl.sh -d {DOMAIN_NAME}
