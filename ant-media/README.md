@@ -32,6 +32,16 @@ sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
 sudo netfilter-persistent save
 sudo netfilter-persistent reload
 ```
+
+### SSL Enable
+*
+```
+cd /usr/local/antmedia
+sudo ./enable_ssl.sh -d {DOMAIN_NAME}
+```
+* Enabling SSL in Linux(Ubuntu)
+  * https://github.com/ant-media/Ant-Media-Server/wiki/SSL-Setup
+
 ### 접속 URL
 
 ```
