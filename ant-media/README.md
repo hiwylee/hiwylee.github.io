@@ -9,7 +9,7 @@
   * EE : https://146.56.167.42:5443/WebRTCAppEE 
 * Live Stream Demo
   * https://github.com/ant-media/utilities 사용 /home/ubuntu/ant/utilities/   
-  * 데스트 영상: https://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523
+  * [테스트 영상](https://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523) : tps://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523](https://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523)
 ### S/W 설치 
 * 주의사항 : 반드시 아래 버전을 사용해야 함 : 2.3.3 은 안됨.
  * [``ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip`` ](https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip)
