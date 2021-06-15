@@ -99,14 +99,15 @@ TCP:5443 (HTTPS)
 UDP:5000-65000 (WebRTC)
 TCP:5000-65000 (You need to open this range in only cluster mode for internal network. It should not be open to public.)
 ```
-[community version 다운로드](https://github.com/ant-media/Ant-Media-Server/releases/)
+
+* [community version 다운로드](https://github.com/ant-media/Ant-Media-Server/releases/)
 
 ### ant media status
 * [how to enable SSL](https://www.youtube.com/watch?v=gxkUHyH-WpU)
 * status check
 *
-```
 ### ant media server status
+
 ```
 ubuntu@mysql:/usr/local/antmedia$ sudo service antmedia status
 ● antmedia.service - Ant Media Server
