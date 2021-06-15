@@ -27,6 +27,17 @@
 use serverdb
 db.User.find()
 
+### 방화벽 열기
+
+```
+ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
+ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
+ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
+ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5000:65000 -j ACCEPT
+ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
+
+```
+
 ```
 ubuntu@mysql:~/ant$ ./install_ant-media-server.sh  -i ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip  -d true
 
