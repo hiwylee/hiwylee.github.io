@@ -40,6 +40,8 @@ ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p udp -I INPUT --dport 5000:65
 ```
 
 ```
+wget 
+
 ubuntu@mysql:~/ant$ ./install_ant-media-server.sh  -i ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip  -d true
 
 - OpenJDK 11 (openjdk-11-jdk)
