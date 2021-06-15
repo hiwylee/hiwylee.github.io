@@ -1,12 +1,32 @@
 ## ANT Media Server 
-
-  
+### WIKI page
+* https://github.com/ant-media/Ant-Media-Server/wiki
+ 
 * https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.3/ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip
 * https://github.com/ant-media/Ant-Media-Server/wiki/Getting-Started
+
+### Ant Media server Installation
+* https://github.com/ant-media/Ant-Media-Server/wiki/Clustering-&-Scaling
+* https://github.com/ant-media/Ant-Media-Server/wiki/Scaling-and-Load-Balancing
 
 ### supported os
 * *Ubuntu 18.04, Ubuntu 20.04, Ubuntu 20.10* 
 * *Centos 8*
+
+###  Ant Media Server
+* [Ant Media Server 유튜브 홈](https://www.youtube.com/c/AntMediaServer/playlists)
+
+### 구성 (AWS 기준: clustgered)
+* Orgin server
+* Edge Server
+* MongoDB
+
+### 초기 패스워드
+
+```mongo
+use serverdb
+db.User.find()
+
 ```
 ubuntu@mysql:~/ant$ ./install_ant-media-server.sh  -i ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip  -d true
 
