@@ -1,5 +1,6 @@
 ## ANT Media Server 
 * Test URL : [http://152.67.208.179:5080/](http://152.67.208.179:5080/)
+* freenom.com 에서 myorcl.tk 등록 :  [https://myorcl.tk:5443/](https://myorcl.tk:5443)
 ### S/W 설치 
 * 주의사항 : 반드시 아래 버전을 사용해야 함 : 2.3.3 은 안됨.
  * [``ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip`` ](https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip)
