@@ -18,8 +18,10 @@ TCP:5443 (HTTPS)
 UDP:5000-65000 (WebRTC)
 TCP:5000-65000 (You need to open this range in only cluster mode for internal network. It should not be open to public.)
 ```
-
+ 
 * cloud (OCI) : VCN ingress rule
+* ![image](https://user-images.githubusercontent.com/7068088/122050215-38aaf200-ce1e-11eb-810f-a0ca7edb6301.png)
+
 * ubuntu O/S : iptables
 
 ```
