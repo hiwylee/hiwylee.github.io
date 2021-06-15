@@ -31,12 +31,14 @@ db.User.find()
 ### 방화벽 열기
 
 ```
-ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
-ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
-ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
-ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p tcp -I INPUT --dport 5000:65000 -j ACCEPT
-ubuntu@mysql:/usr/local/antmedia$ sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5000:65000 -j ACCEPT
+sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
 
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
 ```
 
 ```
