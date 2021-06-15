@@ -33,7 +33,6 @@ TCP:5000-65000 (You need to open this range in only cluster mode for internal ne
 * cloud (OCI) : VCN ingress rule (ssl enable 하려면 80 port open 필수)
 * ![image](https://user-images.githubusercontent.com/7068088/122059366-82e4a100-ce27-11eb-80e3-20f16fdfb97e.png)
 * ubuntu O/S : iptables
-
 ```
 sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
