@@ -2,9 +2,11 @@
 
   
 * https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.3/ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip
-
 * https://github.com/ant-media/Ant-Media-Server/wiki/Getting-Started
 
+### supported os
+* *Ubuntu 18.04, Ubuntu 20.04, Ubuntu 20.10* 
+* *Centos 8*
 ```
 ubuntu@mysql:~/ant$ ./install_ant-media-server.sh  -i ant-media-server-2.3.3-community-2.3.3-20210606_1542.zip  -d true
 
@@ -66,3 +68,21 @@ TCP:5000-65000 (You need to open this range in only cluster mode for internal ne
 ```
 [community version 다운로드](https://github.com/ant-media/Ant-Media-Server/releases/)
 
+### ant media status
+* [how to enable SSL](https://www.youtube.com/watch?v=gxkUHyH-WpU)
+* status check
+*
+```
+ubuntu@mysql:~$ sudo service antmedia status
+● antmedia.service - Ant Media Server
+     Loaded: loaded (/etc/systemd/system/antmedia.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2021-06-14 07:19:24 UTC; 24h ago
+   Main PID: 21297 (java)
+      Tasks: 66 (limit: 36000)
+     Memory: 574.0M
+     CGroup: /system.slice/antmedia.service
+             └─21297 /usr/lib/jvm/java-11-openjdk-amd64/bin/java -Dlogback.ContextSelector=org.red5.logging.Loggi>
+
+Jun 14 07:19:24 mysql systemd[1]: Started Ant Media Server.
+
+```
