@@ -20,8 +20,7 @@ TCP:5000-65000 (You need to open this range in only cluster mode for internal ne
 ```
  
 * cloud (OCI) : VCN ingress rule
-* ![image](https://user-images.githubusercontent.com/7068088/122050215-38aaf200-ce1e-11eb-810f-a0ca7edb6301.png)
-
+* ![image](https://user-images.githubusercontent.com/7068088/122051139-34cb9f80-ce1f-11eb-8004-01db889956d3.png)
 * ubuntu O/S : iptables
 
 ```
