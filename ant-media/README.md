@@ -148,3 +148,26 @@ drwxr-xr-x  5 antmedia antmedia    4096 Jun  6 15:43 webapps
 -rw-r--r--  1 antmedia antmedia 1048576 Jun 14 07:19 webrtcapp.db.wal.0
 drwxr-xr-x  3 antmedia antmedia    4096 Jun 14 07:19 work
 ```
+
+### cloud-init
+
+```
+wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
+wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh && chmod 755 install_ant-media-server.sh
+./install_ant-media-server.sh  -i ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
+
+cd /usr/local/antmedia
+sudo ./enable_ssl.sh -d myorcl.tk
+
+sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
+sudo iptables  -p tcp -I INPUT --dport 5000:65000 -j ACCEPT
+sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
+
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+
+sudo service antmedia status
+```
+
