@@ -2,11 +2,11 @@
 * [WiKI](https://github.com/ant-media/Ant-Media-Server/wiki)
 
 * Home Page
-  * Test URL : [http://152.67.208.179:5080/](http://152.67.208.179:5080/) or [http://myorcl.tk:5080/](http://myorcl.tk:5080)
-  * [freenom.com](https://www.freenom.com/) user: hiwylee 에서 myorcl.tk 등록 :  [https://152.67.208.179:5443/](https://152.67.208.179:5443/) or  [https://myorcl.tk:5443/](https://myorcl.tk:5443)
+  * Test URL : [http://146.56.167.42:5080/](http://146.56.167.42:5080/) or [http://myorcl.tk:5080/](http://myorcl.tk:5080)
+  * [freenom.com](https://www.freenom.com/) user: hiwylee 에서 myorcl.tk 등록 :  [https://146.56.167.42:5443/](https://146.56.167.42:5443/) or  [https://myorcl.tk:5443/](https://myorcl.tk:5443)
 * WebRTC
-  * CE publish: [https://152.67.208.179:5443/WebRTCApp](https://152.67.208.179:5443/WebRTCApp) <-> CE play :  [https://152.67.208.179:5443/WebRTCApp/player.html](https://152.67.208.179:5443/WebRTCApp/player.html)
-  * EE : https://152.67.208.179:5443/WebRTCAppEE 
+  * CE publish: [https://146.56.167.42:5443/WebRTCApp](https://146.56.167.42:5443/WebRTCApp) <-> CE play :  [https://146.56.167.42:5443/WebRTCApp/player.html](https://152.67.208.179:5443/WebRTCApp/player.html)
+  * EE : https://146.56.167.42:5443/WebRTCAppEE 
 * Live Stream Demo
   * https://github.com/ant-media/utilities 사용 /home/ubuntu/ant/utilities/  
 ### S/W 설치 
@@ -156,9 +156,8 @@ wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/
 wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh && chmod 755 install_ant-media-server.sh
 ./install_ant-media-server.sh  -i ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
 
-cd /usr/local/antmedia
-sudo ./enable_ssl.sh -d myorcl.tk
 
+sudo iptables  -p tcp -I INPUT --dport 80 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
@@ -168,6 +167,23 @@ sudo iptables  -p udp -I INPUT --dport 5000:65000 -j ACCEPT
 sudo netfilter-persistent save
 sudo netfilter-persistent reload
 
+cd /usr/local/antmedia
+sudo ./enable_ssl.sh -d myorcl.tk
+
 sudo service antmedia status
+
+sudo apt-get install -y git
+sudo apt-get install -y vim
+
+cd
+sudo git clone https://github.com/ant-media/utilities.git
+cd utilities
+sudo nohup ./happytime-rtsp-server/rtspserver &
+sudo nohup ./onvifserver &
+
+
 ```
+<iframe width="560" height="315" src="https://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523" frameborder="0" allowfullscreen></iframe>
+
+
 
