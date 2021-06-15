@@ -1,5 +1,5 @@
 ## ANT Media Server 
-* Test URL : [http://152.67.208.179:5080/](http://152.67.208.179:5080/)
+* Test URL : [http://152.67.208.179:5080/](http://152.67.208.179:5080/) or [http://myorcl.tk:5080/](http://myorcl.tk:5080)
 * [freenom.com](freenom.com) user: hiwylee 에서 myorcl.tk 등록 :  [https://myorcl.tk:5443/](https://myorcl.tk:5443)
 ### S/W 설치 
 * 주의사항 : 반드시 아래 버전을 사용해야 함 : 2.3.3 은 안됨.
