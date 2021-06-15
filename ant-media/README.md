@@ -20,8 +20,8 @@ UDP:5000-65000 (WebRTC)
 TCP:5000-65000 (You need to open this range in only cluster mode for internal network. It should not be open to public.)
 ```
  
-* cloud (OCI) : VCN ingress rule
-* ![image](https://user-images.githubusercontent.com/7068088/122051139-34cb9f80-ce1f-11eb-8004-01db889956d3.png)
+* cloud (OCI) : VCN ingress rule (ssl enable 하려면 80 port open 필수)
+* ![image](https://user-images.githubusercontent.com/7068088/122059366-82e4a100-ce27-11eb-80e3-20f16fdfb97e.png)
 * ubuntu O/S : iptables
 
 ```
@@ -41,7 +41,7 @@ sudo netfilter-persistent reload
 cd /usr/local/antmedia
 sudo ./enable_ssl.sh -d {DOMAIN_NAME}
 ```
-* Enabling SSL in Linux(Ubuntu)
+* Enabling SSL in Linux(Ubuntu) : (ssl enable 하려면 80 port open 필수)
   * https://github.com/ant-media/Ant-Media-Server/wiki/SSL-Setup
 
 ### 접속 URL
