@@ -59,6 +59,7 @@ sudo ./enable_ssl.sh -d {DOMAIN_NAME}
 
 ```
 http://ipaddress:5080
+https://ipaddress:5443
 ```
 * hiwylee/OracleWelcome1
 * ![image](https://user-images.githubusercontent.com/7068088/122047767-7a866900-ce1b-11eb-8e9f-5ffa740c7764.png)
