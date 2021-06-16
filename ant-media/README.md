@@ -103,7 +103,8 @@ db.User.find()
 ### ant media status
 
 * [how to enable SSL](https://www.youtube.com/watch?v=gxkUHyH-WpU)
- 
+
+<!--
 ### ant media server status
 
 ```bash
@@ -150,8 +151,9 @@ drwxr-xr-x  5 antmedia antmedia    4096 Jun  6 15:43 webapps
 -rw-r--r--  1 antmedia antmedia 1048576 Jun 14 07:19 webrtcapp.db.wal.0
 drwxr-xr-x  3 antmedia antmedia    4096 Jun 14 07:19 work
 ```
+-->
 
-### cloud-init
+### 명령어 요약
 
 ```bash
 wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
@@ -182,6 +184,4 @@ sudo git clone https://github.com/ant-media/utilities.git
 cd utilities
 sudo nohup ./happytime-rtsp-server/rtspserver &
 sudo nohup ./onvifserver &
-
-
 ```
