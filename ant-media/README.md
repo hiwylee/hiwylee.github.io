@@ -106,7 +106,7 @@ db.User.find()
  
 ### ant media server status
 
-```
+```bash
 ubuntu@mysql:/usr/local/antmedia$ sudo service antmedia status
 ● antmedia.service - Ant Media Server
      Loaded: loaded (/etc/systemd/system/antmedia.service; enabled; vendor preset: enabled)
@@ -153,7 +153,7 @@ drwxr-xr-x  3 antmedia antmedia    4096 Jun 14 07:19 work
 
 ### cloud-init
 
-```
+```bash
 wget https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
 wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh && chmod 755 install_ant-media-server.sh
 ./install_ant-media-server.sh  -i ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip
@@ -185,7 +185,3 @@ sudo nohup ./onvifserver &
 
 
 ```
-<iframe width="560" height="315" src="https://myorcl.tk:5443/LiveApp/play.html?name=071278547887943360407523" frameborder="0" allowfullscreen></iframe>
-
-
-
