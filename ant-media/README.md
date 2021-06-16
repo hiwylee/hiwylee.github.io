@@ -23,6 +23,7 @@ wget https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-medi
 ### 방화벽 열기
 * Port List
 ```
+TCP:80 (SSL ENABLE 시 필요)
 TCP:1935 (RTMP)
 TCP:5080 (HTTP)
 TCP:5443 (HTTPS)
@@ -34,6 +35,7 @@ TCP:5000-65000 (You need to open this range in only cluster mode for internal ne
 * ![image](https://user-images.githubusercontent.com/7068088/122059366-82e4a100-ce27-11eb-80e3-20f16fdfb97e.png)
 * ubuntu O/S : iptables
 ```
+sudo iptables  -p tcp -I INPUT --dport 80 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 5080 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 1935 -j ACCEPT
 sudo iptables  -p tcp -I INPUT --dport 5443 -j ACCEPT
