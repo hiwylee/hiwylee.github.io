@@ -17,7 +17,31 @@ docker-compose version 1.27.4, build 40524192
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
+
+* docker-compose  기본 명령어
+``` 
+#도커 컨테이너 기동
+docker-compose up -d
+
+#도커 컨테이너 기동 ( 배포 후 빌드 / Dokcerfile 필수)
+docker-compose up -d --build
+
+#도커 컨테이너 종료
+docker-compose stop
+
+#도커 특정 컨테이너 접근
+docker-compose -i -t <컨테이너명> /bin/bash
+
+#도커 이미지 검색
+docker search <이미지명>
+
+#도커 실행중인 컨테이너 목록
+docker ps
+```
+
+
 ### apache tomcat 설치
+
 ### oci logging 설정
 
 * tomcat parser
