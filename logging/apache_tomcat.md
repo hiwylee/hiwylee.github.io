@@ -89,6 +89,16 @@ docker-compose up -d
 ```
 
 ### oci logging 설정
+
+* unified-monitoring
+* 
+```
+unified-monitoring-agent.service
+unified-monitoring-agent_config_downloader.service
+unified-monitoring-agent_config_downloader.timer
+unified-monitoring-agent_restarter.path
+
+```
 * log 위치
   * /var/log/httpd/access_log
   * /var/log/httpd/error_log
