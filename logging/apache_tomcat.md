@@ -155,6 +155,7 @@ unified-monitoring-agent_restarter.path
 ```
 format_firstline /[0-9]{2}-[A-Za-z]{3}-[0-9]{4}/
 format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+        /^(?<message>\s+)(.*)/
 ```
 
 ### Google Unified Monitoring
