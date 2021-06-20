@@ -158,6 +158,14 @@ format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[
         /^(?<message>\s+)(.*)/
 ```
 
+* ``테스트 필요`` 
+```
+format_firstline /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+format1 /^(?<message>\s+)(.*)/
+        
+```
+
+
 ### Google Unified Monitoring
 ```
 <source>
