@@ -221,27 +221,26 @@ grep -E '^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A
 2021-06-20 15:56:45 +0000 [warn]: #0 pattern not matched: "20-Jun-2021 15:56:45.450 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance."
 ```
 
-  * 1. 해결을 위한 설정 - 성공한 메세지만  : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
-```
-  format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
-  format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
-
-```
-
-  * 2. 에러메세지 포함을 위한 설정(실패) -   : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
-```
-  format2 /^(\s+)(?<message>.*)$/
-  format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
-  format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
-```
-
-  * 3. 에러메세지 포함을 위한 설정 -   :  
+  * ``해결을 위한 설정`` 
+  
 
 ```
   format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} |^\s+)(?<message>.*)$/
   format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
 
 ```
+
+* 로그예제 - 톰캣 멀티라인 로그 수집
+
+```
+..
+{
+  "datetime": "20-Jun-2021 18:03:41.189 ",
+  "message": "SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]: \n\tjava.net.BindException: Address already in use (Bind failed)\n\t\tat java.net.PlainSocketImpl.socketBind(Native Method)\n\t\tat java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)\n\t\tat java.net.ServerSocket.bind(ServerSocket.java:375)\n\t\tat java.net.ServerSocket.<init>(ServerSocket.java:237)\n\t\tat org.apache.catalina.core.StandardServer.await(StandardServer.java:422)\n\t\tat org.apache.catalina.startup.Catalina.await(Catalina.java:776)\n\t\tat org.apache.catalina.startup.Catalina.start(Catalina.java:722)\n\t\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\t\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\t\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\t\tat java.lang.reflect.Method.invoke(Method.java:498)\n\t\tat org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)\n\t\tat org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476)",
+  "tailed_path": "/usr/local/lib/apache-tomcat-8.5.59/logs/catalina.out"
+}
+...
+``
 
 ### Google Unified Monitoring
 ```
