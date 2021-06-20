@@ -91,7 +91,7 @@ docker-compose up -d
 ### oci logging 설정
 
 * unified-monitoring
-* 
+ 
 ```
 unified-monitoring-agent.service
 unified-monitoring-agent_config_downloader.service
@@ -130,42 +130,90 @@ unified-monitoring-agent_restarter.path
 
 
 ### OCI unified monitoring agent
-###반드시 참조해야 될 멀티라인 관련 설정
-* https://programmersought.com/article/22991207977/
+### 반드시 참조해야 될 멀티라인 관련 설정
+  * https://programmersought.com/article/22991207977/
+   
 * end point
   * https://auth.ap-seoul-1.oraclecloud.com
   * https://ingestion.logging.ap-seoul-1.oci.oraclecloud.com
+* agent
+
+```
+sudo systemctl restart  unified-monitoring-agent.service
+```
 
 * log : /var/log/unified-monitoring-agent/unified-monitoring-agent.log 
-* config : /etc/unified-monitoring-agent/conf.d/fluentd_config
-```
-<source>
-    @type tail
-    tag 666771.tomcat_log
-    path  /usr/local/lib/apache-tomcat-*/logs/catalina.out,/usr/local/lib/apache-tomcat-*/logs/localhost*.log
-    pos_file  /etc/unifiedmonitoringagent/pos/666771-tomcat_log.pos
-    path_key  tailed_path
-    <parse>
-        @type multiline
-        format1  /(?<message>.*)/
-        format_firstline  /^(\w+\s\d+,\s\d+)|(\d+-\d+-\d+\s)/
-    </parse>
-</source>
+* config : /etc/unified-monitoring-agent/conf.d/fluentd_config/fluentd.conf
 
-```
-* 다시 시도 - 실패
-```
-format_firstline /[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
-format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
-        /^(?<message>\s+)(.*)/
+* tomcat log
+*
 ```
 
-* ``테스트 필요(x) `` 
+20-Jun-2021 17:47:20.990 SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]:
+        java.net.BindException: Address already in use (Bind failed)
+                at java.net.PlainSocketImpl.socketBind(Native Method)
+                at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+                at java.net.ServerSocket.bind(ServerSocket.java:375)
+                at java.net.ServerSocket.<init>(ServerSocket.java:237)
+                at org.apache.catalina.core.StandardServer.await(StandardServer.java:422)
+                at org.apache.catalina.startup.Catalina.await(Catalina.java:776)
+                at org.apache.catalina.startup.Catalina.start(Catalina.java:722)
+                at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+                at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+                at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+                at java.lang.reflect.Method.invoke(Method.java:498)
+                at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+                at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:476)
+20-Jun-2021 17:47:20.990 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+20-Jun-2021 17:47:20.991 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-127.0.0.1-9009"]
+20-Jun-2021 17:47:20.991 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+20-Jun-2021 17:47:21.009 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+20-Jun-2021 17:47:21.011 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+20-Jun-2021 17:47:21.011 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-127.0.0.1-9009"]
+20-Jun-2021 17:47:21.011 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-127.0.0.1-9009"]
 ```
-format_firstline /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
-format1 /^(?<message>\s+)(.*)/
-        
+
+* fluentd.conf
+* 
 ```
+    <source>
+        @type tail
+        tag 727561.tomcat_log_cfg_input
+        path  /usr/local/lib/apache-tomcat-*/logs/catalina.out
+        pos_file  /etc/unifiedmonitoringagent/pos/727561-tomcat_log_cfg_input.pos
+        path_key  tailed_path
+        <parse>
+            @type multiline
+            format2  /^(\s+)(?<message>.*)$/
+            format1  /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+            format_firstline  /[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
+        </parse>
+    </source>
+
+    <match 727561.**>
+        @type oci_logging
+        log_object_id  ocid1.log.oc1.ap-seoul-1.amaaaaaaaiz7opyafqogtoswk3cq7kpcpgn2srsishn6j475rx2umpdlrsza
+        <buffer tag>
+            @type file
+            retry_timeout  3h
+            path  /opt/unifiedmonitoringagent/run/buffer/727561
+            disable_chunk_backup  true
+            chunk_limit_size  5MB
+            flush_interval  180s
+            total_limit_size  1GB
+            overflow_action  throw_exception
+            retry_type  exponential_backoff
+        </buffer>
+    </match>
+
+```
+* 모두 보이는 패턴
+```
+| 를 이용하여 
+grep -E '^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]*|^\s+)' ../logs/catalina.out
+
+```
+ 
 
 * ``테스트 필요 2 (성공함)`` 
   * 에러메세지 
@@ -181,28 +229,54 @@ format1 /^(?<message>\s+)(.*)/
 
 ```
 
-  * 2. 에러메세지 포함을 위한 설정 -   : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
+  * 2. 에러메세지 포함을 위한 설정(실패) -   : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
 ```
   format2 /^(\s+)(?<message>.*)$/
   format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
   format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
-
 ```
 
+  * 3. 에러메세지 포함을 위한 설정 -   :  
+
+```
+  format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]* |^\s+)(?<message>.*)$/
+  format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
+
+```
 
 ### Google Unified Monitoring
 ```
-<source>
-  @type tail
-  format multiline
-  format_firstline /^(\w+\s\d+,\s\d+)|(\d+-\d+-\d+\s)/
-  format1 /(?<message>.*)/
-  multiline_flush_interval 5s
-  path /var/log/tomcat*/catalina.out,/var/log/tomcat*/localhost.*.log
-  pos_file /var/lib/google-fluentd/pos/tomcat-multiline.pos
-  read_from_head true
-  tag tomcat
-</source>
+<ROOT>
+  <source>
+    @type tail
+    tag "727561.tomcat_log_cfg_input"
+    path "/usr/local/lib/apache-tomcat-*/logs/catalina.out"
+    pos_file "/etc/unifiedmonitoringagent/pos/727561-tomcat_log_cfg_input.pos"
+    path_key "tailed_path"
+    <parse>
+      @type "multiline"
+      format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]* |^\s+)(?<message>.*)$/
+      format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
+      unmatched_lines
+    </parse>
+  </source>
+  <match 727561.**>
+    @type oci_logging
+    log_object_id "ocid1.log.oc1.ap-seoul-1.amaaaaaaaiz7opyafqogtoswk3cq7kpcpgn2srsishn6j475rx2umpdlrsza"
+    <buffer tag>
+      @type "file"
+      retry_timeout 3h
+      path "/opt/unifiedmonitoringagent/run/buffer/727561"
+      disable_chunk_backup true
+      chunk_limit_size 5MB
+      flush_interval 180s
+      total_limit_size 1GB
+      overflow_action throw_exception
+      retry_type exponential_backoff
+    </buffer>
+  </match>
+</ROOT>
+
 ```
 
 ### apache start 실패시
