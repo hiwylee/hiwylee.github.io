@@ -101,6 +101,10 @@ unified-monitoring-agent_restarter.path
 ```
 
 ```
+/etc/unified-monitoring-agent/unified-monitoring-agent.conf
+```
+
+```
 /var/log/unified-monitoring-agent/unified-monitoring-agent.log
 ```
 
