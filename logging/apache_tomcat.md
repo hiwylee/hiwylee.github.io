@@ -229,6 +229,9 @@ grep -E '^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A
   format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
 
 ```
+* 로그 확인 
+* ![image](https://user-images.githubusercontent.com/7068088/122684432-4f977d00-d240-11eb-9c99-6e87c6a9b977.png)
+* ![image](https://user-images.githubusercontent.com/7068088/122684435-53c39a80-d240-11eb-9b0e-1e6c0530168d.png)
 
 * 로그예제 - 톰캣 멀티라인 로그 수집
 
