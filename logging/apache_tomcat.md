@@ -173,7 +173,7 @@ sudo systemctl restart  unified-monitoring-agent.service
 20-Jun-2021 17:47:21.011 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-127.0.0.1-9009"]
 ```
 
-* fluentd.conf
+* tomcat 용 fluentd.conf
 * 
 ```
     <source>
@@ -184,8 +184,7 @@ sudo systemctl restart  unified-monitoring-agent.service
         path_key  tailed_path
         <parse>
             @type multiline
-            format2  /^(\s+)(?<message>.*)$/
-            format1  /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+            format1  /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} |^\s+)(?<message>.*)$/
             format_firstline  /[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
         </parse>
     </source>
