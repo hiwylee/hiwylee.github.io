@@ -155,12 +155,12 @@ unified-monitoring-agent_restarter.path
 ```
 * 다시 시도
 ```
-format_firstline /[0-9]{2}-[A-Za-z]{3}-[0-9]{4}/
+format_firstline /[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
 format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
         /^(?<message>\s+)(.*)/
 ```
 
-* ``테스트 필요`` 
+* ``테스트 필요(x) `` 
 ```
 format_firstline /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
 format1 /^(?<message>\s+)(.*)/
@@ -178,7 +178,7 @@ format1 /^(?<message>\s+)(.*)/
 ```
 format_firstline /^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?[A-Z]*) (?.*)$/
 format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
-        /^(?<message>\s+)(.*)/
+
 
 ```
 
