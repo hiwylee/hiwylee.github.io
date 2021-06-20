@@ -99,6 +99,11 @@ unified-monitoring-agent_config_downloader.timer
 unified-monitoring-agent_restarter.path
 
 ```
+
+```
+/var/log/unified-monitoring-agent/unified-monitoring-agent.log
+```
+
 * log 위치
   * /var/log/httpd/access_log
   * /var/log/httpd/error_log
