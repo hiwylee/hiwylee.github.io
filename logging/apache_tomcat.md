@@ -130,6 +130,8 @@ unified-monitoring-agent_restarter.path
 
 
 ### OCI unified monitoring agent
+###반드시 참조해야 될 멀티라인 관련 설정
+* https://programmersought.com/article/22991207977/
 * end point
   * https://auth.ap-seoul-1.oraclecloud.com
   * https://ingestion.logging.ap-seoul-1.oci.oraclecloud.com
@@ -163,6 +165,21 @@ format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[
 format_firstline /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
 format1 /^(?<message>\s+)(.*)/
         
+```
+
+* ``테스트 필요 2`` 
+  * 에러메세지 
+```
+2021-06-20 15:56:45 +0000 [warn]: #0 pattern not matched: "20-Jun-2021 15:54:38.891 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 571 ms"
+2021-06-20 15:56:45 +0000 [warn]: #0 pattern not matched: "20-Jun-2021 15:56:45.450 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance."
+```
+
+  * 해결을 위한 설정 : format_firstline : /^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?[A-Z]*) (?.*)$/
+```
+format_firstline /^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?[A-Z]*) (?.*)$/
+format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+        /^(?<message>\s+)(.*)/
+
 ```
 
 
