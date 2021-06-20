@@ -153,7 +153,7 @@ unified-monitoring-agent_restarter.path
 </source>
 
 ```
-* 다시 시도
+* 다시 시도 - 실패
 ```
 format_firstline /[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
 format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
@@ -167,18 +167,25 @@ format1 /^(?<message>\s+)(.*)/
         
 ```
 
-* ``테스트 필요 2`` 
+* ``테스트 필요 2 (성공함)`` 
   * 에러메세지 
 ```
 2021-06-20 15:56:45 +0000 [warn]: #0 pattern not matched: "20-Jun-2021 15:54:38.891 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 571 ms"
 2021-06-20 15:56:45 +0000 [warn]: #0 pattern not matched: "20-Jun-2021 15:56:45.450 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance."
 ```
 
-  * 해결을 위한 설정 : format_firstline : /^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?[A-Z]*) (?.*)$/
+  * 1. 해결을 위한 설정 - 성공한 메세지만  : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
 ```
-format_firstline /^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?[A-Z]*) (?.*)$/
-format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+  format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+  format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
 
+```
+
+  * 2. 에러메세지 포함을 위한 설정 -   : format_firstline :/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/
+```
+  format2 /(?<message>.*)$/
+  format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}) (?<Log-Level>[A-Z]*) (?<message>.*)$/
+  format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
 
 ```
 
