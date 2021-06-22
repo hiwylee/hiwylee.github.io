@@ -173,7 +173,7 @@ sudo systemctl restart  unified-monitoring-agent.service
 20-Jun-2021 17:47:21.011 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-127.0.0.1-9009"]
 ```
 
-* tomcat 용 fluentd.conf
+###  Unified Monitoring : tomcat 용 fluentd.conf
 * 
 ```
     <source>
@@ -243,43 +243,9 @@ grep -E '^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A
   "tailed_path": "/usr/local/lib/apache-tomcat-8.5.59/logs/catalina.out"
 }
 ...
-``
-
-### Google Unified Monitoring
 ```
-<ROOT>
-  <source>
-    @type tail
-    tag "727561.tomcat_log_cfg_input"
-    path "/usr/local/lib/apache-tomcat-*/logs/catalina.out"
-    pos_file "/etc/unifiedmonitoringagent/pos/727561-tomcat_log_cfg_input.pos"
-    path_key "tailed_path"
-    <parse>
-      @type "multiline"
-      
-      format1 /^(?<datetime>[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} |^\s+)(?<message>.*)$/
-      format_firstline "/[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A-Z]* ?.*/"
-      unmatched_lines
-    </parse>
-  </source>
-  <match 727561.**>
-    @type oci_logging
-    log_object_id "ocid1.log.oc1.ap-seoul-1.amaaaaaaaiz7opyafqogtoswk3cq7kpcpgn2srsishn6j475rx2umpdlrsza"
-    <buffer tag>
-      @type "file"
-      retry_timeout 3h
-      path "/opt/unifiedmonitoringagent/run/buffer/727561"
-      disable_chunk_backup true
-      chunk_limit_size 5MB
-      flush_interval 180s
-      total_limit_size 1GB
-      overflow_action throw_exception
-      retry_type exponential_backoff
-    </buffer>
-  </match>
-</ROOT>
 
-```
+
 
 ### apache start 실패시
 
