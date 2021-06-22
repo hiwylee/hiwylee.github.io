@@ -5,6 +5,7 @@
 |[DB](DB) |[apex](apex) |[``exadata``](exadata) |[graph](graph) | [``oci_labs``](oci_labs)| [``ogg``](ogg)|[oml](oml) |
 | [``optimizer``](optimizer)| [os](os) | [sqlparser](sqlparser) | [``upgrade``](upgrade) | [k8s](k8s) |  []()|  []()|
 ---
+
 * [**LIVE LABS : Workshop**](oci_labs/oci_labs.md)
   * [oci_labs.md](oci_labs/oci_labs.md)
   * [oci_labs_adg.md](oci_labs/oci_labs_adg.md)
@@ -17,6 +18,31 @@
   * [Oracle Functions](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/functions/README.md)
 ---
 ### DB / DBCS
+
+
+### OCI CLoud
+---
+* [logging](apache_tomcat.md)
+* [MuShop.md](MuShop.md)
+* [OAC.md](OAC.md)
+* [APEX.md](APEX.md)
+* [sso.md](sso.md)
+* [terraform.md](terraform.md)
+* [wls.md](wls.md)
+* [fio.md](fio.md)
+* [k8s.md](k8s.md)
+* [mv2adb.md](mv2adb.md)
+* [osb.md](osb.md)
+* [oci_cert.md](oci_cert.md)
+* [odi.md](odi.md)
+* [openapi.md](openapi.md)
+* [VPN.md](VPN.md)
+
+
+* [OKIT.md](OKIT.md)
+* [OS.md](OS.md)
+* [JET.md](JET.md)
+
 #### 19c
 * [19c_cert.md](oci_labs/19c_cert.md)
 * [19c_nf_ai.md](19c_nf_ai.md)
@@ -73,29 +99,6 @@
 * [exadata_cell.md](exadata_cell.md)
 * [exadata_Cod.md](exadata_CoD.md)
 ---
-
-### OCI CLoud
----
-* [MuShop.md](MuShop.md)
-* [OAC.md](OAC.md)
-* [APEX.md](APEX.md)
-* [sso.md](sso.md)
-* [terraform.md](terraform.md)
-* [wls.md](wls.md)
-* [fio.md](fio.md)
-* [k8s.md](k8s.md)
-* [mv2adb.md](mv2adb.md)
-* [osb.md](osb.md)
-* [oci_cert.md](oci_cert.md)
-* [odi.md](odi.md)
-* [openapi.md](openapi.md)
-* [VPN.md](VPN.md)
-
-
-* [OKIT.md](OKIT.md)
-* [OS.md](OS.md)
-* [JET.md](JET.md)
-
 ### PoC 관현
 * [KED_PoC.md](KED_PoC.md)
 
