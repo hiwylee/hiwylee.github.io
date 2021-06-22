@@ -284,6 +284,7 @@ grep -E '^(?[0-9]{2}-[A-Za-z]{3}-[0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3} [A
 ### apache start 실패시
 
 * journalctl -xe
+  
 ```
 [opc@oracle-odi-inst-nhsc httpd]$ journalctl -xe
 -- Defined-By: systemd
