@@ -5,3 +5,5 @@
   * [Creating a Repository Using Oracle BI 12c Administration Tool](https://apexapps.oracle.com/pls/apex/f?p=44785:24:0:::24:P24_CONTENT_ID,P24_PREV_PAGE:12166,1)
 * OAC EE에서 데이터 레벨별로 권한 제어하는 방법 
   * https://www.ateam-oracle.com/implementing-object-and-data-level-security-in-oracle-analytics-cloud-using-identity-cloud
+### OAC Blogs
+* [Working with the Developer Client Tool for Oracle Analytics Cloud (OAC) with ADW in a Proxy-enabled Network](https://www.ateam-oracle.com/working-with-the-developer-client-tool-for-oracle-analytics-cloud-oac-with-adw-in-a-proxy-enabled-network)
