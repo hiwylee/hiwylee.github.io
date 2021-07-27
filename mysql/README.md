@@ -1,4 +1,6 @@
 ##  MySQL Database Service
+### MySQL 8.0 for Database Administrators
+* [MySQL 8.0 for Database Administrators](https://learn.oracle.com/ols/course/mysql-80-for-database-administrators/51871/76889)
 ### Tutorial - Youtube 
 * [MySQL](https://www.youtube.com/channel/UCyjIHIhCAiAkRh23RjuD5zg)
 * [Tutorial: Introduction to Oracle MySQL Database Service](https://www.youtube.com/watch?v=D7kOxhB7BJs)
