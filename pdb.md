@@ -20,6 +20,15 @@ SQL> show pdbs
          3 PDB1                           READ WRITE NO
          4 PDB2                           MOUNTED
          5 PDB5                           MOUNTED
+* key update
+
+```
+$ sudo su –
+# dbcli list-databases
+# dbcli update-tdekey -i <database_ID> -n <PDB_name> -p <OCI CONSOLE에서 넣은 sys 패스워드>
+-- DBCS OCI: How to create a new PDB in an OCI CDB? (Doc ID 2438598.1)
+-- support.oracle.com
+```
 
 * UNPLUG  PDB
 ```SQL
