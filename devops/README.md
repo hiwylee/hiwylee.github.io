@@ -4,5 +4,4 @@
 * Reference architecture: to be able to demo, using “Deploy to Oracle Cloud” and Resource Manager : https://docs.oracle.com/en/solutions/build-pipeline-using-devops/index.html
 * Oracle.com: https://www.oracle.com/devops/devops-service/
 #### Youtube
-* [OKE com Oracle DevOps
-https://www.youtube.com/watch?v=w9Qx9p2QFGw](https://www.youtube.com/watch?v=w9Qx9p2QFGw)
+* [OKE com Oracle DevOps 2021. 8. 3.](https://www.youtube.com/watch?v=w9Qx9p2QFGw)
