@@ -1,8 +1,8 @@
 ## Oracle Analytic Clouds
 * [OAC New Features Update](oac_nf.md)
-  * [bit.ly/OAC62Features](bit.ly/OAC62Features) 
-  * [bit.ly/OAC61Features](bit.ly/OAC61Features) 
-  * [bit.ly/OAC60Features](bit.ly/OAC60Features) 
+  * [bit.ly/OAC62Features](http://bit.ly/OAC62Features) 
+  * [bit.ly/OAC61Features](http://bit.ly/OAC61Features) 
+  * [bit.ly/OAC60Features](http://bit.ly/OAC60Features) 
 
 * Public Oracle Analytics roadmap: https://www.oracle.com/business-analytics/cloud-and-server-roadmap.html
 * Public Fusion Analytics roadmap: https://www.oracle.com/business-analytics/applications-roadmap.html
