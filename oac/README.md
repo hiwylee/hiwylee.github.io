@@ -1,4 +1,5 @@
 ## Oracle Analytic Clouds
+* [Announcing New Oracle Analytics Cloud Innovations Monday, May 3, 2021](https://www.oracle.com/events/live/analytics-innovations/)
 * [OAC New Features Update](oac_nf.md)
   * [bit.ly/OAC62Features](http://bit.ly/OAC62Features) 
   * [bit.ly/OAC61Features](http://bit.ly/OAC61Features) 
