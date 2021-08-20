@@ -1,5 +1,9 @@
 ## Oracle Analytic Clouds
+### Oracle Analytics Live!
+* [Oracle Analytics Live! Webinar July 2021 edition](https://www.youtube.com/watch?v=uVCezH1QXYI)
 * [Announcing New Oracle Analytics Cloud Innovations Monday, May 3, 2021](https://www.oracle.com/events/live/analytics-innovations/)
+  * 신기능 포함 전체 개념이해를 위한 웨비나
+### OAC New Features Update 
 * [OAC New Features Update](oac_nf.md)
   * [bit.ly/OAC62Features](http://bit.ly/OAC62Features) 
   * [bit.ly/OAC61Features](http://bit.ly/OAC61Features) 
