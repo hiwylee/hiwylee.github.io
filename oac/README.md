@@ -8,6 +8,13 @@
   * [bit.ly/OAC62Features](http://bit.ly/OAC62Features) 
   * [bit.ly/OAC61Features](http://bit.ly/OAC61Features) 
   * [bit.ly/OAC60Features](http://bit.ly/OAC60Features) 
+  * [bit.ly/OAC59Features](http://bit.ly/OAC59Features) 
+  * [bit.ly/OAC58Features](http://bit.ly/OAC58Features) 
+  * [bit.ly/OAC57Features](http://bit.ly/OAC57Features) 
+  * [bit.ly/OAC56Features](http://bit.ly/OAC56Features) 
+  * [bit.ly/OAC55Features](http://bit.ly/OAC55Features) 
+  * [bit.ly/OAC54Features](http://bit.ly/OAC54Features) 
+
 * [OAC Product Internal Videos](https://otube.oracle.com/channel/OAC+Product+Internal+Videos/111611752)
 
 * Public Oracle Analytics roadmap: https://www.oracle.com/business-analytics/cloud-and-server-roadmap.html
