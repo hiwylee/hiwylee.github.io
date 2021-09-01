@@ -1,4 +1,6 @@
 ## OCI Vault
+### 문서
+* https://docs.oracle.com/en-us/iaas/Content/KeyManagement/home.htm
 ### 참조 URL
 * Overview of Vault - https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm
 * KMS Technical Documentation - https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Concepts/keyoverview.htm *
