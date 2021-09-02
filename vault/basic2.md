@@ -5,6 +5,11 @@
 * Vault Service Key Management API: https://kms.ap-seoul-1.oraclecloud.com
 * Vault Service Secret Management API : https://vaults.ap-seoul-1.oci.oraclecloud.com/20180608
 * Vault Service Secret Retrieval API  : https://secrets.vaults.ap-seoul-1.oci.oraclecloud.com/20190301
+
+### Test Scripts
+
+* https://github.com/oracle/oci-cli/tree/master/services/key_management/examples_and_test_scripts
+
 ### list vault
 
 ```
