@@ -2,6 +2,9 @@
 ### Import key 
 * If you want to wrap your key material using RSA_OAEP_AES_SHA256, then you must patch your CLI with a supported OpenSSL patch.
 * See :  https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm
+* ``Open SSL 1.1.1 및 os patch 필요`` 
+   * https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm#unique_1658146802
+* 
 ### open ssl patch
 * Create directories to store the latest OpenSSL binaries in
 
