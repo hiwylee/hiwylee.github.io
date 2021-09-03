@@ -206,7 +206,6 @@ BASE64="base64"
 ```
 # key name : mek_imported
 
-```
 OPENSSL="/home/opc/local/bin/openssl.sh"
 
 KEY_OCID=ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrvw2g2ct37a6vh6cs3tqof725urbmh4retim6svwpoj6j5dkhddcq
