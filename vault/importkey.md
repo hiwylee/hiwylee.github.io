@@ -4,7 +4,8 @@
 * See :  https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm
 * ``Open SSL 1.1.1 및 os patch 필요`` 
    * https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm#unique_1658146802
-* 
+* ``wrapped_key(base64) import시 주의 사항``
+   * wrapped_import_key.json 에서  "keyMaterial" 값(bases64 wrappedkey)을 줄떄 newline 이 있으면 제거해야 됨
 ### open ssl patch
 * Create directories to store the latest OpenSSL binaries in
 
