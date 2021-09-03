@@ -5,7 +5,7 @@
 ### open ssl patch
 * Create directories to store the latest OpenSSL binaries in
 
-``
+```
 mkdir $HOME/build
 mkdir -p $HOME/local/ssl
 cd $HOME/build
@@ -99,4 +99,15 @@ c_rehash  openssl  openssl.sh
 /home/opc/local/bin
 [opc@ctrl bin]$ chmod 755 ./openssl.sh
 
+```
+
+
+```
+oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
+
+${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
+
+/home/opc/local/bin/openssl.sh pkeyutl -encrypt -in aeskey -inkey wrappingkey -pubin -out wrappedkey -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+
+oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
 ```
