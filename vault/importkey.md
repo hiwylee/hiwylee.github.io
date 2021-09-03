@@ -1,11 +1,20 @@
 ## Import Key
+
+### .인스턴스 설정 (instance pricipal)
+* daynamic group 생성
+  * Any {instance.id = 'ocid1.instance.oc1.ap-seoul-1.anuwgljrio3ypnycemo43yjdf3hkfkcfe6zjrop5k7cffdk3g3pobdzbqlta'}	
+* Policy 설정
+  * Allow dynamic-group vault to manage all-resources in compartment sandbox-poc	
+* oci cli auth 설정
+  * 
 ### Import key 
 * If you want to wrap your key material using RSA_OAEP_AES_SHA256, then you must patch your CLI with a supported OpenSSL patch.
 * See :  https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm
 * ``Open SSL 1.1.1 및 os patch 필요`` 
    * https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm#unique_1658146802
-* ``wrapped_key(base64) import시 주의 사항``
+* [``wrapped_key(base64) import시 주의 사항``](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm#unique_1658146802)
    * wrapped_import_key.json 에서  "keyMaterial" 값(bases64 wrappedkey)을 줄떄 newline 이 있으면 제거해야 됨
+
 ### open ssl patch
 * Create directories to store the latest OpenSSL binaries in
 
@@ -104,34 +113,46 @@ c_rehash  openssl  openssl.sh
 [opc@ctrl bin]$ chmod 755 ./openssl.sh
 
 ```
-
-
+### key gen
+* openssl 1.1.1 & os patch 후에
 ```
-oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
-
-${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
-
-/home/opc/local/bin/openssl.sh pkeyutl -encrypt -in aeskey -inkey wrappingkey -pubin -out wrappedkey -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
-
-oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
+ ${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
 ```
 
+### wrapping key (pubkey)
+* console 에서 import custom key 에서 볼 수 있음
 
 ```
-OPENSSL="/home/opc/local/bin/openssl.sh"
-AES_KEY="aeskey"
-WRAPPING_KEY="wrappingkey"
-WRAPPED_KEY="wrappedkey"
-VAULT_KEYMANAGEMENT_ENDPOINT="https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com"
-COMPARTMENT_ID="ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa"
-DISPLAY_NAME="mek_imported"
-KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bits).
-# PROTECTION_MODE either SOFTWARE or HSM
-PROTECTION_MODE="SOFTWARE"
-BASE64="base64"
-
-}
+key_text=$(oci kms management wrapping-key get --endpoint $VAULT_KEYMANAGEMENT_ENDPOINT | grep public-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
 ```
+
+### wrappkey ( key wrapped with pubkey)
+
+```
+${OPENSSL}  pkeyutl -encrypt -in aeskey -inkey wrappingkey -pubin -out wrappedkey -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+```
+
+### 설정파일 
+
+* keyMaterial : 값에 new line 이 있으면 안됨.
+```
+key_material=$(${BASE64} ${WRAPPED_KEY})
+echo "{ \"wrappingAlgorithm\": \"RSA_OAEP_SHA256\", \"keyMaterial\": \"${key_material}\" }" > wrapped_import_key.json
+echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
+```
+
+* ``wrapped_import_key.json 에서 new line 제거`` 
+
+```
+cat key_shape.json
+{ "algorithm": "AES", "length": 32 }
+
+cat wrapped_import_key.json
+
+{ "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "VAW8ABoKySqb4bRoc5B3Ceex/PsV5jSSkifo3knzYWGokvNm/OZtkGdHP4SjegLWnchEoPax1+D3E3eHhJbG16Vcd/54RyO6ZSjrEdi9khD9/o7kTCzWs8bkh/M4iCsJFJX5ETmgx1X95tGJWR/T+XTiGZVDaiiNGMTjv36WBDfU9jDEHFAynm8MyMnRtroj+GPO3pOcYDB+OZsz5Hmgjtq3boyFfKAXZtBjqUIOpqkksxKuqScTDLD5LrtqqzRynko9OgNiNJxje0IaUIagju3xfqgXBvxv5qJgXti8xzPSR5r/B9pMONxWl/MIzPsOfdJvEFwu2hsC0T9FfgR1n4wVpKfK3x0HES1hVu2rF1LavZNJsXFCvbGJig/r4UDo0QR+JndvvIYNkTp5H6G2Hll3RsDXU9wURcv1fq6EMC7xUHowq1rYI7cNVMvKtELC5WMwHFjdpTKL7gMAA7RCM5DC3MX9hNgioPWW4MTq10++VDPjzmdinm8z1b1fDpKGxBCbJCUB8I5u1Lg0RCdmzf5i3pe0lxai/nnfUiQC/PB+TkY2KrFCoJBpSjIcLUYKQwW+C9s32i50VQTFFugQ/6ZnLnLGDAFQg0kwYbMmTLL6PQ2eAnrY7wySe4uQZRyGeprvOb4H6G9sOHkOCsr34Aj4c7b1wY78tWKU1l7KUAg=" }
+```
+
+### import wrappkey (base64)
 
 ```
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
@@ -161,13 +182,18 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 }
 ```
 
-* keyMaterial : 값에 new line 이 있으면 안됨.
+
+### 환경설정 
 ```
-cat key_shape.json
-{ "algorithm": "AES", "length": 32 }
-
-cat wrapped_import_key.json
-
-{ "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "VAW8ABoKySqb4bRoc5B3Ceex/PsV5jSSkifo3knzYWGokvNm/OZtkGdHP4SjegLWnchEoPax1+D3E3eHhJbG16Vcd/54RyO6ZSjrEdi9khD9/o7kTCzWs8bkh/M4iCsJFJX5ETmgx1X95tGJWR/T+XTiGZVDaiiNGMTjv36WBDfU9jDEHFAynm8MyMnRtroj+GPO3pOcYDB+OZsz5Hmgjtq3boyFfKAXZtBjqUIOpqkksxKuqScTDLD5LrtqqzRynko9OgNiNJxje0IaUIagju3xfqgXBvxv5qJgXti8xzPSR5r/B9pMONxWl/MIzPsOfdJvEFwu2hsC0T9FfgR1n4wVpKfK3x0HES1hVu2rF1LavZNJsXFCvbGJig/r4UDo0QR+JndvvIYNkTp5H6G2Hll3RsDXU9wURcv1fq6EMC7xUHowq1rYI7cNVMvKtELC5WMwHFjdpTKL7gMAA7RCM5DC3MX9hNgioPWW4MTq10++VDPjzmdinm8z1b1fDpKGxBCbJCUB8I5u1Lg0RCdmzf5i3pe0lxai/nnfUiQC/PB+TkY2KrFCoJBpSjIcLUYKQwW+C9s32i50VQTFFugQ/6ZnLnLGDAFQg0kwYbMmTLL6PQ2eAnrY7wySe4uQZRyGeprvOb4H6G9sOHkOCsr34Aj4c7b1wY78tWKU1l7KUAg=" }
+OPENSSL="/home/opc/local/bin/openssl.sh"
+AES_KEY="aeskey"
+WRAPPING_KEY="wrappingkey"
+WRAPPED_KEY="wrappedkey"
+VAULT_KEYMANAGEMENT_ENDPOINT="https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com"
+COMPARTMENT_ID="ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa"
+DISPLAY_NAME="mek_imported"
+KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bits).
+# PROTECTION_MODE either SOFTWARE or HSM
+PROTECTION_MODE="SOFTWARE"
+BASE64="base64"
 ```
-
