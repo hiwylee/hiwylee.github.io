@@ -111,3 +111,59 @@ ${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
 
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
 ```
+
+
+```
+OPENSSL="/home/opc/local/bin/openssl.sh"
+AES_KEY="aeskey"
+WRAPPING_KEY="wrappingkey"
+WRAPPED_KEY="wrappedkey"
+VAULT_KEYMANAGEMENT_ENDPOINT="https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com"
+COMPARTMENT_ID="ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa"
+DISPLAY_NAME="mek_imported"
+KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bits).
+# PROTECTION_MODE either SOFTWARE or HSM
+PROTECTION_MODE="SOFTWARE"
+BASE64="base64"
+
+}
+```
+
+```
+oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_imported --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
+{
+  "data": {
+    "compartment-id": "ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa",
+    "current-key-version": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcqsmey3mdyaa.abuwgljrf4yremea2t3hmvuijosr7jly3cda3lgi3ggi3pb2ho3257a3zmca",
+    "defined-tags": {},
+    "display-name": "mek_imported",
+    "freeform-tags": {},
+    "id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrvw2g2ct37a6vh6cs3tqof725urbmh4retim6svwpoj6j5dkhddcq",
+    "is-primary": true,
+    "key-shape": {
+      "algorithm": "AES",
+      "curve-id": null,
+      "length": 32
+    },
+    "lifecycle-state": "CREATING",
+    "protection-mode": "SOFTWARE",
+    "replica-details": null,
+    "restored-from-key-id": null,
+    "time-created": "2021-09-03T05:43:44.217000+00:00",
+    "time-of-deletion": null,
+    "vault-id": "ocid1.vault.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrktxtvdrfpyykgc4cy7bbtavmaive2poxvucf6bje5hbuyxhtjmoq"
+  },
+  "etag": "4bcd50f6cdbb2fcf1f1554932895687aebe1e0d6"
+}
+```
+
+* keyMaterial : 값에 new line 이 있으면 안됨.
+```
+cat key_shape.json
+{ "algorithm": "AES", "length": 32 }
+
+cat wrapped_import_key.json
+
+{ "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "VAW8ABoKySqb4bRoc5B3Ceex/PsV5jSSkifo3knzYWGokvNm/OZtkGdHP4SjegLWnchEoPax1+D3E3eHhJbG16Vcd/54RyO6ZSjrEdi9khD9/o7kTCzWs8bkh/M4iCsJFJX5ETmgx1X95tGJWR/T+XTiGZVDaiiNGMTjv36WBDfU9jDEHFAynm8MyMnRtroj+GPO3pOcYDB+OZsz5Hmgjtq3boyFfKAXZtBjqUIOpqkksxKuqScTDLD5LrtqqzRynko9OgNiNJxje0IaUIagju3xfqgXBvxv5qJgXti8xzPSR5r/B9pMONxWl/MIzPsOfdJvEFwu2hsC0T9FfgR1n4wVpKfK3x0HES1hVu2rF1LavZNJsXFCvbGJig/r4UDo0QR+JndvvIYNkTp5H6G2Hll3RsDXU9wURcv1fq6EMC7xUHowq1rYI7cNVMvKtELC5WMwHFjdpTKL7gMAA7RCM5DC3MX9hNgioPWW4MTq10++VDPjzmdinm8z1b1fDpKGxBCbJCUB8I5u1Lg0RCdmzf5i3pe0lxai/nnfUiQC/PB+TkY2KrFCoJBpSjIcLUYKQwW+C9s32i50VQTFFugQ/6ZnLnLGDAFQg0kwYbMmTLL6PQ2eAnrY7wySe4uQZRyGeprvOb4H6G9sOHkOCsr34Aj4c7b1wY78tWKU1l7KUAg=" }
+```
+
