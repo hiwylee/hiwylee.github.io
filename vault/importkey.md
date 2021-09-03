@@ -1,5 +1,5 @@
 ## Import Key
-
+* reference : https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/importingkeys.htm
 ### .인스턴스 설정 (instance pricipal)
 * daynamic group 생성
   * Any {instance.id = 'ocid1.instance.oc1.ap-seoul-1.anuwgljrio3ypnycemo43yjdf3hkfkcfe6zjrop5k7cffdk3g3pobdzbqlta'}	
@@ -196,4 +196,62 @@ KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bit
 # PROTECTION_MODE either SOFTWARE or HSM
 PROTECTION_MODE="SOFTWARE"
 BASE64="base64"
+```
+
+## Export Key
+* reference :https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/exportingkeys.htm
+
+### 
+
+```
+# key name : mek_imported
+
+```
+OPENSSL="/home/opc/local/bin/openssl.sh"
+
+KEY_OCID=ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrvw2g2ct37a6vh6cs3tqof725urbmh4retim6svwpoj6j5dkhddcq
+ENCRYPTION_ALGORITHM="RSA_OAEP_AES_SHA256"
+VAULT_CRYPTO_ENDPOINT=https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
+PUBLIC_KEY_STRING="`cat  wrappingkey.imsi`"
+
+
+PRIVATE_KEY_PATH="prikey" # The location of the private key.
+SOFTWARE_KEY_PATH="mek" # The location for outputting the software-protected master encryption key.
+TEMP_AES_KEY_PATH="tempAes" # The location for outputting the temporary AES key.
+TEMP_WRAPPED_AES_PATH="tempWrappedAES" # The location for outputting the wrapped temporary AES key.
+WRAPPED_SOFTWARE_KEY_PATH="WrappedMEK"
+
+oci kms crypto key export --key-id  ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}"  --endpoint ${VAULT_CRYPTO_ENDPOINT}
+
+wonyong_le@cloudshell:exp (ap-seoul-1)$ oci kms crypto key export --key-id  ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}"  --endpoint ${VAULT_CRYPTO_ENDPOINT}
+{
+  "data": {
+    "algorithm": "RSA_OAEP_AES_SHA256",
+    "encrypted-key": "jHaOhGMzgbb9lRMkfiN+QfnHMbNXXI25CJt6ij8YSaZpDA3NINFtyT+VFh9k0d5IFAQNToi2rKCQIcwZbVHsJPUkjtkXk10q5NQq29prz9qr8FBic22Z7w7Rwi9IAY7Bx//yrraTaBmmjyj+i2qflu+kOWwRkrDHGf8FzO6nx25TGQDnpR5bZY2QvyT66Y40lfpNITuL/8cPkeFXcDlLkLud6lWDqgNI/FAH9ukwc2TDDEigyYz/vRT91G1atmSfnSVdLzqvD8yNUALTS7hwtbBsLvBlIg/74Wg6McpJc8TNdJ+w/zEECkXMZx9SS6KTTfIXBIXvM7lxtvoqqlp1pw5Z+UOs3KoD1bIdSZvKqvu/qPFhTxYbhSKmAVTViRdXmFsS6DdysZhQSHq9yv1jS+plrKhaP22AFMIrPBa3lRHHFBrw3PPHLcwX6jBzpuQBtDWqiVy30aesL/S7+J9QT6aSm+S/xuZ6Nhac3u82Kp1O/LaXgC8EM/wcKKzeNCcTozbmT8PDCcJ3COn27W9ywiAincjpVXw9gl38LdyqC6VckzDncXdb3mnMbt/Ps3mOSSW2GAWn2omCqa7BJAscvpcFoRsAxvLxJXyZ6LS1djl9bkz9aSL7EdsqIN8TDOi+g3AK2kPzngZzOa3JQjY5NjcIjVwkY+7tKlIiQIsAcpnmbnmTPlUc1LBgBmqyeJ1GkLGophivrazZYUpO9HFh2FP9FeUINJGj",
+    "key-id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrvw2g2ct37a6vh6cs3tqof725urbmh4retim6svwpoj6j5dkhddcq",
+    "key-version-id": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcqsmey3mdyaa.abuwgljrf4yremea2t3hmvuijosr7jly3cda3lgi3ggi3pb2ho3257a3zmca",
+    "time-created": "2021-09-03T05:43:44.238000+00:00",
+    "vault-id": "ocid1.vault.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrktxtvdrfpyykgc4cy7bbtavmaive2poxvucf6bje5hbuyxhtjmoq"
+  }
+}
+```
+
+*  extract key part only
+```
+ oci kms crypto key export --key-id  ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}"  --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g'
+sOYuP3RG8vRrWGv4nXEw9ocEnoBQtuTejfn42Kb8BOhuk19BNWrb2z53r+dUt3XcY/EgI0lnTEocvANHbSntQ0uCuEQlesAEIIBg9DTmoG8o/458Tp3GaXGNKValZPq7KxpAhEgOtdAGTjF16u+xd0FZ7z6XJasC69CfVU9N+JQ9NtmzxQNUCn/O2qGRfiP8AdRyxK7SYM0vtuST8OKJWVTUMRlpymnqEHFu94gMZO3gL7ggStYt3dqHnDU7WPehhouQ8vd9gbyTp6zWCwa/0aCl3lJT7UzSRbKmxCxb4vlqA2S2jRzeQHLSkXjvXyI6zAdXbqbY+Mk4fG8JnC+PuwRNoR+itPgR2kdpnC5pcmKlNgJBU3Cx5Q+hZoPcsB5zsIk1TJVLeYLhNxao8k6E5H70uTDT9KZldBgoZ1SXrJoIMVjbrigNZ4w2E3QCVt0iAKS0J2DgKe62oDoXOzO95T/0FU6ht0cdfORboiixvWNfJOtZGGNCRg4FXcKiTQc8TIRyZ7/JTuDG1gAz3e3KpGrdsTnLbOzwiwD9/nHAr4e6cXoufnS3XQF2RhoTW3mY6mG+8zRZXxai251XQ30A99F4ueFE5GNdOmhvH+9TFDNaCuDjTdxEZFdRxENd6E4smvLGVXHCl68W9fIP+gB9y1aH+Began76tF0osnPfpz/gIopuGUphb2jfPLazW4MFVzAAa7wxymT03XbsHFRonTwS7qcsNQys
+```
+
+```
+wrapped_data=$(oci kms crypto key export --key-id  ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}"  --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+wrapped_data=$(oci kms crypto key export --key-id  ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}"  --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+```
+
+## decode wrappedkey
+
+```
+# Decode the encoded wrapped data and convert it to hexadecimal format.
+wrapped_data_hex_array=(`echo ${wrapped_data} | base64 -d | xxd -p -c1`)
+wrapped_data_hex_array_length=${#wrapped_data_hex_array[*]}
+
 ```
