@@ -121,7 +121,7 @@ OPENSSL="/home/opc/local/bin/openssl.sh"
 
 ### Exp
 
-'''
+```
 oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT}
 {
   "data": {
@@ -135,6 +135,12 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 }
 ```
 
+* base64 decode
+```
+wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+
+echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
+```
 
 ```
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
