@@ -65,30 +65,13 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 ```
 ### IMP
 ```
-[opc@ctrl imp]$ oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc                                                           3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_keypair2 --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protec                                                           tion-mode SOFTWARE
+[opc@ctrl imp]$ oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
+ServiceError:
 {
-  "data": {
-    "compartment-id": "ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa",
-    "current-key-version": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcu6me3afkyaa.abuwgljr2tmnvrxyrijdgvf6okis77nro5ucolsyrqitykpwi2guw5e6kw4a",
-    "defined-tags": {},
-    "display-name": "mek_keypair2",
-    "freeform-tags": {},
-    "id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrdtoo5ox7atvhpwmybdcutzc7abi5ui243kfpokinvb7rj6dywa4q",
-    "is-primary": true,
-    "key-shape": {
-      "algorithm": "AES",
-      "curve-id": null,
-      "length": 32
-    },
-    "lifecycle-state": "CREATING",
-    "protection-mode": "SOFTWARE",
-    "replica-details": null,
-    "restored-from-key-id": null,
-    "time-created": "2021-09-06T11:59:39.413000+00:00",
-    "time-of-deletion": null,
-    "vault-id": "ocid1.vault.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrktxtvdrfpyykgc4cy7bbtavmaive2poxvucf6bje5hbuyxhtjmoq"
-  },
-  "etag": "d80562c2ef729bc4c65e63c95c52cdf973b3d5bf"
+    "code": "InvalidParameter",
+    "message": "The key material is incorrectly formatted. Possible reasons for this include improper application of the OAEP public-key encryption scheme prior to key wrapping, use of an unsupported cryptographic hash function, one or more corrupted data packets, key material that is not base64-encoded, an otherwise invalid key payload, or a general encryption error.",
+    "opc-request-id": "8F2372D518164A37A4ECBC3C1FC36D68/CAFEB73A0BF2F79FEE58625DB029A8CD/7E39743C91F42763DD24B46F77D03C74",
+    "status": 400
 }
 
 ```
