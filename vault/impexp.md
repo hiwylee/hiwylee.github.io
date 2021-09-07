@@ -100,18 +100,44 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 
 * key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
 
+* Generate key pair
+
 ```
 #
 # Generate key pair
 #
-
 private_key_path=private.pem
 public_key_path=public.pem
 rsa_key_size=4096
 
+#
+# Generate key pair
+#
+
+OPENSSL="/home/opc/local/bin/openssl.sh"
+
+rm ${public_key_path}  ${private_key_path}
+
+${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
+${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+
+
+[opc@ctrl exp]$ ${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
+Generating RSA private key, 4096 bit long modulus (2 primes)
+...........................................................................................................++++
+...................................................................................................................++++
+e is 65537 (0x010001)
+[opc@ctrl exp]$ ${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+writing RSA key
+
+
+```
+* env
+```
+
 KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
 
-ENCRYPTION_ALGORITHM="RSA_OAEP_AES_SHA256"
+ENCRYPTION_ALGORITHM="RSA_OAEP_SHA256"
 VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
 PUBLIC_KEY_STRING="`cat ${public_key_path}`"
 
@@ -126,23 +152,7 @@ VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.c
 OPENSSL="/home/opc/local/bin/openssl.sh"
 ```
 
-* Generate key pair
 
-```
-
-${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
-${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
-
-[opc@ctrl exp]$ ${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
-Generating RSA private key, 4096 bit long modulus (2 primes)
-...........................................................................................................++++
-...................................................................................................................++++
-e is 65537 (0x010001)
-[opc@ctrl exp]$ ${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
-writing RSA key
-
-
-```
 
 * note : public key 는 new line 없이 문자열로
 
@@ -176,4 +186,131 @@ echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
  ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
 Public Key operation error
 140283134453568:error:0406506C:rsa routines:rsa_ossl_private_decrypt:data greater than mod len:crypto/rsa/rsa_ossl.c:401:
+```
+
+### FULL SCRIPT
+#### imp.sh
+
+```
+#!/usr/bin/env bash
+#
+# This script is for demonstration purposes only. It provides
+# a functioning set of calls to show how to import AES keys 
+# into the Vault service.
+#
+set -x
+OPENSSL="/home/opc/local/bin/openssl.sh"
+AES_KEY="aeskey"
+WRAPPING_KEY="wrappingkey"
+WRAPPED_KEY="wrappedkey"
+VAULT_KEYMANAGEMENT_ENDPOINT="https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com"
+COMPARTMENT_ID="ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa"
+DISPLAY_NAME="mek_final3"
+KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bits).
+# PROTECTION_MODE either SOFTWARE or HSM
+PROTECTION_MODE="SOFTWARE"
+BASE64="base64"
+if [[ $(uname -s) == "MINGW"* ]]
+then
+    BASE64="base64 -w0";
+fi
+
+
+#
+# Generate key pair
+#
+
+
+# ${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size} 
+# ${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+# rm wrappingkey
+# ln -s public.pem wrappingkey
+
+
+#
+# Generate an AES key.
+#
+# Use OpenSSL to generate an AES key of ${KEY_SIZE} bytes.
+# You can use any source for your AES key.
+#
+${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
+#
+# Ask the Vault service for the public wrapping key by using 
+# the vault's key management endpoint.
+# The public key is stored as ${WRAPPING_KEY}.
+#
+key_text=$(oci kms management wrapping-key get --endpoint $VAULT_KEYMANAGEMENT_ENDPOINT | grep public-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+echo -e $key_text > ${WRAPPING_KEY}
+#
+# Wrap the AES key by using RSA-OAEP with SHA-256.
+#
+${OPENSSL} pkeyutl -encrypt -in ${AES_KEY} -inkey ${WRAPPING_KEY} -pubin -out ${WRAPPED_KEY} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+#
+# Import the wrapped key to the Vault service after base64 encoding the payload.
+#
+# The service will provide a JSON document containing key details.
+#
+key_material=$(${BASE64} ${WRAPPED_KEY})
+
+${BASE64} ${WRAPPED_KEY} > ${WRAPPED_KEY}.b64
+
+echo "{ \"wrappingAlgorithm\": \"RSA_OAEP_SHA256\", \"keyMaterial\": \"${key_material}\" }" > wrapped_import_key.json
+echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
+oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
+
+```
+#### exp.sh
+
+```
+#!/usr/bin/env bash
+#
+set -x 
+
+private_key_path=private.pem
+public_key_path=public.pem
+rsa_key_size=4096
+
+#
+# Generate key pair
+#
+
+OPENSSL="/home/opc/local/bin/openssl.sh"
+
+rm ${public_key_path}  ${private_key_path} 
+
+${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
+${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+
+
+KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrlunsfozyf26dg3t2lmoujanqwisyleivxikfsueb5annazwudwtq"
+KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljr4zczbgi4rskp23hmp5mcb3bp5knbl5yvzsy3rz6idiaiv7isdfoa"
+
+### RSA OAEP without a temporary AES key
+ENCRYPTION_ALGORITHM="RSA_OAEP_SHA256"
+
+VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
+PUBLIC_KEY_STRING="`cat ${public_key_path}`"
+
+PRIVATE_KEY_PATH=${private_key_path} # The location of the private key.
+
+SOFTWARE_KEY_PATH="aeskey" # The location for outputting the software-protected master encryption key.
+WRAPPED_SOFTWARE_KEY_PATH="wrappedkey"
+
+VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
+
+
+
+# oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} 
+
+
+# wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "`cat ${public_key_path}`" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+
+# echo ${wrapped_data} >  ${WRAPPED_SOFTWARE_KEY_PATH}.b64
+echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
+
+# Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
+${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
+
+
 ```
