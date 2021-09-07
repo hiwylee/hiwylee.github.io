@@ -9,11 +9,12 @@ WRAPPING_KEY="wrappingkey"
 WRAPPED_KEY="wrappedkey"
 VAULT_KEYMANAGEMENT_ENDPOINT="https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com"
 COMPARTMENT_ID="ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa"
-DISPLAY_NAME="mek_keypair2"
+DISPLAY_NAME="mek_final"
 KEY_SIZE="32" # Specify 16 (for 128 bits), 24 (for 192 bits), or 32 (for 256 bits).
 # PROTECTION_MODE either SOFTWARE or HSM
 PROTECTION_MODE="SOFTWARE"
 BASE64="base64"
+
 if [[ $(uname -s) == "MINGW"* ]]
 then
     BASE64="base64 -w0";
@@ -21,27 +22,23 @@ fi
 
 
 #
-# Generate key pair
-#
-private_key_path=private.pem
-public_key_path=public.pem
-rsa_key_size=4096
-
-${OPENSSL_PATH} genrsa -out ${private_key_path} ${rsa_key_size}
-${OPENSSL_PATH} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
-
-rm wrappingkey
-ln -s public.pem wrappingkey
-
-#
 # Generate an AES key.
 #
-
+# Use OpenSSL to generate an AES key of ${KEY_SIZE} bytes.
+# You can use any source for your AES key.
+#
 ${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
-
-
+#
+# Ask the Vault service for the public wrapping key by using
+# the vault's key management endpoint.
+# The public key is stored as ${WRAPPING_KEY}.
+#
+key_text=$(oci kms management wrapping-key get --endpoint $VAULT_KEYMANAGEMENT_ENDPOINT | grep public-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
+echo -e $key_text > ${WRAPPING_KEY}
+#
+# Wrap the AES key by using RSA-OAEP with SHA-256.
+#
 ${OPENSSL} pkeyutl -encrypt -in ${AES_KEY} -inkey ${WRAPPING_KEY} -pubin -out ${WRAPPED_KEY} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
-
 #
 # Import the wrapped key to the Vault service after base64 encoding the payload.
 #
@@ -51,12 +48,14 @@ key_material=$(${BASE64} ${WRAPPED_KEY})
 ${BASE64} ${WRAPPED_KEY} > ${WRAPPED_KEY}.b64
 echo "{ \"wrappingAlgorithm\": \"RSA_OAEP_SHA256\", \"keyMaterial\": \"${key_material}\" }" > wrapped_import_key.json
 echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
+
 ```
 
 * ``edit wrapped_import_key.json ( remove new line )``
 
 ```
-{ "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "JwgqeoEDlE6kBSIWQJbTStGsrQbEm5hyRdn2UvJrkDkh+Mq5QszTJaQSlunBeJZLqvWc66Q3Ei5KXBUF1xA3yGSoe6d6859eKtgJGAPl09ImLyZ3DWd1LFB+PJQG8kZD2Fun7xJltgPo9fWL7V43vwjucB6jOwkB02kl7tN5Ii++0obNxqNVbS8hvQ/1lkcQShyItsNjBBdsp4e3xBtUVgmO17f2hes9nIwTNq1yXNs0hrSPTT7IMEjEiD/9nebDPhSn16l+u3XcRf8SyLnHznIluP/6pjjq8V9oYJoNCjUcC1xbfFIRMIfF4Z57JytyNS8uxOxlBedaMEgYFIJw0Tk6TxRS1LAatNES54bFspCdvRLgwl4ET6CQ2BRe03Yi4uXTjPPJ8XnUQt8ShDU93z1r9MYBbE5rycACb3H5fsqnwjNCwP8y+K6OQlPjXdoNe3wz0+HD798ctbDf3mMkqi/HWdqoPtcc5yFqM2HDdcHeONaSm7X0ZoHcyKAYIpgHv01gdzs2eKO3DKexATrtObcFh5XFAIIC3y80L7hSSevZiTnIhsOkImVTf3yobgJhZMH8z65pB0g0kNQNM4vJ2pAtCA1FMNys1eS77E4xmU87G51xrbcVRChSbnNkw6OJ0IlRJ1oCGsX5P+NGCjxwT1FKAayAE6astg8pbS/TBV4=" }
+ cat wrapped_import_key.json
+{ "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "BgNsYWCzjpgqExu/m271BY1qieOgIr4xIYXYxKWvli7iQ1Dv2uXQGow9OeKJiAGHfBWxE34OVrgfaZ87WAbgIT6UpASKsXfs9EZjKuz9EUVSyoZIVQnYXNnA0xXoJlhg06diSIdKSoSni4n8Ddhb0jEVRzct12Kv/LZ2lv/Jxpyj2xQyzeGaqk0vorwgb76xTS3KM6GikGVHjMU8awCBEXzo8JtDRvaJdv/jlN3qRWAGJjZ5leoAHI+pMBCXDD8rJsx/Hqpr45yX12V6cItV4mG5FqpRT6n1wYFcfPuu71A7UipDc/3DkgewMM4HkY6pVi+CHEk1SuGUSzbi2m7r+HEHiD1AGuoWrgYQhpowcuK6YSD+wRz49jyHDyvO98dQIn+jAk50+Mj72lYAz5ELY2FA9KhyC/W2yZQyzXKrgDWanzWHl1DatNA2rCuOx0m/gv+INvd04suTFQp6Oa4JYO8Tgovx2yVoy1a8SeFOKmcWeD9bizwftwluTSPOn7oz9L115Zg2keys857Bepes4t4aUefrKQ5S6Ykayqf9qZ4FZkO/KXUwk8oH9pwly4D0y4Scbv6cSKDJL3JJ7tkIQB1w8axz5L85u2+D2YFG748ArsMWalv12cQwgW3IIloaLHhEB/eXtyKP3KY30SAYmMnNqZMqwh0MrTMDv6XIjIQ=" }
 ```
 
 * import key
@@ -65,14 +64,32 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 ```
 ### IMP
 ```
-[opc@ctrl imp]$ oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
-ServiceError:
+oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_final --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
 {
-    "code": "InvalidParameter",
-    "message": "The key material is incorrectly formatted. Possible reasons for this include improper application of the OAEP public-key encryption scheme prior to key wrapping, use of an unsupported cryptographic hash function, one or more corrupted data packets, key material that is not base64-encoded, an otherwise invalid key payload, or a general encryption error.",
-    "opc-request-id": "8F2372D518164A37A4ECBC3C1FC36D68/CAFEB73A0BF2F79FEE58625DB029A8CD/7E39743C91F42763DD24B46F77D03C74",
-    "status": 400
+  "data": {
+    "compartment-id": "ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa",
+    "current-key-version": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcqsme3rnhyaa.abuwgljrh52oqfc3trcp5tmdrvtfwlyinre6hgkdwlmmwgtdhdibopiwh4xa",
+    "defined-tags": {},
+    "display-name": "mek_final",
+    "freeform-tags": {},
+    "id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza",
+    "is-primary": true,
+    "key-shape": {
+      "algorithm": "AES",
+      "curve-id": null,
+      "length": 32
+    },
+    "lifecycle-state": "CREATING",
+    "protection-mode": "SOFTWARE",
+    "replica-details": null,
+    "restored-from-key-id": null,
+    "time-created": "2021-09-07T07:37:04.196000+00:00",
+    "time-of-deletion": null,
+    "vault-id": "ocid1.vault.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrktxtvdrfpyykgc4cy7bbtavmaive2poxvucf6bje5hbuyxhtjmoq"
+  },
+  "etag": "ec7fd2ce5c7d21025805eaae5728039d86da8236"
 }
+
 
 ```
 
