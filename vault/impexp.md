@@ -97,16 +97,24 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 
 ### Env
 
-* key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrdtoo5ox7atvhpwmybdcutzc7abi5ui243kfpokinvb7rj6dywa4q
+* key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
 
 ```
-KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrdtoo5ox7atvhpwmybdcutzc7abi5ui243kfpokinvb7rj6dywa4q"
+#
+# Generate key pair
+#
+
+private_key_path=private.pem
+public_key_path=public.pem
+rsa_key_size=4096
+
+KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
+
 ENCRYPTION_ALGORITHM="RSA_OAEP_AES_SHA256"
 VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
+PUBLIC_KEY_STRING="`cat ${public_key_path}`"
 
-PUBLIC_KEY_STRING="`cat  wrappingkey.imsi`"
-PRIVATE_KEY_PATH="../imp/private_key.pem" # The location of the private key.
-
+PRIVATE_KEY_PATH=${private_key_path} # The location of the private key.
 
 SOFTWARE_KEY_PATH="mek" # The location for outputting the software-protected master encryption key.
 TEMP_AES_KEY_PATH="tempAes" # The location for outputting the temporary AES key.
@@ -115,8 +123,26 @@ WRAPPED_SOFTWARE_KEY_PATH="WrappedMEK"
 
 VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
 OPENSSL="/home/opc/local/bin/openssl.sh"
+```
+
+* Generate key pair
 
 ```
+
+${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
+${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+
+[opc@ctrl exp]$ ${OPENSSL} genrsa -out ${private_key_path} ${rsa_key_size}
+Generating RSA private key, 4096 bit long modulus (2 primes)
+...........................................................................................................++++
+...................................................................................................................++++
+e is 65537 (0x010001)
+[opc@ctrl exp]$ ${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
+writing RSA key
+
+
+```
+
 * note : public key 는 new line 없이 문자열로
 
 ### Exp
@@ -126,13 +152,14 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 {
   "data": {
     "algorithm": "RSA_OAEP_AES_SHA256",
-    "encrypted-key": "Q92EqKeaTegA8NSC29eT+Z9yJb0UfuUoJo1O3VIObdGyMeRolg7LAHKnV7kEDZV2ZX5TF/QVNsT4ptmgf769E91GQKwdhwzIyKfsv5DrfsfZHvv1ohhKZVM12BIyfNUWAOkMENCX17PsAqWjhWcivTvbfzM1M9BdWo0oBEVOA4wbLAdGNV709VP5c4kEaGJ6gFCyIBUJ4tamEeUAa8mBXixpogI+WyMPsEYZi57FOrJ/O/CHo9ygME/sD3MbrRCKhz0Ta6zs4emTZi9X2nw+DvKHfZQlrK+w733Xj0HknGRcSGhYOWkaBhk/CtuoW7gSAanfanUa6kqrdqP76gY6aGf0T7ky8MrH4UreG3xvB1MZ7LnqiAEsDaRn79RQpnfPGQHv4gD8iGpfd6jNRhgdQMJi5M82i3ByyjPGUrfR2hqLnnbVOly/DzCAh/7PLRpFyBYRr8FFpD14aKdk5uif4LOyNRL7xYi5gsNk98jO4tonHCaeAzHOGeexa9KdpWErKnzpJ41kvDftShij5FI6MdPu8Ys+gJVP2qbNWtI+z4DTTn+b92W7nltcSHs2tseqKCVaZXF02BxgG+0YaKDVpk4Xiz0aNOa+IcWskztY/++G58OVmKtYIhLGv8C5RwhfKnv77Ojgq2v0CWAkQuEhaOaZsnp6gntm57HGZX/Y6zfHgkFNQEQqaDWU/olgKyDkUhQONRq7EmTksCfS44TO0eINLSY5rggn",
-    "key-id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljr3qtd6kuq57uan4d6eq3gddnn6swdocydr6igzibylndjowt5juoa",
-    "key-version-id": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcqsme27ehiaa.abuwgljri7ohorxakeyawnjfhffpqj7wd2wwkhve5pcn5dhys4tobhm2g4wq",
-    "time-created": "2021-09-06T10:49:01.794000+00:00",
+    "encrypted-key": "l45u6X63SA1BkQB/n9AJybgJtdKqMHBrA11GRLXMt9j0YECvmJ0EnAJvuotqnW7wHWKvrTDd77VsHYrXUxVl59HEjqcIWnLsslpCF2CJDNpQfEup85r/f58wg1Abjmmc7U3tKQ2kD9SzssZXhz1SgayD4oquybPDgIYGkCSUMuLmXZCWFoQ0KnUotKVVc2E9vU0Gt7FtQLIALLtsb29gnwo2XbAKdUhejDmQKXaUnCejA3D4ZU7lYbsLW7LzycdorVFOr9IhhUf+wQoYTtWhADJOtWzMOhNiguJCLDd23XeLcFfgayjICjl9Q7sYX0WICE/zr/R/3elx0vTN17iAvPR6HfCXtNskeF6pDRaRudJ8H0Wuq0sgOg6M0gqsKZgy36lywOXd6BDaY6SfWob+lPEH5hUVAprPxVV7TNnVuJDBbKfh++OWE1IR0fnABbmW4+WyAwRgiddOl9P2PB2ZXMo2ZGGy5tSm4PhVNFCciFAkHXHDaLa3A/yf+kl4UAnwODHGmIAm1AMgYCprQ+9wd+HGkC9G3+GmjBB+bAMrA5QUGQATJCm01yqgV0SU2uhiZNuwjdmCQib29oMWtcq0jA7oUbdgqmau7Ko2GOt+6d2SsZa+Gdti8sxYJk3dI0Q2RYZyHpGO/wHd7TMNXP+yC/ezKRhVbYnXs6f6kIMfPqTDB49K0AUP9BChAg0rnhsF3cuzaaMqzlLTyTruxjidVT9Yzj6GWdfs",
+    "key-id": "ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza",
+    "key-version-id": "ocid1.keyversion.oc1.ap-seoul-1.cnqtaqh2aagiu.dcqsme3rnhyaa.abuwgljrh52oqfc3trcp5tmdrvtfwlyinre6hgkdwlmmwgtdhdibopiwh4xa",
+    "time-created": "2021-09-07T07:37:04.216000+00:00",
     "vault-id": "ocid1.vault.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrktxtvdrfpyykgc4cy7bbtavmaive2poxvucf6bje5hbuyxhtjmoq"
   }
 }
+
 ```
 
 * base64 decode
@@ -142,6 +169,7 @@ wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCR
 echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 ```
 
+* Unwrap the key
 ```
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
  ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
