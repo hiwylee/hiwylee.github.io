@@ -59,10 +59,13 @@ echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
 ```
 
 * import key
+
 ```
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
 ```
+
 ### IMP
+
 ```
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_final --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
 {
@@ -90,9 +93,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
   "etag": "ec7fd2ce5c7d21025805eaae5728039d86da8236"
 }
 
-
 ```
-
 
 ## Export Key
 
@@ -129,12 +130,11 @@ Generating RSA private key, 4096 bit long modulus (2 primes)
 e is 65537 (0x010001)
 [opc@ctrl exp]$ ${OPENSSL} rsa -in ${private_key_path} -outform PEM -pubout -out ${public_key_path}
 writing RSA key
-
-
 ```
+
 * env
-```
 
+```
 KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
 
 ENCRYPTION_ALGORITHM="RSA_OAEP_SHA256"
@@ -151,8 +151,6 @@ WRAPPED_SOFTWARE_KEY_PATH="WrappedMEK"
 VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
 OPENSSL="/home/opc/local/bin/openssl.sh"
 ```
-
-
 
 * note : public key 는 new line 없이 문자열로
 
@@ -174,6 +172,7 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 ```
 
 * base64 decode
+
 ```
 wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
 
@@ -181,6 +180,7 @@ echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 ```
 
 * Unwrap the key
+
 ```
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
  ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
@@ -214,7 +214,6 @@ if [[ $(uname -s) == "MINGW"* ]]
 then
     BASE64="base64 -w0";
 fi
-
 
 #
 # Generate key pair
@@ -257,8 +256,8 @@ ${BASE64} ${WRAPPED_KEY} > ${WRAPPED_KEY}.b64
 echo "{ \"wrappingAlgorithm\": \"RSA_OAEP_SHA256\", \"keyMaterial\": \"${key_material}\" }" > wrapped_import_key.json
 echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
-
 ```
+
 #### exp.sh
 
 ```
@@ -298,10 +297,7 @@ WRAPPED_SOFTWARE_KEY_PATH="wrappedkey"
 
 VAULT_CRYPTO_ENDPOINT="https://cnqtaqh2aagiu-crypto.kms.ap-seoul-1.oraclecloud.com"
 
-
-
 # oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} 
-
 
 # wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
 wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "`cat ${public_key_path}`" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
@@ -311,6 +307,4 @@ echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
 ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
-
-
 ```
