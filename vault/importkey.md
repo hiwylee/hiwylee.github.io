@@ -198,6 +198,7 @@ PROTECTION_MODE="SOFTWARE"
 BASE64="base64"
 ```
 
+<!--
 ## Export Key
 * reference :https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/exportingkeys.htm
 
@@ -254,3 +255,4 @@ wrapped_data_hex_array=(`echo ${wrapped_data} | base64 -d | xxd -p -c1`)
 wrapped_data_hex_array_length=${#wrapped_data_hex_array[*]}
 
 ```
+-->
