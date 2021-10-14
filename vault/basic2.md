@@ -10,7 +10,7 @@
 
 * https://github.com/oracle/oci-cli/tree/master/services/key_management/examples_and_test_scripts
 
-### list vault
+### Get a Vault  
 
 ```
 wonyong_le@cloudshell:~ (ap-seoul-1)$ oci kms management vault get --vault-id ocid1.vault.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrxywbmswpdbdbilxrnelpi2lokiq44astjshxgiefxu7l2qdg43pq
@@ -41,8 +41,9 @@ wonyong_le@cloudshell:~ (ap-seoul-1)$ oci kms management vault get --vault-id oc
 }
 ```
 
-```
+### List Vaults
 
+```
 wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management vault list --compartment-id $C --all
 {
   "data": [
@@ -65,7 +66,11 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management vault list --compart
     }
   ]
 }
+```
 
+### Get Vault Public Key 
+
+```
 wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management wrapping-key get --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com
 {
   "data": {
@@ -79,6 +84,10 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management wrapping-key get --e
   "etag": "ff50f0e4e088895553cd601585857be5846eb33f--gzip"
 }
 
+
+### List Mater Encryption Keys 
+
+```
 
 wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartment-id $C  --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com --all
 {
@@ -97,20 +106,24 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartm
     }
   ]
 }
+```
 
+### Encrypt text 
+
+```
+<!---
 oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext "HELLO" --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 
-oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext "HELLO" --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
+export compartment_id=ocid1.compartment.oc1..aaaaaaaaac74c5vfzs6kmaqti67rqnpzfop4zrtp7uuqaekkxhhysmm3rqla # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/management/key/create.html#cmdoption-compartment-id
+export display_name="ENCRYPT KEY" # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/management/key/create.html#cmdoption-display-name
 
+export plaintext="HELLO" # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/crypto/encrypt.html#cmdoption-plaintext
 
- export compartment_id=ocid1.compartment.oc1..aaaaaaaaac74c5vfzs6kmaqti67rqnpzfop4zrtp7uuqaekkxhhysmm3rqla # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/management/key/create.html#cmdoption-compartment-id
- export display_name="ENCRYPT KEY" # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/management/key/create.html#cmdoption-display-name
- export plaintext="HELLO" # https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/kms/crypto/encrypt.html#cmdoption-plaintext
+key_id=$(oci kms management key create --compartment-id $compartment_id --display-name $display_name --endpoint https://region.domain.com --key-shape file://key-shape.json --query data.id --raw-output)
 
-    key_id=$(oci kms management key create --compartment-id $compartment_id --display-name $display_name --endpoint https://region.domain.com --key-shape file://key-shape.json --query data.id --raw-output)
+oci kms crypto encrypt --endpoint https://region.domain.com --key-id $key_id --plaintext $plaintext
+--->	
 
-    oci kms crypto encrypt --endpoint https://region.domain.com --key-id $key_id --plaintext $plaintext
-	
 wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartment-id $C  --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com --all{
   "data": [
     {
@@ -140,15 +153,7 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartm
   ]
 }
 
-
 oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext `echo -n "HELLO WORLD" | base64` --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
-
-oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa --plaintext `echo -n "HELLO WORLD" | base64` --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
-
-
-
-
- oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext `echo -n "HELLO WORLD" | base64` --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 {
   "data": {
     "ciphertext": "QUu67mMnK/g6qGeqbRfR/PEiFXY4RC8OQZFt/CBfpK646w1+gw5lNsvGeTZA1x8o",
@@ -157,39 +162,13 @@ oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljr
     "key-version-id": null
   }
 }
+```
 
+### Decrypt text 
 
+```wrap
 oci kms crypto decrypt --ciphertext "QUu67mMnK/g6qGeqbRfR/PEiFXY4RC8OQZFt/CBfpK646w1+gw5lNsvGeTZA1x8o" --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 
-
-
-{
-  "data": {
-    "encryption-algorithm": null,
-    "key-id": null,
-    "key-version-id": null,
-    "plaintext": "SEVMTE8gV09STEQ=",
-    "plaintext-checksum": "2279966299"
-  }
-}
-
- echo "SEVMTE8gV09STEQ=" | base64 --decode
-HELLO WORLD
-
-
- oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa --plaintext `echo -n "HELLO WORLD" | base64` --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
-{
-  "data": {
-    "ciphertext": "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3VGTDaBVzOrR9wO9BMpyYv+gAAAAA=",
-    "encryption-algorithm": null,
-    "key-id": null,
-    "key-version-id": null
-  }
-}
-
-
-oci kms crypto decrypt --ciphertext "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3VGTDaBVzOrR9wO9BMpyYv+gAAAAA=" --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
-oci kms crypto decrypt --ciphertext "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3VGTDaBVzOrR9wO9BMpyYv+gAAAAA=" --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 {
   "data": {
     "encryption-algorithm": null,
@@ -203,7 +182,15 @@ oci kms crypto decrypt --ciphertext "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3
 echo "SEVMTE8gV09STEQ=" | base64 --decode
 HELLO WORLD
 
-oci kms crypto decrypt --ciphertext "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3VGTDaBVzOrR9wO9BMpyYv+gAAAAA=" --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com --query data.plaintext 
-"SEVMTE8gV09STEQ="
+```
 
+### Decrypt text with --query option
+
+```wrap
+oci kms crypto decrypt --ciphertext "QcyE8DFeCPeIAIG6tqhKM4/G2DuWwNpg4hz3hMawlJ3VGTDaBVzOrR9wO9BMpyYv+gAAAAA=" \
+--key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrbidjrsio4mpprxio3aoussswmshkvyegvwrpzkgq6m6nrolbkoqa \
+--endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com  \
+--query data.plaintext 
+
+"SEVMTE8gV09STEQ="
 ```
