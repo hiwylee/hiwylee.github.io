@@ -53,12 +53,12 @@ echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
 
 * ``edit wrapped_import_key.json ( remove new line )``
 
-```
+```bash
  cat wrapped_import_key.json
 { "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "BgNsYWCzjpgqExu/m271BY1qieOgIr4xIYXYxKWvli7iQ1Dv2uXQGow9OeKJiAGHfBWxE34OVrgfaZ87WAbgIT6UpASKsXfs9EZjKuz9EUVSyoZIVQnYXNnA0xXoJlhg06diSIdKSoSni4n8Ddhb0jEVRzct12Kv/LZ2lv/Jxpyj2xQyzeGaqk0vorwgb76xTS3KM6GikGVHjMU8awCBEXzo8JtDRvaJdv/jlN3qRWAGJjZ5leoAHI+pMBCXDD8rJsx/Hqpr45yX12V6cItV4mG5FqpRT6n1wYFcfPuu71A7UipDc/3DkgewMM4HkY6pVi+CHEk1SuGUSzbi2m7r+HEHiD1AGuoWrgYQhpowcuK6YSD+wRz49jyHDyvO98dQIn+jAk50+Mj72lYAz5ELY2FA9KhyC/W2yZQyzXKrgDWanzWHl1DatNA2rCuOx0m/gv+INvd04suTFQp6Oa4JYO8Tgovx2yVoy1a8SeFOKmcWeD9bizwftwluTSPOn7oz9L115Zg2keys857Bepes4t4aUefrKQ5S6Ykayqf9qZ4FZkO/KXUwk8oH9pwly4D0y4Scbv6cSKDJL3JJ7tkIQB1w8axz5L85u2+D2YFG748ArsMWalv12cQwgW3IIloaLHhEB/eXtyKP3KY30SAYmMnNqZMqwh0MrTMDv6XIjIQ=" }
 ```
 
-* import key
+* Import key
 
 ```
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
@@ -66,7 +66,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 
 ### IMP
 
-```
+```bash
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_final --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
 {
   "data": {
@@ -92,7 +92,6 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
   },
   "etag": "ec7fd2ce5c7d21025805eaae5728039d86da8236"
 }
-
 ```
 
 ## Export Key
@@ -100,10 +99,9 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 ### Env
 
 * key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
-
 * Generate key pair
 
-```
+```bash
 #
 # Generate key pair
 #
@@ -132,7 +130,7 @@ e is 65537 (0x010001)
 writing RSA key
 ```
 
-* env
+* Env
 
 ```
 KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
@@ -173,7 +171,7 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 
 * base64 decode
 
-```
+```bash
 wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
 
 echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
@@ -181,7 +179,7 @@ echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 
 * Unwrap the key
 
-```
+```bash
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
  ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
 Public Key operation error
@@ -191,7 +189,7 @@ Public Key operation error
 ### FULL SCRIPT
 #### imp.sh
 
-```
+```bash
 #!/usr/bin/env bash
 #
 # This script is for demonstration purposes only. It provides
