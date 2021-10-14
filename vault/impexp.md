@@ -99,7 +99,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 ### Env
 
 * key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
-* Generate key pair
+* Generate key pair : Mater Encryption Key Export 시 암호화 및 복호화시 사용할 key pair 
 
 ```bash
 #
