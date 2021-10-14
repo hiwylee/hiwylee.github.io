@@ -16,12 +16,13 @@
   * [Container Engine for Kubernetes (OKE) on OCI Workshop](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/k8s/OKE/README.md)
   * [DevOps: Deploying Microservices to OKE with Jenkins Pipelines (CI/CD)](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/k8s/jenkinspipelines/README.md) 
   * [Oracle Functions](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/functions/README.md)
+
 ---
 
 ### DB / DBCS
 
-
 ### OCI CLoud
+
 ---
 * [logging](apache_tomcat.md)
 * [MuShop.md](MuShop.md)
@@ -55,11 +56,12 @@
 
 |:---:|:---:|:---:|:---:|:---:|
 |[pdb.md](pdb.md) |[rman.md](rman.md) |[asm.md](asm.md) |[datainer.md](datainer.md) |[adg.md](adg.md)|
- * [pdb.md](pdb.md)
- * [rman.md](rman.md)
- * [asm.md](asm.md)
- * [datainer.md](datainer.md)
- * [adg.md](adg.md)
+
+* [pdb.md](pdb.md)
+* [rman.md](rman.md)
+* [asm.md](asm.md)
+* [datainer.md](datainer.md)
+* [adg.md](adg.md)
 
 * [DB.md](DB.md)
 * [DB.CLOB](DB_CLOB.md)
@@ -91,6 +93,7 @@
 * [ogg.md](ogg.md)
 * [oml.md](oml.md)
 * [oracle.md](oracle.md)
+
 ---
 
 ### Exadata
@@ -101,7 +104,9 @@
 * [exadata_pq.md](exadata_pq.md)
 * [exadata_cell.md](exadata_cell.md)
 * [exadata_Cod.md](exadata_CoD.md)
+
 ---
+
 ### PoC 관현
 * [KED_PoC.md](KED_PoC.md)
 
@@ -109,7 +114,9 @@
 * [ansible.md](ansible.md)
 * [Study.md](Study.md)
 * [MyData.md](MyData.md)
+
 ---
+
 ### 기타
 * [GCP.md](GCP.md)
 * [AWS.md](AWS.md)
