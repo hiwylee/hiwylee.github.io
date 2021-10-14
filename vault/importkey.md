@@ -183,6 +183,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 ```
 
 
+<!--
 ### 환경설정 
 ```
 OPENSSL="/home/opc/local/bin/openssl.sh"
@@ -198,7 +199,6 @@ PROTECTION_MODE="SOFTWARE"
 BASE64="base64"
 ```
 
-<!--
 ## Export Key
 * reference :https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/exportingkeys.htm
 
