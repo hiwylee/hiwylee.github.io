@@ -13,7 +13,7 @@
 ### Get a Vault  
 
 ```
- oci kms management vault get --vault-id ocid1.vault.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrxywbmswpdbdbilxrnelpi2lokiq44astjshxgiefxu7l2qdg43pq
+oci kms management vault get --vault-id ocid1.vault.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrxywbmswpdbdbilxrnelpi2lokiq44astjshxgiefxu7l2qdg43pq
 {
   "data": {
     "compartment-id": "ocid1.compartment.oc1..aaaaaaaaac74c5vfzs6kmaqti67rqnpzfop4zrtp7uuqaekkxhhysmm3rqla",
@@ -44,7 +44,7 @@
 ### List Vaults
 
 ```
-oci (ap-seoul-1)$ oci kms management vault list --compartment-id $C --all
+oci kms management vault list --compartment-id $C --all
 {
   "data": [
     {
@@ -71,7 +71,7 @@ oci (ap-seoul-1)$ oci kms management vault list --compartment-id $C --all
 ### Get Vault Public Key 
 
 ```
-oci (ap-seoul-1)$ oci kms management wrapping-key get --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com
+oci kms management wrapping-key get --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com
 {
   "data": {
     "compartment-id": "ocid1.compartment.oc1..aaaaaaaaac74c5vfzs6kmaqti67rqnpzfop4zrtp7uuqaekkxhhysmm3rqla",
@@ -89,7 +89,7 @@ oci (ap-seoul-1)$ oci kms management wrapping-key get --endpoint https://cnqrnkn
 
 ```
 
-oci (ap-seoul-1)$ oci kms management key list  \
+oci kms management key list  \
 --compartment-id $C  \
 --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com --all
 {
