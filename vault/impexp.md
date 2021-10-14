@@ -182,8 +182,7 @@ echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 ```bash
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
  ${OPENSSL} pkeyutl -decrypt -in ${WRAPPED_SOFTWARE_KEY_PATH} -inkey ${PRIVATE_KEY_PATH} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -pkeyopt rsa_mgf1_md:sha256 -out ${SOFTWARE_KEY_PATH}
-Public Key operation error
-140283134453568:error:0406506C:rsa routines:rsa_ossl_private_decrypt:data greater than mod len:crypto/rsa/rsa_ossl.c:401:
+ 
 ```
 
 ### FULL SCRIPT
