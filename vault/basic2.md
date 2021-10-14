@@ -112,7 +112,7 @@ oci kms management key list  \
 
 ### Encrypt text 
 
-```
+
 <!---
 oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext "HELLO" --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 
@@ -126,6 +126,7 @@ key_id=$(oci kms management key create --compartment-id $compartment_id --displa
 oci kms crypto encrypt --endpoint https://region.domain.com --key-id $key_id --plaintext $plaintext
 --->	
 
+```
 oci kms management key list  \
 --compartment-id $C  \
 --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com --all
