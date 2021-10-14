@@ -16,3 +16,6 @@
 * Vault Service Secret Retrieval API 
   * https://docs.oracle.com/en-us/iaas/api/#/en/secretretrieval/20190301/
 
+### 테스드 케이스
+* [importkey.md](importkey.md)
+* [impexp.md](impexp.md)
