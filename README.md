@@ -1,7 +1,6 @@
 ## 문서 목록  
 
 | | | | | | | |
-
 |:---: |:---: |:---: |:---: |:---: |:---: |:---: |
 |[DB](DB) |[apex](apex) |[``exadata``](exadata) |[graph](graph) | [``oci_labs``](oci_labs)| [``ogg``](ogg)|[oml](oml) |
 | [``optimizer``](optimizer)| [os](os) | [sqlparser](sqlparser) | [``upgrade``](upgrade) | [k8s](k8s) |  [vault](vault)|  [oac](oac)|
@@ -18,6 +17,7 @@
   * [DevOps: Deploying Microservices to OKE with Jenkins Pipelines (CI/CD)](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/k8s/jenkinspipelines/README.md) 
   * [Oracle Functions](https://github.com/oracleimc/workshops/blob/master/appdev/cloudnative/functions/README.md)
 ---
+
 ### DB / DBCS
 
 
@@ -48,13 +48,13 @@
 * [19c_cert.md](oci_labs/19c_cert.md)
 * [19c_nf_ai.md](19c_nf_ai.md)
 * [19c_nf_rt_stats.md](19c_nf_rt_stats.md)
+
 #### DB
 
 | | | | | |
 
 |:---:|:---:|:---:|:---:|:---:|
 |[pdb.md](pdb.md) |[rman.md](rman.md) |[asm.md](asm.md) |[datainer.md](datainer.md) |[adg.md](adg.md)|
-
  * [pdb.md](pdb.md)
  * [rman.md](rman.md)
  * [asm.md](asm.md)
