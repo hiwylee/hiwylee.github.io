@@ -19,3 +19,4 @@
 ### 테스드 케이스
 * [importkey.md](importkey.md)
 * [impexp.md](impexp.md)
+* [basic2.md](basic2.md)
