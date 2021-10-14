@@ -83,11 +83,11 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management wrapping-key get --e
   },
   "etag": "ff50f0e4e088895553cd601585857be5846eb33f--gzip"
 }
-
+```
 
 ### List Mater Encryption Keys 
 
-```
+```wrap
 
 wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartment-id $C  --endpoint https://cnqrnkn6aagiu-management.kms.ap-seoul-1.oraclecloud.com --all
 {
@@ -110,7 +110,7 @@ wonyong_le@cloudshell:.oci (ap-seoul-1)$ oci kms management key list  --compartm
 
 ### Encrypt text 
 
-```
+```wrap
 <!---
 oci kms crypto  encrypt --key-id ocid1.key.oc1.ap-seoul-1.cnqrnkn6aagiu.abuwgljrwmtnmwymzu2ikzjp43as3fa66ohcteizofzb5fe36rqpxwsq47vq --plaintext "HELLO" --endpoint https://cnqrnkn6aagiu-crypto.kms.ap-seoul-1.oraclecloud.com
 
