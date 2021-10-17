@@ -132,7 +132,7 @@ writing RSA key
 
 * Env
 
-```
+```bash
 KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
 
 ENCRYPTION_ALGORITHM="RSA_OAEP_SHA256"
@@ -154,7 +154,7 @@ OPENSSL="/home/opc/local/bin/openssl.sh"
 
 ### Exp
 
-```
+```bash
 oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT}
 {
   "data": {
@@ -257,7 +257,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 
 #### exp.sh
 
-```
+```bash
 #!/usr/bin/env bash
 #
 set -x 
