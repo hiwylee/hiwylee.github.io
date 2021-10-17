@@ -121,7 +121,7 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
   
 * key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
 
-####  Generate key pair : Mater Encryption Key Export 시 암호화 및 복호화시 사용할 key pair 
+####  1.Generate key pair : Mater Encryption Key Export 시 암호화 및 복호화에 사용할 key pair 
 
 ```bash
 #
@@ -170,7 +170,7 @@ OPENSSL="/home/opc/local/bin/openssl.sh"
 
 * note : public key 는 new line 없이 문자열로
 
-#### Export Key : 사용자가 만든 public key로 암호화해서 추출
+#### 2. Export Key : 사용자가 만든 public key로 암호화해서 추출
 
 ```bash
 oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT}
@@ -187,7 +187,7 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 
 ```
 
-#### base64 decode
+#### 3. base64 decode
 
 ```bash
 wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
@@ -195,7 +195,7 @@ wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCR
 echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 ```
 
-#### Unwrap the key
+#### 4. Unwrap the key
 
 ```bash
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
