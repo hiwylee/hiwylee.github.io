@@ -1,6 +1,7 @@
 ## IMP / EXP encryped with my own keypair
 
-### ENV
+### Import Key : VAULT_KEYMANAGEMENT_ENDPOINT 사용 <- 
+#### ENV
 
 ```bash
 OPENSSL="/home/opc/local/bin/openssl.sh"
@@ -19,28 +20,48 @@ if [[ $(uname -s) == "MINGW"* ]]
 then
     BASE64="base64 -w0";
 fi
+```
 
+####  1. Generate an AES key.
 
+```bash
 #
-# Generate an AES key.
+# 1. Generate an AES key.
 #
 # Use OpenSSL to generate an AES key of ${KEY_SIZE} bytes.
 # You can use any source for your AES key.
 #
 ${OPENSSL} rand ${KEY_SIZE} > ${AES_KEY}
+```
+
+####  2. Get public wrapping key. 
+
+```bash
+
 #
+# 2. Get public wrapping key. 
 # Ask the Vault service for the public wrapping key by using
 # the vault's key management endpoint.
 # The public key is stored as ${WRAPPING_KEY}.
 #
 key_text=$(oci kms management wrapping-key get --endpoint $VAULT_KEYMANAGEMENT_ENDPOINT | grep public-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
 echo -e $key_text > ${WRAPPING_KEY}
+```
+
+####  3. Wrap the AES key by using RSA-OAEP with SHA-256. 
+
+```bash
 #
-# Wrap the AES key by using RSA-OAEP with SHA-256.
+# 3. Wrap the AES key by using RSA-OAEP with SHA-256.
 #
 ${OPENSSL} pkeyutl -encrypt -in ${AES_KEY} -inkey ${WRAPPING_KEY} -pubin -out ${WRAPPED_KEY} -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256
+```
+
+####  4. Import the wrapped key 
+
+```bash
 #
-# Import the wrapped key to the Vault service after base64 encoding the payload.
+# 4. Import the wrapped key to the Vault service after base64 encoding the payload.
 #
 # The service will provide a JSON document containing key details.
 #
@@ -51,20 +72,20 @@ echo "{ \"algorithm\": \"AES\", \"length\": ${KEY_SIZE} }" > key_shape.json
 
 ```
 
-* ``edit wrapped_import_key.json ( remove new line )``
+* ``4.1 edit wrapped_import_key.json ( remove new line )``
 
 ```bash
  cat wrapped_import_key.json
 { "wrappingAlgorithm": "RSA_OAEP_SHA256", "keyMaterial": "BgNsYWCzjpgqExu/m271BY1qieOgIr4xIYXYxKWvli7iQ1Dv2uXQGow9OeKJiAGHfBWxE34OVrgfaZ87WAbgIT6UpASKsXfs9EZjKuz9EUVSyoZIVQnYXNnA0xXoJlhg06diSIdKSoSni4n8Ddhb0jEVRzct12Kv/LZ2lv/Jxpyj2xQyzeGaqk0vorwgb76xTS3KM6GikGVHjMU8awCBEXzo8JtDRvaJdv/jlN3qRWAGJjZ5leoAHI+pMBCXDD8rJsx/Hqpr45yX12V6cItV4mG5FqpRT6n1wYFcfPuu71A7UipDc/3DkgewMM4HkY6pVi+CHEk1SuGUSzbi2m7r+HEHiD1AGuoWrgYQhpowcuK6YSD+wRz49jyHDyvO98dQIn+jAk50+Mj72lYAz5ELY2FA9KhyC/W2yZQyzXKrgDWanzWHl1DatNA2rCuOx0m/gv+INvd04suTFQp6Oa4JYO8Tgovx2yVoy1a8SeFOKmcWeD9bizwftwluTSPOn7oz9L115Zg2keys857Bepes4t4aUefrKQ5S6Ykayqf9qZ4FZkO/KXUwk8oH9pwly4D0y4Scbv6cSKDJL3JJ7tkIQB1w8axz5L85u2+D2YFG748ArsMWalv12cQwgW3IIloaLHhEB/eXtyKP3KY30SAYmMnNqZMqwh0MrTMDv6XIjIQ=" }
 ```
 
-* Import key
+* 4.2 Import key
 
 ```
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ${COMPARTMENT_ID} --display-name ${DISPLAY_NAME} --endpoint ${VAULT_KEYMANAGEMENT_ENDPOINT} --key-shape file://./key_shape.json --protection-mode "${PROTECTION_MODE}"
 ```
 
-### IMP
+#### IMPORT KEY 결과
 
 ```bash
 oci kms management key import --wrapped-import-key file://./wrapped_import_key.json --compartment-id ocid1.compartment.oc1..aaaaaaaabsnkmaevlvzry2bigiv6eumncc3ymzmt3mg4jf5dcnuf4qyzrrqa --display-name mek_final --endpoint https://cnqtaqh2aagiu-management.kms.ap-seoul-1.oraclecloud.com --key-shape file://./key_shape.json --protection-mode SOFTWARE
@@ -96,10 +117,10 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 
 ## Export Key
 
-### Env
-
+  
 * key_ocid : ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza
-* Generate key pair : Mater Encryption Key Export 시 암호화 및 복호화시 사용할 key pair 
+
+####  Generate key pair : Mater Encryption Key Export 시 암호화 및 복호화시 사용할 key pair 
 
 ```bash
 #
@@ -108,10 +129,6 @@ oci kms management key import --wrapped-import-key file://./wrapped_import_key.j
 private_key_path=private.pem
 public_key_path=public.pem
 rsa_key_size=4096
-
-#
-# Generate key pair
-#
 
 OPENSSL="/home/opc/local/bin/openssl.sh"
 
@@ -130,7 +147,7 @@ e is 65537 (0x010001)
 writing RSA key
 ```
 
-* Env
+* Env : import 시에는 VAULT_CRYPTO_ENDPOINT 를 사용
 
 ```bash
 KEY_OCID="ocid1.key.oc1.ap-seoul-1.cnqtaqh2aagiu.abuwgljrltwjp2vbwpnkhwsvfdpqnxjywa4sml5orisz5tzwjadtad4dnkza"
@@ -152,7 +169,7 @@ OPENSSL="/home/opc/local/bin/openssl.sh"
 
 * note : public key 는 new line 없이 문자열로
 
-### Exp
+#### Export Key : 사용자가 만든 public key로 암호화해서 추출
 
 ```bash
 oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT}
@@ -169,7 +186,7 @@ oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITH
 
 ```
 
-* base64 decode
+#### base64 decode
 
 ```bash
 wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCRYPTION_ALGORITHM} --public-key "${PUBLIC_KEY_STRING}" --endpoint ${VAULT_CRYPTO_ENDPOINT} | grep  encrypted-key | cut -d: -f2  | sed 's# "\(.*\)",#\1#g')
@@ -177,7 +194,7 @@ wrapped_data=$(oci kms crypto key export --key-id ${KEY_OCID} --algorithm ${ENCR
 echo ${wrapped_data} | base64 -d > ${WRAPPED_SOFTWARE_KEY_PATH}
 ```
 
-* Unwrap the key
+#### Unwrap the key
 
 ```bash
 # Unwrap the wrapped software-protected key material by using the private RSA wrapping key.
