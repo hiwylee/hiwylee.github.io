@@ -24,7 +24,7 @@
 ### OCI CLoud
 
 ---
-* [logging](apache_tomcat.md)
+* [logging](logging/apache_tomcat.md)
 * [MuShop.md](MuShop.md)
 * [OAC.md](OAC.md)
 * [APEX.md](APEX.md)
