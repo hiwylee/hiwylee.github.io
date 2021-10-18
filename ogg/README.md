@@ -21,5 +21,16 @@
 *	[GoldenGate for Big Data Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=692)
 *	[oracle GoldenGate Stream Analytics Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=669)
 
+### OCI GG CMD LINE
+
+```bash
+ /u01/app/ogg/bin,
+ ./adminclient
+ connect <OCI-GoldenGate-deployment-url> as <OCI-GoldenGate-user> password <OCI-GoldenGate-password> !
+ info all
+ stats <extract-name>
+ view messages
+ purge exttrail <trail-file-name>
+ ```
 
 
