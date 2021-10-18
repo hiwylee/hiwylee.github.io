@@ -23,6 +23,7 @@
 
 ### OCI GG CMD LINE
 
+* connect 끝에 ! 가 있어야 함: The exclamation point (!) is very important. Without it, the command fails and returns an error.
 ```bash
  /u01/app/ogg/bin,
  ./adminclient
