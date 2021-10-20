@@ -1,7 +1,6 @@
 
 ## Oracle Cloud Infrastructure: Reserved Public IP Addresses
 ### 유튜브
-* 
 * [create  reserve public ip](https://www.youtube.com/watch?v=9_7KaGGVmUA)
 
 ### 문서
