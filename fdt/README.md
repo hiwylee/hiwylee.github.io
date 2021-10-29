@@ -6,9 +6,14 @@
 
 ### 홈
 * https://github.com/fast-data-transfer/fdt
-
+* 여러개의 파일을 한번에 전송하려면 file에 목록을 등록하고 -fl file.lst 준다.
+  * -fl 뒤에 전송하려는 파일을 주면 안됨.
+* -S 를 주게 되면 한 번 전송 받은 후 서버가 종료됨.
+* 이어 받기는 안되는 듯 보임.
+* [option 설명](https://fast-data-transfer.github.io/fdt/doc-fdt-ddcopy.html)
 
 #### Case 0 : non standalone mode/file list
+
 
 ```bash
 cat fl.list
