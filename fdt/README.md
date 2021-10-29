@@ -15,7 +15,7 @@ cat fl.list
 0) security list
 	121.134.70.44/32	TCP	All	4000-4003
 1) server
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000 -S  -bs 16M -tp 4001,4002,4003 -v
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000   -bs 16M -tp 4001,4002,4003 -v
 2) cleint
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002,4003 -v   -d . -fl fl.list
 
@@ -29,7 +29,7 @@ java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.2
 0) security list
 	121.134.70.44/32	TCP	All	All
 1) server
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000 -S -bs 16M -tp 4001,4002   -v
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000  -bs 16M -tp 4001,4002   -v
 2) cleint
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002   -v  -d .  01.zip
 
@@ -41,7 +41,7 @@ java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.2
 0) security list
 	121.134.70.44/32	TCP	All	4000-4003
 1) server
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000 -S  -bs 16M -tp 4001,4002,4003 -v
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000  -bs 16M -tp 4001,4002,4003 -v
 2) cleint
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002,4003 -v  -d .  01.zip
 
