@@ -27,7 +27,7 @@ cat fl.list
 1) server
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000   -bs 16M -tp 4001,4002,4003 -v
 2) cleint
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002,4003 -v   -d . -fl fl.list
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 140.238.8.213  -p 4000   -bs 16M -tp 4001,4002,4003 -v   -d . -fl fl.list
 
 
 
@@ -41,7 +41,7 @@ java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.2
 1) server
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000  -bs 16M -tp 4001,4002   -v
 2) cleint
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002   -v  -d .  01.zip
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 140.238.8.213  -p 4000   -bs 16M -tp 4001,4002   -v  -d .  01.zip
 
 ```
 
@@ -53,7 +53,7 @@ java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.2
 1) server
 java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -p 4000  -bs 16M -tp 4001,4002,4003 -v
 2) cleint
-java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 132.226.232.128  -p 4000   -bs 16M -tp 4001,4002,4003 -v  -d .  01.zip
+java -XX:MaxDirectMemorySize=1024m -Xms2048m -Xmx3096m -jar fdt.jar -c 140.238.8.213  -p 4000   -bs 16M -tp 4001,4002,4003 -v  -d .  01.zip
 
 
 ```
