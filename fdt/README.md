@@ -1,6 +1,11 @@
 ## Fast Data Transfer
 
-### TEST 
+### 용도
+* 데이터 전송을 빠르게 하기위한 오픈 소스
+* ![](https://fast-data-transfer.github.io/fdt/img/FDT_diagram.png)
+
+### 홈
+* https://github.com/fast-data-transfer/fdt
 
 
 #### Case 0 : non standalone mode/file list
