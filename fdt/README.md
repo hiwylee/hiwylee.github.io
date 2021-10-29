@@ -12,6 +12,33 @@
 * 이어 받기는 안되는 듯 보임.
 * [option 설명](https://fast-data-transfer.github.io/fdt/doc-fdt-ddcopy.html)
 
+#### Firewall
+
+```bash
+
+sudo firewall-cmd --list-all
+firewall-cmd --permanent --zone=public --add-port=4000-4004/tcp
+sudo firewall-cmd --reload
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens3
+  sources:
+  services: dhcpv6-client ssh
+  ports: 8080/tcp 1521/tcp 3389/tcp 1880/tcp 4000-4004/tcp
+  protocols:
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+
+sudo firewall-cmd --list-all-zones
+
+
+
+```
+
 #### Case 0 : non standalone mode/file list
 
 
