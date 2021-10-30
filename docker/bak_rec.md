@@ -4,7 +4,9 @@
 * https://ratseno.tistory.com/89
 * [Docker Local Repository 사용하는 방법](https://snowdeer.github.io/docker/2018/01/24/docker-use-local-repository/)
 * [폐쇄망에 Docker 구축하기](https://waspro.tistory.com/465?category=831750%EF%BB%BF)
+* [도커 프라이빗 레지스트리 구성 후 이미지 파일 올리기](https://ratseno.tistory.com/89)
 
+  
 ```txt
 https://ratseno.tistory.com/89
 
