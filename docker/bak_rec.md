@@ -1,5 +1,10 @@
 ### Docker Backup , and Move to New Env
 
+* [외부망 Docker 이미지 백업 및 내부망 이관 롤백](https://waspro.tistory.com/514)
+* https://ratseno.tistory.com/89
+* [Docker Local Repository 사용하는 방법](https://snowdeer.github.io/docker/2018/01/24/docker-use-local-repository/)
+* [폐쇄망에 Docker 구축하기](https://waspro.tistory.com/465?category=831750%EF%BB%BF)
+
 ```txt
 https://ratseno.tistory.com/89
 
