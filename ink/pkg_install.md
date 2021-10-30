@@ -1,5 +1,8 @@
 ## Python Package Install
 
+* Python Package Install
+  - python 3.6 이상
+  - JDK 8 
 ```bash
 
 https://devpouch.tistory.com/145
@@ -98,18 +101,18 @@ from pip import main
 if __name__ == '__main__':
     sys.exit(main())
 ..................
-./mpip install --upgrade pip
+/usr/bin/python3.6  -m pip  install --upgrade pip
 
 #/usr/bin/python3.6  
-./mpip install --upgrade pip
+/usr/bin/python3.6  -m pip  install --upgrade pip
 /usr/bin/python3.6 -m pip install --upgrade pip
 
 
-./mpip install virtualenv
+/usr/bin/python3.6 -m pip  install virtualenv
 
 /usr/bin/python3.6 -m pip install virtualenv
 
-/usr/bin/python3.6 -mvirtualenv -p /usr/bin/python3.6 gpu
+/usr/bin/python3.6 -m virtualenv -p /usr/bin/python3.6 gpu
 
 source  gpu/bin/activate
 (gpu) ubuntu@img-bv:~/gpu$ python --version
@@ -118,5 +121,78 @@ Python 3.6.13
 
 pip install cython==0.27.3
 pip install -r req_all.txt
+
+```
+
+* req_all.txt
+ * ncl-logger==0.0.1 설치방법 연구해 볼 것
+```bash
+(gpu) ubuntu@img-bv:~/gpu$ cat req_all.txt
+APScheduler
+wheel==0.33.1 ; python_version >= '3'
+Click==7.0
+Flask-Cors==3.0.7
+Flask==1.0.2
+Jinja2==2.10
+Keras-Applications==1.0.6
+Keras-Preprocessing==1.0.5
+MarkupSafe==1.1.0
+PyYAML
+SQLAlchemy
+SQLAlchemy-Utils
+Sphinx==1.6.3
+Werkzeug==0.14.1
+absl-py==0.5.0
+astor==0.7.1
+certifi==2018.8.24
+chardet==3.0.4
+cmake>=3.10
+cython==0.27.3
+flatten-dict
+gast==0.2.0
+googleapis-common-protos==1.5.5
+grpcio-tools==1.16.1
+grpcio==1.16.1
+h5py==2.9.0
+idna==2.7
+itsdangerous==1.1.0
+jip==0.9.13
+jpype1==0.6.3
+koalanlp==1.1.7
+konlpy==0.5.1
+numpy==1.16.0
+pandas
+pathlib2
+protobuf==3.6.1
+psycopg2-binary
+pymodm==0.4.1
+pymongo==3.7.2
+python-dateutil==2.8.0
+pytz
+pytz==2018.9
+pyyaml==3.13
+requests==2.19.1
+sentencepiece==0.1.8
+six==1.11.0
+sphinx-rtd-theme==0.4.2
+sphinxcontrib-spelling==4.0.1
+sqlalchemy==1.3.1
+tensorboard==1.10.0
+tensorboardX
+tensorflow==1.12.0
+termcolor==1.1.0
+torch==0.4.1
+tqdm==4.28.1
+twitter==1.18.0
+tzlocal
+urllib3==1.23
+werkzeug==0.14.1
+wheel==0.33.1 ; python_version >= '3'
+jpype1-py3==0.5.5.2
+cx-Oracle
+#Markdown==3.0.1
+markdown==2.6.11
+pyjnius==1.1.1
+ncl-logger==0.0.1 
 
 ```
