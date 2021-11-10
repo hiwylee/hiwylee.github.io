@@ -1,3 +1,7 @@
+### OCI DevOps CD/CD 
+* [Automate the Deployment of Java Apps to Oracle Cloud Infrastructure](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=857)
+* [Introduction to Cloud Native](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=709)
+* [Deploying Microservices in Kubernetes and OCI Supporting Features](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=733)
 ### OCI DevOps Automated Software Deployments
 * Webcast - OCI DevOps Automated Software Deployments: https://otube.oracle.com/media/1_n7veyo2u
 * Simplify your software deployments with the Oracle Cloud Infrastructure DevOps service : https://blogs.oracle.com/cloud-infrastructure/post/simplify-your-software-deployments-with-the-oci-devops-service
