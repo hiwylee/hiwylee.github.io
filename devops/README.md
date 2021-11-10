@@ -10,4 +10,4 @@
 * Oracle.com: https://www.oracle.com/devops/devops-service/
 #### Youtube
 * [OKE com Oracle DevOps 2021. 8. 3.](https://www.youtube.com/watch?v=w9Qx9p2QFGw)
-* [``OCI Cloud Native Services - 2021.11.4''](https://www.youtube.com/watch?v=PlKjbUmB6xo)
+* [``OCI Cloud Native Services - 2021.11.4``](https://www.youtube.com/watch?v=PlKjbUmB6xo)
