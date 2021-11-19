@@ -12,6 +12,8 @@
 ### Native Cloud App
 * [React+Java+ADB = Native Cloud App](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=814&p210_type=3&session=115981873508524)
 * [Creating Microservices with Helidon MP and Packaging using Docker - Extended](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=729&clear=180&session=107819188616296)
+* * [Creating Microservices with Helidon MP and Packaging using Docker - Extended](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=729&p210_type=1&session=192028556690)
+* [Migration of Monolith to Cloud Native - Extended Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=728&p210_type=1&session=105439135005686)
 #### Youtube
 * [OKE com Oracle DevOps 2021. 8. 3.](https://www.youtube.com/watch?v=w9Qx9p2QFGw)
 * [``OCI Cloud Native Services - 2021.11.4``](https://www.youtube.com/watch?v=PlKjbUmB6xo)
