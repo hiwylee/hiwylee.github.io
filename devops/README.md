@@ -1,3 +1,14 @@
+## DevOps
+--
+### DevOps 개발자 경험 
+* [홈쇼핑처럼 개발후기](https://subicura.com/2016/05/30/likehs-develop-log.html#%EC%96%B4%EB%96%A4%EA%B1%B8-%EB%A7%8C%EB%93%A4%EA%B9%8C)
+* 안내서
+  * [초보 웹 개발자를 위한 학습 안내서](https://subicura.com/2021/06/27/study-guide.html)
+  * [쿠버네티스 안내서](https://subicura.com/k8s/)
+  * [Git / GitHub 안내서](https://subicura.com/git/guide/)
+  * [초보를 위한 도커 안내서](https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html)
+ 
+--
 ### OCI DevOps CD/CD 
 * [Automate the Deployment of Java Apps to Oracle Cloud Infrastructure](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=857)
 * [Introduction to Cloud Native](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=709)
