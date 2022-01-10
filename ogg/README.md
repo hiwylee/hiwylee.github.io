@@ -10,6 +10,8 @@
 * [Oracle GoldenGate Best Practices-GoldenGate Capture from a DataGuard with Cascaded Redo Logs](ogg_ds.md)
 ### Live Labs
 *	[Replicating Data Using Oracle Cloud Infrastructure GoldenGate Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=797)
+* [GoldenGate 19c Microservices](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=585)
+* [Migrate an HR database and APEX application using GoldenGate](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=907)
 
 ### OGG Classic <--> OCI GG
 * [Send Data from Oracle GoldenGate to OCI GoldenGate](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=851)
