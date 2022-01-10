@@ -1,7 +1,5 @@
 
 ## OGG Cerification Matrix
-##
-* 3 [	Master Note - Oracle GoldenGate (Doc ID 1298817.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=249443997853047&id=1298817.1&_afrWindowMode=0&_adf.ctrl-state=kxzrivmtt_200#aref_section23)
 * [	Master Note - Oracle GoldenGate (Doc ID 1298817.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=249443997853047&id=1298817.1&_afrWindowMode=0&_adf.ctrl-state=kxzrivmtt_200#aref_section23)
 #### Downstream Capture
 * [Oracle GoldenGate Best Practices: Configuring Downstream Integrated Extract (Doc ID 1485620.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=244631341511772&id=1485620.1&_afrWindowMode=0&_adf.ctrl-state=kxzrivmtt_4)
