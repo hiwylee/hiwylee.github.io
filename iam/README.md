@@ -1,5 +1,5 @@
 ## IAM Series Live Labs - OIG/OIR/IAM
-
+* [Identity and Access Management ](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=624&clear=180)
 * [Oracle Identity Role Intelligence (OIRI)](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=840)
 * [Application Onboarding with Oracle Identity Governance (OIG)](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=908)
 * [Oracle Identity Governance (OIG) One Hop Upgrade 11g to 12c](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=839)
