@@ -3,6 +3,8 @@
 * [User Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/topol/network-data-model-graph-overview.html#GUID-E088F1BF-6F15-495F-9732-C8A62649607B)
 
 ### Network Data Model Graph
+#### REST API for Spatial Network Data Model Contraction Hierarchies (21c)
+* [REST API for Spatial Network Data Model Contraction Hierarchies](https://docs.oracle.com/en/database/oracle/oracle-database/21/ndmcr/QuickStart.html)
 #### Key Terms
 * Node
 * Link
