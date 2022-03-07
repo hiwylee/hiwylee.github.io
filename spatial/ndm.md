@@ -10,7 +10,14 @@
 * [Network Management and Analysis Using Contraction Hierarchies](https://docs.oracle.com/en/database/oracle/oracle-database/21/topol/network-data-model-graph-overview.html#GUID-A95D054C-68FE-4132-8D1A-114A35314D04)
 
 #### Contraction Hierarchies REST API Examples
+* Start / Stop
 
+```
+sudo systemctl start ndm
+sudo systemctl stop ndm
+sudo systemctl restart ndm
+```
+* [Oracle Spatial Network Data Model - README](https://cloud.oracle.com/marketplace/application/115683709/usageInformation?region=ap-chuncheon-1)
 * [``Example 5-3 Simple Spatial (SDO) Network Example (PL/SQL``)](https://docs.oracle.com/en/database/oracle/oracle-database/21/topol/network-data-model-graph-overview.html#GUID-BE3DED28-F97F-4AB5-9F2D-60C9CEE66E91)
 * Contraction Hierarchies REST API Examples
   *  creating a contraction hierarchies network model under a preconfigured directory:
