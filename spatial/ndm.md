@@ -6,6 +6,7 @@
 #### REST API for Spatial Network Data Model Contraction Hierarchies (21c)
 * [REST API for Spatial Network Data Model Contraction Hierarchies](https://docs.oracle.com/en/database/oracle/oracle-database/21/ndmcr/QuickStart.html)
 * [``Contraction Hierarchies Web Demo``](https://132.226.169.232:4040/chrest/)
+* [Network Management and Analysis Using Contraction Hierarchies](https://docs.oracle.com/en/database/oracle/oracle-database/21/topol/network-data-model-graph-overview.html#GUID-FDF32B55-1871-4782-9126-44FA016EEE15)
 #### Key Terms
 * Node
 * Link
