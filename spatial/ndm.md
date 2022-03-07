@@ -9,8 +9,9 @@
   * ![image](https://user-images.githubusercontent.com/7068088/157004103-8ec74b92-cc12-4385-98a8-56ac782ec044.png)
 * [Network Management and Analysis Using Contraction Hierarchies](https://docs.oracle.com/en/database/oracle/oracle-database/21/topol/network-data-model-graph-overview.html#GUID-A95D054C-68FE-4132-8D1A-114A35314D04)
 
-#### 
+#### Contraction Hierarchies REST API Examples
 
+* [``Example 5-3 Simple Spatial (SDO) Network Example (PL/SQL``)](https://docs.oracle.com/en/database/oracle/oracle-database/21/topol/network-data-model-graph-overview.html#GUID-BE3DED28-F97F-4AB5-9F2D-60C9CEE66E91)
 * Contraction Hierarchies REST API Examples
   *  creating a contraction hierarchies network model under a preconfigured directory:
 
